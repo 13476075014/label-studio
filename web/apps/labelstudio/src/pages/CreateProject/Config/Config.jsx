@@ -5,6 +5,8 @@ import { IconTrash } from "@humansignal/icons";
 import { ToggleItems } from "../../../components";
 import { Form, Input } from "../../../components/Form";
 import { useAPI } from "../../../providers/ApiProvider";
+import { useTranslation } from "react-i18next";
+import "../../../translations/i18n";
 import { Block, cn, Elem } from "../../../utils/bem";
 import { Palette } from "../../../utils/colors";
 import { FF_UNSAVED_CHANGES, isFF } from "../../../utils/feature-flags";
@@ -75,6 +77,7 @@ const Label = ({ label, template, color }) => {
 };
 
 const ConfigureControl = ({ control, template }) => {
+  const { t } = useTranslation();
   const refLabels = React.useRef();
   const tagname = control.tagName;
 
@@ -96,7 +99,7 @@ const ConfigureControl = ({ control, template }) => {
   return (
     <div className={configClass.elem("labels")}>
       <form className={configClass.elem("add-labels")} action="">
-        <h4>{tagname === "Choices" ? "Add choices" : "Add label names"}</h4>
+        <h4>{tagname === "Choices" ? t("pages.create_project.config_label.add_choices") : t("pages.create_project.config_label.add_label_names")}</h4>
         <span>Use new line as a separator to add multiple labels</span>
         <textarea
           name="labels"
