@@ -95,5 +95,13 @@ export const TRANSLATIONS_EN = {
       delete_button: "Delete",
       save_button: "Save",
     },
+    login: {
+      title: "Sign In",
+      email: "Email",
+      password: "Password",
+      sign_in: "Sign In",
+      sign_up: "Sign Up",
+      forgot_password: "Forgot Password?",
+    },
   },
 };

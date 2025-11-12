@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Block } from '../../utils/bem';
-import { Button } from '../../components';
-import './index.styl';
+import { Button } from "@humansignal/ui";
+import './index.scss';
 import i18n from "i18next";
 
 export const LanguagePicker = () => {

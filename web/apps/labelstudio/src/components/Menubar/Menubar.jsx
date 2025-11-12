@@ -33,6 +33,7 @@ import { pages } from "@humansignal/app-common";
 import { isFF } from "../../utils/feature-flags";
 import { ff } from "@humansignal/core";
 import { openHotkeyHelp } from "@humansignal/app-common/pages/AccountSettings/sections/Hotkeys/Help";
+import { LanguagePicker } from '../LanguagePicker/index';
 
 export const MenubarContext = createContext();
 
@@ -227,6 +228,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                 <Menu.Spacer />
 
                 <VersionNotifier showNewVersion />
+                <LanguagePicker />
 
                 <Menu.Item
                   label="API"
