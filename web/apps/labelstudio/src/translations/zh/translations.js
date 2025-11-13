@@ -35,6 +35,7 @@ export const TRANSLATIONS_ZH = {
       docs: "文档",
       pin_menu: "锁定菜单",
       unpin_menu: "解锁菜单",
+      slack_community: "Slack社区",
     },
   },
   pages: {

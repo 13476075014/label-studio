@@ -36,6 +36,7 @@ export const TRANSLATIONS_EN = {
       docs: "Docs",
       pin_menu: "Pin menu",
       unpin_menu: "Unpin menu",
+      slack_community: "Slack Community",
     },
   },
   pages: {

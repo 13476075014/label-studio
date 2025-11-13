@@ -234,12 +234,12 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                 <LanguagePicker />
 
                 <Menu.Item
-                  label="API"
+                  label={defaultT(t, "components.menubar.api", "API")}
                   href="https://api.labelstud.io/api-reference/introduction/getting-started"
                   icon={<IconTerminal />}
                   target="_blank"
                 />
-                <Menu.Item label="Docs" href="https://labelstud.io/guide" icon={<IconBook />} target="_blank" />
+                <Menu.Item label={defaultT(t, "components.menubar.docs", "Docs")} href="https://labelstud.io/guide" icon={<IconBook />} target="_blank" />
                 <Menu.Item
                   label="GitHub"
                   href="https://github.com/HumanSignal/label-studio"
@@ -248,7 +248,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                   rel="noreferrer"
                 />
                 <Menu.Item
-                  label="Slack Community"
+                  label={defaultT(t, "components.menubar.slack_community", "Slack Community")}
                   href="https://slack.labelstud.io/?source=product-menu"
                   icon={<IconSlack />}
                   target="_blank"
