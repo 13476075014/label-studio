@@ -125,6 +125,23 @@ export const TRANSLATIONS_EN = {
         uncertainty_sampling_desc: "Tasks are chosen according to model uncertainty score (active learning mode)",
         saved: "Saved",
         save: "Save",
+      },
+      danger: {
+        confirm_title: "Action confirmation",
+        confirm_body: "You're about to delete all things. This action cannot be undone.",
+        confirm_ok: "Proceed",
+        delete_annotations: "Delete {{count}} Annotations",
+        delete_tasks: "Delete {{count}} Tasks",
+        delete_predictions: "Delete {{count}} Predictions",
+        reset_cache: "Reset Cache",
+        reset_cache_help: "Reset Cache may help in cases like if you are unable to modify the labeling configuration due to validation errors concerning existing labels, but you are confident that the labels don't exist. You can use this action to reset the cache and try again.",
+        drop_tabs: "Drop All Tabs",
+        drop_tabs_help: "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
+        delete_project: "Delete Project",
+        delete_project_help: "Deleting a project removes all tasks, annotations, and project data from the database.",
+        title: "Danger Zone",
+        desc: "Perform these actions at your own risk. Actions you take on this page can't be reverted. Make sure your data is backed up.",
+        
       }
     }
   },

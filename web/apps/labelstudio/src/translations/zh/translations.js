@@ -102,7 +102,7 @@ export const TRANSLATIONS_ZH = {
       labeling: {
         title: "标注界面",
       },
-      "general": {
+      general: {
         "title": "通用设置",
         "menu": "通用",
         "project_name": "项目名称",
@@ -117,6 +117,22 @@ export const TRANSLATIONS_ZH = {
         "uncertainty_sampling_desc": "任务根据模型不确定性分数进行选择（主动学习模式）",
         "saved": "已保存",
         "save": "保存"
+      },
+      danger: {
+        "confirm_title": "操作确认",
+        "confirm_body": "你将要删除所有内容，此操作无法撤销。",
+        "confirm_ok": "继续",
+        "delete_annotations": "删除 {{count}} 条标注",
+        "delete_tasks": "删除 {{count}} 个任务",
+        "delete_predictions": "删除 {{count}} 个预测",
+        "reset_cache": "重置缓存",
+        "reset_cache_help": "如果你无法修改标注配置且确认标签不存在，可以使用此操作重置缓存后重试。",
+        "drop_tabs": "清除所有标签页",
+        "drop_tabs_help": "如果数据管理器无法加载，可以尝试清除所有数据管理器标签页。",
+        "delete_project": "删除项目",
+        "delete_project_help": "删除项目会移除所有任务、标注和项目数据。",
+        "title": "危险操作区",
+        "desc": "请谨慎操作，本页所有操作不可撤销，请确保数据已备份。"
       }
     }
   },
