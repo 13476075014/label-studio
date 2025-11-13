@@ -7,19 +7,17 @@ import i18n from "i18next";
 export const LanguagePicker = () => {
 
   const [language, setLanguage] = useState(i18n.language);
-
-  const changeLanguage = (e) => {
-    e.preventDefault();
-    setLanguage(e.target.value);
-    i18n.changeLanguage(e.target.value);
+  const changeLanguage = (val) => {
+    setLanguage(val);
+    i18n.changeLanguage(val);
   };
 
   return (
-    <Block tag="li" name="language-picker">
-      <Button size="small" type={language === 'en' ? "button" : "text"} value='en' onClick={changeLanguage}>
+    <Block tag="li" className="language-picker">
+      <Button size="small" style={language === 'en' ? {"background":"rgb(247, 214, 242)", "color": "rgb(114, 62, 106)"} : {}} onClick={() => changeLanguage("en")}>
         English
       </Button>
-      <Button size="small" type={language === 'zh' ? "button" : "text"} value='zh' onClick={changeLanguage}>
+      <Button size="small" style={language === 'zh' ? {"background":"rgb(247, 214, 242)", "color": "rgb(114, 62, 106)"} : {}} onClick={() => changeLanguage("zh")}>
         简体中文
       </Button>
     </Block>
