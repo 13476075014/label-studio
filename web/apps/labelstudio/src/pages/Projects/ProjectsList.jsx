@@ -8,7 +8,7 @@ import { Dropdown, Menu, Pagination } from "../../components";
 import { Block, Elem } from "../../utils/bem";
 import { absoluteURL } from "../../utils/helpers";
 import { useTranslation } from "react-i18next";
-import { defaultT } from  "../../utils/scripts";
+import { defaultT } from "../../utils/scripts";
 
 const DEFAULT_CARD_COLORS = ["#FFFFFF", "#FDFDFC"];
 
@@ -24,7 +24,7 @@ export const ProjectsList = ({ projects, currentPage, totalItems, loadNextPage, 
       <Elem name="pages">
         <Pagination
           name="projects-list"
-          label="Projects"
+          label={defaultT(t, "pages.projects.title", "Projects")}
           page={currentPage}
           totalItems={totalItems}
           urlParamName="page"
@@ -38,15 +38,16 @@ export const ProjectsList = ({ projects, currentPage, totalItems, loadNextPage, 
 };
 
 export const EmptyProjectsList = ({ openModal }) => {
+  const { t } = useTranslation();
   return (
     <Block name="empty-projects-page">
       <Elem name="heidi" tag="img" src={absoluteURL("/static/images/opossum_looking.png")} />
       <Elem name="header" tag="h1">
-        Heidi doesn’t see any projects here!
+        {defaultT(t, "pages.projects.empty_projects_list.msg_part1", "Heidi doesn’t see any projects here")}!
       </Elem>
-      <p>Create one and start labeling your data.</p>
+      <p>{defaultT(t, "pages.projects.empty_projects_list.msg_part2", "Create one and start labeling your data")}.</p>
       <Button onClick={openModal} className="my-8" aria-label="Create new project">
-        Create Project
+        {defaultT(t, "pages.projects.empty_projects_list.create_project", "Create Project")}
       </Button>
     </Block>
   );
@@ -65,11 +66,11 @@ const ProjectCard = ({ project }) => {
         : "var(--color-neutral-inverted-content)"; // Determine text color based on luminance
     return color
       ? {
-          "--header-color": color,
-          "--background-color": chr(color).alpha(0.2).css(),
-          "--text-color": textColor,
-          "--border-color": chr(color).alpha(0.5).css(),
-        }
+        "--header-color": color,
+        "--background-color": chr(color).alpha(0.2).css(),
+        "--text-color": textColor,
+        "--border-color": chr(color).alpha(0.5).css(),
+      }
       : {};
   }, [color]);
 

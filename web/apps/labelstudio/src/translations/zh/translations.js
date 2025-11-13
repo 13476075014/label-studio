@@ -85,8 +85,7 @@ export const TRANSLATIONS_ZH = {
         visual: "可视化",
         configure_data: "配置数据",
         require_more_data: "此模板需要比您现在拥有的更多数据",
-        need_upload_data:
-          "要选择要标记的字段，您需要上传数据。 或者，您可以使用代码模式提供它。",
+        need_upload_data: "要选择要标记的字段，您需要上传数据。 或者，您可以使用代码模式提供它。",
         add: "添加",
         add_choices: "添加选项",
         add_label_names: "添加标签",
@@ -99,5 +98,26 @@ export const TRANSLATIONS_ZH = {
       delete_button: "删除",
       save_button: "保存",
     },
+    settings: {
+      labeling: {
+        title: "标注界面",
+      },
+      "general": {
+        "title": "通用设置",
+        "menu": "通用",
+        "project_name": "项目名称",
+        "description": "描述",
+        "workspace": "工作空间",
+        "select_option": "请选择一个选项",
+        "workspace_tip": "通过将项目组织到工作空间中简化项目管理",
+        "learn_more": "了解更多",
+        "color": "颜色",
+        "task_sampling": "任务采样",
+        "uncertainty_sampling": "不确定性采样",
+        "uncertainty_sampling_desc": "任务根据模型不确定性分数进行选择（主动学习模式）",
+        "saved": "已保存",
+        "save": "保存"
+      }
+    }
   },
 };

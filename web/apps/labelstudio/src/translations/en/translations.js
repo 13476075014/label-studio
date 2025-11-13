@@ -15,8 +15,7 @@ export const TRANSLATIONS_EN = {
         "Show controls to zoom in and out": "Show controls to zoom in and out",
         "Show controls to rotate image": "Show controls to rotate image",
         "Select text by words": "Select text by words",
-        "Add filter for long list of labels":
-          "Add filter for long list of labels",
+        "Add filter for long list of labels": "Add filter for long list of labels",
         "Display labels": "Display labels",
       },
       "Display labels": {
@@ -85,10 +84,8 @@ export const TRANSLATIONS_EN = {
         code: "Code",
         visual: "Visual",
         configure_data: "Configure data",
-        require_more_data:
-          "This template requires more data then you have for now",
-        need_upload_data:
-          "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
+        require_more_data: "This template requires more data then you have for now",
+        need_upload_data: "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
         add: "Add",
         add_choices: "Add choices",
         add_label_names: "Add label names",
@@ -109,5 +106,26 @@ export const TRANSLATIONS_EN = {
       sign_up: "Sign Up",
       forgot_password: "Forgot Password?",
     },
+    settings: {
+      labeling: {
+        title: "Labeling Interface",
+      },
+      general: {
+        title: "General Settings",
+        menu: "General",
+        project_name: "Project Name",
+        description: "Description",
+        workspace: "Workspace",
+        select_option: "Select an option",
+        workspace_tip: "Simplify project management by organizing projects into workspaces",
+        learn_more: "Learn more",
+        color: "Color",
+        task_sampling: "Task Sampling",
+        uncertainty_sampling: "Uncertainty sampling",
+        uncertainty_sampling_desc: "Tasks are chosen according to model uncertainty score (active learning mode)",
+        saved: "Saved",
+        save: "Save",
+      }
+    }
   },
 };
