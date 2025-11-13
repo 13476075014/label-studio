@@ -12,6 +12,9 @@ import { DataManagerPage } from "../DataManager/DataManager";
 import { SettingsPage } from "../Settings";
 import { EmptyProjectsList, ProjectsList } from "./ProjectsList";
 import { useAbortController } from "@humansignal/core";
+import { useTranslation } from "react-i18next";
+import { defaultT } from  "../../utils/scripts";
+import i18n from "i18next";
 import "./Projects.scss";
 
 const getCurrentPage = () => {
@@ -21,6 +24,7 @@ const getCurrentPage = () => {
 };
 
 export const ProjectsPage = () => {
+  const { t } = useTranslation();
   const api = React.useContext(ApiContext);
   const abortController = useAbortController();
   const [projectsList, setProjectsList] = React.useState([]);
@@ -138,7 +142,7 @@ export const ProjectsPage = () => {
   );
 };
 
-ProjectsPage.title = "Projects";
+ProjectsPage.title = defaultT(i18n.t.bind(i18n), "pages.projects.title", "Projects");
 ProjectsPage.path = "/projects";
 ProjectsPage.exact = true;
 ProjectsPage.routes = ({ store }) => [
@@ -158,10 +162,11 @@ ProjectsPage.routes = ({ store }) => [
   },
 ];
 ProjectsPage.context = ({ openModal, showButton }) => {
+  const { t } = useTranslation();
   if (!showButton) return null;
   return (
     <Button onClick={openModal} size="small" aria-label="Create new project">
-      Create
+      {defaultT(t, "pages.projects.create", "create")}
     </Button>
   );
 };

@@ -24,6 +24,8 @@ import { queryClient } from "@humansignal/core/lib/utils/query-client";
 import { RootPage } from "./RootPage";
 import { ff } from "@humansignal/core";
 import "@humansignal/ui/src/tailwind.css";
+import { I18nextProvider } from 'react-i18next';
+import i18n from "../translations/i18n";
 import "./App.scss";
 
 const baseURL = new URL(APP_SETTINGS.hostname || location.origin);
@@ -59,28 +61,30 @@ initSentry(browserHistory);
 const App = ({ content }) => {
   return (
     <ErrorBoundary>
-      <Router history={browserHistory}>
-        <MultiProvider
-          providers={[
-            <QueryClientProvider client={queryClient} key="query" />,
-            <JotaiProvider key="jotai" store={JotaiStore} />,
-            <AppStoreProvider key="app-store" />,
-            <ToastProvider key="toast" />,
-            <ApiProvider key="api" />,
-            <ConfigProvider key="config" />,
-            <RoutesProvider key="rotes" />,
-            <ProjectProvider key="project" />,
-            <CurrentUserProvider key="current-user" />,
-            ff.isActive(ff.FF_PRODUCT_TOUR) && <TourProvider useAPI={useAPI} />,
-          ].filter(Boolean)}
-        >
-          <AsyncPage>
-            <DraftGuard />
-            <RootPage content={content} />
-            <ToastViewport />
-          </AsyncPage>
-        </MultiProvider>
-      </Router>
+      <I18nextProvider i18n={i18n}>
+        <Router history={browserHistory}>
+          <MultiProvider
+            providers={[
+              <QueryClientProvider client={queryClient} key="query" />,
+              <JotaiProvider key="jotai" store={JotaiStore} />,
+              <AppStoreProvider key="app-store" />,
+              <ToastProvider key="toast" />,
+              <ApiProvider key="api" />,
+              <ConfigProvider key="config" />,
+              <RoutesProvider key="rotes" />,
+              <ProjectProvider key="project" />,
+              <CurrentUserProvider key="current-user" />,
+              ff.isActive(ff.FF_PRODUCT_TOUR) && <TourProvider useAPI={useAPI} />,
+            ].filter(Boolean)}
+          >
+            <AsyncPage>
+              <DraftGuard />
+              <RootPage content={content} />
+              <ToastViewport />
+            </AsyncPage>
+          </MultiProvider>
+        </Router>
+      </I18nextProvider>
     </ErrorBoundary>
   );
 };

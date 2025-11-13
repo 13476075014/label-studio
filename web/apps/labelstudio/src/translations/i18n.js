@@ -34,3 +34,5 @@ i18n
       // (v11.10.0)
     },
   });
+
+export default i18n;

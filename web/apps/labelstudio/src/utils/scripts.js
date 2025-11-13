@@ -97,11 +97,15 @@ const swapScripts = (targetScript, sourceScript) => {
  * @param {HTMLScriptElement} scriptTag
  * @param {Function} onReplace
  */
-export const replaceScript = async (scriptTag, { sourceScript, forceUpdate = false } = {}) => {
+export const replaceScript = async (
+  scriptTag,
+  { sourceScript, forceUpdate = false } = {}
+) => {
   sourceScript = sourceScript ?? scriptTag;
 
   if (!isScriptValid(scriptTag, forceUpdate)) return;
-  if (sourceScript !== scriptTag && !isScriptValid(sourceScript, forceUpdate)) return;
+  if (sourceScript !== scriptTag && !isScriptValid(sourceScript, forceUpdate))
+    return;
 
   return swapScripts(scriptTag, sourceScript);
 };
@@ -134,4 +138,16 @@ export const reInsertScripts = async (root) => {
   }
 
   return result;
+};
+
+export const defaultT = (
+  t, // : (message: string, tParams: { [key: string]: string | number }) => string
+  message, // : string
+  tParams, // : { [key: string]: string | number } | string
+  defaultMessage // ?: string
+) => {
+  defaultMessage = typeof tParams === "string" ? tParams : defaultMessage;
+  tParams = typeof tParams === "string" ? {} : tParams;
+  const result = t(message, tParams);
+  return result && result !== message ? result : defaultMessage;
 };

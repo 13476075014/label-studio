@@ -19,9 +19,6 @@ export const LanguagePicker = () => {
       <Button size="small" type={language === 'en' ? "button" : "text"} value='en' onClick={changeLanguage}>
         English
       </Button>
-      <Button size="small" type={language === 'pt' ? "button" : "text"} value='pt' onClick={changeLanguage}>
-        Português
-      </Button>
       <Button size="small" type={language === 'zh' ? "button" : "text"} value='zh' onClick={changeLanguage}>
         简体中文
       </Button>

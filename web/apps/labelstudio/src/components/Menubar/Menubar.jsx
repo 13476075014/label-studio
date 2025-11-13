@@ -34,6 +34,8 @@ import { isFF } from "../../utils/feature-flags";
 import { ff } from "@humansignal/core";
 import { openHotkeyHelp } from "@humansignal/app-common/pages/AccountSettings/sections/Hotkeys/Help";
 import { LanguagePicker } from '../LanguagePicker/index';
+import { useTranslation } from "react-i18next";
+import { defaultT } from  "../../utils/scripts";
 
 export const MenubarContext = createContext();
 
@@ -56,6 +58,7 @@ const RightContextMenu = ({ className, ...props }) => {
 };
 
 export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSidebarToggle, onSidebarPin }) => {
+  const { t } = useTranslation();
   const menuDropdownRef = useRef();
   const useMenuRef = useRef();
   const { user, fetch, isInProgress } = useCurrentUser();
@@ -221,9 +224,9 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               style={{ width: 240 }}
             >
               <Menu>
-                {isFF(FF_HOMEPAGE) && <Menu.Item label="Home" to="/" icon={<IconHome />} data-external exact />}
-                <Menu.Item label="Projects" to="/projects" icon={<IconFolder />} data-external exact />
-                <Menu.Item label="Organization" to="/organization" icon={<IconPersonInCircle />} data-external exact />
+                {isFF(FF_HOMEPAGE) && <Menu.Item label={defaultT(t, "components.menubar.home", "Home")} to="/" icon={<IconHome />} data-external exact />}
+                <Menu.Item label={defaultT(t, "components.menubar.projects", "Projects")} to="/projects" icon={<IconFolder />} data-external exact />
+                <Menu.Item label={defaultT(t, "components.menubar.organization", "Organization")} to="/organization" icon={<IconPersonInCircle />} data-external exact />
 
                 <Menu.Spacer />
 

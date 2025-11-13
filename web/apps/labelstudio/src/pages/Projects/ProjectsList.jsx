@@ -7,10 +7,13 @@ import { Userpic, Button } from "@humansignal/ui";
 import { Dropdown, Menu, Pagination } from "../../components";
 import { Block, Elem } from "../../utils/bem";
 import { absoluteURL } from "../../utils/helpers";
+import { useTranslation } from "react-i18next";
+import { defaultT } from  "../../utils/scripts";
 
 const DEFAULT_CARD_COLORS = ["#FFFFFF", "#FDFDFC"];
 
 export const ProjectsList = ({ projects, currentPage, totalItems, loadNextPage, pageSize }) => {
+  const { t } = useTranslation();
   return (
     <>
       <Elem name="list">
@@ -50,6 +53,7 @@ export const EmptyProjectsList = ({ openModal }) => {
 };
 
 const ProjectCard = ({ project }) => {
+  const { t } = useTranslation();
   const color = useMemo(() => {
     return DEFAULT_CARD_COLORS.includes(project.color) ? null : project.color;
   }, [project]);
@@ -74,7 +78,7 @@ const ProjectCard = ({ project }) => {
       <Block name="project-card" mod={{ colored: !!color }} style={projectColors}>
         <Elem name="header">
           <Elem name="title">
-            <Elem name="title-text">{project.title ?? "New project"}</Elem>
+            <Elem name="title-text">{project.title ?? defaultT(t, "pages.projects.new_project", "New project")}</Elem>
 
             <Elem
               name="menu"
@@ -86,8 +90,8 @@ const ProjectCard = ({ project }) => {
               <Dropdown.Trigger
                 content={
                   <Menu contextual>
-                    <Menu.Item href={`/projects/${project.id}/settings`}>Settings</Menu.Item>
-                    <Menu.Item href={`/projects/${project.id}/data?labeling=1`}>Label</Menu.Item>
+                    <Menu.Item href={`/projects/${project.id}/settings`}>{defaultT(t, "pages.projects.settings", "Settings")}</Menu.Item>
+                    <Menu.Item href={`/projects/${project.id}/data?labeling=1`}>{defaultT(t, "pages.projects.label", "Label")}</Menu.Item>
                   </Menu>
                 }
               >

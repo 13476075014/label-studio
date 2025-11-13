@@ -29,6 +29,7 @@ export const TRANSLATIONS_EN = {
   },
   components: {
     menubar: {
+      home: "Home",
       projects: "Projects",
       organization: "Organization",
       api: "API",
@@ -40,6 +41,10 @@ export const TRANSLATIONS_EN = {
   pages: {
     projects: {
       title: "Projects",
+      create: "Create",
+      new_project: "New project",
+      settings: "Settings",
+      label: "Label",
       empty_projects_list: {
         msg_part1: "Heidi doesn’t see any projects here",
         msg_part2: "Create one and start labeling your data",

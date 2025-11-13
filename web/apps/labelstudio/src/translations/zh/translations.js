@@ -28,6 +28,7 @@ export const TRANSLATIONS_ZH = {
   },
   components: {
     menubar: {
+      home: "首页",
       projects: "项目",
       organization: "组织",
       api: "API",
@@ -39,6 +40,10 @@ export const TRANSLATIONS_ZH = {
   pages: {
     projects: {
       title: "项目列表",
+      create: "新建",
+      new_project: "新项目",
+      settings: "设置",
+      label: "标签",
       empty_projects_list: {
         msg_part1: "Heidi 没有发现任何项目",
         msg_part2: "创建一个项目以便开始标注你的数据",
