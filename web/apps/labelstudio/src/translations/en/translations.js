@@ -15,7 +15,8 @@ export const TRANSLATIONS_EN = {
         "Show controls to zoom in and out": "Show controls to zoom in and out",
         "Show controls to rotate image": "Show controls to rotate image",
         "Select text by words": "Select text by words",
-        "Add filter for long list of labels": "Add filter for long list of labels",
+        "Add filter for long list of labels":
+          "Add filter for long list of labels",
         "Display labels": "Display labels",
       },
       "Display labels": {
@@ -84,8 +85,10 @@ export const TRANSLATIONS_EN = {
         code: "Code",
         visual: "Visual",
         configure_data: "Configure data",
-        require_more_data: "This template requires more data then you have for now",
-        need_upload_data: "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
+        require_more_data:
+          "This template requires more data then you have for now",
+        need_upload_data:
+          "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
         add: "Add",
         add_choices: "Add choices",
         add_label_names: "Add label names",
@@ -107,6 +110,7 @@ export const TRANSLATIONS_EN = {
       forgot_password: "Forgot Password?",
     },
     settings: {
+      title: "Settings",
       labeling: {
         title: "Labeling Interface",
       },
@@ -117,32 +121,51 @@ export const TRANSLATIONS_EN = {
         description: "Description",
         workspace: "Workspace",
         select_option: "Select an option",
-        workspace_tip: "Simplify project management by organizing projects into workspaces",
+        workspace_tip:
+          "Simplify project management by organizing projects into workspaces",
         learn_more: "Learn more",
         color: "Color",
         task_sampling: "Task Sampling",
         uncertainty_sampling: "Uncertainty sampling",
-        uncertainty_sampling_desc: "Tasks are chosen according to model uncertainty score (active learning mode)",
+        uncertainty_sampling_desc:
+          "Tasks are chosen according to model uncertainty score (active learning mode)",
         saved: "Saved",
         save: "Save",
       },
       danger: {
         confirm_title: "Action confirmation",
-        confirm_body: "You're about to delete all things. This action cannot be undone.",
+        confirm_body:
+          "You're about to delete all things. This action cannot be undone.",
         confirm_ok: "Proceed",
         delete_annotations: "Delete {{count}} Annotations",
         delete_tasks: "Delete {{count}} Tasks",
         delete_predictions: "Delete {{count}} Predictions",
         reset_cache: "Reset Cache",
-        reset_cache_help: "Reset Cache may help in cases like if you are unable to modify the labeling configuration due to validation errors concerning existing labels, but you are confident that the labels don't exist. You can use this action to reset the cache and try again.",
+        reset_cache_help:
+          "Reset Cache may help in cases like if you are unable to modify the labeling configuration due to validation errors concerning existing labels, but you are confident that the labels don't exist. You can use this action to reset the cache and try again.",
         drop_tabs: "Drop All Tabs",
-        drop_tabs_help: "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
+        drop_tabs_help:
+          "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
         delete_project: "Delete Project",
-        delete_project_help: "Deleting a project removes all tasks, annotations, and project data from the database.",
+        delete_project_help:
+          "Deleting a project removes all tasks, annotations, and project data from the database.",
         title: "Danger Zone",
         desc: "Perform these actions at your own risk. Actions you take on this page can't be reverted. Make sure your data is backed up.",
-        
-      }
-    }
+      },
+      annotation: {
+        title: "Annotation Settings",
+        header_labeling_instructions: "Labeling Instructions",
+        instructions_p1:
+          "Write instructions to help users complete labeling tasks.",
+        instructions_p2:
+          "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
+        show_before_labeling: "Show before labeling",
+        show_after_labeling: "Show after labeling",
+        use_predictions_prelabel_description:
+          "Enable and select which set of predictions to use for prelabeling.",
+        saved: "Saved!",
+        save: "Save",
+      },
+    },
   },
 };
