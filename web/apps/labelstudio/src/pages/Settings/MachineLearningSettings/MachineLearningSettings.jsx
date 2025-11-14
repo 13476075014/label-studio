@@ -160,7 +160,8 @@ export const MachineLearningSettings = () => {
           params={{ pk: project.id }}
           onSubmit={() => fetchProject()}
         >
-          {backends.length > 0 && (
+          {/* lcc 隐藏 提交标注后开始模型训练  */}
+          {/* {backends.length > 0 && (
             <div className="p-wide border border-neutral-border rounded-md">
               <Form.Row columnCount={1}>
                 <Label text="Configuration" large />
@@ -174,7 +175,7 @@ export const MachineLearningSettings = () => {
                 </div>
               </Form.Row>
             </div>
-          )}
+          )} */}
 
           {backends.length > 0 && (
             <Form.Actions>
