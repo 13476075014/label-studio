@@ -10,6 +10,7 @@ import { FF_LSDV_E_297, isFF } from "../../utils/feature-flags";
 import { createURL } from "../../components/HeidiTips/utils";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../utils/scripts";
+import i18n from "i18next";
 
 export const GeneralSettings = () => {
   const { t } = useTranslation();
