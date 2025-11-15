@@ -6,6 +6,10 @@ import { Badge } from "./Badge/Badge";
 import { Button } from "@humansignal/ui";
 import { Dropdown } from "./Dropdown/Dropdown";
 import { Icon } from "./Icon/Icon";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 const buttonInjector = inject(({ store }) => {
   const { viewsStore, currentView } = store;
@@ -33,7 +37,11 @@ export const FiltersButton = buttonInjector(
           aria-label="Filters"
           {...rest}
         >
-          Filters{" "}
+           {defaultT(
+              t,
+              "libs.datamanager.emptyState.filters",
+              "Filters"
+            )}{" "}
           {hasFilters && (
             <Badge size="small" style={{ marginLeft: 5 }}>
               {activeFiltersNumber}

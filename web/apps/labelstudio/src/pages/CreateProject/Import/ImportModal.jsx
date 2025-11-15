@@ -10,8 +10,12 @@ import { Elem } from "../../../utils/bem";
 import { useRefresh } from "../../../utils/hooks";
 import { ImportPage } from "./Import";
 import { useImportPage } from "./useImportPage";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
+
 
 export const Inner = () => {
+  const { t } = useTranslation();
   const history = useHistory();
   const location = useFixedLocation();
   const modal = useRef();
@@ -73,7 +77,7 @@ export const Inner = () => {
     >
       <Modal.Header divided>
         <Elem block="modal" name="title">
-          Import Data
+          {defaultT(t, "pages.create_project.import_data.title", "Import Data")}
         </Elem>
 
         <Space>
@@ -85,7 +89,7 @@ export const Inner = () => {
             onClick={onCancel}
             aria-label="Cancel import"
           >
-            Cancel
+            {defaultT(t, "common.cancel", "Cancel")}
           </Button>
           <Button
             size="small"
@@ -94,7 +98,7 @@ export const Inner = () => {
             disabled={uploadDisabled}
             aria-label="Finish import"
           >
-            Import
+            {defaultT(t, "common.import", "Import")}
           </Button>
         </Space>
       </Modal.Header>

@@ -30,7 +30,7 @@ export const AnnotationSettings = () => {
   return (
     <Block name="annotation-settings">
       <Elem name={"wrapper"}>
-        <h1>{t("pages.settings.annotation.title", "Annotation Settings")}</h1>
+        <h1>{defaultT(t, "pages.settings.annotation.title", "Annotation Settings")}</h1>
         <Block name="settings-wrapper">
           <Form
             ref={formRef}
@@ -40,17 +40,17 @@ export const AnnotationSettings = () => {
             onSubmit={updateProject}
           >
             <Form.Row columnCount={1}>
-              <Elem name={"header"}>{t("pages.settings.annotation.header_labeling_instructions", "Labeling Instructions")}</Elem>
+              <Elem name={"header"}>{defaultT(t, "pages.settings.annotation.header_labeling_instructions", "Labeling Instructions")}</Elem>
               <div class="settings-description">
                 <p style={{ marginBottom: "0" }}>
-                  {t("pages.settings.annotation.instructions_p1", "Write instructions to help users complete labeling tasks.")}
+                  {defaultT(t, "pages.settings.annotation.instructions_p1", "Write instructions to help users complete labeling tasks.")}
                 </p>
                 <p style={{ marginTop: "8px" }}>
-                  {t("pages.settings.annotation.instructions_p2", "The instruction field supports HTML markup and it allows use of images, iframes (pdf).")}
+                  {defaultT(t, "pages.settings.annotation.instructions_p2", "The instruction field supports HTML markup and it allows use of images, iframes (pdf).")}
                 </p>
               </div>
               <div>
-                <Toggle label={t("pages.settings.annotation.show_before_labeling", "Show before labeling")} name="show_instruction" />
+                <Toggle label={defaultT(t, "pages.settings.annotation.show_before_labeling", "Show before labeling")} name="show_instruction" />
               </div>
               <TextArea name="expert_instruction" style={{ minHeight: 128, maxWidth: "520px" }} />
             </Form.Row>
@@ -59,11 +59,11 @@ export const AnnotationSettings = () => {
 
             <Form.Row columnCount={1}>
               <br />
-              <Elem name={"header"}>{t("pages.settings.annotation.prelabeling", "Prelabeling")}</Elem>
+              <Elem name={"header"}>{defaultT(t, "pages.settings.annotation.prelabeling", "Prelabeling")}</Elem>
               <div>
                 <Toggle
                   label="Use predictions to prelabel tasks"
-                  description={<span>{t("pages.settings.annotation.use_predictions_prelabel_description", "Enable and select which set of predictions to use for prelabeling.")}</span>}
+                  description={<span>{defaultT(t, "pages.settings.annotation.use_predictions_prelabel_description", "Enable and select which set of predictions to use for prelabeling.")}</span>}
                   name="show_collab_predictions"
                   onChange={(e) => {
                     setCollab(e.target.checked);
@@ -76,10 +76,10 @@ export const AnnotationSettings = () => {
 
             <Form.Actions>
               <Form.Indicator>
-                <span case="success">{t("pages.settings.annotation.saved", "Saved!")}!</span>
+                <span case="success">{defaultT(t, "pages.settings.annotation.saved", "Saved!")}!</span>
               </Form.Indicator>
               <Button type="submit" look="primary" className="w-[150px]" aria-label="Save annotation settings">
-                {t("pages.settings.annotation.save", "Save")}
+                {defaultT(t, "pages.settings.annotation.save", "Save")}
               </Button>
             </Form.Actions>
           </Form>

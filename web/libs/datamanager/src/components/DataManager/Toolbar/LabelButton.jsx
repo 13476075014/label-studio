@@ -5,6 +5,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { IconChevronDown } from "@humansignal/icons";
 import { Dropdown } from "../../Common/Dropdown/DropdownComponent";
 import { Menu } from "../../Common/Menu/Menu";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 const injector = inject(({ store }) => {
   const { dataStore, currentView } = store;
@@ -21,6 +23,7 @@ const injector = inject(({ store }) => {
 });
 
 export const LabelButton = injector(({ store, canLabel, size, target, selectedCount }) => {
+  const { t } = useTranslation();
   const disabled = target === "annotations";
   const triggerRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
@@ -92,13 +95,29 @@ export const LabelButton = injector(({ store, canLabel, size, target, selectedCo
             style={primaryStyle}
             onClick={onLabelAll}
           >
-            Label {selectedCount ? selectedCount : "All"} Task{!selectedCount || selectedCount > 1 ? "s" : ""}
+            {defaultT(
+              t,
+              "libs.datamanager.emptyState.label",
+              "Label"
+            )} {selectedCount ? selectedCount : defaultT(
+              t,
+              "libs.datamanager.emptyState.all",
+              "All"
+            )} {defaultT(
+              t,
+              "libs.datamanager.emptyState.task",
+              "Task"
+            )}{!selectedCount || selectedCount > 1 ? "s" : ""}
           </Button>
           <Dropdown.Trigger
             align="bottom-right"
             content={
               <Menu size="compact">
-                <Menu.Item onClick={onLabelVisible}>Label Tasks As Displayed</Menu.Item>
+                <Menu.Item onClick={onLabelVisible}>{defaultT(
+                  t,
+                  "libs.datamanager.emptyState.labelVisibleTasks",
+                  "Label Tasks As Displayed"
+                )}</Menu.Item>
               </Menu>
             }
           >

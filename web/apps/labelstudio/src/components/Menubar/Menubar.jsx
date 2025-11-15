@@ -158,7 +158,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               <Button
                 variant="neutral"
                 look="outlined"
-                tooltip="Keyboard Shortcuts"
+                tooltip={defaultT(t, "components.menubar.hotkeys_tooltip", "Keyboard Shortcuts")}
                 data-testid="hotkeys-button"
                 size="small"
                 onClick={() => {
@@ -187,7 +187,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
               <Menu>
                 <Menu.Item
                   icon={<IconSettings />}
-                  label="Account &amp; Settings"
+                  label={defaultT(t, "components.menubar.account_settings", "Account &amp; Settings")}
                   href={pages.AccountSettingsPage.path}
                 />
                 {/* <Menu.Item label="Dark Mode"/> */}
@@ -196,7 +196,7 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                   <>
                     <Menu.Divider />
                     <Menu.Item className={cn("newsletter-menu-item")} href={pages.AccountSettingsPage.path}>
-                      <span>Please check new notification settings in the Account & Settings page</span>
+                      <span>{defaultT(t, "components.menubar.please_check_new_notice", "Please check new notification settings in the Account & Settings page")}</span>
                       <span className={cn("newsletter-menu-badge")} />
                     </Menu.Item>
                   </>

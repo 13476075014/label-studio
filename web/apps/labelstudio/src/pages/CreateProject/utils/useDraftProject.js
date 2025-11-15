@@ -2,8 +2,11 @@ import { projectAtom } from "apps/labelstudio/src/providers/ProjectProvider";
 import { useAtom } from "jotai";
 import React, { useEffect } from "react";
 import { useAPI } from "../../../providers/ApiProvider";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const useDraftProject = () => {
+  const { t } = useTranslation();
   const api = useAPI();
   const [project, setProject] = useAtom(projectAtom);
 
@@ -14,12 +17,20 @@ export const useDraftProject = () => {
     const projects = response?.results ?? [];
     const lastIndex = projects.length;
     let projectNumber = lastIndex + 1;
-    let projectName = `New Project #${projectNumber}`;
+    let projectName = `${defaultT(
+      t,
+      "pages.projects.new_project",
+      "New Project"
+    )} #${projectNumber}`;
 
     // dirty hack to get proper non-duplicate name
     while (projects.find(({ title }) => title === projectName)) {
       projectNumber++;
-      projectName = `New Project #${projectNumber}`;
+      projectName = `${defaultT(
+        t,
+        "pages.projects.new_project",
+        "New Project"
+      )} #${projectNumber}`;
     }
 
     const draft = await api.callApi("createProject", {

@@ -1,8 +1,11 @@
+import { all } from "libs/datamanager/src/utils/utils";
 import { title } from "process";
 
 export const TRANSLATIONS_EN = {
   common: {
     or: "or",
+    cancel: "Cancel",
+    import: "Import",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -40,6 +43,10 @@ export const TRANSLATIONS_EN = {
       pin_menu: "Pin menu",
       unpin_menu: "Unpin menu",
       slack_community: "Slack Community",
+      please_check_new_notice:
+        "Please check new notification settings in the Account & Settings page",
+      hotkeys_tooltip: "Keyboard Shortcuts",
+      account_settings: "Account &amp; Settings",
     },
   },
   pages: {
@@ -98,6 +105,7 @@ export const TRANSLATIONS_EN = {
         Workspace: "Workspace",
       },
       import_data: {
+        title: "Import Data",
         dataset_url: "Dataset URL",
         add_url: "Add URL",
         or: "or",
@@ -230,6 +238,53 @@ export const TRANSLATIONS_EN = {
         save: "Save",
       },
       storageSettings: {},
+    },
+  },
+  libs: {
+    datamanager: {
+      emptyState: {
+        import_data_to_get_started: "Import data to get your project started",
+        connect_your_cloud:
+          "Connect your cloud storage or upload files from your computer",
+        connect_cloud_storage: "Connect Cloud Storage",
+        import: "Import",
+        see_docs_on_import: "See docs on importing data",
+        open_in_new_tab: "opens in a new tab",
+        no_tasks_found: "No tasks found",
+        try_adjust_clean_filter:
+          "Try adjusting or clearing the filters to see more results",
+        clear_filters: "Clear Filters",
+        no_tasks_ava_for_review: "No tasks available for review or labeling",
+        tasks_imported_to_this_appear_here:
+          "Tasks imported to this project will appear here",
+        start_labeling_tasks: "Start labeling tasks",
+        tasks_youve_labeled_appear_here:
+          "Tasks you've labeled will appear here",
+        label_all_tasks: "Label All Tasks",
+        no_tasks_available: "No tasks available",
+        tasks_assigned_to_you_appear_here:
+          "Tasks assigned to you will appear here",
+        tasks_will_appear_here:
+          "Tasks will appear here when they become available",
+        upgrade_plan_to_import: "You must upgrade your plan to import data",
+        columns: "Columns",
+        export: "Export",
+        loading_actions: "Loading actions",
+        fitImagesToWidth: "Fit images to width",
+        tasks: "Tasks",
+        annotations: "Annotations",
+        storageSync: "Storage sync",
+        submittedAnnotations: "Submitted annotations",
+        predictions: "Predictions",
+        label: "Label",
+        all: "All",
+        task: "Task",
+        labelVisibleTasks: "Label Tasks As Displayed",
+        filters: "Filters",
+        orderBy: "Order by",
+        actions: "Actions",
+        errors_occurred: "Errors occurred",
+      },
     },
   },
 };

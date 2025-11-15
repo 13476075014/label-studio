@@ -11,6 +11,9 @@ import { Modal } from "../../Common/Modal/ModalPopup";
 import "./ActionsButton.scss";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+
+const t = i18n.t.bind(i18n);
 
 const isFFLOPSE3 = isFF(FF_LOPS_E_3);
 const injector = inject(({ store }) => ({
@@ -248,7 +251,11 @@ export const ActionsButton = injector(
           aria-label="Tasks Actions"
           {...rest}
         >
-          {selectedCount > 0 ? `${selectedCount} ${recordTypeLabel}${selectedCount > 1 ? "s" : ""}` : "Actions"}
+          {selectedCount > 0 ? `${selectedCount} ${recordTypeLabel}${selectedCount > 1 ? "s" : ""}` : defaultT(
+            t,
+            "libs.datamanager.emptyState.actions",
+            "Actions"
+          )}
         </Button>
       </Dropdown.Trigger>
     );

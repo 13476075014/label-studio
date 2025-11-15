@@ -2,6 +2,8 @@ import { inject, observer } from "mobx-react";
 import { RadioGroup } from "../../Common/RadioGroup/RadioGroup";
 import { IconGrid, IconList } from "@humansignal/icons";
 import { Tooltip } from "@humansignal/ui";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 const viewInjector = inject(({ store }) => ({
   view: store.currentView,
@@ -37,11 +39,20 @@ export const ViewToggle = viewInjector(
 );
 
 export const DataStoreToggle = viewInjector(({ view, size, ...rest }) => {
+  const { t } = useTranslation();
   return (
     <RadioGroup value={view.target} size={size} onChange={(e) => view.setTarget(e.target.value)} {...rest}>
-      <RadioGroup.Button value="tasks">Tasks</RadioGroup.Button>
+      <RadioGroup.Button value="tasks">{defaultT(
+                t,
+                "libs.datamanager.emptyState.tasks",
+                "Tasks"
+              )}</RadioGroup.Button>
       <RadioGroup.Button value="annotations" disabled>
-        Annotations
+        {defaultT(
+                t,
+                "libs.datamanager.emptyState.annotations",
+                "Annotations"
+              )}
       </RadioGroup.Button>
     </RadioGroup>
   );
