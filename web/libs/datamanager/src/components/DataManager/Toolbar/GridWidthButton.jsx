@@ -5,6 +5,8 @@ import { Dropdown } from "../../Common/Dropdown/DropdownComponent";
 import { Toggle } from "../../Common/Form";
 import { IconSettings, IconMinus, IconPlus } from "@humansignal/icons";
 import debounce from "lodash/debounce";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 const injector = inject(({ store }) => {
   const view = store?.currentView;
@@ -22,6 +24,7 @@ const injector = inject(({ store }) => {
 });
 
 export const GridWidthButton = injector(({ view, isGrid, gridWidth, fitImagesToWidth, hasImage, size }) => {
+  const { t } = useTranslation();
   const [width, setWidth] = useState(gridWidth);
 
   const setGridWidthStore = debounce((value) => {
@@ -50,7 +53,11 @@ export const GridWidthButton = injector(({ view, isGrid, gridWidth, fitImagesToW
       content={
         <div className="p-tight min-w-wide space-y-base">
           <div className="grid grid-cols-[1fr_min-content] gap-base items-center">
-            <span>Columns: {width}</span>
+            <span>{defaultT(
+            t,
+            "libs.datamanager.emptyState.columns",
+            "Columns"
+          )}: {width}</span>
             <ButtonGroup collapsed={false}>
               <Button
                 onClick={() => setGridWidth(width - 1)}
@@ -74,7 +81,11 @@ export const GridWidthButton = injector(({ view, isGrid, gridWidth, fitImagesToW
           </div>
           {hasImage && (
             <div className="grid grid-cols-[1fr_min-content] gap-base items-center">
-              <span>Fit images to width</span>
+              <span>{defaultT(
+                t,
+                "libs.datamanager.emptyState.fitImagesToWidth",
+                "Fit images to width"
+              )}</span>
               <Toggle checked={fitImagesToWidth} onChange={handleFitImagesToWidthToggle} />
             </div>
           )}

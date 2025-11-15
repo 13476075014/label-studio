@@ -9,6 +9,8 @@ import Form from "../../Common/Form/Form";
 import { Menu } from "../../Common/Menu/Menu";
 import { Modal } from "../../Common/Modal/ModalPopup";
 import "./ActionsButton.scss";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 const isFFLOPSE3 = isFF(FF_LOPS_E_3);
 const injector = inject(({ store }) => ({
@@ -227,7 +229,11 @@ export const ActionsButton = injector(
     return (
       <Dropdown.Trigger
         content={
-          <Menu size="compact">{isLoading ? <Menu.Item disabled>Loading actions...</Menu.Item> : actionButtons}</Menu>
+          <Menu size="compact">{isLoading ? <Menu.Item disabled>{defaultT(
+            t,
+            "libs.datamanager.emptyState.loading_actions",
+            "Loading actions"
+          )}...</Menu.Item> : actionButtons}</Menu>
         }
         openUpwardForShortViewport={false}
         disabled={!hasSelected}

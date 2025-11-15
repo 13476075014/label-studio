@@ -12,6 +12,8 @@ import {
 } from "@humansignal/icons";
 import { Button, IconExternal, Typography, Tooltip } from "@humansignal/ui";
 import { getDocsUrl } from "../../../../../../editor/src/utils/docs";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../../core/src/index";
 
 declare global {
   interface Window {
@@ -30,7 +32,10 @@ interface EmptyStateProps {
   userRole?: string;
   project?: {
     assignment_settings?: {
-      label_stream_task_distribution?: "auto_distribution" | "assigned_only" | string;
+      label_stream_task_distribution?:
+        | "auto_distribution"
+        | "assigned_only"
+        | string;
     };
   };
   hasData?: boolean;
@@ -79,17 +84,26 @@ const renderEmptyStateLayout = ({
 
   const content = (
     <div className={wrapperClassName}>
-      <div className={`flex items-center justify-center ${iconBackground} ${iconColor} rounded-full p-tight mb-4`}>
+      <div
+        className={`flex items-center justify-center ${iconBackground} ${iconColor} rounded-full p-tight mb-4`}
+      >
         {iconWithSize}
       </div>
 
-      <Typography variant="headline" size="medium" className="mb-tight" id={ariaLabelledBy}>
+      <Typography
+        variant="headline"
+        size="medium"
+        className="mb-tight"
+        id={ariaLabelledBy}
+      >
         {title}
       </Typography>
 
       <Typography
         size="medium"
-        className={`text-neutral-content-subtler max-w-xl ${actions || additionalContent ? "mb-tight" : ""}`}
+        className={`text-neutral-content-subtler max-w-xl ${
+          actions || additionalContent ? "mb-tight" : ""
+        }`}
         id={ariaDescribedBy}
       >
         {description}
@@ -100,12 +114,18 @@ const renderEmptyStateLayout = ({
       {actions &&
         (() => {
           // Flatten children and filter out null/false values to count actual rendered elements
-          const flattenedActions = React.Children.toArray(actions).flat().filter(Boolean);
+          const flattenedActions = React.Children.toArray(actions)
+            .flat()
+            .filter(Boolean);
           const actualActionCount = flattenedActions.length;
           const isSingleAction = actualActionCount === 1;
 
           return (
-            <div className={`flex ${isSingleAction ? "justify-center" : ""} gap-base w-full max-w-md mt-base`}>
+            <div
+              className={`flex ${
+                isSingleAction ? "justify-center" : ""
+              } gap-base w-full max-w-md mt-base`}
+            >
               {actions}
             </div>
           );
@@ -135,25 +155,56 @@ const renderEmptyStateLayout = ({
 
 // Storage provider icons component
 const StorageProviderIcons = () => (
-  <div className="flex items-center justify-center gap-base mb-wide" data-testid="dm-storage-provider-icons">
+  <div
+    className="flex items-center justify-center gap-base mb-wide"
+    data-testid="dm-storage-provider-icons"
+  >
     <Tooltip title="Amazon S3">
-      <div className="flex items-center justify-center p-2" aria-label="Amazon S3">
-        <IconCloudProviderS3 width={32} height={32} className="text-neutral-content-subtler" />
+      <div
+        className="flex items-center justify-center p-2"
+        aria-label="Amazon S3"
+      >
+        <IconCloudProviderS3
+          width={32}
+          height={32}
+          className="text-neutral-content-subtler"
+        />
       </div>
     </Tooltip>
     <Tooltip title="Google Cloud Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Google Cloud Storage">
-        <IconCloudProviderGCS width={32} height={32} className="text-neutral-content-subtler" />
+      <div
+        className="flex items-center justify-center p-2"
+        aria-label="Google Cloud Storage"
+      >
+        <IconCloudProviderGCS
+          width={32}
+          height={32}
+          className="text-neutral-content-subtler"
+        />
       </div>
     </Tooltip>
     <Tooltip title="Azure Blob Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Azure Blob Storage">
-        <IconCloudProviderAzure width={32} height={32} className="text-neutral-content-subtler" />
+      <div
+        className="flex items-center justify-center p-2"
+        aria-label="Azure Blob Storage"
+      >
+        <IconCloudProviderAzure
+          width={32}
+          height={32}
+          className="text-neutral-content-subtler"
+        />
       </div>
     </Tooltip>
     <Tooltip title="Redis Storage">
-      <div className="flex items-center justify-center p-2" aria-label="Redis Storage">
-        <IconCloudProviderRedis width={32} height={32} className="text-neutral-content-subtler" />
+      <div
+        className="flex items-center justify-center p-2"
+        aria-label="Redis Storage"
+      >
+        <IconCloudProviderRedis
+          width={32}
+          height={32}
+          className="text-neutral-content-subtler"
+        />
       </div>
     </Tooltip>
   </div>
@@ -161,12 +212,17 @@ const StorageProviderIcons = () => (
 
 // Documentation link component
 const DocumentationLink = () => {
+  const { t } = useTranslation();
   if (window.APP_SETTINGS?.whitelabel_is_active) {
     return null;
   }
 
   return (
-    <Typography variant="label" size="small" className="text-primary-link hover:underline">
+    <Typography
+      variant="label"
+      size="small"
+      className="text-primary-link hover:underline"
+    >
       <a
         href={getDocsUrl("guide/tasks")}
         target="_blank"
@@ -174,8 +230,21 @@ const DocumentationLink = () => {
         className="inline-flex items-center gap-1"
         data-testid="dm-docs-data-import-link"
       >
-        See docs on importing data
-        <span className="sr-only"> (opens in a new tab)</span>
+        {defaultT(
+          t,
+          "libs.datamanager.emptyState.see_docs_on_import",
+          "See docs on importing data"
+        )}
+        <span className="sr-only">
+          {" "}
+          (
+          {defaultT(
+            t,
+            "libs.datamanager.emptyState.open_in_new_tab",
+            "opens in a new tab"
+          )}
+          )
+        </span>
         <IconExternal width={20} height={20} />
       </a>
     </Typography>
@@ -212,6 +281,7 @@ export const EmptyState: FC<EmptyStateProps> = ({
   onLabelAllTasks,
   onClearFilters,
 }) => {
+  const { t } = useTranslation();
   const isImportEnabled = Boolean(canImport);
 
   // If filters are applied, show the filter-specific empty state (regardless of user role)
@@ -220,11 +290,28 @@ export const EmptyState: FC<EmptyStateProps> = ({
       icon: <IconSearch />,
       iconBackground: "bg-warning-background",
       iconColor: "text-warning-icon",
-      title: "No tasks found",
-      description: "Try adjusting or clearing the filters to see more results",
+      title: defaultT(
+        t,
+        "libs.datamanager.emptyState.no_tasks_found",
+        "No tasks found"
+      ),
+      description: defaultT(
+        t,
+        "libs.datamanager.emptyState.try_adjust_clean_filter",
+        "Try adjusting or clearing the filters to see more results"
+      ),
       actions: (
-        <Button variant="primary" look="outlined" onClick={onClearFilters} data-testid="dm-clear-filters-button">
-          Clear Filters
+        <Button
+          variant="primary"
+          look="outlined"
+          onClick={onClearFilters}
+          data-testid="dm-clear-filters-button"
+        >
+          {defaultT(
+            t,
+            "libs.datamanager.emptyState.clear_filters",
+            "Clear Filters"
+          )}
         </Button>
       ),
     });
@@ -238,21 +325,41 @@ export const EmptyState: FC<EmptyStateProps> = ({
     if (userRole === "REVIEWER") {
       return renderEmptyStateLayout({
         icon: <IconCheck />,
-        title: "No tasks available for review or labeling",
-        description: "Tasks imported to this project will appear here",
+        title: defaultT(
+          t,
+          "libs.datamanager.emptyState.no_tasks_ava_for_review",
+          "No tasks available for review or labeling"
+        ),
+        description: defaultT(
+          t,
+          "libs.datamanager.emptyState.tasks_imported_to_this_appear_here",
+          "Tasks imported to this project will appear here"
+        ),
       });
     }
 
     // Annotator empty state
     if (userRole === "ANNOTATOR") {
-      const isAutoDistribution = project?.assignment_settings?.label_stream_task_distribution === "auto_distribution";
-      const isManualDistribution = project?.assignment_settings?.label_stream_task_distribution === "assigned_only";
+      const isAutoDistribution =
+        project?.assignment_settings?.label_stream_task_distribution ===
+        "auto_distribution";
+      const isManualDistribution =
+        project?.assignment_settings?.label_stream_task_distribution ===
+        "assigned_only";
 
       if (isAutoDistribution) {
         return renderEmptyStateLayout({
           icon: <IconLsLabeling />,
-          title: "Start labeling tasks",
-          description: "Tasks you've labeled will appear here",
+          title: defaultT(
+            t,
+            "libs.datamanager.emptyState.start_labeling_tasks",
+            "Start labeling tasks"
+          ),
+          description: defaultT(
+            t,
+            "libs.datamanager.emptyState.tasks_youve_labeled_appear_here",
+            "Tasks you've labeled will appear here"
+          ),
           actions: (
             <Button
               variant="primary"
@@ -261,7 +368,11 @@ export const EmptyState: FC<EmptyStateProps> = ({
               onClick={onLabelAllTasks}
               data-testid="dm-label-all-tasks-button"
             >
-              Label All Tasks
+              {defaultT(
+                t,
+                "libs.datamanager.emptyState.label_all_tasks",
+                "Label All Tasks"
+              )}
             </Button>
           ),
         });
@@ -270,16 +381,32 @@ export const EmptyState: FC<EmptyStateProps> = ({
       if (isManualDistribution) {
         return renderEmptyStateLayout({
           icon: <IconInbox />,
-          title: "No tasks available",
-          description: "Tasks assigned to you will appear here",
+          title: defaultT(
+            t,
+            "libs.datamanager.emptyState.no_tasks_available",
+            "No tasks available"
+          ),
+          description: defaultT(
+            t,
+            "libs.datamanager.emptyState.tasks_assigned_to_you_appear_here",
+            "Tasks assigned to you will appear here"
+          ),
         });
       }
 
       // Fallback for annotators with unknown distribution setting
       return renderEmptyStateLayout({
         icon: <IconInbox width={40} height={40} />,
-        title: "No tasks available",
-        description: "Tasks will appear here when they become available",
+        title: defaultT(
+          t,
+          "libs.datamanager.emptyState.no_tasks_available",
+          "No tasks available"
+        ),
+        description: defaultT(
+          t,
+          "libs.datamanager.emptyState.tasks_will_appear_here",
+          "Tasks will appear here when they become available"
+        ),
       });
     }
   }
@@ -287,8 +414,16 @@ export const EmptyState: FC<EmptyStateProps> = ({
   // Default case: show import functionality (existing behavior for Owners/Admins/Managers)
   return renderEmptyStateLayout({
     icon: <IconUpload />,
-    title: "Import data to get your project started",
-    description: "Connect your cloud storage or upload files from your computer",
+    title: defaultT(
+      t,
+      "libs.datamanager.emptyState.import_data_to_get_started",
+      "Import data to get your project started"
+    ),
+    description: defaultT(
+      t,
+      "libs.datamanager.emptyState.connect_your_cloud",
+      "Connect your cloud storage or upload files from your computer"
+    ),
     testId: "empty-state-label",
     ariaLabelledBy: "dm-empty-title",
     ariaDescribedBy: "dm-empty-desc",
@@ -302,7 +437,11 @@ export const EmptyState: FC<EmptyStateProps> = ({
           onClick={onOpenSourceStorageModal}
           data-testid="dm-connect-source-storage-button"
         >
-          Connect Cloud Storage
+          {defaultT(
+            t,
+            "libs.datamanager.emptyState.connect_cloud_storage",
+            "Connect Cloud Storage"
+          )}
         </Button>
 
         {isImportEnabled && (
@@ -313,7 +452,7 @@ export const EmptyState: FC<EmptyStateProps> = ({
             onClick={onOpenImportModal}
             data-testid="dm-import-button"
           >
-            Import
+            {defaultT(t, "libs.datamanager.emptyState.import", "Import")}
           </Button>
         )}
       </>
