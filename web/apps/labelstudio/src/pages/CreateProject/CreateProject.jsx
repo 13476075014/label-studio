@@ -116,7 +116,6 @@ export const CreateProject = ({ onClose }) => {
   }, [name]);
 
   const { columns, uploading, uploadDisabled, finishUpload, pageProps, uploadSample } = useImportPage(project, sample);
-
   const rootClass = cn("create-project");
   const tabClass = rootClass.elem("tab");
   const steps = {
@@ -247,6 +246,8 @@ export const CreateProject = ({ onClose }) => {
           openLabelingConfig={() => setStep("config")}
           {...pageProps}
         />
+        {/* 标签初始化 */}
+        {/* 页面都是走的接口，需要接口做汉化，todo lcc */}
         <ConfigPage
           project={project}
           onUpdate={(config) => {

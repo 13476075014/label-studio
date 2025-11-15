@@ -7,6 +7,8 @@ import { useAtomValue } from "jotai";
 import { atomWithQuery } from "jotai-tanstack-query";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Input } from "../../../components/Form";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 const linkAtom = atomWithQuery(() => ({
   queryKey: ["invite-link"],
@@ -27,6 +29,7 @@ export function InviteLink({
   onOpened?: () => void;
   onClosed?: () => void;
 }) {
+  const { t } = useTranslation();
   const modalRef = useRef<Modal>();
   useEffect(() => {
     if (modalRef.current && opened) {
@@ -39,7 +42,7 @@ export function InviteLink({
   return (
     <Modal
       ref={modalRef}
-      title="Invite people"
+      title={defaultT(t, "pages.home.invite_people", "Invite People")}
       opened={opened}
       bareFooter={true}
       body={<InvitationModal />}
@@ -52,13 +55,21 @@ export function InviteLink({
 }
 
 const InvitationModal = () => {
+  const { t } = useTranslation();
   const { data: link } = useAtomValue(linkAtom);
   return (
     <Block name="invite">
       <Input value={link} style={{ width: "100%" }} readOnly />
-      <Typography size="small" className="text-neutral-content-subtler mt-base mb-wider">
-        Invite people to join your Label Studio instance. People that you invite have full access to all of your
-        projects.{" "}
+      <Typography
+        size="small"
+        className="text-neutral-content-subtler mt-base mb-wider"
+      >
+        {defaultT(
+          t,
+          "pages.home.invite.p1",
+          "Invite people to join your Label Studio instance. People that you invite have full access to all of your projects"
+        )}
+        .{" "}
         <a
           href="https://labelstud.io/guide/signup.html"
           target="_blank"
@@ -70,7 +81,7 @@ const InvitationModal = () => {
             })
           }
         >
-          Learn more
+          {defaultT(t, "pages.settings.general.learn_more", "Learn more")}
         </a>
         .
       </Typography>
@@ -79,6 +90,7 @@ const InvitationModal = () => {
 };
 
 const InvitationFooter = () => {
+  const { t } = useTranslation();
   const { copyText, copied } = useTextCopy();
   const { refetch, data: link } = useAtomValue(linkAtom);
 
@@ -92,7 +104,7 @@ const InvitationFooter = () => {
           onClick={() => refetch()}
           aria-label="Refresh invite link"
         >
-          Reset Link
+          {defaultT(t, "pages.home.invite.invite_people", "Reset Link")}
         </Button>
       </Space>
       <Space>
@@ -102,7 +114,9 @@ const InvitationFooter = () => {
           onClick={() => copyText(link!)}
           aria-label="Copy invite link"
         >
-          {copied ? "Copied!" : "Copy link"}
+          {copied
+            ? defaultT(t, "pages.home.invite.Copied", "Copied!")
+            : defaultT(t, "pages.home.invite.copy_link", "Copy link")}
         </Button>
       </Space>
     </Space>

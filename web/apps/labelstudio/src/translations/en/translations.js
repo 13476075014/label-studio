@@ -63,6 +63,12 @@ export const TRANSLATIONS_EN = {
       get_help: "Learn, explore and get help",
       invite_people: "Invite People",
       tasks: "Tasks",
+      invite: {
+        p1: "Invite people to join your Label Studio instance. People that you invite have full access to all of your projects",
+        invite_people: "Invite People",
+        copied: "Copied!",
+        copy_link: "Copy link",
+      },
     },
     projects: {
       title: "Projects",
@@ -128,7 +134,8 @@ export const TRANSLATIONS_EN = {
         check_document: "Check the documentation to",
         import_preannot: "import preannotated data",
         sample: "Sample",
-        something_wrong_loaded: "Something went wrong, the sample data could not be loaded",
+        something_wrong_loaded:
+          "Something went wrong, the sample data could not be loaded",
         setup_you: "Setup your",
         label_config: "labeling configuration",
         first_preview_format: "first to preview the expected JSON data format",

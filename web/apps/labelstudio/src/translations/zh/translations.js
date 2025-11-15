@@ -62,6 +62,12 @@ export const TRANSLATIONS_ZH = {
       get_help: "学习、探索并获取帮助",
       invite_people: "邀请",
       tasks: "任务",
+      invite: {
+        p1: "邀请他人加入你的 Label Studio 实例。你邀请的人将拥有对你所有项目的完全访问权限",
+        invite_people: "邀请人员",
+        copy_link: "复制链接",
+        Copied: "已复制！",
+      },
     },
     projects: {
       title: "项目列表",
@@ -80,7 +86,7 @@ export const TRANSLATIONS_ZH = {
       steps: {
         name: "项目名称",
         import: "数据导入",
-        config: "标签初始化",
+        config: "标签设置",
         save: "保存",
         cancel: "取消",
       },
