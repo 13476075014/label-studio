@@ -9,6 +9,8 @@ export const TRANSLATIONS_EN = {
     labeling: "Labeling",
     labeling_instructions: "Labeling Instructions",
     instructions: "Instructions",
+    saved: "Saved",
+    save: "Save",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -202,6 +204,26 @@ export const TRANSLATIONS_EN = {
       title: "Settings",
       labeling: {
         title: "Labeling Interface",
+      },
+      menu: {
+        startTraining: "Start Model Training",
+        testRequest: "Test Request",
+        editMLBackend: "updateMLBackend",
+        addMLBackend: "addMLBackend",
+        model: "Model",
+        connectModel: "Let’s connect your first model",
+        connectModel_description:
+          "Connect a machine learning model to generate predictions. These predictions can be compared side by side, used for efficient pre‒labeling and, to aid in active learning, directing users to the most impactful labeling tasks.",
+        connectModel2: "Connect Model",
+        needHelp: "Need help?",
+        learnMoreAboutConnectingModels:
+          "Learn more about connecting models in our docs",
+        connectModel_description2:
+          "A connected model has been detected! If you wish to fetch predictions from this model, please follow these steps:",
+        selectTheDesiredTasks: "Select the desired tasks.",
+        connectModel_description3:
+          "If you want to use the model predictions for prelabeling, please configure this in the",
+        annotationSettings: "Annotation settings",
       },
       general: {
         title: "General Settings",

@@ -8,6 +8,8 @@ export const TRANSLATIONS_ZH = {
     labeling: "标注",
     labeling_instructions: "标注说明",
     instructions: "说明",
+    saved: "已保存",
+    save: "保存",
     media_file_type: {
       Text: "文本",
       Audio: "音频",
@@ -182,6 +184,24 @@ export const TRANSLATIONS_ZH = {
     settings: {
       labeling: {
         title: "标注界面",
+      },
+      menu: {
+        startTraining: "开始模型训练",
+        testRequest: "测试请求",
+        editMLBackend: "更新机器学习后端",
+        addMLBackend: "添加机器学习后端",
+        model: "模型",
+        connectModel: "让我们连接您的第一个模型",
+        connectModel_description:
+          "连接机器学习模型以生成预测。这些预测可以并排比较，用于高效的预标记，并有助于主动学习，将用户引导到最有影响力的标记任务。",
+        connectModel2: "连接模型",
+        needHelp: "需要帮助？",
+        learnMoreAboutConnectingModels: "了解如何连接模型",
+        connectModel_description2:
+          "检测到连接的模型！如果你想从这个模型中获取预测，请按照以下步骤操作：",
+        selectTheDesiredTasks: "选择所需的任务",
+        connectModel_description3: "如果您想使用模型预测进行预标记，请在",
+        annotationSettings: "注释设置",
       },
       general: {
         title: "通用设置",
