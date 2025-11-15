@@ -5,6 +5,9 @@ export const TRANSLATIONS_ZH = {
     or: "或",
     cancel: "取消",
     import: "导入",
+    labeling: "标注",
+    labeling_instructions: "标注说明",
+    instructions: "说明",
     media_file_type: {
       Text: "文本",
       Audio: "音频",
@@ -158,6 +161,17 @@ export const TRANSLATIONS_ZH = {
         add_label_names: "添加标签",
         configure_settings: "配置设置",
         ui_preview: "用户界面预览",
+        empty_config_placeholder: "你的标注配置是空的。它是标注数据所必需的。",
+        empty_config_starting_info:
+          "从我们预定义的模板之一开始，或在“代码”面板上创建自己的配置。标签配置是基于XML的，您可以",
+        empty_config_read_docs: "在我们的文档中阅读可用标签",
+        use_new_line_as_separator: "使用换行符作为分隔符",
+        use: "使用",
+        configure_labeling_interface: "使用标签配置标注界面。",
+        see_all_available_tags: "查看所有可用标签",
+        saved: "已保存",
+        saving: "正在保存...",
+        save: "保存",
       },
       draft: {
         name: "新项目",
@@ -216,6 +230,10 @@ export const TRANSLATIONS_ZH = {
         saved: "已保存！",
         save: "保存",
       },
+    },
+    data_manager: {
+      deleted_project: "项目已被删除或尚未创建",
+      back_to_projects: "返回项目列表",
     },
   },
   libs: {

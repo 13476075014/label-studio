@@ -14,6 +14,8 @@ import { isDefined } from "../../utils/helpers";
 import { ImportModal } from "../CreateProject/Import/ImportModal";
 import { ExportPage } from "../ExportPage/ExportPage";
 import { APIConfig } from "./api-config";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../utils/scripts";
 
 import "./DataManager.scss";
 
@@ -58,6 +60,7 @@ const buildLink = (path, params) => {
 };
 
 export const DataManagerPage = ({ ...props }) => {
+  const { t } = useTranslation();
   const dependencies = useMemo(loadDependencies, []);
   const toast = useContext(ToastContext);
   const root = useRef();
@@ -210,10 +213,12 @@ export const DataManagerPage = ({ ...props }) => {
 
   return crashed ? (
     <Block name="crash">
-      <Elem name="info">Project was deleted or not yet created</Elem>
+      <Elem name="info">{defaultT(t, "pages.data_manager.deleted_project",
+        "Project was deleted or not yet created")}</Elem>
 
       <Button to="/projects" aria-label="Back to projects">
-        Back to projects
+        {defaultT(t, "pages.data_manager.back_to_projects",
+        "Back to projects")}
       </Button>
     </Block>
   ) : (
@@ -235,11 +240,12 @@ DataManagerPage.pages = {
   ImportModal,
 };
 DataManagerPage.context = ({ dmRef }) => {
+  const { t } = useTranslation();
   const { project } = useProject();
   const [mode, setMode] = useState(dmRef?.mode ?? "explorer");
 
   const links = {
-    "/settings": "Settings",
+    "/settings": defaultT(t, "pages.projects.settings", "Settings"),
   };
 
   const updateCrumbs = (currentMode) => {
@@ -250,7 +256,7 @@ DataManagerPage.context = ({ dmRef }) => {
     } else {
       addCrumb({
         key: "dm-crumb",
-        title: "Labeling",
+        title: defaultT(t, "common.labeling", "Labeling"),
       });
     }
   };
@@ -261,7 +267,8 @@ DataManagerPage.context = ({ dmRef }) => {
 
     if (isLabelStream && show_instruction && expert_instruction) {
       modal({
-        title: "Labeling Instructions",
+        title: defaultT(t, "common.labeling_instructions",
+          "Labeling Instructions"),
         body: <div dangerouslySetInnerHTML={{ __html: expert_instruction }} />,
         style: { width: 680 },
       });
@@ -292,7 +299,8 @@ DataManagerPage.context = ({ dmRef }) => {
           look="outlined"
           onClick={() => {
             modal({
-              title: "Instructions",
+              title: defaultT(t, "common.instructions",
+          "Instructions"),
               body: () => (
                 <div
                   dangerouslySetInnerHTML={{
@@ -303,7 +311,8 @@ DataManagerPage.context = ({ dmRef }) => {
             });
           }}
         >
-          Instructions
+          {defaultT(t, "common.instructions",
+          "Instructions")}
         </Button>
       )}
 

@@ -20,18 +20,30 @@ import tags from "@humansignal/core/lib/utils/schema/tags.json";
 import { UnsavedChanges } from "./UnsavedChanges";
 import { Checkbox, CodeEditor, Select } from "@humansignal/ui";
 import { toSnakeCase } from "strman";
+import { defaultT } from "../../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const wizardClass = cn("wizard");
 const configClass = cn("configure");
 
 const EmptyConfigPlaceholder = () => (
   <div className={configClass.elem("empty-config")}>
-    <p>Your labeling configuration is empty. It is required to label your data.</p>
     <p>
-      Start from one of our predefined templates or create your own config on the Code panel. The labeling config is
-      XML-based and you can{" "}
+      {
+        defaultT(t, "pages.create_project.config_label.empty_config_placeholder", "Your labeling configuration is empty. It is required to label your data. ")
+      }
+    </p>
+    <p>
+      {
+        defaultT(t, "pages.create_project.config_label.empty_config_starting_info",
+           "Start from one of our predefined templates or create your own config on the Code panel. The labeling config is XML-based and you can")
+      }{" "}
       <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
-        read about the available tags in our documentation
+        {
+        defaultT(t, "pages.create_project.config_label.empty_config_read_docs",
+           "read about the available tags in our documentation")
+        }
       </a>
       .
     </p>
@@ -100,7 +112,10 @@ const ConfigureControl = ({ control, template }) => {
     <div className={configClass.elem("labels")}>
       <form className={configClass.elem("add-labels")} action="">
         <h4>{tagname === "Choices" ? t("pages.create_project.config_label.add_choices") : t("pages.create_project.config_label.add_label_names")}</h4>
-        <span>Use new line as a separator to add multiple labels</span>
+        <span>{
+          defaultT(t, "pages.create_project.config_label.use_new_line_as_separator",
+            "Use new line as a separator to add multiple labels")
+          }</span>
         <textarea
           name="labels"
           id=""
@@ -111,7 +126,10 @@ const ConfigureControl = ({ control, template }) => {
           className="lsf-textarea-ls p-2 px-3"
         />
         <Button type="button" size="small" look="outlined" onClick={onAddLabels} aria-label="Add labels">
-          Add
+          {
+          defaultT(t, "pages.create_project.config_label.add",
+            "Add")
+          }
         </Button>
       </form>
       <div className={configClass.elem("current-labels")}>
@@ -222,7 +240,10 @@ const ConfigureSettings = ({ template }) => {
   return (
     <ul className={configClass.elem("settings")}>
       <li>
-        <h4>Configure settings</h4>
+        <h4>{
+          defaultT(t, "pages.create_project.config_label.configure_settings",
+            "Configure settings")
+          }</h4>
         <ul className={configClass.elem("object-settings")}>{items}</ul>
       </li>
     </ul>
@@ -231,6 +252,7 @@ const ConfigureSettings = ({ template }) => {
 
 // configure value source for `obj` object tag
 const ConfigureColumn = ({ template, obj, columns }) => {
+  const { t } = useTranslation();
   const valueAttr = obj.hasAttribute("valueList") ? "valueList" : "value";
   const value = obj.getAttribute(valueAttr)?.replace(/^\$/, "");
   // if there is a value set already and it's not in the columns
@@ -302,7 +324,10 @@ const ConfigureColumn = ({ template, obj, columns }) => {
         isInline={true}
         label={
           <>
-            Use {obj.tagName.toLowerCase()}
+            {
+            defaultT(t, "pages.create_project.config_label.use",
+              "Use")
+            } {obj.tagName.toLowerCase()}
             {template.objects > 1 && ` for ${obj.getAttribute("name")}`}
             {" from "}
             {columns?.length > 0 && columns[0] !== DEFAULT_COLUMN && "field "}
@@ -317,18 +342,27 @@ const ConfigureColumn = ({ template, obj, columns }) => {
 };
 
 const ConfigureColumns = ({ columns, template }) => {
+  const { t } = useTranslation();
   if (!template.objects.length) return null;
 
   return (
     <div className={configClass.elem("object")}>
-      <h4>Configure data</h4>
+      <h4>{
+            defaultT(t, "pages.create_project.config_label.configure_data",
+              "Configure data")
+            }</h4>
       {template.objects.length > 1 && columns?.length > 0 && columns.length < template.objects.length && (
-        <p className={configClass.elem("object-error")}>This template requires more data then you have for now</p>
+        <p className={configClass.elem("object-error")}>{
+            defaultT(t, "pages.create_project.config_label.require_more_data",
+              "This template requires more data then you have for now")
+            }</p>
       )}
       {columns?.length === 0 && (
         <p className={configClass.elem("object-error")}>
-          To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code
-          mode.
+          {
+            defaultT(t, "pages.create_project.config_label.need_upload_data",
+              "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.")
+            }
         </p>
       )}
       {template.objects.map((obj) => (
@@ -351,6 +385,7 @@ const Configurator = ({
   warning,
   hasChanges,
 }) => {
+  const { t } = useTranslation();
   const [configure, setConfigure] = React.useState(isEmptyConfig(config) ? "code" : "visual");
   const [visualLoaded, loadVisual] = React.useState(configure === "visual");
   const [waiting, setWaiting] = React.useState(false);
@@ -477,10 +512,16 @@ const Configurator = ({
 
   const extra = (
     <p className={configClass.elem("tags-link")}>
-      Configure the labeling interface with tags.
+      {
+            defaultT(t, "pages.create_project.config_label.configure_labeling_interface",
+              "Configure the labeling interface with tags.")
+            }
       <br />
       <a href="https://labelstud.io/tags/" target="_blank" rel="noreferrer">
-        See all available tags
+        {
+            defaultT(t, "pages.create_project.config_label.see_all_available_tags",
+              "See all available tags")
+            }
       </a>
       .
     </p>
@@ -489,7 +530,10 @@ const Configurator = ({
   return (
     <div className={configClass}>
       <div className={configClass.elem("container")}>
-        <h1>Labeling Interface{hasChanges ? " *" : ""}</h1>
+        <h1>{
+            defaultT(t, "pages.settings.labeling.title",
+              "Labeling Interface")
+            }{hasChanges ? " *" : ""}</h1>
         <header>
           <Button
             type="button"
@@ -499,7 +543,10 @@ const Configurator = ({
             look="outlined"
             aria-label="Browse templates"
           >
-            Browse Templates
+            {
+            defaultT(t, "pages.create_project.config_label.browse_templates",
+              "Browse Templates")
+            }
           </Button>
           <ToggleItems items={{ code: "Code", visual: "Visual" }} active={configure} onSelect={onSelect} />
         </header>
@@ -555,7 +602,10 @@ const Configurator = ({
             {saved && (
               <Block name="form-indicator">
                 <Elem tag="span" mod={{ type: "success" }} name="item">
-                  Saved!
+                  {
+            defaultT(t, "pages.create_project.config_label.saved",
+              "Saved")
+            }!
                 </Elem>
               </Block>
             )}
@@ -566,7 +616,9 @@ const Configurator = ({
               waiting={waiting}
               aria-label="Save configuration"
             >
-              {waiting ? "Saving..." : "Save"}
+              {waiting ? defaultT(t, "pages.create_project.config_label.saving",
+              "Saving...") : defaultT(t, "pages.create_project.config_label.save",
+              "Save") }
             </Button>
             {isFF(FF_UNSAVED_CHANGES) && <UnsavedChanges hasChanges={hasChanges} onSave={onSave} />}
           </Form.Actions>

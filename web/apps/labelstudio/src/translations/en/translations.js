@@ -6,6 +6,9 @@ export const TRANSLATIONS_EN = {
     or: "or",
     cancel: "Cancel",
     import: "Import",
+    labeling: "Labeling",
+    labeling_instructions: "Labeling Instructions",
+    instructions: "Instructions",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -165,6 +168,21 @@ export const TRANSLATIONS_EN = {
         add_label_names: "Add label names",
         configure_settings: "Configure settings",
         ui_preview: "UI Preview",
+        empty_config_placeholder:
+          "Your labeling configuration is empty. It is required to label your data. ",
+        empty_config_starting_info:
+          "Start from one of our predefined templates or create your own config on the Code panel. The labeling config is XML-based and you can",
+        empty_config_read_docs:
+          "read about the available tags in our documentation",
+        use_new_line_as_separator:
+          "Use new line as a separator to add multiple labels",
+        use: "Use",
+        configure_labeling_interface:
+          "Configure the labeling interface with tags.",
+        see_all_available_tags: "See all available tags",
+        saved: "Saved",
+        saving: "Saving...",
+        save: "Save",
       },
       draft: {
         name: "New Project",
@@ -238,6 +256,10 @@ export const TRANSLATIONS_EN = {
         save: "Save",
       },
       storageSettings: {},
+    },
+    data_manager: {
+      deleted_project: "Project was deleted or not yet created",
+      back_to_projects: "Back to projects",
     },
   },
   libs: {
