@@ -5,6 +5,9 @@ import { Button } from "@humansignal/ui";
 import { FilterLine } from "./FilterLine/FilterLine";
 import { IconChevronRight, IconPlus } from "@humansignal/icons";
 import "./Filters.scss";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../core/src/index";
+
 
 const injector = inject(({ store }) => ({
   store,
@@ -14,6 +17,7 @@ const injector = inject(({ store }) => ({
 }));
 
 export const Filters = injector(({ views, currentView, filters }) => {
+  const { t } = useTranslation();
   const { sidebarEnabled } = views;
 
   const fields = React.useMemo(
@@ -64,7 +68,11 @@ export const Filters = injector(({ views, currentView, filters }) => {
             />
           ))
         ) : (
-          <Elem name="empty">No filters applied</Elem>
+          <Elem name="empty">{defaultT(
+            t,
+            "libs.datamanager.emptyState.noFilters",
+            "No filters applied"
+          )}</Elem>
         )}
       </Elem>
       <Elem name="actions">
@@ -74,7 +82,19 @@ export const Filters = injector(({ views, currentView, filters }) => {
           onClick={() => currentView.createFilter()}
           leading={<IconPlus className="!h-3 !w-3" />}
         >
-          Add {filters.length ? "Another Filter" : "Filter"}
+          {defaultT(
+            t,
+            "common.add",
+            "Add"
+          )} {filters.length ? defaultT(
+            t,
+            "libs.datamanager.emptyState.anotherFilter",
+            "Another Filter"
+          ) : defaultT(
+            t,
+            "libs.datamanager.emptyState.filter",
+            "Filter"
+          )}
         </Button>
 
         {!sidebarEnabled ? (

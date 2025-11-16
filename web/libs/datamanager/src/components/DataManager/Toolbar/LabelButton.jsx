@@ -105,9 +105,9 @@ export const LabelButton = injector(({ store, canLabel, size, target, selectedCo
               "All"
             )} {defaultT(
               t,
-              "libs.datamanager.emptyState.task",
-              "Task"
-            )}{!selectedCount || selectedCount > 1 ? "s" : ""}
+              `libs.datamanager.emptyState.task${!selectedCount || selectedCount > 1 ? "s" : ""}`,
+              `Task${!selectedCount || selectedCount > 1 ? "s" : ""}`
+            )}
           </Button>
           <Dropdown.Trigger
             align="bottom-right"
