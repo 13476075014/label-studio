@@ -6,9 +6,12 @@ import { Oneof } from "../../../components/Oneof/Oneof";
 import { ApiContext } from "../../../providers/ApiProvider";
 import { Block, Elem } from "../../../utils/bem";
 import { isDefined } from "../../../utils/helpers";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const StorageForm = forwardRef(({ onSubmit, target, project, rootClass, storage, storageTypes }, ref) => {
   /**@type {import('react').RefObject<Form>} */
+  const { t } = useTranslation();
   const api = useContext(ApiContext);
   const formRef = ref ?? useRef();
   const [type, setType] = useState(storage?.type ?? storageTypes?.[0]?.name ?? "s3");
@@ -34,7 +37,8 @@ export const StorageForm = forwardRef(({ onSubmit, target, project, rootClass, s
         skip: true,
         type: "select",
         name: "storage_type",
-        label: "Storage Type",
+        label: defaultT(t, "pages.settings.storage.storage_type",
+          "Storage Type"),
         disabled: !!storage,
         options: storageTypes.map(({ name, title }) => ({
           value: name,
@@ -77,7 +81,9 @@ export const StorageForm = forwardRef(({ onSubmit, target, project, rootClass, s
   }, [formRef, target, type, storage]);
 
   const action = useMemo(() => {
-    return storage ? "updateStorage" : "createStorage";
+    return storage ? defaultT(t, "pages.settings.storage.updateStorage",
+          "updateStorage") : defaultT(t, "pages.settings.storage.createStorage",
+          "createStorage");
   }, [storage]);
 
   return (
@@ -100,10 +106,12 @@ export const StorageForm = forwardRef(({ onSubmit, target, project, rootClass, s
             <Block name="form-indicator">
               <Oneof value={connectionValid}>
                 <Elem tag="span" mod={{ type: "success" }} name="item" case={true}>
-                  Successfully connected!
+                  {defaultT(t, "pages.settings.storage.success_connected",
+          "Successfully connected!")}
                 </Elem>
                 <Elem tag="span" mod={{ type: "fail" }} name="item" case={false}>
-                  Connection failed
+                  {defaultT(t, "pages.settings.storage.fail_connected",
+          "Connection failed")}
                 </Elem>
               </Oneof>
             </Block>
@@ -119,10 +127,13 @@ export const StorageForm = forwardRef(({ onSubmit, target, project, rootClass, s
             onClick={validateStorageConnection}
             aria-label="Test storage connection"
           >
-            Check Connection
+            {defaultT(t, "pages.settings.storage.checkConnection",
+          "Check Connection")}
           </Button>
           <Button type="submit" aria-label={storage ? "Save storage settings" : "Add storage"}>
-            {storage ? "Save" : "Add Storage"}
+            {storage ? defaultT(t, "common.save",
+          "Save") : defaultT(t, "pages.settings.storage.addStorage",
+          "Add Storage")}
           </Button>
         </div>
       </Form.Actions>

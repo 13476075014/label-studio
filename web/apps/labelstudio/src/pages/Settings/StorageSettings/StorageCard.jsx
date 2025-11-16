@@ -4,8 +4,11 @@ import { Button } from "@humansignal/ui";
 import { ApiContext } from "../../../providers/ApiProvider";
 import { StorageSummary } from "./StorageSummary";
 import { IconEllipsisVertical } from "@humansignal/icons";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const StorageCard = ({ rootClass, target, storage, onEditStorage, onDeleteStorage, storageTypes }) => {
+  const { t } = useTranslation();
   const [syncing, setSyncing] = useState(false);
   const api = useContext(ApiContext);
   const [storageData, setStorageData] = useState({ ...storage });
@@ -39,14 +42,17 @@ export const StorageCard = ({ rootClass, target, storage, onEditStorage, onDelet
 
   return (
     <Card
-      header={storageData.title ?? `Untitled ${storageData.type}`}
+      header={storageData.title ?? `${defaultT(t, "pages.settings.storage.untilted",
+          "Untitled")} ${storageData.type}`}
       extra={
         <Dropdown.Trigger
           align="right"
           content={
             <Menu size="compact" style={{ width: 110 }}>
-              <Menu.Item onClick={() => onEditStorage(storageData)}>Edit</Menu.Item>
-              <Menu.Item onClick={() => onDeleteStorage(storageData)}>Delete</Menu.Item>
+              <Menu.Item onClick={() => onEditStorage(storageData)}>{defaultT(t, "common.edit",
+          "Edit")}</Menu.Item>
+              <Menu.Item onClick={() => onDeleteStorage(storageData)}>{defaultT(t, "common.delete",
+          "Delete")}</Menu.Item>
             </Menu>
           }
         >
@@ -71,11 +77,13 @@ export const StorageCard = ({ rootClass, target, storage, onEditStorage, onDelet
             disabled={notSyncedYet}
             aria-label="Sync Storage"
           >
-            Sync Storage
+            {defaultT(t, "pages.settings.storage.sync_storage",
+          "Sync Storage")}
           </Button>
           {notSyncedYet && (
             <div className={rootClass.elem("sync-count")}>
-              Syncing may take some time, please refresh the page to see the current status.
+              {defaultT(t, "pages.settings.storage.syncing_message",
+          "Syncing may take some time, please refresh the page to see the current status.")}
             </div>
           )}
         </div>

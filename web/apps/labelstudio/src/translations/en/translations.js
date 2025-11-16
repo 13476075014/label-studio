@@ -1,3 +1,4 @@
+import { de } from "date-fns/locale";
 import { all } from "libs/datamanager/src/utils/utils";
 import { title } from "process";
 
@@ -11,6 +12,14 @@ export const TRANSLATIONS_EN = {
     instructions: "Instructions",
     saved: "Saved",
     save: "Save",
+    edit: "Edit",
+    delete: "Delete",
+    connect: "Connect",
+    model: "Model",
+    target: "Target",
+    source: "Source",
+    storage: "Storage",
+    learn_more: "Learn more",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -224,6 +233,33 @@ export const TRANSLATIONS_EN = {
         connectModel_description3:
           "If you want to use the model predictions for prelabeling, please configure this in the",
         annotationSettings: "Annotation settings",
+        deleteMLBackend: "Delete ML Backend",
+        deleteMLBackendConfirmation:
+          "This action cannot be undone. Are you sure?",
+        edit: "Edit",
+        testRequest: "Send Test Request",
+        startTraining: "Start Training",
+        delete: "Delete",
+        created: "Created",
+        disconnected: "Disconnected",
+        connected: "Connected",
+        error: "Error",
+        training: "Training",
+        predicting: "Predicting",
+        name: "Name",
+        enterName: "Enter a name",
+        backendURL: "Backend URL",
+        selectAuthMethod: "Select authentication method",
+        notAuth: "No Authentication",
+        basicAuth: "Basic Authentication",
+        basicAuthUser: "Basic auth user",
+        basicAuthPass: "Basic auth pass",
+        extraParams: "Any extra params to pass during model connection",
+        interactivePreannotations: "Interactive preannotations",
+        interactivePreannotationsDescription:
+          "If enabled some labeling tools will send requests to the ML Backend interactively during the annotation process.",
+        validateAndSave: "Validate and Save",
+        navigateToDataManager: "Navigate to the Data Manager",
       },
       general: {
         title: "General Settings",
@@ -278,6 +314,50 @@ export const TRANSLATIONS_EN = {
         save: "Save",
       },
       storageSettings: {},
+      predictions: {
+        title: "Predictions",
+        list: "Predictions List",
+        description1:
+          "List of predictions available in the project. Each card is associated with a separate model version. To learn about how to import predictions",
+        see_documentation: "see&nbsp;the&nbsp;documentation",
+        no_predictions: "No predictions yet uploaded",
+        description2:
+          "Predictions could be used to prelabel the data, or validate the model. You can upload and select predictions from multiple model versions. You can also connect live models in the Model tab.",
+        need_help: "Need help",
+        learn_more_about_predictions:
+          "Learn more on how to upload predictions in our docs",
+      },
+      storage: {
+        title: "Storage Settings",
+        cloudStorage: "Cloud Storage",
+        cloudStorageDescription:
+          "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
+        sourceCloudStorage: "Source Cloud Storage",
+        addSourceCloudStorage: "Add Source Storage",
+        targetCloudStorage: "Target Cloud Storage",
+        addTargetStorage: "Add Target Storage",
+        deleteStorage: "Deleting storage",
+        deleteStorageConfirmation:
+          "This action cannot be undone. Are you sure?",
+        storage_type: "Storage Type",
+        updateStorage: "updateStorage",
+        createStorage: "createStorage",
+        success_connected: "Successfully connected!",
+        fail_connected: "Connection failed",
+        checkConnection: "Check Connection",
+        addStorage: "Add Storage",
+        untilted: "Untitled",
+        sync_storage: "Sync Storage",
+        syncing_message:
+          "Syncing may take some time, please refresh the page to see the current status.",
+        azure_blob_storage_with_service_principal:
+          "Azure Blob Storage\nwith Service Principal",
+        azure_blob_storage_with_service_principal_description:
+          "Configure your Azure Blob Storage connection using Service Principal authentication for enhanced security (proxy only)",
+        enterprise_feature: "Enterprise Feature",
+        azure_blob_storage_with_service_principal_description_enterprise:
+          "Azure Blob Storage with Service Principal is available in Label Studio Enterprise.",
+      },
     },
     data_manager: {
       deleted_project: "Project was deleted or not yet created",

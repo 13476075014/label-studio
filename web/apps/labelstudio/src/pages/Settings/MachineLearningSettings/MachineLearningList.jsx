@@ -10,6 +10,8 @@ import { IconEllipsis } from "@humansignal/icons";
 import { Tooltip } from "@humansignal/ui";
 import { ApiContext } from "../../../providers/ApiProvider";
 import { Block, cn } from "../../../utils/bem";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 import "./MachineLearningList.scss";
 
@@ -45,11 +47,14 @@ export const MachineLearningList = ({ backends, fetchBackends, onEdit, onTestReq
 };
 
 const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest }) => {
+  const { t } = useTranslation();
   const confirmDelete = useCallback(
     (backend) => {
       confirm({
-        title: "Delete ML Backend",
-        body: "This action cannot be undone. Are you sure?",
+        title: defaultT(t, "pages.setting.menu.deleteMLBackend",
+          "Delete ML Backend"),
+        body: defaultT(t, "pages.setting.menu.deleteMLBackendConfirmation",
+          "This action cannot be undone. Are you sure?") ,
         buttonLook: "destructive",
         onOk() {
           onDelete?.(backend);
@@ -74,12 +79,16 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
             align="right"
             content={
               <Menu size="medium" contextual>
-                <Menu.Item onClick={() => onEdit(backend)}>Edit</Menu.Item>
-                <Menu.Item onClick={() => onTestRequest(backend)}>Send Test Request</Menu.Item>
-                <Menu.Item onClick={() => onStartTrain(backend)}>Start Training</Menu.Item>
+                <Menu.Item onClick={() => onEdit(backend)}>{defaultT(t, "pages.setting.menu.edit",
+          "Edit")}</Menu.Item>
+                <Menu.Item onClick={() => onTestRequest(backend)}>{defaultT(t, "pages.setting.menu.testRequest",
+          "Send Test Request")}</Menu.Item>
+                <Menu.Item onClick={() => onStartTrain(backend)}>{defaultT(t, "pages.setting.menu.startTraining",
+          "Start Training")}</Menu.Item>
                 <Menu.Divider />
                 <Menu.Item onClick={() => confirmDelete(backend)} isDangerous>
-                  Delete
+                  {defaultT(t, "pages.setting.menu.delete",
+          "Delete")}
                 </Menu.Item>
               </Menu>
             }
@@ -95,7 +104,8 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
         <div className={rootClass.elem("group")}>{truncate(backend.url, 20, 10, "...")}</div>
         <div className={rootClass.elem("group")}>
           <Tooltip title={format(parseISO(backend.created_at), "yyyy-MM-dd HH:mm:ss")}>
-            <span>Created&nbsp;{formatDistanceToNow(parseISO(backend.created_at), { addSuffix: true })}</span>
+            <span>{defaultT(t, "pages.setting.menu.created",
+          "Created")}&nbsp;{formatDistanceToNow(parseISO(backend.created_at), { addSuffix: true })}</span>
           </Tooltip>
         </div>
       </div>
@@ -104,17 +114,23 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
 };
 
 const BackendState = ({ backend }) => {
+  const { t } = useTranslation();
   const { state } = backend;
 
   return (
     <div className={cn("ml").elem("status")}>
       <span className={cn("ml").elem("indicator").mod({ state })} />
       <Oneof value={state} className={cn("ml").elem("status-label")}>
-        <span case="DI">Disconnected</span>
-        <span case="CO">Connected</span>
-        <span case="ER">Error</span>
-        <span case="TR">Training</span>
-        <span case="PR">Predicting</span>
+        <span case="DI">{defaultT(t, "pages.setting.menu.disconnected",
+          "Disconnected")}</span>
+        <span case="CO">{defaultT(t, "pages.setting.menu.connected",
+          "Connected")}</span>
+        <span case="ER">{defaultT(t, "pages.setting.menu.error",
+          "Error")}</span>
+        <span case="TR">{defaultT(t, "pages.setting.menu.training",
+          "Training")}</span>
+        <span case="PR">{defaultT(t, "pages.setting.menu.predicting",
+          "Predicting")}</span>
       </Oneof>
     </div>
   );

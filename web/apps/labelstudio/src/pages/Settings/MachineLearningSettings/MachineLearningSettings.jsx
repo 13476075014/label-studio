@@ -41,7 +41,7 @@ export const MachineLearningSettings = () => {
   const startTrainingModal = useCallback(
     (backend) => {
       const modalProps = {
-        title: defaultT(t, "pages.setting.menu.startTraining",
+        title: defaultT(t, "pages.settings.menu.startTraining",
           "Start Model Training"),
         style: { width: 760 },
         closeOnClickOutside: true,
@@ -56,7 +56,7 @@ export const MachineLearningSettings = () => {
   const showRequestModal = useCallback(
     (backend) => {
       const modalProps = {
-        title: defaultT(t, "pages.setting.menu.testRequest",
+        title: defaultT(t, "pages.settings.menu.testRequest",
           "Test Request"),
         style: { width: 760 },
         closeOnClickOutside: true,
@@ -70,11 +70,14 @@ export const MachineLearningSettings = () => {
 
   const showMLFormModal = useCallback(
     (backend) => {
-      const action = backend ? defaultT(t, "pages.setting.menu.editMLBackend",
-          "updateMLBackend") : defaultT(t, "pages.setting.menu.addMLBackend",
+      const action = backend ? defaultT(t, "pages.settings.menu.editMLBackend",
+          "updateMLBackend") : defaultT(t, "pages.settings.menu.addMLBackend",
           "addMLBackend");
       const modalProps = {
-        title: `${backend ? "Edit" : "Connect"} Model`,
+        title: `${backend ? defaultT(t, "common.edit",
+          "Edit") : defaultT(t, "common.connect",
+          "Connect")} ${defaultT(t, "common.model",
+          "Model")}`,
         style: { width: 760 },
         closeOnClickOutside: false,
         body: (
@@ -105,30 +108,30 @@ export const MachineLearningSettings = () => {
     <section>
       <div className="w-[40rem]">
         <Typography variant="headline" size="medium" className="mb-base">
-          {defaultT(t, "pages.setting.menu.model",
+          {defaultT(t, "pages.settings.menu.model",
           "Model")}
         </Typography>
         {loading && <Spinner size={32} />}
         {loaded && backends.length === 0 && (
           <EmptyState
             icon={<IconModels />}
-            title={defaultT(t, "pages.setting.menu.connectModel",
+            title={defaultT(t, "pages.settings.menu.connectModel",
           "Let’s connect your first model")}
-            description={defaultT(t, "pages.setting.menu.connectModel_description",
+            description={defaultT(t, "pages.settings.menu.connectModel_description",
               "Connect a machine learning model to generate predictions. These predictions can be compared side by side, used for efficient pre‒labeling and, to aid in active learning, directing users to the most impactful labeling tasks.")}
             action={
               <Button primary onClick={() => showMLFormModal()} aria-label="Add machine learning model">
-                {defaultT(t, "pages.setting.menu.connectModel2",
+                {defaultT(t, "pages.settings.menu.connectModel2",
                 "Connect Model")}
               </Button>
             }
             footer={
               <div>
-                {defaultT(t, "pages.setting.menu.needHelp",
+                {defaultT(t, "pages.settings.menu.needHelp",
                 "Need help?")}
                 <br />
                 <a href="https://labelstud.io/guide/ml" target="_blank" rel="noreferrer">
-                  {defaultT(t, "pages.setting.menu.learnMoreAboutConnectingModels",
+                  {defaultT(t, "pages.settings.menu.learnMoreAboutConnectingModels",
                 "Learn more about connecting models in our docs")}
                 </a>
               </div>
@@ -146,24 +149,25 @@ export const MachineLearningSettings = () => {
         {backends.length > 0 && (
           <div className="my-wide">
             <Typography size="small" className="text-neutral-content-subtler">
-              {defaultT(t, "pages.setting.menu.connectModel_description2",
+              {defaultT(t, "pages.settings.menu.connectModel_description2",
                 "A connected model has been detected! If you wish to fetch predictions from this model, please follow these steps:")}
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-base">
-              1. Navigate to the <i>Data Manager</i>.
+              1. {defaultT(t, "pages.settings.menu.navigateToDataManager",
+                "Navigate to the Data Manager")} .
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-tighter">
-              2. {defaultT(t, "pages.setting.menu.selectTheDesiredTasks",
+              2. {defaultT(t, "pages.settings.menu.selectTheDesiredTasks",
                 "Select the desired tasks.")}
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-tighter">
               3. Click on <i>Batch predictions</i> from the <i>Actions</i> menu.
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-base">
-              {defaultT(t, "pages.setting.menu.connectModel_description3",
+              {defaultT(t, "pages.settings.menu.connectModel_description3",
                 "If you want to use the model predictions for prelabeling, please configure this in the")}{" "}
               <NavLink to="annotation" className="hover:underline">
-                {defaultT(t, "pages.setting.menu.annotationSettings",
+                {defaultT(t, "pages.settings.menu.annotationSettings",
                 "Annotation settings")}
               </NavLink>
               .
@@ -171,14 +175,15 @@ export const MachineLearningSettings = () => {
           </div>
         )}
 
-        <Form
+        {/* lcc 隐藏 提交标注后开始模型训练  */}
+        {/* <Form
           action="updateProject"
           formData={{ ...project }}
           params={{ pk: project.id }}
           onSubmit={() => fetchProject()}
         >
-          {/* lcc 隐藏 提交标注后开始模型训练  */}
-          {/* {backends.length > 0 && (
+
+          {backends.length > 0 && (
             <div className="p-wide border border-neutral-border rounded-md">
               <Form.Row columnCount={1}>
                 <Label text="Configuration" large />
@@ -192,7 +197,7 @@ export const MachineLearningSettings = () => {
                 </div>
               </Form.Row>
             </div>
-          )} */}
+          )}
 
           {backends.length > 0 && (
             <Form.Actions>
@@ -204,7 +209,7 @@ export const MachineLearningSettings = () => {
               </Button>
             </Form.Actions>
           )}
-        </Form>
+        </Form> */}
       </div>
     </section>
   );

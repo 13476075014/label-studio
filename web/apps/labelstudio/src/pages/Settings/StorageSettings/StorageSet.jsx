@@ -12,8 +12,11 @@ import { useStorageCard } from "./hooks/useStorageCard";
 import { providers } from "./providers";
 import { StorageCard } from "./StorageCard";
 import { StorageForm } from "./StorageForm";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const StorageSet = forwardRef(({ title, target, rootClass, buttonLabel }, ref) => {
+  const { t } = useTranslation();
   const api = useContext(ApiContext);
   const project = useAtomValue(projectAtom);
   // The useStorageCard hook now consolidates this
@@ -28,9 +31,9 @@ export const StorageSet = forwardRef(({ title, target, rootClass, buttonLabel },
 
   const showStorageFormModal = useCallback(
     (storage) => {
-      const action = storage ? "Edit" : "Connect";
-      const actionTarget = target === "export" ? "Target" : "Source";
-      const title = `${action} ${actionTarget} Storage`;
+      const action = storage ? defaultT(t, "common.edit", "Edit") : defaultT(t, "common.connect", "Connect");
+      const actionTarget = target === "export" ? defaultT(t, "common.target", "Target") : defaultT(t, "common.source", "Source");
+      const title = `${action} ${actionTarget} ${defaultT(t, "common.storage.", "Storage")}`;
 
       const modalRef = modal({
         title,
@@ -96,8 +99,10 @@ export const StorageSet = forwardRef(({ title, target, rootClass, buttonLabel },
   const onDeleteStorage = useCallback(
     async (storage) => {
       confirm({
-        title: "Deleting storage",
-        body: "This action cannot be undone. Are you sure?",
+        title: defaultT(t, "pages.settings.storage.deleteStorage",
+          "Deleting storage"),
+        body: defaultT(t, "pages.settings.storage.deleteStorageConfirmation",
+          "This action cannot be undone. Are you sure?"),
         buttonLook: "negative",
         onOk: async () => {
           const response = await api.callApi("deleteStorage", {
