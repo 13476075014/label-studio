@@ -1,4 +1,6 @@
 import { Button, cnm } from "@humansignal/ui";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 interface FormFooterProps {
   currentStep: number;
@@ -43,10 +45,11 @@ export const FormFooter = ({
   target,
   isProviderDisabled = false,
 }: FormFooterProps) => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-between p-wide border-t border-neutral-border bg-neutral-background">
       <Button look="outlined" onClick={onPrevious} disabled={currentStep === 0}>
-        Previous
+        {defaultT(t, "common.previous", "Previous")}
       </Button>
 
       <div className="flex gap-tight items-center">
@@ -62,14 +65,26 @@ export const FormFooter = ({
               })}
               style={connectionChecked ? { textShadow: "none" } : {}}
             >
-              {connectionChecked ? "Connection Verified" : "Test Connection"}
+              {connectionChecked
+                ? defaultT(
+                    t,
+                    "pages.settings.storage.connectionVerified",
+                    "Connection Verified"
+                  )
+                : defaultT(t, "commmon.testConnection", "Test Connection")}
             </Button>
           </>
         )}
 
         {(isEditMode ? currentStep === 1 : currentStep === 2) && (
-          <Button waiting={loadPreview.isLoading} onClick={loadPreview.mutate} disabled={filesPreview !== null}>
-            {filesPreview !== null ? "✓ Preview Loaded" : "Load Preview"}
+          <Button
+            waiting={loadPreview.isLoading}
+            onClick={loadPreview.mutate}
+            disabled={filesPreview !== null}
+          >
+            {filesPreview !== null
+              ? defaultT(t, "common.previewLoaded", "✓ Preview Loaded")
+              : defaultT(t, "common.loadPreview", "Load Preview")}
           </Button>
         )}
 
@@ -77,23 +92,40 @@ export const FormFooter = ({
           onClick={onNext}
           waiting={currentStep === totalSteps - 1 && createStorage.isLoading}
           disabled={
-            (!isEditMode && currentStep === 1 && !connectionChecked) || (currentStep === 0 && isProviderDisabled)
+            (!isEditMode && currentStep === 1 && !connectionChecked) ||
+            (currentStep === 0 && isProviderDisabled)
           }
-          look={currentStep === totalSteps - 1 && target !== "export" ? "outlined" : undefined}
+          look={
+            currentStep === totalSteps - 1 && target !== "export"
+              ? "outlined"
+              : undefined
+          }
           tooltip={
             currentStep === 1 && !connectionChecked
-              ? "Test connection before continuing"
+              ? defaultT(
+                  t,
+                  "pages.settings.storage.testConnectionBeforeContinuing",
+                  "Test connection before continuing"
+                )
               : currentStep === 0 && isProviderDisabled
-                ? "This provider is not available in the current version"
-                : undefined
+              ? defaultT(
+                  t,
+                  "pages.settings.storage.thisProviderIsNotAvailableInTheCurrentVersion",
+                  "This provider is not available in the current version"
+                )
+              : undefined
           }
         >
-          {currentStep < totalSteps - 1 ? "Next" : target === "export" ? "Save" : "Save & Sync"}
+          {currentStep < totalSteps - 1
+            ? defaultT(t, "common.next", "Next")
+            : target === defaultT(t, "common.export", "export")
+            ? defaultT(t, "common.save", "Save")
+            : defaultT(t, "common.saveAndSync", "Save & Sync")}
         </Button>
 
         {currentStep === totalSteps - 1 && target !== "export" && onSave && (
           <Button onClick={onSave} waiting={saveStorage?.isLoading}>
-            Save
+            {defaultT(t, "common.save", "Save ")}
           </Button>
         )}
       </div>

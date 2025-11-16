@@ -3,6 +3,8 @@ import { Form, Input } from "apps/labelstudio/src/components/Form";
 import { IconDocument, IconSearch } from "@humansignal/icons";
 import { formatDistanceToNow } from "date-fns";
 import type { ForwardedRef } from "react";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
 
 interface PreviewStepProps {
   formData: any;
@@ -80,20 +82,45 @@ export const PreviewStep = ({
   formatSize,
   onImportSettingsChange,
 }: PreviewStepProps) => {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-semibold">Configure Import Settings & Preview Data</h2>
-        <p className="text-muted-foreground">Set up filters for your files and preview what will be synchronized</p>
+        <h2 className="text-xl font-semibold">
+          {defaultT(
+            t,
+            "pages.settings.storage.configure_import_settings_and_preview_data",
+            "Configure Import Settings & Preview Data"
+          )}
+        </h2>
+        <p className="text-muted-foreground">
+          {defaultT(
+            t,
+            "pages.settings.storage.set_up_filters_for_your_files",
+            "Set up filters for your files and preview what will be synchronized"
+          )}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Left Column Header */}
-        <h4>Import Configuration</h4>
+        <h4>
+          {defaultT(
+            t,
+            "pages.settings.storage.import_configuration",
+            "Import Configuration"
+          )}
+        </h4>
 
         {/* Right Column Header with Button */}
         <div className="flex justify-between items-center">
-          <h4>Files Preview</h4>
+          <h4>
+            {defaultT(
+              t,
+              "pages.settings.storage.files_preview",
+              "Files Preview"
+            )}
+          </h4>
         </div>
 
         {/* Left Column: Configuration */}
@@ -112,22 +139,56 @@ export const PreviewStep = ({
               {/* Path/Bucket Prefix Section - Hide for localfiles since it has its own path field */}
               {type !== "localfiles" && (
                 <div className="space-y-2">
-                  <Label text={`${type === "redis" ? "Path to Files" : "Bucket Prefix"} (optional)`} />
+                  <Label
+                    text={`${
+                      type === "redis"
+                        ? defaultT(
+                            t,
+                            "pages.settings.storage.path_to_files",
+                            "Path to Files"
+                          )
+                        : defaultT(
+                            t,
+                            "pages.settings.storage.bucket_prefix",
+                            "Bucket Prefix"
+                          )
+                    } (${defaultT(
+                      t,
+                      "pages.settings.storage.optional",
+                      "optional"
+                    )})`}
+                  />
                   <p className="text-sm text-muted-foreground">
                     {type === "redis"
-                      ? "Specify the folder path within your storage where your files are located"
-                      : "Specify the folder path within your bucket where your files are located"}
+                      ? defaultT(
+                          t,
+                          "pages.settings.storage.specify_folder_path",
+                          "Specify the folder path within your storage where your files are located"
+                        )
+                      : defaultT(
+                          t,
+                          "pages.settings.storage.specify_bucket_path",
+                          "Specify the folder path within your bucket where your files are located"
+                        )}
                   </p>
                   <Input
                     id={type === "redis" ? "path" : "prefix"}
                     name={type === "redis" ? "path" : "prefix"}
-                    value={type === "redis" ? (formData.path ?? "") : (formData.prefix ?? "")}
+                    value={
+                      type === "redis"
+                        ? formData.path ?? ""
+                        : formData.prefix ?? ""
+                    }
                     onChange={(e) => {
                       handleChange(e);
                       // Reset preview when prefix/path changes
                       onImportSettingsChange?.();
                     }}
-                    placeholder="path/to/files/ or leave empty for root"
+                    placeholder={defaultT(
+                      t,
+                      "pages.settings.storage.path_to_files_or_leave_empty_for_root",
+                      "path/to/files/ or leave empty for root"
+                    )}
                     style={{ width: "100%" }}
                     required={false}
                     skip={false}
@@ -141,7 +202,13 @@ export const PreviewStep = ({
               {/* Import Method */}
               <div className="space-y-2">
                 <Label text="Import Method (optional)" />
-                <p className="text-sm text-muted-foreground">Choose how to interpret your data from storage</p>
+                <p className="text-sm text-muted-foreground">
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.choose_how_to_interpret_your_data",
+                    "Choose how to interpret your data from storage"
+                  )}
+                </p>
                 <Select
                   name="use_blob_urls"
                   value={formData.use_blob_urls ? "Files" : "Tasks"}
@@ -162,22 +229,40 @@ export const PreviewStep = ({
                     [
                       {
                         value: "Files",
-                        label: "Files - Automatically creates a task for each storage object (e.g. JPG, MP3, TXT)",
+                        label: defaultT(
+                          t,
+                          "pages.settings.storage.files_automatically_creates_a_task_for_each_storage_object",
+                          "Files - Automatically creates a task for each storage object (e.g. JPG, MP3, TXT)"
+                        ),
                       },
                       {
                         value: "Tasks",
-                        label: "Tasks - Treat each JSON, JSONL, or Parquet as one or more task definitions per file",
+                        label: defaultT(
+                          t,
+                          "pages.settings.storage.tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file",
+                          "Tasks - Treat each JSON, JSONL, or Parquet as one or more task definitions per file"
+                        ),
                       },
                     ] as any
                   }
-                  placeholder="Select import method"
+                  placeholder={defaultT(
+                    t,
+                    "pages.settings.storage.select_import_method",
+                    "Select import method"
+                  )}
                 />
               </div>
 
               {/* File Filter Section */}
               <div className="space-y-2">
                 <Label text="File Name Filter (optional)" />
-                <p className="text-sm text-muted-foreground">Use regex patterns to filter which files are imported</p>
+                <p className="text-sm text-muted-foreground">
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.use_regex_patterns_to_filter_which_files_are_imported",
+                    "Use regex patterns to filter which files are imported"
+                  )}
+                </p>
                 <Input
                   id="regex_filter"
                   name="regex_filter"
@@ -207,7 +292,14 @@ export const PreviewStep = ({
                 />
 
                 <div className="flex flex-wrap gap-x-2 items-center text-xs">
-                  <span className="text-muted-foreground">Common filters:</span>
+                  <span className="text-muted-foreground">
+                    {defaultT(
+                      t,
+                      "pages.settings.storage.common_filters",
+                      "Common filters"
+                    )}
+                    :
+                  </span>
                   {regexFilters
                     .filter((r) => r.blob === formData.use_blob_urls)
                     .map((r) => {
@@ -240,7 +332,13 @@ export const PreviewStep = ({
               <div className="flex items-center justify-between">
                 <div>
                   <Label text="Scan all sub-folders" className="block mb-2" />
-                  <p className="text-sm text-muted-foreground">Include files from all nested folders</p>
+                  <p className="text-sm text-muted-foreground">
+                    {defaultT(
+                      t,
+                      "pages.settings.storage.include_files_from_all_nested_folders",
+                      "Include files from all nested folders"
+                    )}
+                  </p>
                 </div>
                 <Toggle
                   checked={formData.recursive_scan ?? false}
@@ -270,10 +368,19 @@ export const PreviewStep = ({
                 <div className="rounded-full bg-muted p-3 mb-4">
                   <IconDocument className="h-6 w-6 text-muted-foreground" />
                 </div>
-                <h3 className="font-medium mb-1">No Preview Available</h3>
+                <h3 className="font-medium mb-1">
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.no_preview_available",
+                    " No Preview Available"
+                  )}
+                </h3>
                 <p className="text-sm text-muted-foreground max-w-md">
-                  Configure your import settings and click "Load Preview" to see a sample of files that will be
-                  imported.
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.preview_files_will_be_displayed_here",
+                    'Configure your import settings and click "Load Preview" to see a sample of files that will be imported.'
+                  )}
                 </p>
               </div>
             ) : filesPreview.length === 0 ? (
@@ -282,10 +389,19 @@ export const PreviewStep = ({
                 <div className="rounded-full bg-muted p-3 mb-4">
                   <IconSearch className="h-6 w-6 text-muted-foreground" />
                 </div>
-                <h3 className="font-medium mb-1">No Files Found</h3>
+                <h3 className="font-medium mb-1">
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.no_files_found",
+                    "No Files Found"
+                  )}
+                </h3>
                 <p className="text-sm text-muted-foreground max-w-md">
-                  No files matching your current criteria were found. Try adjusting your filter settings and reload the
-                  preview.
+                  {defaultT(
+                    t,
+                    "pages.settings.storage.no_files_matching_your_current_criteria_were_found",
+                    "No files matching your current criteria were found. Try adjusting your filter settings and reload the preview."
+                  )}
                 </p>
               </div>
             ) : (
@@ -299,10 +415,13 @@ export const PreviewStep = ({
                         "flex justify-between py-0.5 px-2 bg-neutral-surface border-b last:border-b-0 rounded-small",
                         {
                           "hover:bg-neutral-surface-hover": file.key !== null,
-                        },
+                        }
                       )}
                     >
-                      <Tooltip title={file.key || "..."} disabled={file.key === null}>
+                      <Tooltip
+                        title={file.key || "..."}
+                        disabled={file.key === null}
+                      >
                         <div
                           className={cn("max-w-[260px] overflow-hidden", {
                             "cursor-help": file.key !== null,
@@ -317,13 +436,23 @@ export const PreviewStep = ({
                               file.key
                             )
                           ) : (
-                            <span className="italic">... preview limit reached ...</span>
+                            <span className="italic">
+                              ...{" "}
+                              {defaultT(
+                                t,
+                                "pages.settings.storage.preview_limit_reached",
+                                "preview limit reached ..."
+                              )}
+                            </span>
                           )}
                         </div>
                       </Tooltip>
                       <div className="flex items-center space-x-1 text-muted-foreground whitespace-nowrap">
                         <span>
-                          {file.last_modified && formatDistanceToNow(new Date(file.last_modified), { addSuffix: true })}
+                          {file.last_modified &&
+                            formatDistanceToNow(new Date(file.last_modified), {
+                              addSuffix: true,
+                            })}
                         </span>
                         <span className="mx-0.5">•</span>
                         <span>{file.size && formatSize(file.size)}</span>

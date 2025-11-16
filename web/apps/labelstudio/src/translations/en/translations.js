@@ -7,11 +7,13 @@ export const TRANSLATIONS_EN = {
     or: "or",
     cancel: "Cancel",
     import: "Import",
+    export: "Export",
     labeling: "Labeling",
     labeling_instructions: "Labeling Instructions",
     instructions: "Instructions",
     saved: "Saved",
     save: "Save",
+    saveAndSync: "Save & Sync",
     edit: "Edit",
     delete: "Delete",
     connect: "Connect",
@@ -20,6 +22,12 @@ export const TRANSLATIONS_EN = {
     source: "Source",
     storage: "Storage",
     learn_more: "Learn more",
+    previous: "Previous",
+    connectionVerified: "Connection Verified",
+    testConnection: "Test Connection",
+    previewLoaded: "✓ Preview Loaded",
+    loadPreview: "Load Preview",
+    next: "Next",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -357,6 +365,130 @@ export const TRANSLATIONS_EN = {
         enterprise_feature: "Enterprise Feature",
         azure_blob_storage_with_service_principal_description_enterprise:
           "Azure Blob Storage with Service Principal is available in Label Studio Enterprise.",
+        azure_blob_storage: "Azure Blob Storage",
+        configuration_required:
+          "Configure your Azure Blob Storage connection with all required Label Studio settings",
+        container_name: "Container Name",
+        my_azure_container: "my-azure-container",
+        bucket_prefix: "Bucket prefix",
+        path_to_files: "path/to/files",
+        account_name: "Account Name",
+        mystorage_account: "mystorageaccount",
+        account_key: "Account Key",
+        your_storage_account_key: "Your storage account key",
+        use_pre_signed_urls:
+          "Use pre-signed URLs (On) / Proxy through the platform (Off)",
+        when_pre_signed_urls_are_enabled:
+          "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
+        expire_pre_signed_urls: "Expire pre-signed URLs (minutes)",
+        databricks_files: "Databricks Files\n(UC Volumes)",
+        config_databricks_files:
+          "Configure your Databricks Unity Catalog Volumes connection with all required settings (proxy only)",
+        enterprise_feature: "Enterprise Feature",
+        databricks_files_enterprise:
+          "Databricks Files (UC Volumes) is available in Label Studio Enterprise.",
+        no_provider_selected: "No provider selected",
+        unknown_provider: "Unknown provider",
+        enter_description:
+          "Enter a descriptive name (e.g., 'Legal Documents', 'Training Data')",
+        storageTitle: "Storage Title",
+        this_name_will_help_you_identify_this_connection_in_your_project:
+          "This name will help you identify this connection in your project",
+        can_delete_objects: "Can delete objects from storage",
+        if_unchecked_annotations_will_not_be_deleted_from_storage:
+          "If unchecked, annotations will not be deleted from storage",
+        configure_import_settings_and_preview_data:
+          "Configure Import Settings & Preview Data",
+        set_up_filters_for_your_files:
+          "Set up filters for your files and preview what will be synchronized",
+        import_configuration: "Import Configuration",
+        files_preview: "Files Preview",
+        path_to_files: "Path to Files",
+        bucket_prefix: "Bucket Prefix",
+        optional: "optional",
+        specify_folder_path:
+          "Specify the folder path within your storage where your files are located",
+        specify_bucket_path:
+          "Specify the folder path within your bucket where your files are located",
+        path_to_files_or_leave_empty_for_root:
+          "path/to/files/ or leave empty for root",
+        choose_how_to_interpret_your_data:
+          "Choose how to interpret your data from storage",
+        files_automatically_creates_a_task_for_each_storage_object:
+          "Files - Automatically creates a task for each storage object (e.g. JPG, MP3, TXT)",
+        tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file:
+          "Tasks - Treat each JSON, JSONL, or Parquet as one or more task definitions per file",
+        select_import_method: "Select import method",
+        use_regex_patterns_to_filter_which_files_are_imported:
+          "Use regex patterns to filter which files are imported",
+        common_filters: "Common filters",
+        include_files_from_all_nested_folders:
+          "Include files from all nested folders",
+        no_preview_available: " No Preview Available",
+        preview_files_will_be_displayed_here:
+          'Configure your import settings and click "Load Preview" to see a sample of files that will be imported.',
+        no_files_found: "No Files Found",
+        no_files_matching_your_current_criteria_were_found:
+          "No files matching your current criteria were found. Try adjusting your filter settings and reload the preview.",
+        preview_limit_reached: "preview limit reached ...",
+        choose_provider: "Choose your cloud storage provider",
+        select_service:
+          "Select the cloud storage service where your data is stored",
+        unknownFieldType: "Unknown field type: ",
+        testConnectionBeforeContinuing: "Test connection before continuing",
+        thisProviderIsNotAvailableInTheCurrentVersion:
+          "This provider is not available in the current version",
+        amazon_s3: "Amazon S3",
+        configuration_required:
+          "Configure your AWS S3 connection with all required Label Studio settings",
+        bucket_name: "Bucket Name",
+        my_storage_bucket: "my-storage-bucket",
+        region_name: "Region Name",
+        us_east_1: "us-east-1 (default)",
+        s3_endpoint: "S3 Endpoint",
+        bucket_prefix: "Bucket prefix",
+        path_to_files: "path/to/files",
+        access_key_id: "Access Key ID",
+        secret_access_key: "Secret Access Key",
+        session_token: "Session Token",
+        session_token_optional: "Session token (optional)",
+        use_presigned_urls:
+          "Use pre-signed URLs (On) / Proxy through the platform (Off)",
+        when_pre_signed_urls_are_enabled:
+          "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
+        expire_pre_signed_urls: "Expire pre-signed URLs (minutes)",
+        google_cloud_storage: "Google Cloud Storage",
+        configure_your_google_cloud_storage_connection:
+          "Configure your Google Cloud Storage connection with all required Label Studio settings",
+        google_application_credentials: "Google Application Credentials",
+        paste_credentials_json:
+          "Paste the contents of credentials.json in this field OR leave it blank to use ADC.",
+        google_project_id: "Google Project ID",
+        leave_blank_to_inherit:
+          "Leave blank to inherit from Google Application Credentials.",
+        google_cloud_storage: "Google Cloud Storage\n(WIF Auth)",
+        configuration_description_wif:
+          "Configure your Google Cloud Storage connection with Workload Identity Federation authentication (proxy only)",
+        google_cloud_storage_wif_description:
+          "Google Cloud Storage with Workload Identity Federation is available in Label Studio Enterprise.",
+        local_files: "Local Files",
+        local_files_description2:
+          "Configure your local file storage connection with all required Label Studio settings",
+        absolute_local_path: "Absolute local path",
+        path: "Path",
+        redis_storage: "Redis Storage",
+        redis_description1:
+          "Configure your Redis storage connection with all required Label Studio settings",
+        database_number: "Database Number (db)",
+        password: "Password",
+        your_redis_password: "Your redis password",
+        host: "Host",
+        port: "Port",
+        amazon_s3_with_iam_role: "Amazon S3\nwith IAM Role",
+        configure_your_aws_s3_connection_using_iam_role_access_for_enhanced_security_proxy_only:
+          "Configure your AWS S3 connection using IAM role access for enhanced security (proxy only)",
+        amazon_s3_with_iam_role_available_in_label_studio_enterprise:
+          "Amazon S3 with IAM Role is available in Label Studio Enterprise.",
       },
     },
     data_manager: {

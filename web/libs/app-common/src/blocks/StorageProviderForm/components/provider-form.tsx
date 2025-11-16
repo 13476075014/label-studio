@@ -24,7 +24,8 @@ export const ProviderForm: React.FC<ProviderFormProps> = ({
   target,
 }) => {
   const getHiddenFields = (field: FieldDefinition | MessageDefinition) =>
-    field.type === "hidden" && (!target || !field.target || field.target === target);
+    field.type === "hidden" &&
+    (!target || !field.target || field.target === target);
 
   return (
     <div className="space-y-6">

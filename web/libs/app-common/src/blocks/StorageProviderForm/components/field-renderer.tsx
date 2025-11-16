@@ -4,6 +4,10 @@ import Counter from "apps/labelstudio/src/components/Form/Elements/Counter/Count
 import Input from "apps/labelstudio/src/components/Form/Elements/Input/Input";
 import type { FieldDefinition } from "../types/common";
 import { isFieldRequired } from "../types/provider";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface FieldRendererProps {
   field: FieldDefinition;
@@ -47,7 +51,9 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
   const isFieldDisabled = () => {
     return field.readOnly || isDisabledByDependency();
   };
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     // Don't allow changes if field is disabled
     if (isFieldDisabled()) {
       return;
@@ -57,7 +63,9 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
     onChange(name, parsedValue);
   };
 
-  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     if (onBlur) {
       const { name, value: inputValue, type } = e.target;
       const parsedValue = type === "number" ? Number(inputValue) : inputValue;
@@ -115,7 +123,14 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
 
   switch (field.type) {
     case "hidden":
-      return <input type="hidden" name={field.name} value={value || ""} onChange={handleInputChange} />;
+      return (
+        <input
+          type="hidden"
+          name={field.name}
+          value={value || ""}
+          onChange={handleInputChange}
+        />
+      );
     case "text":
     case "password":
       return (
@@ -185,7 +200,8 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
       );
     }
     case "counter": {
-      const counterValue = value !== undefined && value !== null ? value : field.min || 0;
+      const counterValue =
+        value !== undefined && value !== null ? value : field.min || 0;
       const isDisabled = isFieldDisabled();
       return (
         <Counter
@@ -208,6 +224,15 @@ export const FieldRenderer: React.FC<FieldRendererProps> = ({
     }
 
     default:
-      return <div className="text-red-500">Unknown field type: {field.type}</div>;
+      return (
+        <div className="text-red-500">
+          {defaultT(
+            t,
+            "pages.settings.storage.unknownFieldType",
+            "Unknown field type: "
+          )}{" "}
+          {field.type}
+        </div>
+      );
   }
 };
