@@ -8,8 +8,12 @@ import { Block, Elem } from "../../../utils/bem";
 import { isDefined } from "../../../utils/helpers";
 import "./PeopleList.scss";
 import { CopyableTooltip } from "../../../components/CopyableTooltip/CopyableTooltip";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
+  const { t } = useTranslation();
   const api = useAPI();
   const [usersList, setUsersList] = useState();
   const [currentPage] = usePage("page", 1);
@@ -66,13 +70,16 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
               <Elem name="header">
                 <Elem name="column" mix="avatar" />
                 <Elem name="column" mix="email">
-                  Email
+                  {defaultT(t, "pages.login.email",
+        "Email")}
                 </Elem>
                 <Elem name="column" mix="name">
-                  Name
+                  {defaultT(t, "common.name",
+        "Name")}
                 </Elem>
                 <Elem name="column" mix="last-activity">
-                  Last Activity
+                  {defaultT(t, "pages.organization.last_activity",
+        "Last Activity")}
                 </Elem>
               </Elem>
               <Elem name="body">
@@ -82,7 +89,8 @@ export const PeopleList = ({ onSelect, selectedUser, defaultSelected }) => {
                   return (
                     <Elem key={`user-${user.id}`} name="user" mod={{ active }} onClick={() => selectUser(user)}>
                       <Elem name="field" mix="avatar">
-                        <CopyableTooltip title={`User ID: ${user.id}`} textForCopy={user.id}>
+                        <CopyableTooltip title={`${defaultT(t, "pages.organization.user_id",
+        "User ID")}: ${user.id}`} textForCopy={user.id}>
                           <Userpic user={user} style={{ width: 28, height: 28 }} />
                         </CopyableTooltip>
                       </Elem>

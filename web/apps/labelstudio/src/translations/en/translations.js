@@ -28,6 +28,7 @@ export const TRANSLATIONS_EN = {
     previewLoaded: "✓ Preview Loaded",
     loadPreview: "Load Preview",
     next: "Next",
+    name: "Name",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -494,6 +495,31 @@ export const TRANSLATIONS_EN = {
     data_manager: {
       deleted_project: "Project was deleted or not yet created",
       back_to_projects: "Back to projects",
+    },
+    organization: {
+      title: "Organization",
+      api_token_settings: "API Token Settings",
+      api_token_saved: "API Token settings saved",
+      api_tokens_settings: "API Tokens Settings",
+      add_people: "Add People",
+      last_activity: "Last Activity",
+      user_id: "User ID",
+      error_loading_settings: "Error loading settings.",
+      personal_access_tokens: "Personal Access Tokens",
+      enable_increased_token_authentication_security:
+        "Enable increased token authentication security",
+      legacy_tokens: "Legacy Tokens",
+      legacy_tokens_description:
+        "Enable legacy access tokens, these do not expire",
+      time_to_live: "Time-to-Live (optional, Personal Access Token only)",
+      time_to_live_description:
+        "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
+      time_to_live_description2:
+        "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
+      save_changes: "Save Changes",
+      created_projects: "Created Projects",
+      contributed_to_projects: "Contributed to",
+      last_activity: "Last activity on",
     },
   },
   libs: {

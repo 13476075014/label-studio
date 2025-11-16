@@ -25,6 +25,7 @@ export const TRANSLATIONS_ZH = {
     previewLoaded: "✓ 已加载预览",
     loadPreview: "加载预览",
     next: "下一步",
+    name: "名称",
     media_file_type: {
       Text: "文本",
       Audio: "音频",
@@ -195,6 +196,14 @@ export const TRANSLATIONS_ZH = {
       },
       delete_button: "删除",
       save_button: "保存",
+    },
+    login: {
+      title: "登录",
+      email: "邮箱",
+      password: "密码",
+      sign_in: "登录",
+      sign_up: "注册",
+      forgot_password: "忘记密码？",
     },
     settings: {
       labeling: {
@@ -446,6 +455,30 @@ export const TRANSLATIONS_ZH = {
     data_manager: {
       deleted_project: "项目已被删除或尚未创建",
       back_to_projects: "返回项目列表",
+    },
+    organization: {
+      title: "组织",
+      api_token_settings: "API令牌设置",
+      api_token_saved: "API令牌已保存",
+      api_tokens_settings: "API令牌设置",
+      add_people: "添加人员",
+      last_activity: "上次活动",
+      user_id: "用户 ID",
+      error_loading_settings: "无法加载设置",
+      personal_access_tokens: "个人令牌",
+      enable_increased_token_authentication_security:
+        "启用增强的令牌身份验证安全",
+      legacy_tokens: "旧令牌",
+      legacy_tokens_description: "旧令牌已弃用。请使用新令牌。",
+      time_to_live: "有效期（可选，仅限个人访问令牌）",
+      time_to_live_description:
+        "创建后令牌有效的天数。在此时间段之后，用户将需要创建新的访问令牌",
+      time_to_live_description2:
+        "令牌创建后的有效天数。在此时间段之后，用户需要创建一个新的访问令牌",
+      save_changes: "保存更改",
+      created_projects: "已创建项目",
+      contributed_to_projects: "已贡献项目",
+      last_activity: "上次活动",
     },
   },
   libs: {

@@ -4,6 +4,9 @@ import { IconCross } from "@humansignal/icons";
 import { Userpic, Button } from "@humansignal/ui";
 import { Block, Elem } from "../../../utils/bem";
 import "./SelectedUser.scss";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import { defaultT } from "../../../utils/scripts";
 
 const UserProjectsLinks = ({ projects }) => {
   return (
@@ -24,6 +27,7 @@ const UserProjectsLinks = ({ projects }) => {
 };
 
 export const SelectedUser = ({ user, onClose }) => {
+  const { t } = useTranslation();
   const fullName = [user.first_name, user.last_name]
     .filter((n) => !!n)
     .join(" ")
@@ -58,7 +62,8 @@ export const SelectedUser = ({ user, onClose }) => {
 
       {!!user.created_projects.length && (
         <Elem name="section">
-          <Elem name="section-title">Created Projects</Elem>
+          <Elem name="section-title">{defaultT(t, "pages.organization.created_projects",
+        "Created Projects")}</Elem>
 
           <UserProjectsLinks projects={user.created_projects} />
         </Elem>
@@ -66,14 +71,16 @@ export const SelectedUser = ({ user, onClose }) => {
 
       {!!user.contributed_to_projects.length && (
         <Elem name="section">
-          <Elem name="section-title">Contributed to</Elem>
+          <Elem name="section-title">{defaultT(t, "pages.organization.contributed_to_projects",
+        "Contributed to")}</Elem>
 
           <UserProjectsLinks projects={user.contributed_to_projects} />
         </Elem>
       )}
 
       <Elem tag="p" name="last-active">
-        Last activity on: {format(new Date(user.last_activity), "dd MMM yyyy, KK:mm a")}
+        {defaultT(t, "pages.organization.last_activity",
+        "Last activity on")}: {format(new Date(user.last_activity), "dd MMM yyyy, KK:mm a")}
       </Elem>
     </Block>
   );

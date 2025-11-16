@@ -13,8 +13,13 @@ import { IconPlus } from "@humansignal/icons";
 import { useToast } from "@humansignal/ui";
 import { InviteLink } from "./InviteLink";
 import { SelectedUser } from "./SelectedUser";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+import { defaultT } from "../../../utils/scripts";
+
 
 export const PeoplePage = () => {
+  const { t } = useTranslation();
   const apiSettingsModal = useRef();
   const toast = useToast();
   const [selectedUser, setSelectedUser] = useState(null);
@@ -31,12 +36,14 @@ export const PeoplePage = () => {
 
   const apiTokensSettingsModalProps = useMemo(
     () => ({
-      title: "API Token Settings",
+      title: defaultT(t, "pages.organization.api_token_settings",
+        "API Token Settings"),
       style: { width: 480 },
       body: () => (
         <TokenSettingsModal
           onSaved={() => {
-            toast.show({ message: "API Token settings saved" });
+            toast.show({ message: defaultT(t, "pages.organization.api_token_saved",
+        "API Token settings saved") });
             apiSettingsModal.current?.close();
           }}
         />
@@ -63,7 +70,8 @@ export const PeoplePage = () => {
           <Space>
             {isFF(FF_AUTH_TOKENS) && (
               <Button look="outlined" onClick={showApiTokenSettingsModal} aria-label="Show API token settings">
-                API Tokens Settings
+                {defaultT(t, "pages.organization.api_tokens_settings",
+        "API Tokens Settings")}
               </Button>
             )}
             <Button
@@ -71,7 +79,8 @@ export const PeoplePage = () => {
               onClick={() => setInvitationOpen(true)}
               aria-label="Invite new member"
             >
-              Add People
+              {defaultT(t, "pages.organization.add_people",
+        "Add People")}
             </Button>
           </Space>
         </Space>
