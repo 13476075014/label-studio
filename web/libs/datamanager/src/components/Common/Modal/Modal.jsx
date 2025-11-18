@@ -4,6 +4,11 @@ import { render } from "react-dom";
 import { cn } from "../../../utils/bem";
 import { Space } from "../Space/Space";
 import { Modal } from "./ModalPopup";
+import { defaultT } from "../../../../../core/src/index";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next"
+
+const t = i18n.t.bind(i18n);
 
 const standaloneModal = (props) => {
   const modalRef = createRef();
@@ -56,7 +61,7 @@ export const confirm = ({ okText, onOk, cancelText, onCancel, buttonLook, ...pro
           aria-label="Cancel"
           data-testid="dialog-cancel-button"
         >
-          {cancelText ?? "Cancel"}
+          {cancelText ?? defaultT(t, "common.cancel", "Cancel")}
         </Button>
 
         <Button
@@ -68,7 +73,7 @@ export const confirm = ({ okText, onOk, cancelText, onCancel, buttonLook, ...pro
           aria-label={okText ?? "OK"}
           data-testid="dialog-ok-button"
         >
-          {okText ?? "OK"}
+          {okText ?? defaultT(t, "common.ok", "OK")}
         </Button>
       </Space>
     ),
@@ -90,7 +95,7 @@ export const info = ({ okText, onOkPress, ...props }) => {
           aria-label="OK"
           data-testid="dialog-ok-button"
         >
-          {okText ?? "OK"}
+          {okText ?? defaultT(t, "common.ok", "OK")}
         </Button>
       </Space>
     ),

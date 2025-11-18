@@ -2,6 +2,7 @@ export const TRANSLATIONS_ZH = {
   common: {
     or: "或",
     cancel: "取消",
+    ok: "确定",
     import: "导入",
     export: "导出",
     labeling: "标注",
@@ -469,6 +470,18 @@ export const TRANSLATIONS_ZH = {
     data_manager: {
       deleted_project: "项目已被删除或尚未创建",
       back_to_projects: "返回项目列表",
+      actions_must_be_array: "操作必须是数组",
+      you_have_unsaved_changes: "您有未保存的更改",
+      there_are_comments:
+        "存在未保存的评论。请提交标注内容。继续操作将导致这些评论丢失。",
+      discard_and_continue: "放弃并继续",
+      you_are_almost_there: "你已经快完成了！",
+      before_you_can_annotate: "在开始标注之前，请设置标签配置。",
+      go_to_setup: "去设置",
+      project_does_not_exist: "项目ID: {{projectId}} 不存在或不再可用",
+      something_went_wrong: "出了点问题",
+      error_occurred_when_loading_data: "加载数据时出错",
+      your_action_is_being_processed: "您的操作正在处理中",
     },
     organization: {
       title: "组织",

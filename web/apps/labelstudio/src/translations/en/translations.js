@@ -2,6 +2,7 @@ export const TRANSLATIONS_EN = {
   common: {
     or: "or",
     cancel: "Cancel",
+    ok: "OK",
     import: "Import",
     export: "Export",
     labeling: "Labeling",
@@ -507,6 +508,21 @@ export const TRANSLATIONS_EN = {
     data_manager: {
       deleted_project: "Project was deleted or not yet created",
       back_to_projects: "Back to projects",
+      actions_must_be_array: "Actions must be an array",
+      you_have_unsaved_changes: "You have unsaved changes",
+      there_are_comments:
+        "There are comments which are not persisted. Please submit the annotation. Continuing will discard these comments.",
+      discard_and_continue: "Discard and continue",
+      you_are_almost_there: "You're almost there!",
+      before_you_can_annotate:
+        "Before you can annotate the data, set up labeling configuration",
+      go_to_setup: "Go to setup",
+      project_does_not_exist:
+        "Project ID: {{projectId}} does not exist or is no longer available",
+      something_went_wrong: "Something went wrong",
+      error_occurred_when_loading_data: "Error occurred when loading data",
+      your_action_is_being_processed:
+        "Your action is being processed in the background.",
     },
     organization: {
       title: "Organization",
