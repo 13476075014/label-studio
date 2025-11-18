@@ -510,6 +510,17 @@ export const TRANSLATIONS_ZH = {
     asyncPage: {
       cannotLoadUrl: "无法加载URL",
     },
+    labeling: {
+      start_labeling: "开始标注和验证",
+      using_panel: "使用面板",
+      all_regions_hidden: "所有区域已隐藏",
+      adjust_filters: "调整或删除过滤器以查看",
+      there: "有",
+      hidden_region: "隐藏区域",
+      hidden_regions: "隐藏区域",
+      adjust_filters: "调整或删除过滤器以查看",
+      labeled_regions_will_appear_here: "已标注的区域将出现在此处",
+    },
   },
   libs: {
     datamanager: {

@@ -9,6 +9,10 @@ import { IconInfo } from "@humansignal/icons";
 import { IconLsLabeling } from "@humansignal/ui";
 import { EmptyState } from "../Components/EmptyState";
 import { getDocsUrl } from "../../../utils/docs";
+import { defaultT } from "../../../../../core/src/index";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 // Local type definitions based on ViewControls and RegionStore
 type GroupingOptions = "manual" | "label" | "type";
@@ -30,13 +34,16 @@ const OutlinerFFClasses: string[] = [];
 
 OutlinerFFClasses.push("ff_hide_all_regions");
 
-const OutlinerPanelComponent: FC<OutlinerPanelProps> = ({ regions, ...props }) => {
+const OutlinerPanelComponent: FC<OutlinerPanelProps> = ({
+  regions,
+  ...props
+}) => {
   const [group, setGroup] = useState<GroupingOptions>(regions.group);
   const onOrderingChange = useCallback(
     (value: OrderingOptions) => {
       regions.setSort(value);
     },
-    [regions],
+    [regions]
   );
 
   const onGroupingChange = useCallback(
@@ -44,14 +51,14 @@ const OutlinerPanelComponent: FC<OutlinerPanelProps> = ({ regions, ...props }) =
       regions.setGrouping(value);
       setGroup(value);
     },
-    [regions],
+    [regions]
   );
 
   const onFilterChange = useCallback(
     (value: Region[] | null) => {
       regions.setFilteredRegions(value);
     },
-    [regions],
+    [regions]
   );
 
   useEffect(() => {
@@ -61,7 +68,12 @@ const OutlinerPanelComponent: FC<OutlinerPanelProps> = ({ regions, ...props }) =
   regions.setGrouping(group);
 
   return (
-    <PanelBase {...props} name="outliner" mix={OutlinerFFClasses} title="Outliner">
+    <PanelBase
+      {...props}
+      name="outliner"
+      mix={OutlinerFFClasses}
+      title="Outliner"
+    >
       <ViewControls
         ordering={regions.sort}
         regions={regions}
@@ -80,21 +92,21 @@ const OutlinerStandAlone: FC<OutlinerPanelProps> = ({ regions }) => {
     (value: OrderingOptions) => {
       regions.setSort(value);
     },
-    [regions],
+    [regions]
   );
 
   const onGroupingChange = useCallback(
     (value: GroupingOptions) => {
       regions.setGrouping(value);
     },
-    [regions],
+    [regions]
   );
 
   const onFilterChange = useCallback(
     (value: Region[] | null) => {
       regions.setFilteredRegions(value);
     },
-    [regions],
+    [regions]
   );
 
   return (
@@ -115,60 +127,102 @@ const OutlinerStandAlone: FC<OutlinerPanelProps> = ({ regions }) => {
 const OutlinerEmptyState = () => (
   <EmptyState
     icon={<IconLsLabeling width={24} height={24} />}
-    header="Labeled regions will appear here"
+    header={defaultT(
+      t,
+      "pages.labeling.labeled_regions_will_appear_here",
+      "Labeled regions will appear here"
+    )}
     description={
       <>
         <span>
-          Start labeling and track your results
+          {defaultT(
+            t,
+            "pages.labeling.start_labeling",
+            "Start labeling and track your results"
+          )}
           <br />
-          using this panel
+          {defaultT(t, "pages.labeling.using_panel", "using this panel")}
         </span>
       </>
     }
-    learnMore={{ href: getDocsUrl("guide/labeling"), text: "Learn more", testId: "regions-panel-learn-more" }}
+    learnMore={{
+      href: getDocsUrl("guide/labeling"),
+      text: defaultT(t, "common.learn_more", "Learn more"),
+      testId: "regions-panel-learn-more",
+    }}
   />
 );
 
-const OutlinerTreeComponent: FC<OutlinerTreeComponentProps> = observer(({ regions }) => {
-  const allRegionsHidden = regions?.regions?.length > 0 && regions?.filter?.length === 0;
+const OutlinerTreeComponent: FC<OutlinerTreeComponentProps> = observer(
+  ({ regions }) => {
+    const allRegionsHidden =
+      regions?.regions?.length > 0 && regions?.filter?.length === 0;
 
-  const hiddenRegions = useMemo(() => {
-    if (!regions?.regions?.length || !regions.filter?.length) return 0;
+    const hiddenRegions = useMemo(() => {
+      if (!regions?.regions?.length || !regions.filter?.length) return 0;
 
-    return regions?.regions?.length - regions?.filter?.length;
-  }, [regions?.regions?.length, regions?.filter?.length]);
+      return regions?.regions?.length - regions?.filter?.length;
+    }, [regions?.regions?.length, regions?.filter?.length]);
 
-  return (
-    <>
-      {allRegionsHidden ? (
-        <Block name="filters-info">
-          <IconInfo width={21} height={20} />
-          <Elem name="filters-title">All regions hidden</Elem>
-          <Elem name="filters-description">Adjust or remove the filters to view</Elem>
-        </Block>
-      ) : regions?.regions?.length > 0 ? (
-        <>
-          <OutlinerTree
-            regions={regions}
-            footer={
-              hiddenRegions > 0 && (
-                <Block name="filters-info">
-                  <IconInfo width={21} height={20} />
-                  <Elem name="filters-title">
-                    There {hiddenRegions === 1 ? "is" : "are"} {hiddenRegions} hidden region{hiddenRegions > 1 && "s"}
-                  </Elem>
-                  <Elem name="filters-description">Adjust or remove filters to view</Elem>
-                </Block>
-              )
-            }
-          />
-        </>
-      ) : (
-        <OutlinerEmptyState />
-      )}
-    </>
-  );
-});
+    return (
+      <>
+        {allRegionsHidden ? (
+          <Block name="filters-info">
+            <IconInfo width={21} height={20} />
+            <Elem name="filters-title">
+              {defaultT(
+                t,
+                "pages.labeling.all_regions_hidden",
+                "All regions hidden"
+              )}
+            </Elem>
+            <Elem name="filters-description">
+              {defaultT(
+                t,
+                "pages.labeling.adjust_filters",
+                "Adjust or remove the filters to view"
+              )}
+            </Elem>
+          </Block>
+        ) : regions?.regions?.length > 0 ? (
+          <>
+            <OutlinerTree
+              regions={regions}
+              footer={
+                hiddenRegions > 0 && (
+                  <Block name="filters-info">
+                    <IconInfo width={21} height={20} />
+                    <Elem name="filters-title">
+                      {defaultT(t, "pages.labeling.there", "There")}
+                      {hiddenRegions === 1 ? "is" : "are"} {hiddenRegions}{" "}
+                      {defaultT(
+                        t,
+
+                        `pages.labeling.hidden_region${
+                          hiddenRegions > 1 && "s"
+                        }`,
+                        `hidden region${hiddenRegions > 1 && "s"}`
+                      )}
+                    </Elem>
+                    <Elem name="filters-description">
+                      {defaultT(
+                        t,
+                        "pages.labeling.adjust_filters",
+                        "Adjust or remove filters to view"
+                      )}
+                    </Elem>
+                  </Block>
+                )
+              }
+            />
+          </>
+        ) : (
+          <OutlinerEmptyState />
+        )}
+      </>
+    );
+  }
+);
 
 export const OutlinerComponent = observer(OutlinerStandAlone);
 

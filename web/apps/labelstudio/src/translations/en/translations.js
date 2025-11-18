@@ -552,6 +552,17 @@ export const TRANSLATIONS_EN = {
     asyncPage: {
       cannotLoadUrl: "Cannot load url",
     },
+    labeling: {
+      start_labeling: "Start labeling and track your results",
+      using_panel: "using this panel",
+      all_regions_hidden: "All regions hidden",
+      adjust_filters: "Adjust or remove the filters to view",
+      there: "There",
+      hidden_region: "hidden region",
+      hidden_regions: "hidden regions",
+      adjust_filters: "Adjust or remove filters to view",
+      labeled_regions_will_appear_here: "Labeled regions will appear here",
+    },
   },
   libs: {
     datamanager: {
