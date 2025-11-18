@@ -1,7 +1,3 @@
-import { de } from "date-fns/locale";
-import { all } from "libs/datamanager/src/utils/utils";
-import { title } from "process";
-
 export const TRANSLATIONS_EN = {
   common: {
     or: "or",
@@ -30,6 +26,9 @@ export const TRANSLATIONS_EN = {
     loadPreview: "Load Preview",
     next: "Next",
     name: "Name",
+    error: "Error",
+    copied: "Copied!",
+    version: "Version",
     media_file_type: {
       Text: "Text",
       Audio: "Audio",
@@ -71,6 +70,18 @@ export const TRANSLATIONS_EN = {
         "Please check new notification settings in the Account & Settings page",
       hotkeys_tooltip: "Keyboard Shortcuts",
       account_settings: "Account &amp; Settings",
+    },
+    DraftGuard: {
+      savedDraft: "Draft saved successfully",
+      errorSavingDraft: "There was an error saving your draft",
+    },
+    error: {
+      errorId: "Error ID",
+      ask_on_slack: "Ask on Slack",
+      copied: "Copied",
+      copy_stacktrace: "Copy Stacktrace",
+      go_back: "Go Back",
+      reload: "Reload",
     },
   },
   pages: {
@@ -521,6 +532,9 @@ export const TRANSLATIONS_EN = {
       created_projects: "Created Projects",
       contributed_to_projects: "Contributed to",
       last_activity: "Last activity on",
+    },
+    asyncPage: {
+      cannotLoadUrl: "Cannot load url",
     },
   },
   libs: {

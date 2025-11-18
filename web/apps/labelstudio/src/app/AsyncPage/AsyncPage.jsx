@@ -7,6 +7,8 @@ import { FF_UNSAVED_CHANGES, isFF } from "../../utils/feature-flags";
 import { absoluteURL, removePrefix } from "../../utils/helpers";
 import { clearScriptsCache, isScriptValid, reInsertScripts, replaceScript } from "../../utils/scripts";
 import { UNBLOCK_HISTORY_MESSAGE } from "../App";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../utils/scripts";
 
 const pageCache = new Map();
 
@@ -17,6 +19,7 @@ const pageFromHTML = (html) => {
 };
 
 const loadAsyncPage = async (url) => {
+  const { t } = useTranslation();
   try {
     if (pageCache.has(url)) {
       return pageCache.get(url);
@@ -33,9 +36,10 @@ const loadAsyncPage = async (url) => {
       modal({
         body: () => (
           <ErrorWrapper
-            title={`Error ${response.status}: ${response.statusText}`}
+            title={`${defaultT(t, "common.error", "Error")} ${response.status}: ${response.statusText}`}
             errorId={response.status}
-            stacktrace={`Cannot load url ${url}\n\n${html}`}
+            stacktrace={`${defaultT(t, "pages.asyncPage.cannotLoadUrl",
+              "Cannot load url")} ${url}\n\n${html}`}
           />
         ),
         allowClose: false,

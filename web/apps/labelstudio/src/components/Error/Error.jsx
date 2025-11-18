@@ -5,6 +5,8 @@ import { Block, Elem } from "../../utils/bem";
 import { absoluteURL, copyText } from "../../utils/helpers";
 import { Button } from "@humansignal/ui";
 import { Space } from "../Space/Space";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../utils/scripts";
 import "./Error.scss";
 
 const SLACK_INVITE_URL = "https://slack.labelstud.io/?source=product-error-msg";
@@ -21,6 +23,7 @@ export const ErrorWrapper = ({
   possum = false,
   minimal = false,
 }) => {
+  const { t } = useTranslation();
   const preparedStackTrace = useMemo(() => {
     return (stacktrace ?? "").trim();
   }, [stacktrace]);
@@ -80,8 +83,10 @@ export const ErrorWrapper = ({
       {!minimal && (version || errorId) && (
         <Elem name="version">
           <Space>
-            {version && `Version: ${version}`}
-            {errorId && `Error ID: ${errorId}`}
+            {version && `${defaultT(t, "common.version",
+              "Version")}: ${version}`}
+            {errorId && `${defaultT(t, "components.error.errorId",
+              "Error ID")}: ${errorId}`}
           </Space>
         </Elem>
       )}
@@ -90,7 +95,8 @@ export const ErrorWrapper = ({
         <Elem name="actions">
           <Space spread>
             <Elem tag={Button} name="action-slack" target="_blank" icon={<IconSlack />} href={SLACK_INVITE_URL}>
-              Ask on Slack
+              {defaultT(t, "components.error.ask_on_slack",
+              "Ask on Slack")}
             </Elem>
 
             <Space size="small">
@@ -101,17 +107,21 @@ export const ErrorWrapper = ({
                   className="w-[100px]"
                   aria-label="Copy error stacktrace"
                 >
-                  {copied ? "Copied" : "Copy Stacktrace"}
+                  {copied ? defaultT(t, "components.error.copied",
+              "Copied") : defaultT(t, "components.error.copy_stacktrace",
+              "Copy Stacktrace")}
                 </Button>
               )}
               {onGoBack && (
                 <Button onClick={onGoBack} aria-label="Go back">
-                  Go Back
+                  {defaultT(t, "components.error.go_back",
+              "Go Back")}
                 </Button>
               )}
               {onReload && (
                 <Button onClick={onReload} aria-label="Reload page">
-                  Reload
+                  {defaultT(t, "components.error.reload",
+              "Reload")}
                 </Button>
               )}
             </Space>

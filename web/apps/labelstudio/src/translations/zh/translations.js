@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const TRANSLATIONS_ZH = {
   common: {
     or: "或",
@@ -27,6 +25,9 @@ export const TRANSLATIONS_ZH = {
     loadPreview: "加载预览",
     next: "下一步",
     name: "名称",
+    error: "错误",
+    copied: "已复制!",
+    version: "版本",
     media_file_type: {
       Text: "文本",
       Audio: "音频",
@@ -66,6 +67,18 @@ export const TRANSLATIONS_ZH = {
       please_check_new_notice: "请在“账户和设置”页面中检查新的通知设置",
       hotkeys_tooltip: "键盘快捷键",
       account_settings: "账户和设置",
+    },
+    DraftGuard: {
+      savedDraft: "已保存草稿",
+      errorSavingDraft: "无法保存草稿",
+    },
+    error: {
+      errorId: "错误 ID",
+      ask_on_slack: "联系 Slack 社区",
+      copied: "已复制",
+      copy_stacktrace: "复制堆栈跟踪",
+      go_back: "返回",
+      reload: "重新加载",
     },
   },
   pages: {
@@ -480,6 +493,9 @@ export const TRANSLATIONS_ZH = {
       created_projects: "已创建项目",
       contributed_to_projects: "已贡献项目",
       last_activity: "上次活动",
+    },
+    asyncPage: {
+      cannotLoadUrl: "无法加载URL",
     },
   },
   libs: {
