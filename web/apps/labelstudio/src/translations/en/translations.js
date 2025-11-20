@@ -1,5 +1,12 @@
 export const TRANSLATIONS_EN = {
   common: {
+    regions: "Regions",
+    history: "History",
+    relations: "Relations",
+    info: "Info",
+    comments: "Comments",
+    manual: "Manual",
+    manually_grouped: "Manually Grouped",
     or: "or",
     cancel: "Cancel",
     ok: "OK",
@@ -235,6 +242,21 @@ export const TRANSLATIONS_EN = {
       title: "Settings",
       labeling: {
         title: "Labeling Interface",
+        group_manually: "Group Manually",
+        group_by_label: "Group By Label",
+        by_label: "By Label",
+        grouped_by_label: "Grouped By Label",
+        group_by_tool: "Group by Tool",
+        by_tool: "By Tool",
+        grouped_by_tool: "Grouped by Tool",
+        order_by_time: "Order by Time",
+        by_time: "By Time",
+        order_by_score: "Order by Score",
+        by_score: "By Score",
+        show_all_regions: "Show All Regions",
+        hide_all_regions: "Hide All Regions",
+
+
       },
       menu: {
         startTraining: "Start Model Training",

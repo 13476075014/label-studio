@@ -1,5 +1,12 @@
 export const TRANSLATIONS_ZH = {
   common: {
+    regions: "区域",
+    history: "历史",
+    relations: "关系",
+    info: "信息",
+    comments: "评论",
+    manual: "手动",
+    manually_grouped: "手动分组",
     or: "或",
     cancel: "取消",
     ok: "确定",
@@ -223,6 +230,19 @@ export const TRANSLATIONS_ZH = {
     settings: {
       labeling: {
         title: "标注界面",
+        group_manually: "手动分组",
+        group_by_label: "按标签分组",
+        by_label: "按标签",
+        grouped_by_label: "按标签分组",
+        group_by_tool: "按工具分组",
+        by_tool: "按工具",
+        grouped_by_tool: "按工具分组",
+        order_by_time: "按时间顺序",
+        by_time: "按时间",
+        order_by_score: "按分数顺序",
+        by_score: "按分数",
+        show_all_regions: "显示所有区域",
+        hide_all_regions: "隐藏所有区域",
       },
       menu: {
         startTraining: "开始模型训练",

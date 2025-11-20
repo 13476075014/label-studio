@@ -21,6 +21,9 @@ import {
   type StoredPanelState,
   type ViewportSize,
 } from "./types";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 export const determineLeftOrRight = (event: any, droppableElement?: ReactNode) => {
   const element = droppableElement || (event.target as HTMLElement);
@@ -130,32 +133,32 @@ export const panelComponents: { [key: string]: FC<PanelProps> } = {
 const panelViews = [
   {
     name: "regions",
-    title: "Regions",
+    title: defaultT(t, "common.regions", "Regions"),
     component: panelComponents.regions as FC<PanelProps>,
     active: true,
   },
   {
     name: "history",
-    title: "History",
+    title: defaultT(t, "common.history", "History"),
     component: panelComponents.history as FC<PanelProps>,
     active: false,
   },
 
   {
     name: "relations",
-    title: "Relations",
+    title: defaultT(t, "common.relations", "Relations"),
     component: panelComponents.relations as FC<PanelProps>,
     active: false,
   },
   {
     name: "info",
-    title: "Info",
+    title: defaultT(t, "common.info", "Info"),
     component: panelComponents.info as FC<PanelProps>,
     active: true,
   },
   {
     name: "comments",
-    title: "Comments",
+    title: defaultT(t, "common.comments", "Comments"),
     component: panelComponents.comments as FC<PanelProps>,
     active: false,
   },
@@ -242,7 +245,7 @@ export const partialEmptyBaseProps = {
   lockPanelContents: false,
   attachedKeys: [],
   sidePanelCollapsed: { [Side.left]: false, [Side.right]: false },
-  setSidePanelCollapsed: () => {},
+  setSidePanelCollapsed: () => { },
   dragTop: false,
   dragBottom: false,
   panelViews: [panelViews[0], panelViews[1], panelViews[2], panelViews[3], panelViews[4]],
@@ -306,7 +309,7 @@ export const restoreComponentsToState = (panelData: Record<string, PanelBBox>) =
 
 export const savePanels = (
   panelData: Record<string, PanelBBox>,
-  collapsedSide: { [Side.left]: boolean; [Side.right]: boolean },
+  collapsedSide: { [Side.left]: boolean;[Side.right]: boolean },
 ) => {
   window.localStorage.setItem("panelState", JSON.stringify({ panelData, collapsedSide }));
 };
@@ -409,9 +412,9 @@ export const joinPanelColumns = (
   const newWidth = !columns
     ? width || DEFAULT_PANEL_WIDTH
     : columns.reduce((acc, key) => {
-        if (acc < state[key].width) return state[key].width;
-        return acc;
-      }, 0) || width;
+      if (acc < state[key].width) return state[key].width;
+      return acc;
+    }, 0) || width;
 
   const addedPanel = {
     ...newState,

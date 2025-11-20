@@ -20,6 +20,9 @@ import { SidePanelsContext } from "../SidePanelsContext";
 import "./ViewControls.scss";
 import { observer } from "mobx-react";
 import { FF_DEV_3873, isFF } from "../../../utils/feature-flags";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 const { Block, Elem } = BemWithSpecifiContext();
 
@@ -39,73 +42,146 @@ interface ViewControlsProps {
 }
 
 export const ViewControls: FC<ViewControlsProps> = observer(
-  ({ ordering, regions, orderingDirection, onOrderingChange, onGroupingChange, onFilterChange }) => {
+  ({
+    ordering,
+    regions,
+    orderingDirection,
+    onOrderingChange,
+    onGroupingChange,
+    onFilterChange,
+  }) => {
     const grouping = regions.group;
     const context = useContext(SidePanelsContext);
-    const getGroupingLabels = useCallback((value: GroupingOptions): LabelInfo => {
-      switch (value) {
-        case "manual":
-          return {
-            label: (
-              <>
-                <IconList /> Group Manually
-              </>
-            ),
-            selectedLabel: isFF(FF_DEV_3873) ? "Manual" : "Manual Grouping",
-            icon: <IconList width={16} height={16} />,
-            tooltip: "Manually Grouped",
-          };
-        case "label":
-          return {
-            label: (
-              <>
-                <IconBoundingBox /> Group by Label
-              </>
-            ),
-            selectedLabel: isFF(FF_DEV_3873) ? "By Label" : "Grouped by Label",
-            icon: <IconBoundingBox width={16} height={16} />,
-            tooltip: "Grouped by Label",
-          };
-        case "type":
-          return {
-            label: (
-              <>
-                <IconCursor /> Group by Tool
-              </>
-            ),
-            selectedLabel: isFF(FF_DEV_3873) ? "By Tool" : "Grouped by Tool",
-            icon: <IconCursor width={16} height={16} />,
-            tooltip: "Grouped by Tool",
-          };
-      }
-    }, []);
+    const getGroupingLabels = useCallback(
+      (value: GroupingOptions): LabelInfo => {
+        switch (value) {
+          case "manual":
+            return {
+              label: (
+                <>
+                  <IconList />{" "}
+                  {defaultT(
+                    t,
+                    "pages.settings.labeling.group_manually",
+                    "Group Manually"
+                  )}
+                </>
+              ),
+              selectedLabel: isFF(FF_DEV_3873)
+                ? defaultT(t, "common.manual", "Manual")
+                : "Manual Grouping",
+              icon: <IconList width={16} height={16} />,
+              tooltip: defaultT(
+                t,
+                "common.manually_grouped",
+                "Manually Grouped"
+              ),
+            };
+          case "label":
+            return {
+              label: (
+                <>
+                  <IconBoundingBox />{" "}
+                  {defaultT(
+                    t,
+                    "pages.settings.labeling.group_by_label",
+                    "Group by Label"
+                  )}
+                </>
+              ),
+              selectedLabel: isFF(FF_DEV_3873)
+                ? defaultT(t, "pages.settings.labeling.by_label", "By Label")
+                : defaultT(
+                    t,
+                    "pages.settings.labeling.grouped_by_label",
+                    "Grouped by Label"
+                  ),
+              icon: <IconBoundingBox width={16} height={16} />,
+              tooltip: defaultT(
+                t,
+                "pages.settings.labeling.grouped_by_label",
+                "Grouped by Label"
+              ),
+            };
+          case "type":
+            return {
+              label: (
+                <>
+                  <IconCursor />{" "}
+                  {defaultT(
+                    t,
+                    "pages.settings.labeling.group_by_tool",
+                    "Group by Tool"
+                  )}
+                </>
+              ),
+              selectedLabel: isFF(FF_DEV_3873)
+                ? defaultT(t, "pages.settings.labeling.by_tool", "By Tool")
+                : defaultT(
+                    t,
+                    "pages.settings.labeling.grouped_by_tool",
+                    "Grouped by Tool"
+                  ),
+              icon: <IconCursor width={16} height={16} />,
+              tooltip: defaultT(
+                t,
+                "pages.settings.labeling.grouped_by_tool",
+                "Grouped by Tool"
+              ),
+            };
+        }
+      },
+      []
+    );
 
-    const getOrderingLabels = useCallback((value: OrderingOptions): LabelInfo => {
-      switch (value) {
-        case "date":
-          return {
-            label: (
-              <>
-                <IconClockTimeFourOutline /> Order by Time
-              </>
-            ),
-            selectedLabel: "By Time",
-            icon: <IconClockTimeFourOutline width={16} height={16} />,
-          };
-        case "score":
-          return {
-            label: (
-              <>
-                <IconPredictions /> Order by Score
-              </>
-            ),
-            selectedLabel: "By Score",
-            icon: <IconPredictions width={16} height={16} />,
-          };
-      }
-    }, []);
+    const getOrderingLabels = useCallback(
+      (value: OrderingOptions): LabelInfo => {
+        switch (value) {
+          case "date":
+            return {
+              label: (
+                <>
+                  <IconClockTimeFourOutline />{" "}
+                  {defaultT(
+                    t,
+                    "pages.settings.labeling.order_by_time",
+                    "Order by Time"
+                  )}
+                </>
+              ),
+              selectedLabel: defaultT(
+                t,
+                "pages.settings.labeling.by_time",
+                "By Time"
+              ),
+              icon: <IconClockTimeFourOutline width={16} height={16} />,
+            };
+          case "score":
+            return {
+              label: (
+                <>
+                  <IconPredictions />{" "}
+                  {defaultT(
+                    t,
+                    "pages.settings.labeling.order_by_score",
+                    "Order by Score"
+                  )}
+                </>
+              ),
+              selectedLabel: defaultT(
+                t,
+                "pages.settings.labeling.by_score",
+                "By Score"
+              ),
+              icon: <IconPredictions width={16} height={16} />,
+            };
+        }
+      },
+      []
+    );
 
-    const renderOrderingDirectionIcon = orderingDirection === "asc" ? <IconSortUp /> : <IconSortDown />;
+    const renderOrderingDirectionIcon =
+      orderingDirection === "asc" ? <IconSortUp /> : <IconSortDown />;
 
     return (
       <Block name="view-controls" mod={{ collapsed: context.locked }}>
@@ -131,7 +207,7 @@ export const ViewControls: FC<ViewControlsProps> = observer(
         <ToggleRegionsVisibilityButton regions={regions} />
       </Block>
     );
-  },
+  }
 );
 
 interface LabelInfo {
@@ -206,7 +282,12 @@ const Grouping = <T extends string>({
           isFF(FF_DEV_3873) ? (
             extraIcon
           ) : (
-            <DirectionIndicator direction={direction} name={value} value={value} wrap={false} />
+            <DirectionIndicator
+              direction={direction}
+              name={value}
+              value={value}
+              wrap={false}
+            />
           )
         }
       >
@@ -224,7 +305,13 @@ interface GroupingMenuItemProps<T extends string> {
   onChange: (key: T) => void;
 }
 
-const GroupingMenuItem = <T extends string>({ value, name, label, direction, onChange }: GroupingMenuItemProps<T>) => {
+const GroupingMenuItem = <T extends string>({
+  value,
+  name,
+  label,
+  direction,
+  onChange,
+}: GroupingMenuItemProps<T>) => {
   return (
     <Menu.Item name={name} onClick={() => onChange(name)}>
       <Elem name="label">
@@ -242,7 +329,12 @@ interface DirectionIndicator {
   wrap?: boolean;
 }
 
-const DirectionIndicator: FC<DirectionIndicator> = ({ direction, value, name, wrap = true }) => {
+const DirectionIndicator: FC<DirectionIndicator> = ({
+  direction,
+  value,
+  name,
+  wrap = true,
+}) => {
   const content = direction === "asc" ? <IconSortUp /> : <IconSortDown />;
 
   if (!direction || value !== name || isFF(FF_DEV_3873)) return null;
@@ -255,14 +347,16 @@ interface ToggleRegionsVisibilityButton {
   regions: any;
 }
 
-const ToggleRegionsVisibilityButton = observer<FC<ToggleRegionsVisibilityButton>>(({ regions }) => {
+const ToggleRegionsVisibilityButton = observer<
+  FC<ToggleRegionsVisibilityButton>
+>(({ regions }) => {
   const toggleRegionsVisibility = useCallback(
     (e) => {
       e.preventDefault();
       e.stopPropagation();
       regions.toggleVisibility();
     },
-    [regions],
+    [regions]
   );
 
   const isDisabled = !regions?.regions?.length;
@@ -276,7 +370,19 @@ const ToggleRegionsVisibilityButton = observer<FC<ToggleRegionsVisibilityButton>
       disabled={isDisabled}
       onClick={toggleRegionsVisibility}
       aria-label={isAllHidden ? "Show all regions" : "Hide all regions"}
-      tooltip={isAllHidden ? "Show all regions" : "Hide all regions"}
+      tooltip={
+        isAllHidden
+          ? defaultT(
+              t,
+              "pages.settings.labeling.show_all_regions",
+              "Show all regions"
+            )
+          : defaultT(
+              t,
+              "pages.settings.labeling.hide_all_regions",
+              "Hide all regions"
+            )
+      }
     >
       {isAllHidden ? (
         <IconOutlinerEyeClosed width={16} height={16} />
