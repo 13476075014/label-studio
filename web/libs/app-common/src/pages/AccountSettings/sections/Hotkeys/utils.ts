@@ -71,7 +71,8 @@ interface RawHotkey {
 
 // Convert DEFAULT_HOTKEYS with numeric IDs to typed hotkeys with string IDs
 export const getTypedDefaultHotkeys = (): Hotkey[] => {
-  return (DEFAULT_HOTKEYS as RawHotkey[]).map((hotkey) => ({
+  // lcc 换成函数的形式不然翻译不了
+  return (DEFAULT_HOTKEYS() as RawHotkey[]).map((hotkey) => ({
     ...hotkey,
     id: String(hotkey.id), // Convert numeric id to string
   }));

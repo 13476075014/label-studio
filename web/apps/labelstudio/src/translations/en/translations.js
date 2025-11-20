@@ -123,6 +123,218 @@ export const TRANSLATIONS_EN = {
         copy_link: "Copy link",
       },
     },
+    account_settings: {
+      keyboard_shortcuts: "Keyboard Shortcuts",
+      view_all_available_shortcuts: "View all available keyboard shortcuts.",
+      customize: "Customize",
+      annotation: {
+        submit_annotation: "Submit Annotation",
+        submit_the_current_annotation: "Submit the current annotation",
+        skip_task: "Skip Task",
+        skip_the_current_task: "Skip the current task",
+        undo: "Undo",
+        undo_last_action: "Undo last action",
+        redo: "Redo",
+        redo_previously_undone_action: "Redo previously undone action",
+      },
+      data_manager: {
+        focus_previous_task: "Focus Previous Task",
+        move_focus_to_the_previous_task: "Move focus to the previous task",
+        focus_next_task: "Focus Next Task",
+        move_focus_to_the_next_task: "Move focus to the next task",
+        focus_closed_task: "Focus Closed Task",
+        focus_on_the_closed_task_column: "Focus on the closed task column",
+        focus_open_task: "Focus Open Task",
+        focus_on_the_open_task_column: "Focus on the open task column",
+        toggle_bulk_sidebar: "Toggle Bulk Sidebar",
+        minimize_or_expand_bulk_actions_sidebar:
+          "Minimize or expand bulk actions sidebar",
+      },
+      regions: {
+        delete_all_regions: "Delete All Regions",
+        remove_all_regions: "Remove all regions",
+        focus_first_region: "Focus First Region",
+        move_focus_to_the_first_focusable_region:
+          "Move focus to the first focusable region",
+        create_region_relation: "Create Region Relation",
+        create_a_relation_between_selected_regions:
+          "Create a relation between selected regions",
+        toggle_region_visibility: "Toggle Region Visibility",
+        show_or_hide_the_selected_region: "Show or hide the selected region",
+        toggle_all_region_visibility: "Toggle All Region Visibility",
+        show_or_hide_all_regions: "Show or hide all regions",
+        lock_region: "Lock Region",
+        lock_or_unlock_the_selected_region:
+          "Lock or unlock the selected region",
+        edit_region_metadata: "Edit Region Metadata",
+        edit_metadata_for_selected_region: "Edit metadata for selected region",
+        unselect_region: "Unselect Region",
+        deselect_the_currently_selected_region:
+          "Deselect the currently selected region",
+        exit_region_mode: "Exit Region Mode",
+        exit_relation_mode_and_unselect_region:
+          "Exit relation mode and unselect region",
+        delete_selected_region: "Delete Selected Region",
+        delete_currently_selected_region: "Delete currently selected region",
+        cycle_regions: "Cycle Regions",
+        cycle_through_all_regions: "Cycle through all regions",
+        duplicate_region: "Duplicate Region",
+        create_a_copy_of_the_selected_region:
+          "Create a copy of the selected region",
+        delete_segment: "Delete Segment",
+        delete_selected_segment: "Delete selected segment",
+      },
+      audio: {
+        rewind_1_second: "Rewind 1 Second",
+        rewind_the_audio_by_1_second: "Rewind the audio by 1 second",
+        play_pause_audio: "Play / Pause Audio",
+        toggle_audio_playback: "Toggle audio playback",
+        step_back: "Step Back",
+        step_back_one_frame: "Step back one frame",
+        step_forward: "Step Forward",
+        step_forward_one_frame: "Step forward one frame",
+      },
+      video: {
+        play_pause_video: "Play / Pause Video",
+        toggle_video_playback: "Toggle video playback",
+        step_back: "Step Back",
+        step_one_frame_backward: "Step one frame backward",
+        step_forward: "Step Forward",
+        step_one_frame_forward: "Step one frame forward",
+        previous_keyframe: "Previous Keyframe",
+        jump_to_previous_keyframe: "Jump to previous keyframe",
+        next_keyframe: "Next Keyframe",
+        jump_to_next_keyframe: "Jump to next keyframe",
+        seek_backward: "Seek Backward",
+        seek_video_backward: "Seek video backward",
+        first_frame: "First Frame",
+        jump_to_first_frame: "Jump to first frame",
+        seek_forward: "Seek Forward",
+        seek_video_forward: "Seek video forward",
+        last_frame: "Last Frame",
+        jump_to_last_frame: "Jump to last frame",
+        hop_backward: "Hop Backward",
+        hop_backward_quickly: "Hop backward quickly",
+        hop_forward: "Hop Forward",
+        hop_forward_quickly: "Hop forward quickly",
+      },
+      timeseries: {
+        extend_left: "Extend Left",
+        extend_the_region_to_the_left: "Extend the region to the left",
+        extend_right: "Extend Right",
+        extend_the_region_to_the_right: "Extend the region to the right",
+        shrink_left: "Shrink Left",
+        shrink_the_region_from_the_left: "Shrink the region from the left",
+        shrink_right: "Shrink Right",
+        shrink_the_region_from_the_right: "Shrink the region from the right",
+        extend_left_large: "Extend Left (Large)",
+        extend_region_left_significantly: "Extend region left significantly",
+        extend_right_large: "Extend Right (Large)",
+        extend_region_right_significantly: "Extend region right significantly",
+        shrink_left_large: "Shrink Left (Large)",
+        shrink_region_from_left_significantly:
+          "Shrink region from left significantly",
+        shrink_right_large: "Shrink Right (Large)",
+        shrink_region_from_right_significantly:
+          "Shrink region from right significantly",
+      },
+      image_gallery: {
+        previous_image: "Previous Image",
+        view_previous_image: "View previous image",
+        next_image: "Next Image",
+        view_next_image: "View next image",
+      },
+      tools: {
+        zoom_in: "Zoom In",
+        zoom_in_on_the_image: "Zoom in on the image",
+        pan_image: "Pan Image",
+        pan_around_the_image: "Pan around the image",
+        zoom_to_fit: "Zoom to Fit",
+        zoom_to_fit_the_full_image_in_view:
+          "Zoom to fit the full image in view",
+        zoom_to_100: "Zoom to 100%",
+        zoom_to_actual_image_size_100: "Zoom to actual image size (100%)",
+        zoom_out: "Zoom Out",
+        zoom_out_of_the_image: "Zoom out of the image",
+        move_tool: "Move Tool",
+        select_the_move_tool_to_reposition_annotations:
+          "Select the move tool to reposition annotations",
+        brush_tool: "Brush Tool",
+        select_the_brush_tool: "Select the brush tool",
+        ellipse_tool: "Ellipse Tool",
+        select_the_ellipse_tool: "Select the ellipse tool",
+        eraser_tool: "Eraser Tool",
+        select_the_eraser_tool: "Select the eraser tool",
+        auto_detect: "Auto Detect",
+        use_the_auto_detect_tool_to_automatically_suggest_regions:
+          "Use the auto-detect tool to automatically suggest regions",
+        key_point_tool: "Key Point Tool",
+        select_the_key_point_annotation_tool:
+          "Select the key point annotation tool",
+        magic_wand: "Magic Wand",
+        select_the_magic_wand_tool_for_smart_region_selection:
+          "Select the magic wand tool for smart region selection",
+        polygon_tool: "Polygon Tool",
+        select_the_polygon_annotation_tool:
+          "Select the polygon annotation tool",
+        rectangle_tool: "Rectangle Tool",
+        select_the_rectangle_annotation_tool:
+          "Select the rectangle annotation tool",
+        "3_point_rectangle": "3-Point Rectangle",
+        draw_a_rotated_rectangle_using_3_point_selection:
+          "Draw a rotated rectangle using 3-point selection",
+        rotate_left: "Rotate Left",
+        rotate_the_image_90_to_the_left: "Rotate the image 90° to the left",
+        rotate_right: "Rotate Right",
+        rotate_the_image_90_to_the_right: "Rotate the image 90° to the right",
+        decrease_tool_size: "Decrease Tool Size",
+        increase_tool_size: "Increase Tool Size",
+      },
+      paragraphs: {
+        next_phrase: "Next Phrase",
+        navigate_to_the_next_phrase_in_paragraph_view:
+          "Navigate to the next phrase in paragraph view",
+        previous_phrase: "Previous Phrase",
+        navigate_to_the_previous_phrase_in_paragraph_view:
+          "Navigate to the previous phrase in paragraph view",
+        select_all_and_annotate: "Select All and Annotate",
+        select_all_text_in_current_phrase_and_create_annotation:
+          "Select all text in current phrase and create annotation",
+        next_region_in_phrase: "Next Region in Phrase",
+        navigate_to_the_next_region_within_current_phrase:
+          "Navigate to the next region within current phrase",
+        previous_region_in_phrase: "Previous Region in Phrase",
+        navigate_to_the_previous_region_within_current_phrase:
+          "Navigate to the previous region within current phrase",
+      },
+      annotation_actions: "Annotation Actions",
+      shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo:
+        "Shortcuts for common annotation tasks like submit, skip, undo and redo",
+      data_manager_title: "Data Manager",
+      shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager:
+        "Shortcuts for navigating and managing tasks in Project's Data Manager",
+      region_management: "Region Management",
+      shortcuts_for_creating_selecting_and_manipulating_annotation_regions:
+        "Shortcuts for creating, selecting and manipulating annotation regions",
+      tools_title: "Tools",
+      shortcuts_for_controlling_tools_panel_when_labeling_images:
+        "Shortcuts for controlling tools panel when labeling images",
+      audio_controls: "Audio Controls",
+      shortcuts_for_controlling_audio_playback_and_navigation:
+        "Shortcuts for controlling audio playback and navigation",
+      video_controls: "Video Controls",
+      shortcuts_for_controlling_video_playback_and_navigation:
+        "Shortcuts for controlling video playback and navigation",
+      time_series_controls: "Time Series Controls",
+      shortcuts_for_manipulating_time_series_data_regions:
+        "Shortcuts for manipulating time series data regions",
+      image_gallery_navigation: "Image Gallery Navigation",
+      shortcuts_for_navigating_between_images_in_multi_image_tasks:
+        "Shortcuts for navigating between images in multi-image tasks",
+      paragraph_navigation: "Paragraph Navigation",
+      shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view:
+        "Shortcuts for navigating phrases and regions in paragraph/dialogue view",
+    },
     projects: {
       title: "Projects",
       create: "Create",

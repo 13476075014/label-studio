@@ -7,6 +7,9 @@ import { KeyboardKey } from "./Key";
 import { HOTKEY_SECTIONS, URL_TO_SECTION_MAPPING } from "./defaults";
 import type { Hotkey, Section } from "./utils";
 import { getTypedDefaultHotkeys } from "./utils";
+import { defaultT } from "../../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 // Type definitions for imported constants
 interface UrlMapping {
@@ -46,7 +49,9 @@ const useCurrentHotkeys = (): Hotkey[] => {
           ...hotkey,
           key: customSetting.key,
           active: customSetting.active,
-          ...(customSetting.description && { description: customSetting.description }),
+          ...(customSetting.description && {
+            description: customSetting.description,
+          }),
         };
       }
       return hotkey;
@@ -77,18 +82,23 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
       const section = sections.find((s: Section) => s.id === sectionId);
       if (!section) return null;
 
-      const sectionHotkeys = hotkeys.filter((h: Hotkey) => h.section === sectionId);
+      const sectionHotkeys = hotkeys.filter(
+        (h: Hotkey) => h.section === sectionId
+      );
       if (sectionHotkeys.length === 0) return null;
 
       // Group hotkeys by subgroup for better organization
-      const groupedHotkeys = sectionHotkeys.reduce((groups: GroupedHotkeys, hotkey: Hotkey) => {
-        const subgroup = hotkey.subgroup || "default";
-        if (!groups[subgroup]) {
-          groups[subgroup] = [];
-        }
-        groups[subgroup].push(hotkey);
-        return groups;
-      }, {});
+      const groupedHotkeys = sectionHotkeys.reduce(
+        (groups: GroupedHotkeys, hotkey: Hotkey) => {
+          const subgroup = hotkey.subgroup || "default";
+          if (!groups[subgroup]) {
+            groups[subgroup] = [];
+          }
+          groups[subgroup].push(hotkey);
+          return groups;
+        },
+        {}
+      );
 
       // Sort subgroups with 'default' always first
       const subgroups = Object.keys(groupedHotkeys).sort((a, b) => {
@@ -98,11 +108,16 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
       });
 
       return (
-        <div key={sectionId} className="border border-neutral-border rounded-lg">
+        <div
+          key={sectionId}
+          className="border border-neutral-border rounded-lg"
+        >
           {/* Section Header */}
           <div className="px-4 py-3 border-b border-neutral-border">
             <h3 className="font-medium">{section.title}</h3>
-            <p className="text-sm text-neutral-content-subtler">{section.description}</p>
+            <p className="text-sm text-neutral-content-subtler">
+              {section.description}
+            </p>
           </div>
 
           {/* Section Content */}
@@ -112,18 +127,24 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
                 <div
                   key={subgroup}
                   className={clsx(
-                    subgroup !== "default" && "mt-4 pt-2 border rounded-md border-gray-200 dark:border-gray-700 p-3",
+                    subgroup !== "default" &&
+                      "mt-4 pt-2 border rounded-md border-gray-200 dark:border-gray-700 p-3"
                   )}
                 >
                   {/* Subgroup Header */}
                   {subgroup !== "default" && (
                     <div className="mb-3">
                       <div className="text-sm font-medium mb-1 capitalize">
-                        {sections.find((s: Section) => s.id === subgroup)?.title || subgroup}
+                        {sections.find((s: Section) => s.id === subgroup)
+                          ?.title || subgroup}
                       </div>
-                      {sections.find((s: Section) => s.id === subgroup)?.description && (
+                      {sections.find((s: Section) => s.id === subgroup)
+                        ?.description && (
                         <div className="text-xs text-neutral-content-subtler">
-                          {sections.find((s: Section) => s.id === subgroup)?.description}
+                          {
+                            sections.find((s: Section) => s.id === subgroup)
+                              ?.description
+                          }
                         </div>
                       )}
                     </div>
@@ -131,11 +152,18 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
 
                   {/* Hotkey Items */}
                   {groupedHotkeys[subgroup].map((hotkey: Hotkey) => (
-                    <div key={`${section.id}-${hotkey.element}`} className="flex items-center justify-between py-2">
+                    <div
+                      key={`${section.id}-${hotkey.element}`}
+                      className="flex items-center justify-between py-2"
+                    >
                       <div>
-                        <div className="font-medium text-neutral-content">{hotkey.label}</div>
+                        <div className="font-medium text-neutral-content">
+                          {hotkey.label}
+                        </div>
                         {hotkey.description && (
-                          <div className="text-sm text-neutral-content-subtler">{hotkey.description}</div>
+                          <div className="text-sm text-neutral-content-subtler">
+                            {hotkey.description}
+                          </div>
                         )}
                       </div>
                       <KeyboardKey>{hotkey.key}</KeyboardKey>
@@ -148,7 +176,7 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
         </div>
       );
     },
-    [hotkeys],
+    [hotkeys]
   );
 
   const modalContent = useMemo(
@@ -156,26 +184,39 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
       <div className="max-w-3xl max-h-[90vh] h-full overflow-hidden w-full mx-4 flex flex-col">
         <div className="px-wide py-base border-b border-neutral-border">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-semibold">Keyboard Shortcuts</h2>
+            <h2 className="text-lg font-semibold">
+              {defaultT(
+                t,
+                "pages.account_settings.keyboard_shortcuts",
+                "Keyboard Shortcuts"
+              )}
+            </h2>
           </div>
           <p className="text-sm text-neutral-content-subtler mt-1">
-            View all available keyboard shortcuts.&nbsp;
+            {defaultT(
+              t,
+              "pages.account_settings.view_all_available_shortcuts",
+              "View all available keyboard shortcuts."
+            )}
+            &nbsp;
             <a
               href="/user/account/hotkeys"
               onClick={handleCustomizeClick}
               className="text-primary-content hover:underline hover:text-primary-content-hover"
             >
-              Customize
+              {defaultT(t, "pages.account_settings.customize", "Customize")}
             </a>
           </p>
         </div>
 
         <div className="px-wide py-wide overflow-y-auto scrollbar-thin scrollbar-thumb-neutral-border-bold scrollbar-track-transparent">
-          <div className="space-y-wide">{sectionsToShow.map((sectionId) => renderSection(sectionId))}</div>
+          <div className="space-y-wide">
+            {sectionsToShow.map((sectionId) => renderSection(sectionId))}
+          </div>
         </div>
       </div>
     ),
-    [sectionsToShow, renderSection, handleCustomizeClick],
+    [sectionsToShow, renderSection, handleCustomizeClick]
   );
 
   return modalContent;
@@ -184,12 +225,17 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
 /**
  * Determines which hotkey sections to display based on URL or explicit section names
  */
-const determineSectionsToShow = (sectionOrUrl?: string | string[]): string[] => {
+const determineSectionsToShow = (
+  sectionOrUrl?: string | string[]
+): string[] => {
   let sectionsToShow: string[] = [];
 
   if (sectionOrUrl) {
     // Check if input is a URL
-    if (typeof sectionOrUrl === "string" && (sectionOrUrl.startsWith("http") || sectionOrUrl.startsWith("/"))) {
+    if (
+      typeof sectionOrUrl === "string" &&
+      (sectionOrUrl.startsWith("http") || sectionOrUrl.startsWith("/"))
+    ) {
       // Apply URL-to-section mapping
       for (const mapping of urlMappings) {
         if (mapping.regex.test(sectionOrUrl)) {
@@ -202,7 +248,9 @@ const determineSectionsToShow = (sectionOrUrl?: string | string[]): string[] => 
       }
     } else {
       // Input is section name(s)
-      sectionsToShow = Array.isArray(sectionOrUrl) ? sectionOrUrl : [sectionOrUrl];
+      sectionsToShow = Array.isArray(sectionOrUrl)
+        ? sectionOrUrl
+        : [sectionOrUrl];
     }
   } else {
     // Use current URL if no input provided
@@ -253,11 +301,17 @@ const determineSectionsToShow = (sectionOrUrl?: string | string[]): string[] => 
  * // Show shortcuts based on URL
  * openHotkeyHelp('/projects/123/data/?task=456');
  */
-export const openHotkeyHelp = (sectionOrUrl?: string | string[]): ModalReturn => {
+export const openHotkeyHelp = (
+  sectionOrUrl?: string | string[]
+): ModalReturn => {
   const sectionsToShow = determineSectionsToShow(sectionOrUrl);
 
   const modalInstance = modal({
-    title: "Keyboard Shortcuts",
+    title: defaultT(
+      t,
+      "pages.account_settings.keyboard_shortcuts",
+      "Keyboard Shortcuts"
+    ),
     body: () => <HotkeyHelpModal sectionsToShow={sectionsToShow} />,
     bare: true,
     allowClose: true,
