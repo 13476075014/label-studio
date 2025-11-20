@@ -5,6 +5,8 @@ import { formatDistanceToNow } from "date-fns";
 import type { ForwardedRef } from "react";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface PreviewStepProps {
   formData: any;
@@ -82,7 +84,7 @@ export const PreviewStep = ({
   formatSize,
   onImportSettingsChange,
 }: PreviewStepProps) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className="space-y-6">
       <div>

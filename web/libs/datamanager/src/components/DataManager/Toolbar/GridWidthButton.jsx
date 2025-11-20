@@ -7,6 +7,8 @@ import { IconSettings, IconMinus, IconPlus } from "@humansignal/icons";
 import debounce from "lodash/debounce";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const injector = inject(({ store }) => {
   const view = store?.currentView;
@@ -24,7 +26,7 @@ const injector = inject(({ store }) => {
 });
 
 export const GridWidthButton = injector(({ view, isGrid, gridWidth, fitImagesToWidth, hasImage, size }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [width, setWidth] = useState(gridWidth);
 
   const setGridWidthStore = debounce((value) => {

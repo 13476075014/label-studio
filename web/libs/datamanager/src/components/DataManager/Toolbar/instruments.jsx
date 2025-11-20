@@ -17,7 +17,8 @@ import { RefreshButton } from "./RefreshButton";
 import { ViewToggle } from "./ViewToggle";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
-import i18n from "i18next";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const style = {
   minWidth: "80px",
@@ -29,7 +30,7 @@ const style = {
  * If expired it renders disabled Import button with a tooltip.
  */
 const ImportButtonWithChecks = ({ size }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const simpleButton = <ImportButton size={size}> {defaultT(
       t,
       "libs.datamanager.emptyState.import",
@@ -80,8 +81,6 @@ const ImportButtonWithChecks = ({ size }) => {
     </Tooltip>
   );
 };
-
-const t = i18n.t.bind(i18n)
 
 export const instruments = {
   "view-toggle": ({ size }) => {

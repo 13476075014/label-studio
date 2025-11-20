@@ -3,9 +3,11 @@ import { useCopyText } from "../../hooks/useCopyText";
 import { Tooltip } from "@humansignal/ui";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 export const CopyableTooltip = forwardRef(({ children, title, textForCopy, ...restProps }, ref) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [copied, copyText] = useCopyText({ defaultText: textForCopy });
 
   const clickHandler = useCallback((e) => {

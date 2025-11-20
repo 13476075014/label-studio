@@ -7,6 +7,8 @@ import { IconChevronRight, IconPlus } from "@humansignal/icons";
 import "./Filters.scss";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 
 const injector = inject(({ store }) => ({
@@ -17,7 +19,7 @@ const injector = inject(({ store }) => ({
 }));
 
 export const Filters = injector(({ views, currentView, filters }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { sidebarEnabled } = views;
 
   const fields = React.useMemo(

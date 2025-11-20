@@ -5,6 +5,8 @@ import { FieldsButton } from "../../Common/FieldsButton";
 import { Space } from "../../Common/Space/Space";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const injector = inject(({ store }) => {
   const view = store?.currentView;
@@ -16,7 +18,7 @@ const injector = inject(({ store }) => {
 });
 
 export const OrderButton = injector(({ size, ordering, view, ...rest }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <Space style={{ fontSize: 12 }}>
       <ButtonGroup collapsed {...rest}>

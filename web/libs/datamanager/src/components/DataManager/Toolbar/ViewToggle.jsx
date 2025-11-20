@@ -4,6 +4,8 @@ import { IconGrid, IconList } from "@humansignal/icons";
 import { Tooltip } from "@humansignal/ui";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const viewInjector = inject(({ store }) => ({
   view: store.currentView,
@@ -39,7 +41,7 @@ export const ViewToggle = viewInjector(
 );
 
 export const DataStoreToggle = viewInjector(({ view, size, ...rest }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <RadioGroup value={view.target} size={size} onChange={(e) => view.setTarget(e.target.value)} {...rest}>
       <RadioGroup.Button value="tasks">{defaultT(

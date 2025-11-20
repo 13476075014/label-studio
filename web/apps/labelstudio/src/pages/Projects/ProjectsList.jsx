@@ -90,7 +90,7 @@ const ProjectCard = ({ project }) => {
             >
               <Dropdown.Trigger
                 content={
-                  <Menu contextual>
+                  <Menu contextual> 
                     <Menu.Item href={`/projects/${project.id}/settings`}>{defaultT(t, "pages.projects.settings", "Settings")}</Menu.Item>
                     <Menu.Item href={`/projects/${project.id}/data?labeling=1`}>{defaultT(t, "pages.projects.label", "Label")}</Menu.Item>
                   </Menu>

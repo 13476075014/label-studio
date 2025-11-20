@@ -14,6 +14,8 @@ import { Button, IconExternal, Typography, Tooltip } from "@humansignal/ui";
 import { getDocsUrl } from "../../../../../../editor/src/utils/docs";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 declare global {
   interface Window {
@@ -212,7 +214,7 @@ const StorageProviderIcons = () => (
 
 // Documentation link component
 const DocumentationLink = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   if (window.APP_SETTINGS?.whitelabel_is_active) {
     return null;
   }
@@ -281,7 +283,7 @@ export const EmptyState: FC<EmptyStateProps> = ({
   onLabelAllTasks,
   onClearFilters,
 }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const isImportEnabled = Boolean(canImport);
 
   // If filters are applied, show the filter-specific empty state (regardless of user role)

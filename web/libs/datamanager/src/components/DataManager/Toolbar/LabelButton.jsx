@@ -7,6 +7,8 @@ import { Dropdown } from "../../Common/Dropdown/DropdownComponent";
 import { Menu } from "../../Common/Menu/Menu";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const injector = inject(({ store }) => {
   const { dataStore, currentView } = store;
@@ -23,7 +25,7 @@ const injector = inject(({ store }) => {
 });
 
 export const LabelButton = injector(({ store, canLabel, size, target, selectedCount }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const disabled = target === "annotations";
   const triggerRef = useRef();
   const [isOpen, setIsOpen] = useState(false);

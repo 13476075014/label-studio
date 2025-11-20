@@ -4,6 +4,8 @@ import { ProviderGrid } from "../components";
 import type { ProviderConfig } from "../types/provider";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface ProviderSelectionStepProps {
   formData: {
@@ -25,7 +27,7 @@ export const ProviderSelectionStep = ({
   handleSelectChange,
   providers,
 }: ProviderSelectionStepProps) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   // Set default provider if none is selected and we have options
   useEffect(() => {
     if (!formData.provider && Object.entries(providers).length > 0) {

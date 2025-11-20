@@ -11,6 +11,7 @@ import { type ChangeEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../core/src/index";
 import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 export const TokenSettingsModal = ({
   showTTL,
@@ -19,7 +20,7 @@ export const TokenSettingsModal = ({
   showTTL?: boolean;
   onSaved?: () => void;
 }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const settings = useAtomValue(settingsAtom);
   if (!settings.isSuccess || settings.isError || "error" in settings.data) {
     return (
@@ -51,7 +52,7 @@ function TokenSettingsModalView({
   showTTL?: boolean;
   onSaved?: () => void;
 }) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const [enableTTL, setEnableTTL] = useState(settings.api_tokens_enabled);
   const queryClient = useAtomValue(queryClientAtom);
   const reloadSettings = () => {

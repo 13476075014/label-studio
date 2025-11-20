@@ -1,6 +1,8 @@
 import { Button, cnm } from "@humansignal/ui";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface FormFooterProps {
   currentStep: number;
@@ -45,7 +47,7 @@ export const FormFooter = ({
   target,
   isProviderDisabled = false,
 }: FormFooterProps) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <div className="flex items-center justify-between p-wide border-t border-neutral-border bg-neutral-background">
       <Button look="outlined" onClick={onPrevious} disabled={currentStep === 0}>

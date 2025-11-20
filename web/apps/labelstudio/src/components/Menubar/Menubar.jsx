@@ -36,6 +36,8 @@ import { openHotkeyHelp } from "@humansignal/app-common/pages/AccountSettings/se
 import { LanguagePicker } from '../LanguagePicker/index';
 import { useTranslation } from "react-i18next";
 import { defaultT } from  "../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 export const MenubarContext = createContext();
 
@@ -58,7 +60,7 @@ const RightContextMenu = ({ className, ...props }) => {
 };
 
 export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSidebarToggle, onSidebarPin }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const menuDropdownRef = useRef();
   const useMenuRef = useRef();
   const { user, fetch, isInProgress } = useCurrentUser();

@@ -8,6 +8,8 @@ import { Space } from "../Space/Space";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../utils/scripts";
 import "./Error.scss";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const SLACK_INVITE_URL = "https://slack.labelstud.io/?source=product-error-msg";
 
@@ -23,7 +25,7 @@ export const ErrorWrapper = ({
   possum = false,
   minimal = false,
 }) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const preparedStackTrace = useMemo(() => {
     return (stacktrace ?? "").trim();
   }, [stacktrace]);

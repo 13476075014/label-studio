@@ -12,6 +12,8 @@ import "./DataManager.scss";
 import { Toolbar } from "./Toolbar/Toolbar";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const tabContentCN = cn("tabs-dm-content");
 
@@ -45,7 +47,7 @@ const switchInjector = inject(({ store }) => {
 });
 
 const ProjectSummary = summaryInjector((props) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   return (
     <Space size="large" style={{ paddingRight: "1em", color: "var(--color-neutral-content-subtle)" }}>
       {props.cloudSync && (

@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { ToastContext } from "@humansignal/ui";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 export const DRAFT_GUARD_KEY = "DRAFT_GUARD";
 
@@ -11,7 +13,7 @@ export const draftGuardCallback = {
 };
 
 export const DraftGuard = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const toast = useContext(ToastContext);
   const history = useHistory();
 

@@ -4,6 +4,8 @@ import Input from "apps/labelstudio/src/components/Form/Elements/Input/Input";
 import { Toggle } from "@humansignal/ui";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface ProviderDetailsStepProps {
   formData: any;
@@ -24,7 +26,7 @@ export const ProviderDetailsStep = ({
   isEditMode = false,
   target,
 }: ProviderDetailsStepProps) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const providerConfig = getProviderConfig(provider);
 
   if (!provider || !providerConfig) {

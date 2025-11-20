@@ -9,6 +9,8 @@ import { clearScriptsCache, isScriptValid, reInsertScripts, replaceScript } from
 import { UNBLOCK_HISTORY_MESSAGE } from "../App";
 import { useTranslation } from "react-i18next";
 import { defaultT } from "../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const pageCache = new Map();
 
@@ -19,7 +21,7 @@ const pageFromHTML = (html) => {
 };
 
 const loadAsyncPage = async (url) => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   try {
     if (pageCache.has(url)) {
       return pageCache.get(url);
