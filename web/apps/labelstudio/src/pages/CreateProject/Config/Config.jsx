@@ -548,7 +548,12 @@ const Configurator = ({
               "Browse Templates")
             }
           </Button>
-          <ToggleItems items={{ code: "Code", visual: "Visual" }} active={configure} onSelect={onSelect} />
+          <ToggleItems items={
+            { code: defaultT(t, "pages.create_project.config_label.code",
+              "Code")
+            , visual: defaultT(t, "pages.create_project.config_label.visual",
+              "Visual")
+            }} active={configure} onSelect={onSelect} />
         </header>
         <div className={configClass.elem("editor")}>
           {configure === "code" && (
