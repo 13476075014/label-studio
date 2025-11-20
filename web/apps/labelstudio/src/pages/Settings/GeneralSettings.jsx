@@ -79,8 +79,7 @@ export const GeneralSettings = () => {
                 {samplings.map(({ value, label, description }) => (
                   <RadioGroup.Button
                     key={value}
-                    value={`${value} ${defaultT(t, "pages.settings.general.sampling",
-                      "sampling")}`}
+                    value={`${value} sampling`}
                     label={`${label} ${defaultT(t, "pages.settings.general.sampling",
                       "sampling")}`}
                     description={description}
