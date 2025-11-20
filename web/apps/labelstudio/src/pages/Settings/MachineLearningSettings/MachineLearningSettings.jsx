@@ -70,9 +70,11 @@ export const MachineLearningSettings = () => {
 
   const showMLFormModal = useCallback(
     (backend) => {
-      const action = backend ? defaultT(t, "pages.settings.menu.editMLBackend",
-          "updateMLBackend") : defaultT(t, "pages.settings.menu.addMLBackend",
-          "addMLBackend");
+      // 新增或者编辑模型
+      const action = backend ? "updateMLBackend" : "addMLBackend";
+      // const action = backend ? defaultT(t, "pages.settings.menu.editMLBackend",
+      //     "updateMLBackend") : defaultT(t, "pages.settings.menu.addMLBackend",
+      //     "addMLBackend");
       const modalProps = {
         title: `${backend ? defaultT(t, "common.edit",
           "Edit") : defaultT(t, "common.connect",
