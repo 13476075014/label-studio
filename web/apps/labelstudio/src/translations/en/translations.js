@@ -55,8 +55,7 @@ export const TRANSLATIONS_EN = {
         "Show controls to zoom in and out": "Show controls to zoom in and out",
         "Show controls to rotate image": "Show controls to rotate image",
         "Select text by words": "Select text by words",
-        "Add filter for long list of labels":
-          "Add filter for long list of labels",
+        "Add filter for long list of labels": "Add filter for long list of labels",
         "Display labels": "Display labels",
       },
       "Display labels": {
@@ -77,8 +76,7 @@ export const TRANSLATIONS_EN = {
       pin_menu: "Pin menu",
       unpin_menu: "Unpin menu",
       slack_community: "Slack Community",
-      please_check_new_notice:
-        "Please check new notification settings in the Account & Settings page",
+      please_check_new_notice: "Please check new notification settings in the Account & Settings page",
       hotkeys_tooltip: "Keyboard Shortcuts",
       account_settings: "Account &amp; Settings",
     },
@@ -127,6 +125,9 @@ export const TRANSLATIONS_EN = {
       keyboard_shortcuts: "Keyboard Shortcuts",
       view_all_available_shortcuts: "View all available keyboard shortcuts.",
       customize: "Customize",
+      personal_info: "Personal Info",
+      hot_keys: "Hotkeys",
+      first_name: "First Name",
       annotation: {
         submit_annotation: "Submit Annotation",
         submit_the_current_annotation: "Submit the current annotation",
@@ -147,40 +148,33 @@ export const TRANSLATIONS_EN = {
         focus_open_task: "Focus Open Task",
         focus_on_the_open_task_column: "Focus on the open task column",
         toggle_bulk_sidebar: "Toggle Bulk Sidebar",
-        minimize_or_expand_bulk_actions_sidebar:
-          "Minimize or expand bulk actions sidebar",
+        minimize_or_expand_bulk_actions_sidebar: "Minimize or expand bulk actions sidebar",
       },
       regions: {
         delete_all_regions: "Delete All Regions",
         remove_all_regions: "Remove all regions",
         focus_first_region: "Focus First Region",
-        move_focus_to_the_first_focusable_region:
-          "Move focus to the first focusable region",
+        move_focus_to_the_first_focusable_region: "Move focus to the first focusable region",
         create_region_relation: "Create Region Relation",
-        create_a_relation_between_selected_regions:
-          "Create a relation between selected regions",
+        create_a_relation_between_selected_regions: "Create a relation between selected regions",
         toggle_region_visibility: "Toggle Region Visibility",
         show_or_hide_the_selected_region: "Show or hide the selected region",
         toggle_all_region_visibility: "Toggle All Region Visibility",
         show_or_hide_all_regions: "Show or hide all regions",
         lock_region: "Lock Region",
-        lock_or_unlock_the_selected_region:
-          "Lock or unlock the selected region",
+        lock_or_unlock_the_selected_region: "Lock or unlock the selected region",
         edit_region_metadata: "Edit Region Metadata",
         edit_metadata_for_selected_region: "Edit metadata for selected region",
         unselect_region: "Unselect Region",
-        deselect_the_currently_selected_region:
-          "Deselect the currently selected region",
+        deselect_the_currently_selected_region: "Deselect the currently selected region",
         exit_region_mode: "Exit Region Mode",
-        exit_relation_mode_and_unselect_region:
-          "Exit relation mode and unselect region",
+        exit_relation_mode_and_unselect_region: "Exit relation mode and unselect region",
         delete_selected_region: "Delete Selected Region",
         delete_currently_selected_region: "Delete currently selected region",
         cycle_regions: "Cycle Regions",
         cycle_through_all_regions: "Cycle through all regions",
         duplicate_region: "Duplicate Region",
-        create_a_copy_of_the_selected_region:
-          "Create a copy of the selected region",
+        create_a_copy_of_the_selected_region: "Create a copy of the selected region",
         delete_segment: "Delete Segment",
         delete_selected_segment: "Delete selected segment",
       },
@@ -232,11 +226,9 @@ export const TRANSLATIONS_EN = {
         extend_right_large: "Extend Right (Large)",
         extend_region_right_significantly: "Extend region right significantly",
         shrink_left_large: "Shrink Left (Large)",
-        shrink_region_from_left_significantly:
-          "Shrink region from left significantly",
+        shrink_region_from_left_significantly: "Shrink region from left significantly",
         shrink_right_large: "Shrink Right (Large)",
-        shrink_region_from_right_significantly:
-          "Shrink region from right significantly",
+        shrink_region_from_right_significantly: "Shrink region from right significantly",
       },
       image_gallery: {
         previous_image: "Previous Image",
@@ -250,15 +242,13 @@ export const TRANSLATIONS_EN = {
         pan_image: "Pan Image",
         pan_around_the_image: "Pan around the image",
         zoom_to_fit: "Zoom to Fit",
-        zoom_to_fit_the_full_image_in_view:
-          "Zoom to fit the full image in view",
+        zoom_to_fit_the_full_image_in_view: "Zoom to fit the full image in view",
         zoom_to_100: "Zoom to 100%",
         zoom_to_actual_image_size_100: "Zoom to actual image size (100%)",
         zoom_out: "Zoom Out",
         zoom_out_of_the_image: "Zoom out of the image",
         move_tool: "Move Tool",
-        select_the_move_tool_to_reposition_annotations:
-          "Select the move tool to reposition annotations",
+        select_the_move_tool_to_reposition_annotations: "Select the move tool to reposition annotations",
         brush_tool: "Brush Tool",
         select_the_brush_tool: "Select the brush tool",
         ellipse_tool: "Ellipse Tool",
@@ -266,23 +256,17 @@ export const TRANSLATIONS_EN = {
         eraser_tool: "Eraser Tool",
         select_the_eraser_tool: "Select the eraser tool",
         auto_detect: "Auto Detect",
-        use_the_auto_detect_tool_to_automatically_suggest_regions:
-          "Use the auto-detect tool to automatically suggest regions",
+        use_the_auto_detect_tool_to_automatically_suggest_regions: "Use the auto-detect tool to automatically suggest regions",
         key_point_tool: "Key Point Tool",
-        select_the_key_point_annotation_tool:
-          "Select the key point annotation tool",
+        select_the_key_point_annotation_tool: "Select the key point annotation tool",
         magic_wand: "Magic Wand",
-        select_the_magic_wand_tool_for_smart_region_selection:
-          "Select the magic wand tool for smart region selection",
+        select_the_magic_wand_tool_for_smart_region_selection: "Select the magic wand tool for smart region selection",
         polygon_tool: "Polygon Tool",
-        select_the_polygon_annotation_tool:
-          "Select the polygon annotation tool",
+        select_the_polygon_annotation_tool: "Select the polygon annotation tool",
         rectangle_tool: "Rectangle Tool",
-        select_the_rectangle_annotation_tool:
-          "Select the rectangle annotation tool",
+        select_the_rectangle_annotation_tool: "Select the rectangle annotation tool",
         "3_point_rectangle": "3-Point Rectangle",
-        draw_a_rotated_rectangle_using_3_point_selection:
-          "Draw a rotated rectangle using 3-point selection",
+        draw_a_rotated_rectangle_using_3_point_selection: "Draw a rotated rectangle using 3-point selection",
         rotate_left: "Rotate Left",
         rotate_the_image_90_to_the_left: "Rotate the image 90° to the left",
         rotate_right: "Rotate Right",
@@ -292,48 +276,34 @@ export const TRANSLATIONS_EN = {
       },
       paragraphs: {
         next_phrase: "Next Phrase",
-        navigate_to_the_next_phrase_in_paragraph_view:
-          "Navigate to the next phrase in paragraph view",
+        navigate_to_the_next_phrase_in_paragraph_view: "Navigate to the next phrase in paragraph view",
         previous_phrase: "Previous Phrase",
-        navigate_to_the_previous_phrase_in_paragraph_view:
-          "Navigate to the previous phrase in paragraph view",
+        navigate_to_the_previous_phrase_in_paragraph_view: "Navigate to the previous phrase in paragraph view",
         select_all_and_annotate: "Select All and Annotate",
-        select_all_text_in_current_phrase_and_create_annotation:
-          "Select all text in current phrase and create annotation",
+        select_all_text_in_current_phrase_and_create_annotation: "Select all text in current phrase and create annotation",
         next_region_in_phrase: "Next Region in Phrase",
-        navigate_to_the_next_region_within_current_phrase:
-          "Navigate to the next region within current phrase",
+        navigate_to_the_next_region_within_current_phrase: "Navigate to the next region within current phrase",
         previous_region_in_phrase: "Previous Region in Phrase",
-        navigate_to_the_previous_region_within_current_phrase:
-          "Navigate to the previous region within current phrase",
+        navigate_to_the_previous_region_within_current_phrase: "Navigate to the previous region within current phrase",
       },
       annotation_actions: "Annotation Actions",
-      shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo:
-        "Shortcuts for common annotation tasks like submit, skip, undo and redo",
+      shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo: "Shortcuts for common annotation tasks like submit, skip, undo and redo",
       data_manager_title: "Data Manager",
-      shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager:
-        "Shortcuts for navigating and managing tasks in Project's Data Manager",
+      shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager: "Shortcuts for navigating and managing tasks in Project's Data Manager",
       region_management: "Region Management",
-      shortcuts_for_creating_selecting_and_manipulating_annotation_regions:
-        "Shortcuts for creating, selecting and manipulating annotation regions",
+      shortcuts_for_creating_selecting_and_manipulating_annotation_regions: "Shortcuts for creating, selecting and manipulating annotation regions",
       tools_title: "Tools",
-      shortcuts_for_controlling_tools_panel_when_labeling_images:
-        "Shortcuts for controlling tools panel when labeling images",
+      shortcuts_for_controlling_tools_panel_when_labeling_images: "Shortcuts for controlling tools panel when labeling images",
       audio_controls: "Audio Controls",
-      shortcuts_for_controlling_audio_playback_and_navigation:
-        "Shortcuts for controlling audio playback and navigation",
+      shortcuts_for_controlling_audio_playback_and_navigation: "Shortcuts for controlling audio playback and navigation",
       video_controls: "Video Controls",
-      shortcuts_for_controlling_video_playback_and_navigation:
-        "Shortcuts for controlling video playback and navigation",
+      shortcuts_for_controlling_video_playback_and_navigation: "Shortcuts for controlling video playback and navigation",
       time_series_controls: "Time Series Controls",
-      shortcuts_for_manipulating_time_series_data_regions:
-        "Shortcuts for manipulating time series data regions",
+      shortcuts_for_manipulating_time_series_data_regions: "Shortcuts for manipulating time series data regions",
       image_gallery_navigation: "Image Gallery Navigation",
-      shortcuts_for_navigating_between_images_in_multi_image_tasks:
-        "Shortcuts for navigating between images in multi-image tasks",
+      shortcuts_for_navigating_between_images_in_multi_image_tasks: "Shortcuts for navigating between images in multi-image tasks",
       paragraph_navigation: "Paragraph Navigation",
-      shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view:
-        "Shortcuts for navigating phrases and regions in paragraph/dialogue view",
+      shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view: "Shortcuts for navigating phrases and regions in paragraph/dialogue view",
     },
     projects: {
       title: "Projects",
@@ -395,13 +365,11 @@ export const TRANSLATIONS_EN = {
         upload_limitations: "upload limitations",
         for_pDFs_use: "For PDFs, use",
         multi_image_labeling: "multi-image labeling",
-        json_parquet:
-          "JSONL or Parquet (Enterprise only) files require cloud storage",
+        json_parquet: "JSONL or Parquet (Enterprise only) files require cloud storage",
         check_document: "Check the documentation to",
         import_preannot: "import preannotated data",
         sample: "Sample",
-        something_wrong_loaded:
-          "Something went wrong, the sample data could not be loaded",
+        something_wrong_loaded: "Something went wrong, the sample data could not be loaded",
         setup_you: "Setup your",
         label_config: "labeling configuration",
         first_preview_format: "first to preview the expected JSON data format",
@@ -414,26 +382,19 @@ export const TRANSLATIONS_EN = {
         code: "Code",
         visual: "Visual",
         configure_data: "Configure data",
-        require_more_data:
-          "This template requires more data then you have for now",
-        need_upload_data:
-          "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
+        require_more_data: "This template requires more data then you have for now",
+        need_upload_data: "To select which field(s) to label you need to upload the data. Alternatively, you can provide it using Code mode.",
         add: "Add",
         add_choices: "Add choices",
         add_label_names: "Add label names",
         configure_settings: "Configure settings",
         ui_preview: "UI Preview",
-        empty_config_placeholder:
-          "Your labeling configuration is empty. It is required to label your data. ",
-        empty_config_starting_info:
-          "Start from one of our predefined templates or create your own config on the Code panel. The labeling config is XML-based and you can",
-        empty_config_read_docs:
-          "read about the available tags in our documentation",
-        use_new_line_as_separator:
-          "Use new line as a separator to add multiple labels",
+        empty_config_placeholder: "Your labeling configuration is empty. It is required to label your data. ",
+        empty_config_starting_info: "Start from one of our predefined templates or create your own config on the Code panel. The labeling config is XML-based and you can",
+        empty_config_read_docs: "read about the available tags in our documentation",
+        use_new_line_as_separator: "Use new line as a separator to add multiple labels",
         use: "Use",
-        configure_labeling_interface:
-          "Configure the labeling interface with tags.",
+        configure_labeling_interface: "Configure the labeling interface with tags.",
         see_all_available_tags: "See all available tags",
         saved: "Saved",
         saving: "Saving...",
@@ -478,21 +439,16 @@ export const TRANSLATIONS_EN = {
         addMLBackend: "addMLBackend",
         model: "Model",
         connectModel: "Let’s connect your first model",
-        connectModel_description:
-          "Connect a machine learning model to generate predictions. These predictions can be compared side by side, used for efficient pre‒labeling and, to aid in active learning, directing users to the most impactful labeling tasks.",
+        connectModel_description: "Connect a machine learning model to generate predictions. These predictions can be compared side by side, used for efficient pre‒labeling and, to aid in active learning, directing users to the most impactful labeling tasks.",
         connectModel2: "Connect Model",
         needHelp: "Need help?",
-        learnMoreAboutConnectingModels:
-          "Learn more about connecting models in our docs",
-        connectModel_description2:
-          "A connected model has been detected! If you wish to fetch predictions from this model, please follow these steps:",
+        learnMoreAboutConnectingModels: "Learn more about connecting models in our docs",
+        connectModel_description2: "A connected model has been detected! If you wish to fetch predictions from this model, please follow these steps:",
         selectTheDesiredTasks: "Select the desired tasks.",
-        connectModel_description3:
-          "If you want to use the model predictions for prelabeling, please configure this in the",
+        connectModel_description3: "If you want to use the model predictions for prelabeling, please configure this in the",
         annotationSettings: "Annotation settings",
         deleteMLBackend: "Delete ML Backend",
-        deleteMLBackendConfirmation:
-          "This action cannot be undone. Are you sure?",
+        deleteMLBackendConfirmation: "This action cannot be undone. Are you sure?",
         edit: "Edit",
         testRequest: "Send Test Request",
         startTraining: "Start Training",
@@ -513,8 +469,7 @@ export const TRANSLATIONS_EN = {
         basicAuthPass: "Basic auth pass",
         extraParams: "Any extra params to pass during model connection",
         interactivePreannotations: "Interactive preannotations",
-        interactivePreannotationsDescription:
-          "If enabled some labeling tools will send requests to the ML Backend interactively during the annotation process.",
+        interactivePreannotationsDescription: "If enabled some labeling tools will send requests to the ML Backend interactively during the annotation process.",
         validateAndSave: "Validate and Save",
         navigateToDataManager: "Navigate to the Data Manager",
       },
@@ -525,54 +480,44 @@ export const TRANSLATIONS_EN = {
         description: "Description",
         workspace: "Workspace",
         select_option: "Select an option",
-        workspace_tip:
-          "Simplify project management by organizing projects into workspaces",
+        workspace_tip: "Simplify project management by organizing projects into workspaces",
         learn_more: "Learn more",
         color: "Color",
         task_sampling: "Task Sampling",
         uncertainty_sampling: "Uncertainty sampling",
-        uncertainty_sampling_desc:
-          "Tasks are chosen according to model uncertainty score (active learning mode)",
+        uncertainty_sampling_desc: "Tasks are chosen according to model uncertainty score (active learning mode)",
         saved: "Saved",
         save: "Save",
         sequential: "Sequential",
         task_are_ordered_by_task_id: "Tasks are ordered by Task ID",
         random: "Random",
-        tasks_are_chosen_with_uniform_random:
-          "Tasks are chosen with uniform random",
+        tasks_are_chosen_with_uniform_random: "Tasks are chosen with uniform random",
         sampling: "sampling",
       },
       danger: {
         confirm_title: "Action confirmation",
-        confirm_body:
-          "You're about to delete all things. This action cannot be undone.",
+        confirm_body: "You're about to delete all things. This action cannot be undone.",
         confirm_ok: "Proceed",
         delete_annotations: "Delete {{count}} Annotations",
         delete_tasks: "Delete {{count}} Tasks",
         delete_predictions: "Delete {{count}} Predictions",
         reset_cache: "Reset Cache",
-        reset_cache_help:
-          "Reset Cache may help in cases like if you are unable to modify the labeling configuration due to validation errors concerning existing labels, but you are confident that the labels don't exist. You can use this action to reset the cache and try again.",
+        reset_cache_help: "Reset Cache may help in cases like if you are unable to modify the labeling configuration due to validation errors concerning existing labels, but you are confident that the labels don't exist. You can use this action to reset the cache and try again.",
         drop_tabs: "Drop All Tabs",
-        drop_tabs_help:
-          "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
+        drop_tabs_help: "If the Data Manager is not loading, dropping all Data Manager tabs can help.",
         delete_project: "Delete Project",
-        delete_project_help:
-          "Deleting a project removes all tasks, annotations, and project data from the database.",
+        delete_project_help: "Deleting a project removes all tasks, annotations, and project data from the database.",
         title: "Danger Zone",
         desc: "Perform these actions at your own risk. Actions you take on this page can't be reverted. Make sure your data is backed up.",
       },
       annotation: {
         title: "Annotation Settings",
         header_labeling_instructions: "Labeling Instructions",
-        instructions_p1:
-          "Write instructions to help users complete labeling tasks.",
-        instructions_p2:
-          "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
+        instructions_p1: "Write instructions to help users complete labeling tasks.",
+        instructions_p2: "The instruction field supports HTML markup and it allows use of images, iframes (pdf).",
         show_before_labeling: "Show before labeling",
         show_after_labeling: "Show after labeling",
-        use_predictions_prelabel_description:
-          "Enable and select which set of predictions to use for prelabeling.",
+        use_predictions_prelabel_description: "Enable and select which set of predictions to use for prelabeling.",
         saved: "Saved!",
         save: "Save",
       },
@@ -580,28 +525,23 @@ export const TRANSLATIONS_EN = {
       predictions: {
         title: "Predictions",
         list: "Predictions List",
-        description1:
-          "List of predictions available in the project. Each card is associated with a separate model version. To learn about how to import predictions",
+        description1: "List of predictions available in the project. Each card is associated with a separate model version. To learn about how to import predictions",
         see_documentation: "see&nbsp;the&nbsp;documentation",
         no_predictions: "No predictions yet uploaded",
-        description2:
-          "Predictions could be used to prelabel the data, or validate the model. You can upload and select predictions from multiple model versions. You can also connect live models in the Model tab.",
+        description2: "Predictions could be used to prelabel the data, or validate the model. You can upload and select predictions from multiple model versions. You can also connect live models in the Model tab.",
         need_help: "Need help",
-        learn_more_about_predictions:
-          "Learn more on how to upload predictions in our docs",
+        learn_more_about_predictions: "Learn more on how to upload predictions in our docs",
       },
       storage: {
         title: "Storage Settings",
         cloudStorage: "Cloud Storage",
-        cloudStorageDescription:
-          "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
+        cloudStorageDescription: "Use cloud or database storage as the source for your labeling tasks or the target of your completed annotations.",
         sourceCloudStorage: "Source Cloud Storage",
         addSourceCloudStorage: "Add Source Storage",
         targetCloudStorage: "Target Cloud Storage",
         addTargetStorage: "Add Target Storage",
         deleteStorage: "Deleting storage",
-        deleteStorageConfirmation:
-          "This action cannot be undone. Are you sure?",
+        deleteStorageConfirmation: "This action cannot be undone. Are you sure?",
         storage_type: "Storage Type",
         updateStorage: "updateStorage",
         createStorage: "createStorage",
@@ -611,18 +551,13 @@ export const TRANSLATIONS_EN = {
         addStorage: "Add Storage",
         untilted: "Untitled",
         sync_storage: "Sync Storage",
-        syncing_message:
-          "Syncing may take some time, please refresh the page to see the current status.",
-        azure_blob_storage_with_service_principal:
-          "Azure Blob Storage\nwith Service Principal",
-        azure_blob_storage_with_service_principal_description:
-          "Configure your Azure Blob Storage connection using Service Principal authentication for enhanced security (proxy only)",
+        syncing_message: "Syncing may take some time, please refresh the page to see the current status.",
+        azure_blob_storage_with_service_principal: "Azure Blob Storage\nwith Service Principal",
+        azure_blob_storage_with_service_principal_description: "Configure your Azure Blob Storage connection using Service Principal authentication for enhanced security (proxy only)",
         enterprise_feature: "Enterprise Feature",
-        azure_blob_storage_with_service_principal_description_enterprise:
-          "Azure Blob Storage with Service Principal is available in Label Studio Enterprise.",
+        azure_blob_storage_with_service_principal_description_enterprise: "Azure Blob Storage with Service Principal is available in Label Studio Enterprise.",
         azure_blob_storage: "Azure Blob Storage",
-        configuration_required:
-          "Configure your Azure Blob Storage connection with all required Label Studio settings",
+        configuration_required: "Configure your Azure Blob Storage connection with all required Label Studio settings",
         container_name: "Container Name",
         my_azure_container: "my-azure-container",
         bucket_prefix: "Bucket prefix",
@@ -631,71 +566,49 @@ export const TRANSLATIONS_EN = {
         mystorage_account: "mystorageaccount",
         account_key: "Account Key",
         your_storage_account_key: "Your storage account key",
-        use_pre_signed_urls:
-          "Use pre-signed URLs (On) / Proxy through the platform (Off)",
-        when_pre_signed_urls_are_enabled:
-          "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
+        use_pre_signed_urls: "Use pre-signed URLs (On) / Proxy through the platform (Off)",
+        when_pre_signed_urls_are_enabled: "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
         expire_pre_signed_urls: "Expire pre-signed URLs (minutes)",
         databricks_files: "Databricks Files\n(UC Volumes)",
-        config_databricks_files:
-          "Configure your Databricks Unity Catalog Volumes connection with all required settings (proxy only)",
+        config_databricks_files: "Configure your Databricks Unity Catalog Volumes connection with all required settings (proxy only)",
         enterprise_feature: "Enterprise Feature",
-        databricks_files_enterprise:
-          "Databricks Files (UC Volumes) is available in Label Studio Enterprise.",
+        databricks_files_enterprise: "Databricks Files (UC Volumes) is available in Label Studio Enterprise.",
         no_provider_selected: "No provider selected",
         unknown_provider: "Unknown provider",
-        enter_description:
-          "Enter a descriptive name (e.g., 'Legal Documents', 'Training Data')",
+        enter_description: "Enter a descriptive name (e.g., 'Legal Documents', 'Training Data')",
         storageTitle: "Storage Title",
-        this_name_will_help_you_identify_this_connection_in_your_project:
-          "This name will help you identify this connection in your project",
+        this_name_will_help_you_identify_this_connection_in_your_project: "This name will help you identify this connection in your project",
         can_delete_objects: "Can delete objects from storage",
-        if_unchecked_annotations_will_not_be_deleted_from_storage:
-          "If unchecked, annotations will not be deleted from storage",
-        configure_import_settings_and_preview_data:
-          "Configure Import Settings & Preview Data",
-        set_up_filters_for_your_files:
-          "Set up filters for your files and preview what will be synchronized",
+        if_unchecked_annotations_will_not_be_deleted_from_storage: "If unchecked, annotations will not be deleted from storage",
+        configure_import_settings_and_preview_data: "Configure Import Settings & Preview Data",
+        set_up_filters_for_your_files: "Set up filters for your files and preview what will be synchronized",
         import_configuration: "Import Configuration",
         files_preview: "Files Preview",
         path_to_files: "Path to Files",
         bucket_prefix: "Bucket Prefix",
         optional: "optional",
-        specify_folder_path:
-          "Specify the folder path within your storage where your files are located",
-        specify_bucket_path:
-          "Specify the folder path within your bucket where your files are located",
-        path_to_files_or_leave_empty_for_root:
-          "path/to/files/ or leave empty for root",
-        choose_how_to_interpret_your_data:
-          "Choose how to interpret your data from storage",
-        files_automatically_creates_a_task_for_each_storage_object:
-          "Files - Automatically creates a task for each storage object (e.g. JPG, MP3, TXT)",
-        tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file:
-          "Tasks - Treat each JSON, JSONL, or Parquet as one or more task definitions per file",
+        specify_folder_path: "Specify the folder path within your storage where your files are located",
+        specify_bucket_path: "Specify the folder path within your bucket where your files are located",
+        path_to_files_or_leave_empty_for_root: "path/to/files/ or leave empty for root",
+        choose_how_to_interpret_your_data: "Choose how to interpret your data from storage",
+        files_automatically_creates_a_task_for_each_storage_object: "Files - Automatically creates a task for each storage object (e.g. JPG, MP3, TXT)",
+        tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file: "Tasks - Treat each JSON, JSONL, or Parquet as one or more task definitions per file",
         select_import_method: "Select import method",
-        use_regex_patterns_to_filter_which_files_are_imported:
-          "Use regex patterns to filter which files are imported",
+        use_regex_patterns_to_filter_which_files_are_imported: "Use regex patterns to filter which files are imported",
         common_filters: "Common filters",
-        include_files_from_all_nested_folders:
-          "Include files from all nested folders",
+        include_files_from_all_nested_folders: "Include files from all nested folders",
         no_preview_available: " No Preview Available",
-        preview_files_will_be_displayed_here:
-          'Configure your import settings and click "Load Preview" to see a sample of files that will be imported.',
+        preview_files_will_be_displayed_here: 'Configure your import settings and click "Load Preview" to see a sample of files that will be imported.',
         no_files_found: "No Files Found",
-        no_files_matching_your_current_criteria_were_found:
-          "No files matching your current criteria were found. Try adjusting your filter settings and reload the preview.",
+        no_files_matching_your_current_criteria_were_found: "No files matching your current criteria were found. Try adjusting your filter settings and reload the preview.",
         preview_limit_reached: "preview limit reached ...",
         choose_provider: "Choose your cloud storage provider",
-        select_service:
-          "Select the cloud storage service where your data is stored",
+        select_service: "Select the cloud storage service where your data is stored",
         unknownFieldType: "Unknown field type: ",
         testConnectionBeforeContinuing: "Test connection before continuing",
-        thisProviderIsNotAvailableInTheCurrentVersion:
-          "This provider is not available in the current version",
+        thisProviderIsNotAvailableInTheCurrentVersion: "This provider is not available in the current version",
         amazon_s3: "Amazon S3",
-        configuration_required:
-          "Configure your AWS S3 connection with all required Label Studio settings",
+        configuration_required: "Configure your AWS S3 connection with all required Label Studio settings",
         bucket_name: "Bucket Name",
         my_storage_bucket: "my-storage-bucket",
         region_name: "Region Name",
@@ -707,43 +620,32 @@ export const TRANSLATIONS_EN = {
         secret_access_key: "Secret Access Key",
         session_token: "Session Token",
         session_token_optional: "Session token (optional)",
-        use_presigned_urls:
-          "Use pre-signed URLs (On) / Proxy through the platform (Off)",
-        when_pre_signed_urls_are_enabled:
-          "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
+        use_presigned_urls: "Use pre-signed URLs (On) / Proxy through the platform (Off)",
+        when_pre_signed_urls_are_enabled: "When pre-signed URLs are enabled, all data bypasses the platform and user browsers directly read data from storage",
         expire_pre_signed_urls: "Expire pre-signed URLs (minutes)",
         google_cloud_storage: "Google Cloud Storage",
-        configure_your_google_cloud_storage_connection:
-          "Configure your Google Cloud Storage connection with all required Label Studio settings",
+        configure_your_google_cloud_storage_connection: "Configure your Google Cloud Storage connection with all required Label Studio settings",
         google_application_credentials: "Google Application Credentials",
-        paste_credentials_json:
-          "Paste the contents of credentials.json in this field OR leave it blank to use ADC.",
+        paste_credentials_json: "Paste the contents of credentials.json in this field OR leave it blank to use ADC.",
         google_project_id: "Google Project ID",
-        leave_blank_to_inherit:
-          "Leave blank to inherit from Google Application Credentials.",
+        leave_blank_to_inherit: "Leave blank to inherit from Google Application Credentials.",
         google_cloud_storage: "Google Cloud Storage\n(WIF Auth)",
-        configuration_description_wif:
-          "Configure your Google Cloud Storage connection with Workload Identity Federation authentication (proxy only)",
-        google_cloud_storage_wif_description:
-          "Google Cloud Storage with Workload Identity Federation is available in Label Studio Enterprise.",
+        configuration_description_wif: "Configure your Google Cloud Storage connection with Workload Identity Federation authentication (proxy only)",
+        google_cloud_storage_wif_description: "Google Cloud Storage with Workload Identity Federation is available in Label Studio Enterprise.",
         local_files: "Local Files",
-        local_files_description2:
-          "Configure your local file storage connection with all required Label Studio settings",
+        local_files_description2: "Configure your local file storage connection with all required Label Studio settings",
         absolute_local_path: "Absolute local path",
         path: "Path",
         redis_storage: "Redis Storage",
-        redis_description1:
-          "Configure your Redis storage connection with all required Label Studio settings",
+        redis_description1: "Configure your Redis storage connection with all required Label Studio settings",
         database_number: "Database Number (db)",
         password: "Password",
         your_redis_password: "Your redis password",
         host: "Host",
         port: "Port",
         amazon_s3_with_iam_role: "Amazon S3\nwith IAM Role",
-        configure_your_aws_s3_connection_using_iam_role_access_for_enhanced_security_proxy_only:
-          "Configure your AWS S3 connection using IAM role access for enhanced security (proxy only)",
-        amazon_s3_with_iam_role_available_in_label_studio_enterprise:
-          "Amazon S3 with IAM Role is available in Label Studio Enterprise.",
+        configure_your_aws_s3_connection_using_iam_role_access_for_enhanced_security_proxy_only: "Configure your AWS S3 connection using IAM role access for enhanced security (proxy only)",
+        amazon_s3_with_iam_role_available_in_label_studio_enterprise: "Amazon S3 with IAM Role is available in Label Studio Enterprise.",
       },
     },
     data_manager: {
@@ -751,19 +653,15 @@ export const TRANSLATIONS_EN = {
       back_to_projects: "Back to projects",
       actions_must_be_array: "Actions must be an array",
       you_have_unsaved_changes: "You have unsaved changes",
-      there_are_comments:
-        "There are comments which are not persisted. Please submit the annotation. Continuing will discard these comments.",
+      there_are_comments: "There are comments which are not persisted. Please submit the annotation. Continuing will discard these comments.",
       discard_and_continue: "Discard and continue",
       you_are_almost_there: "You're almost there!",
-      before_you_can_annotate:
-        "Before you can annotate the data, set up labeling configuration",
+      before_you_can_annotate: "Before you can annotate the data, set up labeling configuration",
       go_to_setup: "Go to setup",
-      project_does_not_exist:
-        "Project ID: {{projectId}} does not exist or is no longer available",
+      project_does_not_exist: "Project ID: {{projectId}} does not exist or is no longer available",
       something_went_wrong: "Something went wrong",
       error_occurred_when_loading_data: "Error occurred when loading data",
-      your_action_is_being_processed:
-        "Your action is being processed in the background.",
+      your_action_is_being_processed: "Your action is being processed in the background.",
     },
     organization: {
       title: "Organization",
@@ -775,16 +673,12 @@ export const TRANSLATIONS_EN = {
       user_id: "User ID",
       error_loading_settings: "Error loading settings.",
       personal_access_tokens: "Personal Access Tokens",
-      enable_increased_token_authentication_security:
-        "Enable increased token authentication security",
+      enable_increased_token_authentication_security: "Enable increased token authentication security",
       legacy_tokens: "Legacy Tokens",
-      legacy_tokens_description:
-        "Enable legacy access tokens, these do not expire",
+      legacy_tokens_description: "Enable legacy access tokens, these do not expire",
       time_to_live: "Time-to-Live (optional, Personal Access Token only)",
-      time_to_live_description:
-        "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
-      time_to_live_description2:
-        "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
+      time_to_live_description: "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
+      time_to_live_description2: "The number of days, after creation, that the token will be valid for. After this time period a user will need to create a new access token",
       save_changes: "Save Changes",
       created_projects: "Created Projects",
       contributed_to_projects: "Contributed to",
@@ -809,28 +703,22 @@ export const TRANSLATIONS_EN = {
     datamanager: {
       emptyState: {
         import_data_to_get_started: "Import data to get your project started",
-        connect_your_cloud:
-          "Connect your cloud storage or upload files from your computer",
+        connect_your_cloud: "Connect your cloud storage or upload files from your computer",
         connect_cloud_storage: "Connect Cloud Storage",
         import: "Import",
         see_docs_on_import: "See docs on importing data",
         open_in_new_tab: "opens in a new tab",
         no_tasks_found: "No tasks found",
-        try_adjust_clean_filter:
-          "Try adjusting or clearing the filters to see more results",
+        try_adjust_clean_filter: "Try adjusting or clearing the filters to see more results",
         clear_filters: "Clear Filters",
         no_tasks_ava_for_review: "No tasks available for review or labeling",
-        tasks_imported_to_this_appear_here:
-          "Tasks imported to this project will appear here",
+        tasks_imported_to_this_appear_here: "Tasks imported to this project will appear here",
         start_labeling_tasks: "Start labeling tasks",
-        tasks_youve_labeled_appear_here:
-          "Tasks you've labeled will appear here",
+        tasks_youve_labeled_appear_here: "Tasks you've labeled will appear here",
         label_all_tasks: "Label All Tasks",
         no_tasks_available: "No tasks available",
-        tasks_assigned_to_you_appear_here:
-          "Tasks assigned to you will appear here",
-        tasks_will_appear_here:
-          "Tasks will appear here when they become available",
+        tasks_assigned_to_you_appear_here: "Tasks assigned to you will appear here",
+        tasks_will_appear_here: "Tasks will appear here when they become available",
         upgrade_plan_to_import: "You must upgrade your plan to import data",
         columns: "Columns",
         export: "Export",
@@ -859,8 +747,7 @@ export const TRANSLATIONS_EN = {
       delete_annotation: "Delete Annotation",
       prediction_score: "Prediction Score",
       view_region_details: "View Region Details",
-      select_region_to_view_details:
-        "Select a region to view its properties, metadata and available actions",
+      select_region_to_view_details: "Select a region to view its properties, metadata and available actions",
       annotation_history: "Annotation History",
       relations: "Relations",
       comments: "Comments",

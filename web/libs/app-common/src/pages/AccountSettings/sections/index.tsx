@@ -8,6 +8,9 @@ import { PersonalJWTToken } from "./PersonalJWTToken";
 import type { AuthTokenSettings } from "../types";
 import { ff } from "@humansignal/core";
 import { Badge } from "@humansignal/ui";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 export type SectionType = {
   title: string | React.ReactNode;
@@ -19,14 +22,16 @@ export type SectionType = {
 export const accountSettingsSections = (settings: AuthTokenSettings): SectionType[] => {
   return [
     {
-      title: "Personal Info",
+      title: defaultT(t, "pages.account_settings.personal_info",
+        "Personal Info"),
       id: "personal-info",
       component: PersonalInfo,
     },
     {
       title: (
         <div className="flex items-center gap-tight">
-          <span>Hotkeys</span>
+          <span>{defaultT(t, "pages.account_settings.hot_keys",
+            "Hotkeys")}</span>
           <Badge variant="beta">Beta</Badge>
         </div>
       ),
@@ -46,12 +51,12 @@ export const accountSettingsSections = (settings: AuthTokenSettings): SectionTyp
       component: MembershipInfo,
     },
     settings.api_tokens_enabled &&
-      ff.isActive(ff.FF_AUTH_TOKENS) && {
-        title: "Personal Access Token",
-        id: "personal-access-token",
-        component: PersonalJWTToken,
-        description: PersonalAccessTokenDescription,
-      },
+    ff.isActive(ff.FF_AUTH_TOKENS) && {
+      title: "Personal Access Token",
+      id: "personal-access-token",
+      component: PersonalJWTToken,
+      description: PersonalAccessTokenDescription,
+    },
     settings.legacy_api_tokens_enabled && {
       title: ff.isActive(ff.FF_AUTH_TOKENS) ? "Legacy Token" : "Access Token",
       id: "legacy-token",

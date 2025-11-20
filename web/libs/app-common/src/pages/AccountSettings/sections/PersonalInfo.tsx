@@ -7,6 +7,9 @@ import styles from "../AccountSettings.module.scss";
 import { useCurrentUserAtom } from "@humansignal/core/lib/hooks/useCurrentUser";
 import { atomWithMutation } from "jotai-tanstack-query";
 import { useAtomValue } from "jotai";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 /**
  * FIXME: This is legacy imports. We're not supposed to use such statements
@@ -125,7 +128,8 @@ export const PersonalInfo = () => {
           <div className={styles.flexRow}>
             <div className={styles.flex1}>
               <Input
-                label="First Name"
+                label={defaultT(t, "pages.account_settings.first_name",
+                        "First Name" )}
                 value={fname}
                 onChange={(e: React.KeyboardEvent<HTMLInputElement>) => setFname(e.currentTarget.value)}
                 name="first_name"
