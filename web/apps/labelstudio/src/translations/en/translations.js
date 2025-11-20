@@ -1,5 +1,6 @@
 export const TRANSLATIONS_EN = {
   common: {
+    log_out: "Log Out",
     regions: "Regions",
     history: "History",
     relations: "Relations",
@@ -255,8 +256,6 @@ export const TRANSLATIONS_EN = {
         by_score: "By Score",
         show_all_regions: "Show All Regions",
         hide_all_regions: "Hide All Regions",
-
-
       },
       menu: {
         startTraining: "Start Model Training",
@@ -322,6 +321,12 @@ export const TRANSLATIONS_EN = {
           "Tasks are chosen according to model uncertainty score (active learning mode)",
         saved: "Saved",
         save: "Save",
+        sequential: "Sequential",
+        task_are_ordered_by_task_id: "Tasks are ordered by Task ID",
+        random: "Random",
+        tasks_are_chosen_with_uniform_random:
+          "Tasks are chosen with uniform random",
+        sampling: "sampling",
       },
       danger: {
         confirm_title: "Action confirmation",

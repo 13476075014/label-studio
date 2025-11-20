@@ -45,7 +45,7 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
       if (!res) return;
       const { templates, groups } = res;
 
-      setTemplates(templates);
+      setTemplates(templates); // 接口给的数据不好翻译
       setGroups(groups);
     };
     fetchData();

@@ -23,8 +23,12 @@ export const GeneralSettings = () => {
   const colors = ["#FDFDFC", "#FF4C25", "#FF750F", "#ECB800", "#9AC422", "#34988D", "#617ADA", "#CC6FBE"];
 
   const samplings = [
-    { value: "Sequential", label: "Sequential", description: "Tasks are ordered by Task ID" },
-    { value: "Uniform", label: "Random", description: "Tasks are chosen with uniform random" },
+    { value: "Sequential", label: defaultT(t, "pages.settings.general.sequential",
+      "Sequential"), description: defaultT(t, "pages.settings.general.task_are_ordered_by_task_id",
+      "Tasks are ordered by Task ID") },
+    { value: "Uniform", label: defaultT(t, "pages.settings.general.random",
+      "Random"), description: defaultT(t, "pages.settings.general.tasks_are_chosen_with_uniform_random",
+      "Tasks are chosen with uniform random") },
   ];
 
   return (
@@ -75,8 +79,10 @@ export const GeneralSettings = () => {
                 {samplings.map(({ value, label, description }) => (
                   <RadioGroup.Button
                     key={value}
-                    value={`${value} sampling`}
-                    label={`${label} sampling`}
+                    value={`${value} ${defaultT(t, "pages.settings.general.sampling",
+                      "sampling")}`}
+                    label={`${label} ${defaultT(t, "pages.settings.general.sampling",
+                      "sampling")}`}
                     description={description}
                   />
                 ))}

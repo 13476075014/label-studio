@@ -1,5 +1,6 @@
 export const TRANSLATIONS_ZH = {
   common: {
+    log_out: "登出",
     regions: "区域",
     history: "历史",
     relations: "关系",
@@ -304,6 +305,11 @@ export const TRANSLATIONS_ZH = {
           "任务根据模型不确定性分数进行选择（主动学习模式）",
         saved: "已保存",
         save: "保存",
+        sequential: "顺序",
+        task_are_ordered_by_task_id: "任务按任务ID顺序进行选择",
+        random: "随机",
+        tasks_are_chosen_with_uniform_random: "任务按均匀随机进行选择",
+        sampling: "采样",
       },
       danger: {
         confirm_title: "操作确认",
