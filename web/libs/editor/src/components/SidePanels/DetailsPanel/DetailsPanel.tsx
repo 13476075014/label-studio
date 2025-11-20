@@ -14,23 +14,39 @@ import { RelationsControls } from "./RelationsControls";
 import { EmptyState } from "../Components/EmptyState";
 import { IconCursor, IconRelationLink } from "@humansignal/icons";
 import { getDocsUrl } from "../../../utils/docs";
+import { defaultT } from "../../../../../core/src/index";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 interface DetailsPanelProps extends PanelProps {
   regions: any;
   selection: any;
 }
 
-const DetailsPanelComponent: FC<DetailsPanelProps> = ({ currentEntity, regions, ...props }) => {
+const DetailsPanelComponent: FC<DetailsPanelProps> = ({
+  currentEntity,
+  regions,
+  ...props
+}) => {
   const selectedRegions = regions.selection;
 
   return (
-    <PanelBase {...props} currentEntity={currentEntity} name="details" title="Details">
+    <PanelBase
+      {...props}
+      currentEntity={currentEntity}
+      name="details"
+      title="Details"
+    >
       <Content selection={selectedRegions} currentEntity={currentEntity} />
     </PanelBase>
   );
 };
 
-const DetailsComponent: FC<DetailsPanelProps> = ({ currentEntity, regions }) => {
+const DetailsComponent: FC<DetailsPanelProps> = ({
+  currentEntity,
+  regions,
+}) => {
   const selectedRegions = regions.selection;
 
   return (
@@ -40,30 +56,42 @@ const DetailsComponent: FC<DetailsPanelProps> = ({ currentEntity, regions }) => 
   );
 };
 
-const Content: FC<any> = observer(function Content({ selection, currentEntity }: any): JSX.Element {
-  return <>{selection.size ? <RegionsPanel regions={selection} /> : <GeneralPanel currentEntity={currentEntity} />}</>;
+const Content: FC<any> = observer(function Content({
+  selection,
+  currentEntity,
+}: any): JSX.Element {
+  return (
+    <>
+      {selection.size ? (
+        <RegionsPanel regions={selection} />
+      ) : (
+        <GeneralPanel currentEntity={currentEntity} />
+      )}
+    </>
+  );
 });
 
 const CommentsTab: FC<any> = inject("store")(
   observer(function CommentsTab({ store }: any): JSX.Element {
     return (
       <>
-        {store.hasInterface("annotations:comments") && store.commentStore.isCommentable && (
-          <Block name="comments-panel">
-            <Elem name="section-tab">
-              <Elem name="section-content">
-                <CommentsComponent
-                  annotationStore={store.annotationStore}
-                  commentStore={store.commentStore}
-                  cacheKey={`task.${store.task.id}`}
-                />
+        {store.hasInterface("annotations:comments") &&
+          store.commentStore.isCommentable && (
+            <Block name="comments-panel">
+              <Elem name="section-tab">
+                <Elem name="section-content">
+                  <CommentsComponent
+                    annotationStore={store.annotationStore}
+                    commentStore={store.commentStore}
+                    cacheKey={`task.${store.task.id}`}
+                  />
+                </Elem>
               </Elem>
-            </Elem>
-          </Block>
-        )}
+            </Block>
+          )}
       </>
     );
-  }),
+  })
 );
 
 const RelationsTab: FC<any> = inject("store")(
@@ -78,7 +106,9 @@ const RelationsTab: FC<any> = inject("store")(
             {hasRelations ? (
               <>
                 <Elem name="view-control">
-                  <Elem name="section-head">Relations ({relationStore.size})</Elem>
+                  <Elem name="section-head">
+                    Relations ({relationStore.size})
+                  </Elem>
                   <RelationsControls relationStore={relationStore} />
                 </Elem>
                 <Elem name="section-content">
@@ -89,9 +119,13 @@ const RelationsTab: FC<any> = inject("store")(
               <EmptyState
                 icon={<IconRelationLink width={24} height={24} />}
                 header="Create relations between regions"
-                description={<>Link regions to define relationships between them</>}
+                description={
+                  <>Link regions to define relationships between them</>
+                }
                 learnMore={{
-                  href: getDocsUrl("guide/labeling#Add-relations-between-annotations"),
+                  href: getDocsUrl(
+                    "guide/labeling#Add-relations-between-annotations"
+                  ),
                   text: "Learn more",
                   testId: "relations-panel-learn-more",
                 }}
@@ -101,7 +135,7 @@ const RelationsTab: FC<any> = inject("store")(
         </Block>
       </>
     );
-  }),
+  })
 );
 
 const HistoryTab: FC<any> = inject("store")(
@@ -126,7 +160,7 @@ const HistoryTab: FC<any> = inject("store")(
         </Block>
       </>
     );
-  }),
+  })
 );
 
 const InfoTab: FC<any> = inject("store")(
@@ -139,8 +173,20 @@ const InfoTab: FC<any> = inject("store")(
             {nothingSelected ? (
               <EmptyState
                 icon={<IconCursor width={24} height={24} />}
-                header="View region details"
-                description={<>Select a region to view its properties, metadata and available actions</>}
+                header={defaultT(
+                  t,
+                  "libs.edit.view_region_details",
+                  "View region details"
+                )}
+                description={
+                  <>
+                    {defaultT(
+                      t,
+                      "libs.edit.select_region_to_view_details",
+                      "Select a region to view its properties, metadata and available actions"
+                    )}
+                  </>
+                }
               />
             ) : (
               <>
@@ -151,7 +197,7 @@ const InfoTab: FC<any> = inject("store")(
         </Block>
       </>
     );
-  }),
+  })
 );
 
 const GeneralPanel: FC<any> = inject("store")(
@@ -166,7 +212,11 @@ const GeneralPanel: FC<any> = inject("store")(
             enabled={showAnnotationHistory}
             sectionHeader={
               <>
-                Annotation History
+                {defaultT(
+                  t,
+                  "libs.edit.annotation_history",
+                  "Annotation History"
+                )}
                 <span>#{currentEntity.pk ?? currentEntity.id}</span>
               </>
             }
@@ -174,33 +224,43 @@ const GeneralPanel: FC<any> = inject("store")(
         </Elem>
         <Elem name="section">
           <Elem name="view-control">
-            <Elem name="section-head">Relations ({relationStore.size})</Elem>
+            <Elem name="section-head">
+              {defaultT(t, "libs.edit.relations", "Relations")} (
+              {relationStore.size})
+            </Elem>
             <RelationsControls relationStore={relationStore} />
           </Elem>
           <Elem name="section-content">
             <RelationsComponent relationStore={relationStore} />
           </Elem>
         </Elem>
-        {store.hasInterface("annotations:comments") && store.commentStore.isCommentable && (
-          <Elem name="section">
-            <Elem name="section-head">Comments</Elem>
-            <Elem name="section-content">
-              <CommentsComponent
-                annotationStore={store.annotationStore}
-                commentStore={store.commentStore}
-                cacheKey={`task.${store.task.id}`}
-              />
+        {store.hasInterface("annotations:comments") &&
+          store.commentStore.isCommentable && (
+            <Elem name="section">
+              <Elem name="section-head">
+                {defaultT(t, "libs.edit.comments", "Comments")}
+              </Elem>
+              <Elem name="section-content">
+                <CommentsComponent
+                  annotationStore={store.annotationStore}
+                  commentStore={store.commentStore}
+                  cacheKey={`task.${store.task.id}`}
+                />
+              </Elem>
             </Elem>
-          </Elem>
-        )}
+          )}
       </>
     );
-  }),
+  })
 );
 
 GeneralPanel.displayName = "GeneralPanel";
 
-const RegionsPanel: FC<{ regions: any }> = observer(function RegionsPanel({ regions }: { regions: any }): JSX.Element {
+const RegionsPanel: FC<{ regions: any }> = observer(function RegionsPanel({
+  regions,
+}: {
+  regions: any;
+}): JSX.Element {
   return (
     <div>
       {regions.list.map((reg: any) => {
@@ -210,8 +270,18 @@ const RegionsPanel: FC<{ regions: any }> = observer(function RegionsPanel({ regi
   );
 });
 
-const SelectedRegion: FC<{ region: any }> = observer(function SelectedRegion({ region }: { region: any }): JSX.Element {
-  return <RegionItem region={region} mainDetails={RegionDetailsMain} metaDetails={RegionDetailsMeta} />;
+const SelectedRegion: FC<{ region: any }> = observer(function SelectedRegion({
+  region,
+}: {
+  region: any;
+}): JSX.Element {
+  return (
+    <RegionItem
+      region={region}
+      mainDetails={RegionDetailsMain}
+      metaDetails={RegionDetailsMeta}
+    />
+  );
 });
 
 export const Comments = CommentsTab;

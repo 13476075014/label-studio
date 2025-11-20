@@ -1,5 +1,7 @@
 export const TRANSLATIONS_ZH = {
   common: {
+    runtime_error: "运行时错误",
+    server_error: "服务器错误",
     log_out: "登出",
     regions: "区域",
     history: "历史",
@@ -592,6 +594,16 @@ export const TRANSLATIONS_ZH = {
         anotherFilter: "另一个过滤器",
         filter: "过滤器",
       },
+    },
+    edit: {
+      delete_annotation: "删除标注",
+      prediction_score: "预测分数",
+      view_region_details: "查看区域详情",
+      select_region_to_view_details:
+        "选择一个区域以查看其属性、元数据和可用操作",
+      annotation_history: "标注历史",
+      relations: "关系",
+      comments: "评论",
     },
   },
 };

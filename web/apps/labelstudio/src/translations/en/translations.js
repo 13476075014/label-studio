@@ -1,5 +1,7 @@
 export const TRANSLATIONS_EN = {
   common: {
+    server_error: "Server Error",
+    runtime_error: "Runtime Error",
     log_out: "Log Out",
     regions: "Regions",
     history: "History",
@@ -640,6 +642,16 @@ export const TRANSLATIONS_EN = {
         anotherFilter: "Another Filter",
         filter: "Filter",
       },
+    },
+    edit: {
+      delete_annotation: "Delete Annotation",
+      prediction_score: "Prediction Score",
+      view_region_details: "View Region Details",
+      select_region_to_view_details:
+        "Select a region to view its properties, metadata and available actions",
+      annotation_history: "Annotation History",
+      relations: "Relations",
+      comments: "Comments",
     },
   },
 };

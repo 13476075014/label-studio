@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { inject, observer } from "mobx-react";
 import { useCopyText } from "@humansignal/core";
-import { isDefined, userDisplayName } from "@humansignal/core/lib/utils/helpers";
+import {
+  isDefined,
+  userDisplayName,
+} from "@humansignal/core/lib/utils/helpers";
 import { Block, cn, Elem } from "../../utils/bem";
 import {
   IconAnnotationGroundTruth,
@@ -19,11 +22,20 @@ import {
 import { Tooltip, Userpic, ToastType, useToast } from "@humansignal/ui";
 import { TimeAgo } from "../../common/TimeAgo/TimeAgo";
 import { useDropdown } from "../../common/Dropdown/DropdownTrigger";
+import { defaultT } from "../../../../core/src/index";
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 // eslint-disable-next-line
 // @ts-ignore
 import { confirm } from "../../common/Modal/Modal";
-import { type ContextMenuAction, ContextMenu, ContextMenuTrigger, type MenuActionOnClick } from "../ContextMenu";
+import {
+  type ContextMenuAction,
+  ContextMenu,
+  ContextMenuTrigger,
+  type MenuActionOnClick,
+} from "../ContextMenu";
 import "./AnnotationButton.scss";
 
 interface AnnotationButtonInterface {
@@ -63,22 +75,31 @@ const injector = inject(({ store }) => {
 });
 
 export const AnnotationButton = observer(
-  ({ entity, capabilities, annotationStore, onAnnotationChange }: AnnotationButtonInterface) => {
+  ({
+    entity,
+    capabilities,
+    annotationStore,
+    onAnnotationChange,
+  }: AnnotationButtonInterface) => {
     const iconSize = 32;
     const isPrediction = entity.type === "prediction";
     const username = userDisplayName(
       entity.user ?? {
         firstName: entity.createdBy || "Admin",
-      },
+      }
     );
     const [isGroundTruth, setIsGroundTruth] = useState<boolean>();
-    const infoIsHidden = annotationStore.store?.hasInterface("annotations:hide-info");
+    const infoIsHidden = annotationStore.store?.hasInterface(
+      "annotations:hide-info"
+    );
     let hiddenUser = null;
 
     if (infoIsHidden) {
       // this data can be missing in tests, but we don't have `infoIsHidden` there, so hiding logic like this
       const currentUser = annotationStore.store.user;
-      const isCurrentUser = entity.user?.id === currentUser.id || entity.createdBy === currentUser.email;
+      const isCurrentUser =
+        entity.user?.id === currentUser.id ||
+        entity.createdBy === currentUser.email;
       hiddenUser = { email: isCurrentUser ? "Me" : "User" };
     }
 
@@ -147,7 +168,8 @@ export const AnnotationButton = observer(
             title: "Delete annotation?",
             body: (
               <>
-                This will <strong>delete all existing regions</strong>. Are you sure you want to delete them?
+                This will <strong>delete all existing regions</strong>. Are you
+                sure you want to delete them?
                 <br />
                 This action cannot be undone.
               </>
@@ -161,8 +183,10 @@ export const AnnotationButton = observer(
         }, [entity]);
         const isPrediction = entity.type === "prediction";
         const isDraft = !isDefined(entity.pk);
-        const showGroundTruth = capabilities.groundTruthEnabled && !isPrediction && !isDraft;
-        const showDuplicateAnnotation = capabilities.enableCreateAnnotation && !isDraft;
+        const showGroundTruth =
+          capabilities.groundTruthEnabled && !isPrediction && !isDraft;
+        const showDuplicateAnnotation =
+          capabilities.enableCreateAnnotation && !isDraft;
         const actions = useMemo<ContextMenuAction[]>(
           () => [
             {
@@ -188,7 +212,11 @@ export const AnnotationButton = observer(
               enabled: !isDraft && store.hasInterface("annotations:copy-link"),
             },
             {
-              label: "Delete Annotation",
+              label: defaultT(
+                t,
+                "libs.edit.delete_annotation",
+                "Delete Annotation"
+              ),
               onClick: deleteAnnotation,
               icon: <IconTrashRect />,
               separator: true,
@@ -204,11 +232,11 @@ export const AnnotationButton = observer(
             capabilities.enableAnnotationDelete,
             capabilities.enableCreateAnnotation,
             capabilities.groundTruthEnabled,
-          ],
+          ]
         );
 
         return <ContextMenu actions={actions} />;
-      }),
+      })
     );
 
     return (
@@ -252,9 +280,19 @@ export const AnnotationButton = observer(
             </Elem>
             {!infoIsHidden && (
               <Elem name="info">
-                <Elem name="date" component={TimeAgo} date={entity.createdDate} />
+                <Elem
+                  name="date"
+                  component={TimeAgo}
+                  date={entity.createdDate}
+                />
                 {isPrediction && isDefined(entity.score) && (
-                  <span title={`Prediction score = ${entity.score}`}>
+                  <span
+                    title={`${defaultT(
+                      t,
+                      "libs.edit.prediction_score",
+                      "Prediction score"
+                    )} = ${entity.score}`}
+                  >
                     {" · "} {(entity.score * 100).toFixed(2)}%
                   </span>
                 )}
@@ -306,5 +344,5 @@ export const AnnotationButton = observer(
         />
       </Block>
     );
-  },
+  }
 );
