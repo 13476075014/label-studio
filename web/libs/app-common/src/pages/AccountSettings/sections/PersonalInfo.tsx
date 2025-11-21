@@ -1,6 +1,18 @@
-import { type FormEventHandler, useCallback, useEffect, useRef, useState } from "react";
+import {
+  type FormEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import clsx from "clsx";
-import { Button, InputFile, ToastType, useToast, Userpic } from "@humansignal/ui";
+import {
+  Button,
+  InputFile,
+  ToastType,
+  useToast,
+  Userpic,
+} from "@humansignal/ui";
 // @todo we should not use anything from `apps` in `libs`
 import { API } from "apps/labelstudio/src/providers/ApiProvider";
 import styles from "../AccountSettings.module.scss";
@@ -23,7 +35,9 @@ const updateUserAvatarAtom = atomWithMutation(() => ({
     userId,
     body,
     isDelete,
-  }: { userId: number; body: FormData; isDelete?: never } | { userId: number; isDelete: true; body?: never }) {
+  }:
+    | { userId: number; body: FormData; isDelete?: never }
+    | { userId: number; isDelete: true; body?: never }) {
     const method = isDelete ? "deleteUserAvatar" : "updateUserAvatar";
     const response = await API.invoke(
       method,
@@ -36,7 +50,7 @@ const updateUserAvatarAtom = atomWithMutation(() => ({
           "Content-Type": "multipart/form-data",
         },
         errorFilter: () => true,
-      },
+      }
     );
     return response;
   },
@@ -44,7 +58,12 @@ const updateUserAvatarAtom = atomWithMutation(() => ({
 
 export const PersonalInfo = () => {
   const toast = useToast();
-  const { user, fetch: refetchUser, isInProgress: userInProgress, updateAsync: updateUser } = useCurrentUserAtom();
+  const {
+    user,
+    fetch: refetchUser,
+    isInProgress: userInProgress,
+    updateAsync: updateUser,
+  } = useCurrentUserAtom();
   const updateUserAvatar = useAtomValue(updateUserAvatarAtom);
   const [isInProgress, setIsInProgress] = useState(false);
   const [fname, setFname] = useState(user?.first_name);
@@ -64,13 +83,22 @@ export const PersonalInfo = () => {
       });
 
       if (!response.$meta.ok) {
-        toast.show({ message: response?.response?.detail ?? "Error updating avatar", type: ToastType.error });
+        toast.show({
+          message:
+            response?.response?.detail ??
+            defaultT(
+              t,
+              "pages.account_settings.error_update_avatar",
+              "Error updating avatar"
+            ),
+          type: ToastType.error,
+        });
       } else {
         refetchUser();
       }
       input.value = "";
     },
-    [user?.id],
+    [user?.id]
   );
 
   const deleteUserAvatar = async () => {
@@ -89,10 +117,19 @@ export const PersonalInfo = () => {
 
       refetchUser();
       if (!response?.$meta.ok) {
-        toast.show({ message: response?.response?.detail ?? "Error updating user", type: ToastType.error });
+        toast.show({
+          message:
+            response?.response?.detail ??
+            defaultT(
+              t,
+              "pages.account_settings.error_update_user",
+              "Error updating user"
+            ),
+          type: ToastType.error,
+        });
       }
     },
-    [user?.id],
+    [user?.id]
   );
 
   useEffect(() => {
@@ -109,7 +146,12 @@ export const PersonalInfo = () => {
     <div className={styles.section} id="personal-info">
       <div className={styles.sectionContent}>
         <div className={styles.flexRow}>
-          <Userpic user={user} isInProgress={userInProgress} size={92} style={{ flex: "none" }} />
+          <Userpic
+            user={user}
+            isInProgress={userInProgress}
+            size={92}
+            style={{ flex: "none" }}
+          />
           <form className={styles.flex1}>
             <InputFile
               name="avatar"
@@ -119,48 +161,79 @@ export const PersonalInfo = () => {
             />
           </form>
           {user?.avatar && (
-            <Button type="submit" variant="negative" look="outlined" size="medium" onClick={deleteUserAvatar}>
-              Delete
+            <Button
+              type="submit"
+              variant="negative"
+              look="outlined"
+              size="medium"
+              onClick={deleteUserAvatar}
+            >
+              {defaultT(t, "common.delete", "Delete")}
             </Button>
           )}
         </div>
-        <form onSubmit={userFormSubmitHandler} className={styles.sectionContent}>
+        <form
+          onSubmit={userFormSubmitHandler}
+          className={styles.sectionContent}
+        >
           <div className={styles.flexRow}>
             <div className={styles.flex1}>
               <Input
-                label={defaultT(t, "pages.account_settings.first_name",
-                        "First Name" )}
+                label={defaultT(
+                  t,
+                  "pages.account_settings.first_name",
+                  "First Name"
+                )}
                 value={fname}
-                onChange={(e: React.KeyboardEvent<HTMLInputElement>) => setFname(e.currentTarget.value)}
+                onChange={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                  setFname(e.currentTarget.value)
+                }
                 name="first_name"
               />
             </div>
             <div className={styles.flex1}>
               <Input
-                label="Last Name"
+                label={defaultT(
+                  t,
+                  "pages.account_settings.last_name",
+                  "Last Name"
+                )}
                 value={lname}
-                onChange={(e: React.KeyboardEvent<HTMLInputElement>) => setLname(e.currentTarget.value)}
+                onChange={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                  setLname(e.currentTarget.value)
+                }
                 name="last_name"
               />
             </div>
           </div>
           <div className={styles.flexRow}>
             <div className={styles.flex1}>
-              <Input label="E-mail" type="email" readOnly={true} value={user?.email} />
+              <Input
+                label={defaultT(t, "pages.account_settings.email", "E-mail")}
+                type="email"
+                readOnly={true}
+                value={user?.email}
+              />
             </div>
             <div className={styles.flex1}>
               <Input
-                label="Phone"
+                label={defaultT(t, "pages.account_settings.phone", "Phone")}
                 type="phone"
-                onChange={(e: React.KeyboardEvent<HTMLInputElement>) => setPhone(e.currentTarget.value)}
+                onChange={(e: React.KeyboardEvent<HTMLInputElement>) =>
+                  setPhone(e.currentTarget.value)
+                }
                 value={phone}
                 name="phone"
               />
             </div>
           </div>
           <div className={clsx(styles.flexRow, styles.flexEnd)}>
-            <Button look="primary" style={{ width: 125 }} waiting={isInProgress}>
-              Save
+            <Button
+              look="primary"
+              style={{ width: 125 }}
+              waiting={isInProgress}
+            >
+              {defaultT(t, "common.save", "Save")}
             </Button>
           </div>
         </form>
