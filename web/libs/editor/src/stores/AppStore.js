@@ -1,22 +1,48 @@
 /* global LSF_VERSION */
 
-import { destroy, detach, flow, getEnv, getParent, getSnapshot, isRoot, types, walk } from "mobx-state-tree";
+import {
+  destroy,
+  detach,
+  flow,
+  getEnv,
+  getParent,
+  getSnapshot,
+  isRoot,
+  types,
+  walk
+} from "mobx-state-tree";
 
 import uniqBy from "lodash/uniqBy";
 import InfoModal from "../components/Infomodal/Infomodal";
-import { Hotkey } from "../core/Hotkey";
-import { destroy as destroySharedStore } from "../mixins/SharedChoiceStore/mixin";
+import {
+  Hotkey
+} from "../core/Hotkey";
+import {
+  destroy as destroySharedStore
+} from "../mixins/SharedChoiceStore/mixin";
 import ToolsManager from "../tools/Manager";
 import Utils from "../utils";
-import { guidGenerator } from "../utils/unique";
-import { clamp, delay, isDefined } from "../utils/utilities";
-import { CREATE_RELATION_MODE } from "./Annotation/LinkingModes";
+import {
+  guidGenerator
+} from "../utils/unique";
+import {
+  clamp,
+  delay,
+  isDefined
+} from "../utils/utilities";
+import {
+  CREATE_RELATION_MODE
+} from "./Annotation/LinkingModes";
 import AnnotationStore from "./Annotation/store";
 import Project from "./ProjectStore";
 import Settings from "./SettingsStore";
 import Task from "./TaskStore";
-import { UserExtended } from "./UserStore";
-import { UserLabels } from "./UserLabels";
+import {
+  UserExtended
+} from "./UserStore";
+import {
+  UserLabels
+} from "./UserLabels";
 import {
   FF_CUSTOM_SCRIPT,
   FF_DEV_1536,
@@ -26,10 +52,19 @@ import {
   FF_SIMPLE_INIT,
   isFF,
 } from "../utils/feature-flags";
-import { CommentStore } from "./Comment/CommentStore";
-import { CustomButton } from "./CustomButton";
+import {
+  CommentStore
+} from "./Comment/CommentStore";
+import {
+  CustomButton
+} from "./CustomButton";
+import {
+  defaultT
+} from "../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
-const hotkeys = Hotkey("AppStore", "Global Hotkeys");
+const hotkeys = Hotkey("AppStore", defaultT(t, "pages.account_settings.Global_Hotkeys", "Global Hotkeys"));
 
 export default types
   .model("AppStore", {
@@ -155,7 +190,9 @@ export default types
 
     users: types.optional(types.array(UserExtended), []),
 
-    userLabels: isFF(FF_DEV_1536) ? types.optional(UserLabels, { controls: {} }) : types.undefined,
+    userLabels: isFF(FF_DEV_1536) ? types.optional(UserLabels, {
+      controls: {}
+    }) : types.undefined,
 
     queueTotal: types.optional(types.number, 0),
 
@@ -180,15 +217,17 @@ export default types
       if (currentUser) {
         sn.user = currentUser.id;
 
-        sn.users = sn.users?.length
-          ? [currentUser, ...sn.users.filter(({ id }) => id !== currentUser.id)]
-          : [currentUser];
+        sn.users = sn.users?.length ? [currentUser, ...sn.users.filter(({
+          id
+        }) => id !== currentUser.id)] : [currentUser];
       }
     }
     // fix for old version of custom buttons which were just an array
     // @todo remove after a short time
     if (Array.isArray(sn.customButtons)) {
-      sn.customButtons = { _replace: sn.customButtons };
+      sn.customButtons = {
+        _replace: sn.customButtons
+      };
     }
     return {
       ...sn,
@@ -287,7 +326,8 @@ export default types
         "awaitingSuggestions",
       ];
 
-      for (const n of names) if (n in flags) self[n] = flags[n];
+      for (const n of names)
+        if (n in flags) self[n] = flags[n];
     }
 
     /**
@@ -392,7 +432,9 @@ export default types
        * Hotkey for delete
        */
       hotkeys.addNamed("region:delete-all", () => {
-        const { selected } = self.annotationStore;
+        const {
+          selected
+        } = self.annotationStore;
 
         if (window.confirm(getEnv(self).messages.CONFIRM_TO_DELETE_ALL_REGIONS)) {
           selected.deleteAllRegions();
@@ -448,7 +490,9 @@ export default types
       });
 
       hotkeys.addNamed("region:visibility-all", () => {
-        const { selected } = self.annotationStore;
+        const {
+          selected
+        } = self.annotationStore;
         selected.regionStore.toggleVisibility();
       });
 
@@ -490,8 +534,12 @@ export default types
 
       // duplicate selected regions
       hotkeys.addNamed("region:duplicate", (e) => {
-        const { selected } = self.annotationStore;
-        const { serializedSelection } = selected || {};
+        const {
+          selected
+        } = self.annotationStore;
+        const {
+          serializedSelection
+        } = selected || {};
 
         if (!serializedSelection?.length) return;
         e.preventDefault();
@@ -572,7 +620,9 @@ export default types
     // Better to return request's Promise from SDK to make this work perfect.
     function handleSubmittingFlag(fn, defaultMessage = "Error during submit") {
       if (self.isSubmitting) return;
-      self.setFlags({ isSubmitting: true });
+      self.setFlags({
+        isSubmitting: true
+      });
       const res = fn();
 
       self.commentStore.setAddedCommentThisSession(false);
@@ -584,7 +634,9 @@ export default types
           showModal(err?.message || err || defaultMessage);
           console.error(err);
         })
-        .then(() => self.setFlags({ isSubmitting: false }));
+        .then(() => self.setFlags({
+          isSubmitting: false
+        }));
     }
 
     function incrementQueuePosition(number = 1) {
@@ -607,7 +659,9 @@ export default types
       handleSubmittingFlag(async () => {
         if (isFF(FF_CUSTOM_SCRIPT)) {
           await self.waitForDraftSubmission();
-          const allowedToSave = await getEnv(self).events.invoke("beforeSaveAnnotation", self, entity, { event });
+          const allowedToSave = await getEnv(self).events.invoke("beforeSaveAnnotation", self, entity, {
+            event
+          });
           if (allowedToSave && allowedToSave.some((x) => x === false)) return;
 
           entity.sendUserGenerate();
@@ -686,12 +740,17 @@ export default types
         const isDirty = entity.history.canUndo || entity.versions.draft;
 
         entity.dropDraft();
-        await getEnv(self).events.invoke("acceptAnnotation", self, { isDirty, entity });
+        await getEnv(self).events.invoke("acceptAnnotation", self, {
+          isDirty,
+          entity
+        });
         self.incrementQueuePosition();
       }, "Error during accept, try again");
     }
 
-    function rejectAnnotation({ comment = null }) {
+    function rejectAnnotation({
+      comment = null
+    }) {
       if (self.isSubmitting) return;
 
       handleSubmittingFlag(async () => {
@@ -709,7 +768,11 @@ export default types
         const isDirty = entity.history.canUndo;
 
         entity.dropDraft();
-        await getEnv(self).events.invoke("rejectAnnotation", self, { isDirty, entity, comment });
+        await getEnv(self).events.invoke("rejectAnnotation", self, {
+          isDirty,
+          entity,
+          comment
+        });
         self.incrementQueuePosition(-1);
       }, "Error during reject, try again");
     }
@@ -727,7 +790,11 @@ export default types
 
         const isDirty = entity.history.canUndo;
 
-        await getEnv(self).events.invoke("customButton", self, buttonName, { isDirty, entity, button });
+        await getEnv(self).events.invoke("customButton", self, buttonName, {
+          isDirty,
+          entity,
+          button
+        });
         self.incrementQueuePosition();
         entity.dropDraft();
       }, `Error during handling ${button} button, try again`);
@@ -740,7 +807,7 @@ export default types
       // Event invocation returns array of results for all handlers.
       const urls = await self.events.invoke("presignUrlForProject", self, url);
 
-      const presignUrl = urls?.[0];
+      const presignUrl = urls?. [0];
 
       return presignUrl;
     }
@@ -767,7 +834,9 @@ export default types
         destroy(oldAnnotationStore);
       }
 
-      self.annotationStore = AnnotationStore.create({ annotations: [] });
+      self.annotationStore = AnnotationStore.create({
+        annotations: []
+      });
       self.initialized = false;
     }
 
@@ -785,7 +854,12 @@ export default types
      * Given annotations and predictions
      * `completions` is a fallback for old projects; they'll be saved as `annotations` anyway
      */
-    function initializeStore({ annotations = [], completions = [], predictions = [], annotationHistory }) {
+    function initializeStore({
+      annotations = [],
+      completions = [],
+      predictions = [],
+      annotationHistory
+    }) {
       const as = self.annotationStore;
 
       // some hacks to properly clear react and mobx structures
@@ -808,15 +882,22 @@ export default types
         // correct annotation will be selected at the end and everything will be called inside.
         predictions.forEach((p) => {
           const obj = as.addPrediction(p);
-          const results = p.result.map((r) => ({ ...r, origin: "prediction" }));
+          const results = p.result.map((r) => ({
+            ...r,
+            origin: "prediction"
+          }));
 
-          obj.deserializeResults(results, { hidden: true });
+          obj.deserializeResults(results, {
+            hidden: true
+          });
         });
 
         [...completions, ...annotations].forEach((c) => {
           const obj = as.addAnnotation(c);
 
-          obj.deserializeResults(c.draft || c.result, { hidden: true });
+          obj.deserializeResults(c.draft || c.result, {
+            hidden: true
+          });
         });
 
         window.STORE_INIT_OK = true;
@@ -887,7 +968,9 @@ export default types
       (history ?? []).forEach((item) => {
         const obj = as.addHistory(item);
 
-        obj.deserializeResults(item.result ?? [], { hidden: true });
+        obj.deserializeResults(item.result ?? [], {
+          hidden: true
+        });
       });
     }
 
@@ -906,23 +989,31 @@ export default types
 
       self.suggestionsRequest = requestId;
 
-      self.setFlags({ awaitingSuggestions: true });
+      self.setFlags({
+        awaitingSuggestions: true
+      });
 
       try {
         const response = yield request;
 
         if (requestId === self.suggestionsRequest) {
           self.annotationStore.selected.setSuggestions(dataParser(response));
-          self.setFlags({ awaitingSuggestions: false });
+          self.setFlags({
+            awaitingSuggestions: false
+          });
         }
       } catch (_e) {
-        self.setFlags({ awaitingSuggestions: false });
+        self.setFlags({
+          awaitingSuggestions: false
+        });
         // @todo handle errors + situation when task is changed
       }
     });
 
     function addAnnotationToTaskHistory(annotationId) {
-      const taskIndex = self.taskHistory.findIndex(({ taskId }) => taskId === self.task.id);
+      const taskIndex = self.taskHistory.findIndex(({
+        taskId
+      }) => taskId === self.task.id);
 
       if (taskIndex >= 0) {
         self.taskHistory[taskIndex].annotationId = annotationId;
@@ -934,15 +1025,20 @@ export default types
 
       // save draft before postponing; this can be new draft with FF_DEV_4174 off
       // or annotation created from prediction
-      await annotation.saveDraft({ was_postponed: true });
+      await annotation.saveDraft({
+        was_postponed: true
+      });
       await getEnv(self).events.invoke("nextTask");
       self.incrementQueuePosition();
     }
 
     function nextTask() {
       if (self.canGoNextTask) {
-        const { taskId, annotationId } =
-          self.taskHistory[self.taskHistory.findIndex((x) => x.taskId === self.task.id) + 1];
+        const {
+          taskId,
+          annotationId
+        } =
+        self.taskHistory[self.taskHistory.findIndex((x) => x.taskId === self.task.id) + 1];
 
         getEnv(self).events.invoke("nextTask", taskId, annotationId);
         self.incrementQueuePosition();
@@ -950,12 +1046,15 @@ export default types
     }
 
     function prevTask(_e, shouldGoBack = false) {
-      const length = shouldGoBack
-        ? self.taskHistory.length - 1
-        : self.taskHistory.findIndex((x) => x.taskId === self.task.id) - 1;
+      const length = shouldGoBack ?
+        self.taskHistory.length - 1 :
+        self.taskHistory.findIndex((x) => x.taskId === self.task.id) - 1;
 
       if (self.canGoPrevTask || shouldGoBack) {
-        const { taskId, annotationId } = self.taskHistory[length];
+        const {
+          taskId,
+          annotationId
+        } = self.taskHistory[length];
 
         getEnv(self).events.invoke("prevTask", taskId, annotationId);
         self.incrementQueuePosition(-1);
@@ -978,7 +1077,10 @@ export default types
         oldUsersMap[user.id] = user;
       });
       const newUsers = users.map((user) => {
-        return { ...oldUsersMap[user.id], ...user };
+        return {
+          ...oldUsersMap[user.id],
+          ...user
+        };
       });
       self.setUsers(uniqBy([...newUsers, ...oldUsers], "id"));
     }

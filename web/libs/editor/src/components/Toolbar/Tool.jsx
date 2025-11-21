@@ -4,8 +4,13 @@ import { useContext, useEffect, useMemo, useState } from "react";
 import { Fragment } from "react";
 import { Hotkey } from "../../core/Hotkey";
 import { ToolbarContext } from "./ToolbarContext";
+import {
+  defaultT
+} from "../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
-const hotkeys = Hotkey("SegmentationToolbar", "Segmentation Tools");
+const hotkeys = Hotkey("SegmentationToolbar", defaultT(t, "pages.account_settings.Segmentation_Tools", "Segmentation Tools"));
 
 const keysDictionary = {
   plus: "+",

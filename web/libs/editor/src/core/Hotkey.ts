@@ -7,8 +7,10 @@ import Hint from "../components/Hint/Hint";
 import { Block, Elem } from "../utils/bem";
 import { FF_MULTI_OBJECT_HOTKEYS, isFF } from "../utils/feature-flags";
 import { isDefined, isMacOS } from "../utils/utilities";
-import defaultKeymap from "./settings/keymap.json";
+import keymapjs from "./settings/keymap"
+// import defaultKeymap from "./settings/keymap.json";
 
+const defaultKeymap = keymapjs()
 type Keymap = typeof defaultKeymap;
 
 if (!isFF(FF_MULTI_OBJECT_HOTKEYS)) {

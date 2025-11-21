@@ -14,6 +14,11 @@ import { IconClose } from "@humansignal/icons";
 import { Checkbox, Toggle } from "@humansignal/ui";
 import { FF_DEV_3873, isFF } from "../../utils/feature-flags";
 import { ff } from "@humansignal/core";
+import {
+  defaultT
+} from "../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const HotkeysDescription = () => {
   const columns = [
@@ -190,8 +195,8 @@ const LayoutSettings = observer(({ store }) => {
 });
 
 const Settings = {
-  General: { name: "General", component: GeneralSettings },
-  Hotkeys: { name: "Hotkeys", component: HotkeysDescription },
+  General: { name: defaultT(t, "pages.settings.general.menu", "General"), component: GeneralSettings },
+  Hotkeys: { name: defaultT(t, "pages.account_settings.hot_keys", "Hotkeys"), component: HotkeysDescription },
 };
 
 if (!isFF(FF_DEV_3873)) {
@@ -202,15 +207,19 @@ const DEFAULT_ACTIVE = Object.keys(Settings)[0];
 
 const DEFAULT_MODAL_SETTINGS = isFF(FF_DEV_3873)
   ? {
-      name: "settings-modal",
-      title: "Labeling Interface Settings",
-      closeIcon: <IconClose />,
-    }
+    name: "settings-modal",
+    title: defaultT(
+      t,
+      "libs.datamanager.labelingSettings.Labeling_Interface_Settings",
+      "Labeling Interface Settings"
+    ),
+    closeIcon: <IconClose />,
+  }
   : {
-      name: "settings-modal-old",
-      title: "Settings",
-      bodyStyle: { paddingTop: "0" },
-    };
+    name: "settings-modal-old",
+    title: "Settings",
+    bodyStyle: { paddingTop: "0" },
+  };
 
 export default observer(({ store }) => {
   const availableSettings = useMemo(() => {
