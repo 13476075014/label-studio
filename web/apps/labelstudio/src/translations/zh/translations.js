@@ -1,5 +1,7 @@
 export const TRANSLATIONS_ZH = {
   common: {
+    s: " ",
+    Record: "记录",
     runtime_error: "运行时错误",
     server_error: "服务器错误",
     log_out: "登出",
@@ -133,8 +135,7 @@ export const TRANSLATIONS_ZH = {
       email: "邮箱",
       phone: "手机",
       upload_image: "上传图片",
-      hotkeys_description:
-        "自定义您的键盘快捷键，以加快您的工作流程。点击下面的任何热键，为您分配最适合您的新组合键。",
+      hotkeys_description: "自定义您的键盘快捷键，以加快您的工作流程。点击下面的任何热键，为您分配最适合您的新组合键。",
       email_preferences: "邮件偏好",
       membership_info: "组织信息",
       personal_access_token: "个人访问令牌",
@@ -166,8 +167,7 @@ export const TRANSLATIONS_ZH = {
         delete_all_regions: "删除所有区域",
         remove_all_regions: "移除所有区域",
         focus_first_region: "聚焦第一个区域",
-        move_focus_to_the_first_focusable_region:
-          "将焦点移至第一个可聚焦的区域",
+        move_focus_to_the_first_focusable_region: "将焦点移至第一个可聚焦的区域",
         create_region_relation: "创建区域关系",
         create_a_relation_between_selected_regions: "在选中的区域之间创建关系",
         toggle_region_visibility: "切换区域可见性",
@@ -261,8 +261,7 @@ export const TRANSLATIONS_ZH = {
         zoom_out: "缩小",
         zoom_out_of_the_image: "缩小图片",
         move_tool: "移动工具",
-        select_the_move_tool_to_reposition_annotations:
-          "选择移动工具以重新定位标注",
+        select_the_move_tool_to_reposition_annotations: "选择移动工具以重新定位标注",
         brush_tool: "画笔工具",
         select_the_brush_tool: "选择画笔工具",
         ellipse_tool: "椭圆工具",
@@ -270,20 +269,17 @@ export const TRANSLATIONS_ZH = {
         eraser_tool: "橡皮擦工具",
         select_the_eraser_tool: "选择橡皮擦工具",
         auto_detect: "自动检测",
-        use_the_auto_detect_tool_to_automatically_suggest_regions:
-          "使用自动检测工具自动建议区域",
+        use_the_auto_detect_tool_to_automatically_suggest_regions: "使用自动检测工具自动建议区域",
         key_point_tool: "关键点工具",
         select_the_key_point_annotation_tool: "选择关键点标注工具",
         magic_wand: "魔棒",
-        select_the_magic_wand_tool_for_smart_region_selection:
-          "选择魔棒工具进行智能区域选择",
+        select_the_magic_wand_tool_for_smart_region_selection: "选择魔棒工具进行智能区域选择",
         polygon_tool: "多边形工具",
         select_the_polygon_annotation_tool: "选择多边形标注工具",
         rectangle_tool: "矩形工具",
         select_the_rectangle_annotation_tool: "选择矩形标注工具",
         "3_point_rectangle": "3点矩形",
-        draw_a_rotated_rectangle_using_3_point_selection:
-          "使用3点选择绘制旋转的矩形",
+        draw_a_rotated_rectangle_using_3_point_selection: "使用3点选择绘制旋转的矩形",
         rotate_left: "向左旋转",
         rotate_the_image_90_to_the_left: "将图片向左旋转 90°",
         rotate_right: "向右旋转",
@@ -293,48 +289,34 @@ export const TRANSLATIONS_ZH = {
       },
       paragraphs: {
         next_phrase: "下一短语",
-        navigate_to_the_next_phrase_in_paragraph_view:
-          "在段落视图中导航到下一个短语",
+        navigate_to_the_next_phrase_in_paragraph_view: "在段落视图中导航到下一个短语",
         previous_phrase: "上一短语",
-        navigate_to_the_previous_phrase_in_paragraph_view:
-          "在段落视图中导航到上一个短语",
+        navigate_to_the_previous_phrase_in_paragraph_view: "在段落视图中导航到上一个短语",
         select_all_and_annotate: "全选并标注",
-        select_all_text_in_current_phrase_and_create_annotation:
-          "选择当前短语中的所有文本并创建标注",
+        select_all_text_in_current_phrase_and_create_annotation: "选择当前短语中的所有文本并创建标注",
         next_region_in_phrase: "短语中的下一个区域",
-        navigate_to_the_next_region_within_current_phrase:
-          "导航到当前短语内的下一个区域",
+        navigate_to_the_next_region_within_current_phrase: "导航到当前短语内的下一个区域",
         previous_region_in_phrase: "短语中的上一个区域",
-        navigate_to_the_previous_region_within_current_phrase:
-          "导航到当前短语内的上一个区域",
+        navigate_to_the_previous_region_within_current_phrase: "导航到当前短语内的上一个区域",
       },
       annotation_actions: "标注操作",
-      shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo:
-        "常用标注任务的快捷键，例如提交、跳过、撤销和重做",
+      shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo: "常用标注任务的快捷键，例如提交、跳过、撤销和重做",
       data_manager_title: "数据管理器",
-      shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager:
-        "用于在项目数据管理器中导航和管理任务的快捷键",
+      shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager: "用于在项目数据管理器中导航和管理任务的快捷键",
       region_management: "区域管理",
-      shortcuts_for_creating_selecting_and_manipulating_annotation_regions:
-        "用于创建、选择和操作标注区域的快捷键",
+      shortcuts_for_creating_selecting_and_manipulating_annotation_regions: "用于创建、选择和操作标注区域的快捷键",
       tools_title: "工具",
-      shortcuts_for_controlling_tools_panel_when_labeling_images:
-        "在标注图片时控制工具面板的快捷键",
+      shortcuts_for_controlling_tools_panel_when_labeling_images: "在标注图片时控制工具面板的快捷键",
       audio_controls: "音频控制",
-      shortcuts_for_controlling_audio_playback_and_navigation:
-        "用于控制音频播放和导航的快捷键",
+      shortcuts_for_controlling_audio_playback_and_navigation: "用于控制音频播放和导航的快捷键",
       video_controls: "视频控制",
-      shortcuts_for_controlling_video_playback_and_navigation:
-        "用于控制视频播放和导航的快捷键",
+      shortcuts_for_controlling_video_playback_and_navigation: "用于控制视频播放和导航的快捷键",
       time_series_controls: "时间序列控制",
-      shortcuts_for_manipulating_time_series_data_regions:
-        "用于操作时间序列数据区域的快捷键",
+      shortcuts_for_manipulating_time_series_data_regions: "用于操作时间序列数据区域的快捷键",
       image_gallery_navigation: "图片库导航",
-      shortcuts_for_navigating_between_images_in_multi_image_tasks:
-        "在多图片任务中导航图片的快捷键",
+      shortcuts_for_navigating_between_images_in_multi_image_tasks: "在多图片任务中导航图片的快捷键",
       paragraph_navigation: "段落导航",
-      shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view:
-        "在段落/对话视图中导航短语和区域的快捷键",
+      shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view: "在段落/对话视图中导航短语和区域的快捷键",
     },
     projects: {
       title: "项目列表",
@@ -347,6 +329,57 @@ export const TRANSLATIONS_ZH = {
         msg_part2: "创建一个项目以便开始标注你的数据",
         create_project: "创建项目",
       },
+      columns: {
+        image: "图片",
+        inner_id: "内部ID",
+        completed: "完成",
+        annotations: "注释",
+        cancelled: "已取消",
+        predictions: "预测",
+        annotated_by: "注释于",
+        annotation_results: "标注结果",
+        Annotation_IDs: "注释ID",
+        Prediction_score: "预测分数",
+        Prediction_model_versions: "预测模型版本",
+        Prediction_results: "预测结果",
+        Upload_filename: "上传文件名",
+        Storage_filename: "存储文件名",
+        Created_at: "创建于",
+        Updated_at: "更新于",
+        Updated_by: "更新于",
+        Lead_Time: "前置时间",
+        Drafts: "草稿",
+        data: "数据"
+      },
+      actionsBatch: {
+        Retrieve_Predictions: "检索预测",
+        Create_Annotations_From_Predictions: "从预测创建注释",
+        Remove_Duplicated_Tasks: "移除重复任务",
+        Delete_Tasks: "删除任务",
+        Delete_Annotations: "删除注释",
+        Delete_Predictions: "删除预测"
+      },
+      helps: {
+        Task_ID: "任务ID",
+        Task_ID_info: "当前项目的内部任务ID从1开始",
+        Last_annotation_date: "最后标注日期",
+        Total_annotations_per_task: "每个任务的总标注数",
+        Total_cancelled_annotations: "总计已取消（跳过）的标注",
+        Total_predictions_per_task: "每个任务的总预测数",
+        All_users_who_completed_the_task: "所有完成任务的用户",
+        Annotation_results_stacked_over: "将所有注释叠加后的注释结果",
+        Annotation_IDs_stacked_over: "所有注释上的注释ID",
+        Average_prediction_score_over_all: "所有任务预测的平均预测得分",
+        Model_versions_aggregated_over: "所有预测中汇总的模型版本",
+        Prediction_results_stacked_over: "所有预测结果的叠加",
+        Filename_of_uploaded_file: "上传文件的文件名",
+        Filename_from_import_storage: "从导入存储中获取文件名",
+        Task_creation_time: "任务创建时间",
+        Task_update_time: "任务更新时间",
+        User_who_did_the_last_task_update: "执行最后一项任务更新的用户",
+        Average_lead_time_over: "所有标注的平均处理时间（秒）",
+        True_if_at: "如果该任务至少存在一个草稿，则为真"
+      }
     },
     create_project: {
       title: "创建项目",
@@ -413,16 +446,14 @@ export const TRANSLATIONS_ZH = {
         visual: "可视化",
         configure_data: "配置数据",
         require_more_data: "此模板需要比您现在拥有的更多数据",
-        need_upload_data:
-          "要选择要标记的字段，您需要上传数据。 或者，您可以使用代码模式提供它。",
+        need_upload_data: "要选择要标记的字段，您需要上传数据。 或者，您可以使用代码模式提供它。",
         add: "添加",
         add_choices: "添加选项",
         add_label_names: "添加标签",
         configure_settings: "配置设置",
         ui_preview: "用户界面预览",
         empty_config_placeholder: "你的标注配置是空的。它是标注数据所必需的。",
-        empty_config_starting_info:
-          "从我们预定义的模板之一开始，或在“代码”面板上创建自己的配置。标签配置是基于XML的，您可以",
+        empty_config_starting_info: "从我们预定义的模板之一开始，或在“代码”面板上创建自己的配置。标签配置是基于XML的，您可以",
         empty_config_read_docs: "在我们的文档中阅读可用标签",
         use_new_line_as_separator: "使用换行符作为分隔符",
         use: "使用",
@@ -470,13 +501,11 @@ export const TRANSLATIONS_ZH = {
         addMLBackend: "添加机器学习后端",
         model: "模型",
         connectModel: "让我们连接您的第一个模型",
-        connectModel_description:
-          "连接机器学习模型以生成预测。这些预测可以并排比较，用于高效的预标记，并有助于主动学习，将用户引导到最有影响力的标记任务。",
+        connectModel_description: "连接机器学习模型以生成预测。这些预测可以并排比较，用于高效的预标记，并有助于主动学习，将用户引导到最有影响力的标记任务。",
         connectModel2: "连接模型",
         needHelp: "需要帮助？",
         learnMoreAboutConnectingModels: "了解如何连接模型",
-        connectModel_description2:
-          "检测到连接的模型！如果你想从这个模型中获取预测，请按照以下步骤操作：",
+        connectModel_description2: "检测到连接的模型！如果你想从这个模型中获取预测，请按照以下步骤操作：",
         selectTheDesiredTasks: "选择所需的任务",
         connectModel_description3: "如果您想使用模型预测进行预标记，请在",
         annotationSettings: "注释设置",
@@ -502,8 +531,7 @@ export const TRANSLATIONS_ZH = {
         basicAuthPass: "基本密码",
         extraParams: "模型连接时需传递的额外参数",
         interactivePreannotations: "交互式预标注",
-        interactivePreannotationsDescription:
-          "若启用某些标注工具，将在标注过程中以交互方式向机器学习后端发送请求。",
+        interactivePreannotationsDescription: "若启用某些标注工具，将在标注过程中以交互方式向机器学习后端发送请求。",
         validateAndSave: "验证并保存",
         navigateToDataManager: "转到数据管理器",
       },
@@ -519,8 +547,7 @@ export const TRANSLATIONS_ZH = {
         color: "颜色",
         task_sampling: "任务采样",
         uncertainty_sampling: "不确定性采样",
-        uncertainty_sampling_desc:
-          "任务根据模型不确定性分数进行选择（主动学习模式）",
+        uncertainty_sampling_desc: "任务根据模型不确定性分数进行选择（主动学习模式）",
         saved: "已保存",
         save: "保存",
         sequential: "顺序",
@@ -537,11 +564,9 @@ export const TRANSLATIONS_ZH = {
         delete_tasks: "删除 {{count}} 个任务",
         delete_predictions: "删除 {{count}} 个预测",
         reset_cache: "重置缓存",
-        reset_cache_help:
-          "如果你无法修改标注配置且确认标签不存在，可以使用此操作重置缓存后重试。",
+        reset_cache_help: "如果你无法修改标注配置且确认标签不存在，可以使用此操作重置缓存后重试。",
         drop_tabs: "清除所有标签页",
-        drop_tabs_help:
-          "如果数据管理器无法加载，可以尝试清除所有数据管理器标签页。",
+        drop_tabs_help: "如果数据管理器无法加载，可以尝试清除所有数据管理器标签页。",
         delete_project: "删除项目",
         delete_project_help: "删除项目会移除所有任务、标注和项目数据。",
         title: "危险操作区",
@@ -551,8 +576,7 @@ export const TRANSLATIONS_ZH = {
         title: "注释设置",
         header_labeling_instructions: "标注说明",
         instructions_p1: "编写说明以帮助用户完成标注任务。",
-        instructions_p2:
-          "说明字段支持 HTML 标记，并允许使用图片、iframe（pdf）。",
+        instructions_p2: "说明字段支持 HTML 标记，并允许使用图片、iframe（pdf）。",
         show_before_labeling: "在标注前显示",
         show_after_labeling: "在标注后显示",
         use_predictions_prelabel_description: "启用并选择用于预标注的预测集。",
@@ -562,20 +586,17 @@ export const TRANSLATIONS_ZH = {
       predictions: {
         title: "预测设置",
         list: "预测集",
-        description1:
-          "项目中可用的预测列表。每张卡都与一个单独的型号版本相关联。了解如何导入预测",
+        description1: "项目中可用的预测列表。每张卡都与一个单独的型号版本相关联。了解如何导入预测",
         see_documentation: "文档",
         no_predictions: "尚未上传预测",
-        description2:
-          "预测可用于预标记数据或验证模型。您可以上传并从多个模型版本中选择预测。您还可以在“模型”选项卡中连接实时模型",
+        description2: "预测可用于预标记数据或验证模型。您可以上传并从多个模型版本中选择预测。您还可以在“模型”选项卡中连接实时模型",
         need_help: "需要帮助？",
         learn_more_about_predictions: "了解如何导入预测",
       },
       storage: {
         title: "存储设置",
         cloudStorage: "云存储",
-        cloudStorageDescription:
-          "使用云或数据库存储作为标签任务的源或已完成注释的目标。",
+        cloudStorageDescription: "使用云或数据库存储作为标签任务的源或已完成注释的目标。",
         sourceCloudStorage: "源云存储",
         addSourceCloudStorage: "添加源云存储",
         targetCloudStorage: "目标云存储",
@@ -592,16 +613,12 @@ export const TRANSLATIONS_ZH = {
         untilted: "未命名",
         sync_storage: "同步存储",
         syncing_message: "同步可能需要一些时间，请刷新页面以查看当前状态。",
-        azure_blob_storage_with_service_principal:
-          "Azure Blob 存储（使用服务主体）",
-        azure_blob_storage_with_service_principal_description:
-          "使用服务主体身份验证配置Azure Blob存储连接，以增强安全性（仅限代理）",
+        azure_blob_storage_with_service_principal: "Azure Blob 存储（使用服务主体）",
+        azure_blob_storage_with_service_principal_description: "使用服务主体身份验证配置Azure Blob存储连接，以增强安全性（仅限代理）",
         enterprise_feature: "企业功能",
-        azure_blob_storage_with_service_principal_description_enterprise:
-          "带有服务主体的Azure Blob存储在Label Studio Enterprise中可用。",
+        azure_blob_storage_with_service_principal_description_enterprise: "带有服务主体的Azure Blob存储在Label Studio Enterprise中可用。",
         azure_blob_storage: "Azure Blob 存储",
-        configuration_required:
-          "使用所有必需的Label Studio设置配置Azure Blob存储连接",
+        configuration_required: "使用所有必需的Label Studio设置配置Azure Blob存储连接",
         container_name: "容器名称",
         my_azure_container: "我的 Azure 容器",
         bucket_prefix: "Bucket 前缀",
@@ -611,24 +628,19 @@ export const TRANSLATIONS_ZH = {
         account_key: "账户密钥",
         your_storage_account_key: "你的存储帐户密钥",
         use_pre_signed_urls: "通过平台使用预签名的URL（打开）/代理（关闭）",
-        when_pre_signed_urls_are_enabled:
-          "启用预签名URL后，所有数据都绕过平台，用户浏览器直接从存储中读取数据",
+        when_pre_signed_urls_are_enabled: "启用预签名URL后，所有数据都绕过平台，用户浏览器直接从存储中读取数据",
         expire_pre_signed_urls: "过期预签名URL（分钟）",
         databricks_files: "Databricks 文件",
-        config_databricks_files:
-          "使用所有必需的设置（仅限代理）配置您的copula Unity目录卷连接",
+        config_databricks_files: "使用所有必需的设置（仅限代理）配置您的copula Unity目录卷连接",
         enterprise_feature: "企业功能",
-        databricks_files_enterprise:
-          "Databricks 文件在Label Studio Enterprise中可用。",
+        databricks_files_enterprise: "Databricks 文件在Label Studio Enterprise中可用。",
         no_provider_selected: "未选择提供者",
         unknown_provider: "未知提供者",
         enter_description: "输入描述性名称（例如，“法律文件”、“培训数据”）",
         storageTitle: "存储标题",
-        this_name_will_help_you_identify_this_connection_in_your_project:
-          "此名称将帮助您在项目中标识此连接",
+        this_name_will_help_you_identify_this_connection_in_your_project: "此名称将帮助您在项目中标识此连接",
         can_delete_objects: "可以删除对象",
-        if_unchecked_annotations_will_not_be_deleted_from_storage:
-          "取消选中后，将不会删除对象",
+        if_unchecked_annotations_will_not_be_deleted_from_storage: "取消选中后，将不会删除对象",
         configure_import_settings_and_preview_data: "配置导入设置并预览数据",
         set_up_filters_for_your_files: "为文件设置过滤器以预览数据",
         import_configuration: "导入设置",
@@ -637,24 +649,18 @@ export const TRANSLATIONS_ZH = {
         optional: "可选",
         specify_folder_path: "指定文件路径",
         specify_bucket_path: "指定Bucket路径",
-        path_to_files_or_leave_empty_for_root:
-          "指定文件路径或保持为空以使用根路径",
+        path_to_files_or_leave_empty_for_root: "指定文件路径或保持为空以使用根路径",
         choose_how_to_interpret_your_data: "选择如何解释您的数据",
-        files_automatically_creates_a_task_for_each_storage_object:
-          "文件-自动为每个存储对象创建任务（例如JPG、MP3、TXT）",
-        tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file:
-          "任务-将每个JSON、JSONL或Parquet文件解释为多个任务定义（例如JSONL中的每行）",
+        files_automatically_creates_a_task_for_each_storage_object: "文件-自动为每个存储对象创建任务（例如JPG、MP3、TXT）",
+        tasks_treat_each_json_jsonl_or_parquet_as_one_or_more_task_definitions_per_file: "任务-将每个JSON、JSONL或Parquet文件解释为多个任务定义（例如JSONL中的每行）",
         select_import_method: "选择导入方法",
-        use_regex_patterns_to_filter_which_files_are_imported:
-          "使用正则表达式模式来过滤导入哪些文件",
+        use_regex_patterns_to_filter_which_files_are_imported: "使用正则表达式模式来过滤导入哪些文件",
         common_filters: "常用过滤器",
         include_files_from_all_nested_folders: "包含所有嵌套文件夹中的文件",
         no_preview_available: "暂无预览",
-        preview_files_will_be_displayed_here:
-          "配置您的导入设置，然后单击“加载预览”以查看将要导入的文件示例。",
+        preview_files_will_be_displayed_here: "配置您的导入设置，然后单击“加载预览”以查看将要导入的文件示例。",
         no_files_found: "未找到文件",
-        no_files_matching_your_current_criteria_were_found:
-          "找不到符合您当前条件的文件。尝试调整过滤器设置并重新加载预览。",
+        no_files_matching_your_current_criteria_were_found: "找不到符合您当前条件的文件。尝试调整过滤器设置并重新加载预览。",
         preview_limit_reached: "预览限制已到达 ...",
         choose_provider: "选择提供者",
         select_service: "选择服务",
@@ -675,25 +681,19 @@ export const TRANSLATIONS_ZH = {
         session_token: "会话令牌",
         session_token_optional: "会话令牌（可选）",
         use_presigned_urls: "通过平台使用预签名的URL（打开）/代理（关闭）",
-        when_pre_signed_urls_are_enabled:
-          "启用预签名URL后，所有数据都绕过平台，用户浏览器直接从存储中读取数据",
+        when_pre_signed_urls_are_enabled: "启用预签名URL后，所有数据都绕过平台，用户浏览器直接从存储中读取数据",
         expire_pre_signed_urls: "过期预签名URL（分钟）",
         google_cloud_storage: "谷歌云存储",
-        configure_your_google_cloud_storage_connection:
-          "使用所有必需的设置配置您的谷歌云存储连接",
+        configure_your_google_cloud_storage_connection: "使用所有必需的设置配置您的谷歌云存储连接",
         google_application_credentials: "谷歌应用凭证",
-        paste_credentials_json:
-          "将credentials.json的内容粘贴到此字段中，或者将其留空以使用ADC。",
+        paste_credentials_json: "将credentials.json的内容粘贴到此字段中，或者将其留空以使用ADC。",
         google_project_id: "谷歌项目ID",
         leave_blank_to_inherit: "留空以继承Google应用程序凭据。",
         google_cloud_storage: "Google云存储\n（WIF身份验证）",
-        configuration_description_wif:
-          "使用工作负载身份联合身份验证配置您的Google Cloud Storage连接（仅限代理）",
-        google_cloud_storage_wif_description:
-          "带有工作负载身份联合的Google云存储可用 在Label Studio Enterprise中。",
+        configuration_description_wif: "使用工作负载身份联合身份验证配置您的Google Cloud Storage连接（仅限代理）",
+        google_cloud_storage_wif_description: "带有工作负载身份联合的Google云存储可用 在Label Studio Enterprise中。",
         local_files: "本地文件",
-        local_files_description2:
-          "使用所有必需的Label Studio设置配置本地文件存储连接",
+        local_files_description2: "使用所有必需的Label Studio设置配置本地文件存储连接",
         absolute_local_path: "绝对本地路径",
         path: "路径",
         redis_storage: "Redis 存储",
@@ -705,10 +705,8 @@ export const TRANSLATIONS_ZH = {
         host: "主机",
         port: "端口",
         amazon_s3_with_iam_role: "Amazon S3-IAM角色",
-        configure_your_aws_s3_connection_using_iam_role_access_for_enhanced_security_proxy_only:
-          "使用IAM角色访问配置AWS S3连接以增强安全性（仅限代理）",
-        amazon_s3_with_iam_role_available_in_label_studio_enterprise:
-          "具有IAM角色的Amazon S3可在Label Studio Enterprise中使用。",
+        configure_your_aws_s3_connection_using_iam_role_access_for_enhanced_security_proxy_only: "使用IAM角色访问配置AWS S3连接以增强安全性（仅限代理）",
+        amazon_s3_with_iam_role_available_in_label_studio_enterprise: "具有IAM角色的Amazon S3可在Label Studio Enterprise中使用。",
       },
     },
     data_manager: {
@@ -716,8 +714,7 @@ export const TRANSLATIONS_ZH = {
       back_to_projects: "返回项目列表",
       actions_must_be_array: "操作必须是数组",
       you_have_unsaved_changes: "您有未保存的更改",
-      there_are_comments:
-        "存在未保存的评论。请提交标注内容。继续操作将导致这些评论丢失。",
+      there_are_comments: "存在未保存的评论。请提交标注内容。继续操作将导致这些评论丢失。",
       discard_and_continue: "放弃并继续",
       you_are_almost_there: "你已经快完成了！",
       before_you_can_annotate: "在开始标注之前，请设置标签配置。",
@@ -737,15 +734,12 @@ export const TRANSLATIONS_ZH = {
       user_id: "用户 ID",
       error_loading_settings: "无法加载设置",
       personal_access_tokens: "个人令牌",
-      enable_increased_token_authentication_security:
-        "启用增强的令牌身份验证安全",
+      enable_increased_token_authentication_security: "启用增强的令牌身份验证安全",
       legacy_tokens: "旧令牌",
       legacy_tokens_description: "旧令牌已弃用。请使用新令牌。",
       time_to_live: "有效期（可选，仅限个人访问令牌）",
-      time_to_live_description:
-        "创建后令牌有效的天数。在此时间段之后，用户将需要创建新的访问令牌",
-      time_to_live_description2:
-        "令牌创建后的有效天数。在此时间段之后，用户需要创建一个新的访问令牌",
+      time_to_live_description: "创建后令牌有效的天数。在此时间段之后，用户将需要创建新的访问令牌",
+      time_to_live_description2: "令牌创建后的有效天数。在此时间段之后，用户需要创建一个新的访问令牌",
       save_changes: "保存更改",
       created_projects: "已创建项目",
       contributed_to_projects: "已贡献项目",
@@ -815,8 +809,7 @@ export const TRANSLATIONS_ZH = {
       delete_annotation: "删除标注",
       prediction_score: "预测分数",
       view_region_details: "查看区域详情",
-      select_region_to_view_details:
-        "选择一个区域以查看其属性、元数据和可用操作",
+      select_region_to_view_details: "选择一个区域以查看其属性、元数据和可用操作",
       annotation_history: "标注历史",
       relations: "关系",
       comments: "评论",

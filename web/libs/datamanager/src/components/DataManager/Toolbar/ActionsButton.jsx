@@ -63,6 +63,16 @@ const ActionButton = ({ action, parentRef, store, formRef }) => {
   const hasChildren = !!action.children?.length;
   const submenuRef = useRef();
 
+  // lcc把批量操作名转换成翻译的文件
+  const obj = {
+    ["Retrieve Predictions"]: defaultT(t, "pages.projects.actionsBatch.Retrieve_Predictions", "Retrieve Predictions"),
+    ["Create Annotations From Predictions"]: defaultT(t, "pages.projects.actionsBatch.Create_Annotations_From_Predictions", "Create Annotations From Predictions"),
+    ["Remove Duplicated Tasks"]: defaultT(t, "pages.projects.actionsBatch.Remove_Duplicated_Tasks", "Remove Duplicated Tasks"),
+    ["Delete Tasks"]: defaultT(t, "pages.projects.actionsBatch.Delete_Tasks", "Delete Tasks"),
+    ["Delete Annotations"]: defaultT(t, "pages.projects.actionsBatch.Delete_Annotations", "Delete Annotations"),
+    ["Delete Predictions"]: defaultT(t, "pages.projects.actionsBatch.Delete_Predictions", "Delete Predictions"),
+  }
+
   const onClick = useCallback(
     (e) => {
       e.preventDefault();
@@ -133,14 +143,13 @@ const ActionButton = ({ action, parentRef, store, formRef }) => {
           key={action.id}
           variant={isDeleteAction ? "negative" : undefined}
           onClick={onClick}
-          className={`actionButton${action.isSeparator ? "_isSeparator" : action.isTitle ? "_isTitle" : ""} ${
-            action.disabled ? "actionButton_disabled" : ""
-          }`}
+          className={`actionButton${action.isSeparator ? "_isSeparator" : action.isTitle ? "_isTitle" : ""} ${action.disabled ? "actionButton_disabled" : ""
+            }`}
           icon={isDeleteAction && <IconTrash />}
           title={action.disabled ? action.disabledReason : null}
           aria-label={action.title}
         >
-          {action.title}
+          {obj[action.title] ?? action.title}
         </Menu.Item>
       </div>
     </Tooltip>
@@ -227,7 +236,15 @@ export const ActionsButton = injector(
     const actionButtons = actions.map((action) => (
       <ActionButton key={action.id} action={action} parentRef={formRef} store={store} formRef={formRef} />
     ));
-    const recordTypeLabel = isFFLOPSE3 && store.SDK.type === "DE" ? "Record" : "Task";
+    const recordTypeLabel = isFFLOPSE3 && store.SDK.type === "DE" ? defaultT(
+      t,
+      "common.Record",
+      "Record"
+    ) : defaultT(
+      t,
+      "libs.datamanager.emptyState.task",
+      "Task"
+    );
 
     return (
       <Dropdown.Trigger
@@ -251,11 +268,17 @@ export const ActionsButton = injector(
           aria-label="Tasks Actions"
           {...rest}
         >
-          {selectedCount > 0 ? `${selectedCount} ${recordTypeLabel}${selectedCount > 1 ? "s" : ""}` : defaultT(
-            t,
-            "libs.datamanager.emptyState.actions",
-            "Actions"
-          )}
+          {selectedCount > 0 ?
+            `${selectedCount} ${recordTypeLabel}${selectedCount > 1 ? defaultT(
+              t,
+              "common.s",
+              "s"
+            ) : ""}`
+            : defaultT(
+              t,
+              "libs.datamanager.emptyState.actions",
+              "Actions"
+            )}
         </Button>
       </Dropdown.Trigger>
     );

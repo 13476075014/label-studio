@@ -94,7 +94,7 @@ export const instruments = {
       icon: IconChevronDown,
     };
     return (
-      <FieldsButton
+      <FieldsButton 
         wrapper={FieldsButton.Checkbox}
         trailingIcon={<Icon {...iconProps} />}
         title={defaultT(

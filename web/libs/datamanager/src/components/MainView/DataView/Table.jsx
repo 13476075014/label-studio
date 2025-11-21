@@ -16,6 +16,9 @@ import "./Table.scss";
 import { Button } from "@humansignal/ui";
 import { useEffect, useState } from "react";
 import { EmptyState } from "./empty-state";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const injector = inject(({ store }) => {
   const { dataStore, currentView } = store;
@@ -70,6 +73,28 @@ export const DataView = injector(
     canLabel,
     ...props
   }) => {
+    const transObj = {
+      ["Task ID"]: defaultT(t, "pages.projects.helps.Task_ID", "Task ID"),
+      ["Internal task ID starting from 1 for the current project"]: defaultT(t, "pages.projects.helps.Task_ID_info", "Internal task ID starting from 1 for the current project"),
+      ["Last annotation date"]: defaultT(t, "pages.projects.helps.Last_annotation_date", "Last annotation date"),
+      ["Total annotations per task"]: defaultT(t, "pages.projects.helps.Total_annotations_per_task", "Total annotations per task"),
+      ["Total cancelled (skipped) annotations"]: defaultT(t, "pages.projects.helps.Total_cancelled_annotations", "Total cancelled (skipped) annotations"),
+      ["Total predictions per task"]: defaultT(t, "pages.projects.helps.Total_predictions_per_task", "Total predictions per task"),
+      ["All users who completed the task"]: defaultT(t, "pages.projects.helps.All_users_who_completed_the_task", "All users who completed the task"),
+      ["Annotation results stacked over all annotations"]: defaultT(t, "pages.projects.helps.Annotation_results_stacked_over", "Annotation results stacked over all annotations"),
+      ["Annotation IDs stacked over all annotations"]: defaultT(t, "pages.projects.helps.Annotation_IDs_stacked_over", "Annotation IDs stacked over all annotations"),
+      ["Average prediction score over all task predictions"]: defaultT(t, "pages.projects.helps.Average_prediction_score_over_all", "Average prediction score over all task predictions"),
+      ["Model versions aggregated over all predictions"]: defaultT(t, "pages.projects.helps.Model_versions_aggregated_over", "Model versions aggregated over all predictions"),
+      ["Prediction results stacked over all predictions"]: defaultT(t, "pages.projects.helps.Prediction_results_stacked_over", "Prediction results stacked over all predictions"),
+      ["Filename of uploaded file"]: defaultT(t, "pages.projects.helps.Filename_of_uploaded_file", "Filename of uploaded file"),
+      ["Filename from import storage"]: defaultT(t, "pages.projects.helps.Filename_from_import_storage", "Filename from import storage"),
+      ["Task creation time"]: defaultT(t, "pages.projects.helps.Task_creation_time", "Task creation time"),
+      ["Task update time"]: defaultT(t, "pages.projects.helps.Task_update_time", "Task update time"),
+      ["User who did the last task update"]: defaultT(t, "pages.projects.helps.User_who_did_the_last_task_update", "User who did the last task update"),
+      ["Average lead time over all annotations (seconds)"]: defaultT(t, "pages.projects.helps.Average_lead_time_over", "Average lead time over all annotations (seconds)"),
+      ["True if at least one draft exists for the task"]: defaultT(t, "pages.projects.helps.True_if_at", "True if at least one draft exists for the task"),
+
+    };
     const [datasetStatusID, setDatasetStatusID] = useState(store.SDK.dataset?.status?.id);
     const focusedItem = useMemo(() => {
       return props.focusedItem;
@@ -92,7 +117,9 @@ export const DataView = injector(
       [dataStore.hasNextPage],
     );
 
+    // 列的额外补充
     const columnHeaderExtra = useCallback(({ parent, original, help }, decoration) => {
+
       const children = [];
 
       if (parent) {
@@ -115,7 +142,7 @@ export const DataView = injector(
 
       if (help && decoration?.help !== false) {
         children.push(
-          <Tooltip key="help-tooltip" title={help}>
+          <Tooltip key="help-tooltip" title={transObj[help] ?? help}>
             <Icon icon={IconQuestionOutline} style={{ opacity: 0.5 }} />
           </Tooltip>,
         );
@@ -251,7 +278,7 @@ export const DataView = injector(
       const column = col.original;
 
       if (column.icon) {
-        return <Tooltip title={column.help ?? col.title}>{column.icon}</Tooltip>;
+        return <Tooltip title={transObj[(column.help ?? col.title)] ?? (column.help ?? col.title)}>{column.icon}</Tooltip>;
       }
 
       return column.title;

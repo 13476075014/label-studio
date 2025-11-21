@@ -15,6 +15,9 @@ import { getStyle } from "../utils";
 import "./TableHead.scss";
 import { FF_DEV_3873, isFF } from "../../../../utils/feature-flags";
 import { getRoot } from "mobx-state-tree";
+import { defaultT } from "../../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const tableHeadCN = cn("table-head");
 
@@ -96,10 +99,34 @@ const ColumnRenderer = observer(
     const content = Decoration?.content ? Decoration.content(column) : column.title;
     const style = getStyle(cellViews, column, Decoration);
 
+    // lcc把列转换成翻译的文件
+    const obj = {
+      image: defaultT(t, "pages.projects.columns.image", "image"),
+      ["Inner ID"]: defaultT(t, "pages.projects.columns.inner_id", "Inner ID"),
+      ["Completed"]: defaultT(t, "pages.projects.columns.completed", "Completed"),
+      ["Annotations"]: defaultT(t, "pages.projects.columns.annotations", "Annotations"),
+      ["Cancelled"]: defaultT(t, "pages.projects.columns.cancelled", "Cancelled"),
+      ["Predictions"]: defaultT(t, "pages.projects.columns.predictions", "Predictions"),
+      ["Annotated by"]: defaultT(t, "pages.projects.columns.annotated_by", "Annotated by"),
+      ["Annotation results"]: defaultT(t, "pages.projects.columns.annotation_results", "Annotation results"),
+      ["Annotation IDs"]: defaultT(t, "pages.projects.columns.Annotation_IDs", "Annotation IDs"),
+      ["Prediction score"]: defaultT(t, "pages.projects.columns.Prediction_score", "Prediction score"),
+      ["Prediction model versions"]: defaultT(t, "pages.projects.columns.Prediction_model_versions", "Prediction model versions"),
+      ["Prediction results"]: defaultT(t, "pages.projects.columns.Prediction_results", "Prediction results"),
+      ["Upload filename"]: defaultT(t, "pages.projects.columns.Upload_filename", "Upload filename"),
+      ["Storage filename"]: defaultT(t, "pages.projects.columns.Storage_filename", "Storage filename"),
+      ["Created at"]: defaultT(t, "pages.projects.columns.Created_at", "Created at"),
+      ["Updated at"]: defaultT(t, "pages.projects.columns.Updated_at", "Updated at"),
+      ["Updated by"]: defaultT(t, "pages.projects.columns.Updated_by", "Updated by"),
+      ["Lead Time"]: defaultT(t, "pages.projects.columns.Lead_Time", "Lead Time"),
+      ["Drafts"]: defaultT(t, "pages.projects.columns.Drafts", "Drafts"),
+      ["data"]: defaultT(t, "pages.projects.columns.data", "data"),
+    }
+
     const headContent = (
       <>
         <TableCellContent mod={{ canOrder, disabled: stopInteractions }} mix="th-content">
-          {content}
+          {obj[content] ?? content}
         </TableCellContent>
 
         {extra && <span className={tableHeadCN.elem("column-extra").toString()}>{extra}</span>}

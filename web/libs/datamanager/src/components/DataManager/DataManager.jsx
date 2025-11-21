@@ -71,15 +71,15 @@ const ProjectSummary = summaryInjector((props) => {
             <span title="Total tasks in the project">{props.totalTasks}</span>
           </span>
           <span>{defaultT(
-              t,
-              "libs.datamanager.emptyState.submittedAnnotations",
-              "Submitted annotations"
-            )}: {props.totalAnnotations}</span>
+            t,
+            "libs.datamanager.emptyState.submittedAnnotations",
+            "Submitted annotations"
+          )}: {props.totalAnnotations}</span>
           <span>{defaultT(
-              t,
-              "libs.datamanager.emptyState.predictions",
-              "Predictions"
-            )}: {props.totalPredictions}</span>
+            t,
+            "libs.datamanager.emptyState.predictions",
+            "Predictions"
+          )}: {props.totalPredictions}</span>
         </Space>
       </span>
     </Space>
@@ -145,6 +145,7 @@ const TabsSwitch = switchInjector(
   }),
 );
 
+// http://localhost:8080/projects/2/data
 export const DataManager = injector(({ shrinkWidth }) => {
   return (
     <div className={tabContentCN.toString()}>
