@@ -9,6 +9,11 @@ import { FF_MULTI_OBJECT_HOTKEYS, isFF } from "../utils/feature-flags";
 import { isDefined, isMacOS } from "../utils/utilities";
 import keymapjs from "./settings/keymap"
 // import defaultKeymap from "./settings/keymap.json";
+import { defaultT } from "../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next"
+
+const t = i18n.t.bind(i18n);
 
 const defaultKeymap = keymapjs()
 type Keymap = typeof defaultKeymap;
@@ -103,7 +108,7 @@ const ALIASES: Record<string, string> = {
   ",": "¼",
 };
 
-export const Hotkey = (namespace = "global", description = "Hotkeys") => {
+export const Hotkey = (namespace = "global", description = defaultT(t, "pages.account_settings.hot_keys", "Hotkeys")) => {
   let _hotkeys_map: HotkeyMap = {};
 
   _namespaces[namespace] = _namespaces[namespace] ?? {

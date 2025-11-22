@@ -131,6 +131,7 @@ export const TRANSLATIONS_EN = {
       Global_Hotkeys: "Global Hotkeys",
       Segmentation_Tools: "Segmentation Tools",
       keyboard_shortcuts: "Keyboard Shortcuts",
+      Shortcut: "Shortcut",
       view_all_available_shortcuts: "View all available keyboard shortcuts.",
       customize: "Customize",
       personal_info: "Personal Info",

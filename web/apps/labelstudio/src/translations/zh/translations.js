@@ -126,6 +126,7 @@ export const TRANSLATIONS_ZH = {
       Global_Hotkeys: "全局热键",
       Segmentation_Tools: "分割工具",
       keyboard_shortcuts: "键盘快捷键",
+      Shortcut: "快捷键",
       view_all_available_shortcuts: "查看所有可用快捷键",
       customize: "自定义",
       personal_info: "个人信息",

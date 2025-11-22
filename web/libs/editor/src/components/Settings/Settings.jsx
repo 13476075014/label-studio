@@ -22,8 +22,8 @@ const t = i18n.t.bind(i18n);
 
 const HotkeysDescription = () => {
   const columns = [
-    { title: "Shortcut", dataIndex: "combo", key: "combo" },
-    { title: "Description", dataIndex: "descr", key: "descr" },
+    { title: defaultT(t, "pages.account_settings.Shortcut", "Shortcut"), dataIndex: "combo", key: "combo" },
+    { title: defaultT(t, "pages.create_project.project_name.description_title", "Description"), dataIndex: "descr", key: "descr" },
   ];
 
   const keyNamespaces = Hotkey.namespaces();
