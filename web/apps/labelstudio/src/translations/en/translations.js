@@ -855,7 +855,18 @@ export const TRANSLATIONS_EN = {
       Show_more: "Show more",
       Show_less: "Show less",
       Create_relations_between_regions: "Create relations between regions",
-      Link_regions_between: "Link regions to define relationships between them"
+      Link_regions_between: "Link regions to define relationships between them",
+      Duplicate_Annotation: "Duplicate Annotation",
+      Copy_Annotation_Link: "Copy Annotation Link",
+      Playback_Settings: "Playback Settings",
+      Playback_speed: "Playback speed",
+      increase_or_de_playback: "Increase or decrease the playback speed",
+      loop_timeline_regin: "Loop Timeline Regions",
+      audio_zoom_y: "Audio zoom y-axis",
+      increase_or_de_playback_amplitude: "Increase or decrease the appearance of amplitude",
+      Loop_Regions: "Loop Regions",
+      auto_play_new_regin: "Auto-play New Regions",
+      Spectrogram_Settings: "Spectrogram Settings"
     },
     webhooks: {
       title: "Webhooks",

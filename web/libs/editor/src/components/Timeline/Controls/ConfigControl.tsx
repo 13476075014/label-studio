@@ -11,6 +11,10 @@ import { Slider } from "./Slider";
 import { SpectrogramControl } from "./SpectrogramControl";
 import "./ConfigControl.scss";
 import { FF_AUDIO_SPECTROGRAMS, isFF } from "../../../utils/feature-flags";
+import { defaultT } from "../../../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 // Define Scale Options Type
 type SpectrogramScale = "linear" | "log" | "mel";
@@ -182,14 +186,17 @@ export const ConfigControl: FC<ConfigControlProps> = ({
         style={{ opacity: 0, position: "fixed" }}
       >
         <Elem name="scroll-content">
-          <Elem name="section-header">Playback Settings</Elem>
+          <Elem name="section-header">{defaultT(t, "pages.labeling.Playback_Settings",
+            "Playback Settings")}</Elem>
           <Slider
             min={MIN_SPEED}
             max={MAX_SPEED}
             step={0.1}
             value={speed}
-            description={"Playback speed"}
-            info={"Increase or decrease the playback speed"}
+            description={defaultT(t, "pages.labeling.Playback_speed",
+              "Playback speed")}
+            info={defaultT(t, "pages.labeling.increase_or_de_playback",
+              "Increase or decrease the playback speed")}
             onChange={handleChangePlaybackSpeed}
           />
           <Slider
@@ -197,15 +204,18 @@ export const ConfigControl: FC<ConfigControlProps> = ({
             max={MAX_ZOOM}
             step={0.1}
             value={amp}
-            description={"Audio zoom y-axis"}
-            info={"Increase or decrease the appearance of amplitude"}
+            description={defaultT(t, "pages.labeling.audio_zoom_y",
+              "Audio zoom y-axis")}
+            info={defaultT(t, "pages.labeling.increase_or_de_playback_amplitude",
+              "Increase or decrease the appearance of amplitude")}
             onChange={handleChangeAmp}
           />
           <Elem name="toggle">
             <Toggle
               checked={settings?.loopRegion}
               onChange={(e) => changeSetting?.("loopRegion", e.target.checked)}
-              label="Loop Regions"
+              label={defaultT(t, "pages.labeling.Loop_Regions",
+                "Loop Regions")}
               labelProps={{ size: "small" }}
             />
           </Elem>
@@ -213,14 +223,16 @@ export const ConfigControl: FC<ConfigControlProps> = ({
             <Toggle
               checked={settings?.autoPlayNewSegments}
               onChange={(e) => changeSetting?.("autoPlayNewSegments", e.target.checked)}
-              label="Auto-play New Regions"
+              label={defaultT(t, "pages.labeling.auto_play_new_regin",
+                "Auto-play New Regions")}
               labelProps={{ size: "small" }}
             />
           </Elem>
 
           {isFF(FF_AUDIO_SPECTROGRAMS) && (
             <>
-              <Elem name="section-header">Spectrogram Settings</Elem>
+              <Elem name="section-header">{defaultT(t, "pages.labeling.Spectrogram_Settings",
+                "Spectrogram Settings")}</Elem>
               <SpectrogramControl waveform={waveform} />
             </>
           )}

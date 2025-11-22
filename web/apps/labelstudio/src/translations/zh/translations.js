@@ -847,7 +847,18 @@ export const TRANSLATIONS_ZH = {
       Show_more: "展示更多",
       Show_less: "折叠",
       Create_relations_between_regions: "建立区域间的关系",
-      Link_regions_between: "连接各个区域以定义它们之间的关系"
+      Link_regions_between: "连接各个区域以定义它们之间的关系",
+      Duplicate_Annotation: "重复标注",
+      Copy_Annotation_Link: "复制注释链接",
+      Playback_Settings: "播放设置",
+      Playback_speed: "播放速度",
+      increase_or_de_playback: "调整播放速度的快慢",
+      loop_timeline_regin: "循环时间线区域",
+      audio_zoom_y: "音频缩放Y轴",
+      increase_or_de_playback_amplitude: "增加或减少振幅的显示",
+      Loop_Regions: "循环区域",
+      auto_play_new_regin: "自动播放新区域",
+      Spectrogram_Settings: "频谱图设置"
     },
     webhooks: {
       title: "回调通知",

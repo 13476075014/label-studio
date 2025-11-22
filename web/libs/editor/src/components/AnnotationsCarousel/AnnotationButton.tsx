@@ -200,13 +200,15 @@ export const AnnotationButton = observer(
               enabled: showGroundTruth,
             },
             {
-              label: "Duplicate Annotation",
+              label: defaultT(t, "pages.labeling.Duplicate_Annotation",
+                "Duplicate Annotation"),
               onClick: duplicateAnnotation,
               icon: <IconDuplicate width={20} height={20} />,
               enabled: showDuplicateAnnotation,
             },
             {
-              label: "Copy Annotation Link",
+              label: defaultT(t, "pages.labeling.Copy_Annotation_Link",
+                "Copy Annotation Link"),
               onClick: linkAnnotation,
               icon: <IconLink />,
               enabled: !isDraft && store.hasInterface("annotations:copy-link"),

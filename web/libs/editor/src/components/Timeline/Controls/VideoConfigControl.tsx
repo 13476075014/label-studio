@@ -7,6 +7,10 @@ import { IconConfig } from "@humansignal/icons";
 import { ControlButton } from "../Controls";
 import { Slider } from "./Slider";
 import styles from "./VideoConfigControl.module.scss";
+import { defaultT } from "../../../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 const MIN_SPEED = 0.25;
 const MAX_SPEED = 10;
@@ -157,21 +161,25 @@ export const VideoConfigControl: FC<VideoConfigControlProps> = ({
         style={{ opacity: 0, position: "fixed" }}
       >
         <div className={styles.scrollContent}>
-          <div className={styles.sectionHeader}>Playback Settings</div>
+          <div className={styles.sectionHeader}>{defaultT(t, "pages.labeling.Playback_Settings",
+            "Playback Settings")}</div>
           <Slider
             min={MIN_SPEED}
             max={MAX_SPEED}
             step={0.05}
             value={speed}
-            description={"Playback speed"}
-            info={"Increase or decrease the playback speed"}
+            description={defaultT(t, "pages.labeling.Playback_speed",
+              "Playback speed")}
+            info={defaultT(t, "pages.labeling.increase_or_de_playback",
+              "Increase or decrease the playback speed")}
             onChange={handleChangePlaybackSpeed}
           />
           <div className={styles.toggle}>
             <Toggle
               checked={loopTimelineRegion}
               onChange={(e) => onLoopTimelineRegionChange(e.target.checked)}
-              label="Loop Timeline Regions"
+              label={defaultT(t, "pages.labeling.loop_timeline_regin",
+                "Loop Timeline Regions")}
               labelProps={{ size: "small" }}
             />
           </div>
