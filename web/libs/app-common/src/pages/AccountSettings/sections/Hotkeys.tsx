@@ -22,11 +22,14 @@ import type { Hotkey, Section, DirtyState, DuplicateConfirmDialog, ImportData } 
 import { HOTKEY_SECTIONS } from "./Hotkeys/defaults";
 import styles from "../AccountSettings.module.scss";
 import { useHotkeys } from "../hooks/useHotkeys";
-
 // Type the imported defaults
-const typedHotkeySections = HOTKEY_SECTIONS as Section[];
+
+// const typedHotkeySections = HOTKEY_SECTIONS as Section[];
+
 
 export const HotkeysHeaderButtons = () => {
+  // Type the imported defaults
+  // const typedHotkeySections = HOTKEY_SECTIONS() as Section[];
   const [importDialogOpen, setImportDialogOpen] = useState<boolean>(false);
   const { handleResetToDefaults, handleExportHotkeys, handleImportHotkeys } = useHotkeys();
 
@@ -51,6 +54,11 @@ export const HotkeysHeaderButtons = () => {
 };
 
 export const HotkeysManager = () => {
+  // Type the imported defaults
+  let typedHotkeySections = HOTKEY_SECTIONS() as Section[];
+  // setTimeout(() => {
+  //   typedHotkeySections = HOTKEY_SECTIONS() as Section[];
+  // }, 2000)
   const toast = useToast();
   const [editingHotkeyId, setEditingHotkeyId] = useState<string | null>(null);
   const [dirtyState, setDirtyState] = useState<DirtyState>({});

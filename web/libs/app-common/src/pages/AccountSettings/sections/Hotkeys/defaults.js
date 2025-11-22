@@ -1,4 +1,6 @@
-import { defaultT } from "../../../../../../core/src/index";
+import {
+  defaultT
+} from "../../../../../../core/src/index";
 import i18n from "i18next";
 
 export const DEFAULT_HOTKEYS = () => {
@@ -1200,68 +1202,130 @@ export const DEFAULT_HOTKEYS = () => {
   ];
 };
 
-export const HOTKEY_SECTIONS = [
-  {
-    id: "annotation",
-    title: "Annotation Actions",
-    description:
-      "Shortcuts for common annotation tasks like submit, skip, undo and redo",
-  },
+export const HOTKEY_SECTIONS = () => {
+  const t = i18n.t.bind(i18n);
+  return [{
+      id: "annotation",
+      title: defaultT(
+        t,
+        "pages.account_settings.annotation_actions",
+        "Annotation Actions"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_common_annotation_tasks_like_submit_skip_undo_and_redo",
+        "Shortcuts for common annotation tasks like submit, skip, undo and redo"
+      ),
+    },
 
-  {
-    id: "data_manager",
-    title: "Data Manager",
-    description:
-      "Shortcuts for navigating and managing tasks in Project's Data Manager",
-  },
+    {
+      id: "data_manager",
+      title: defaultT(t, "pages.account_settings.data_manager_title", "Data Manager"),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_navigating_and_managing_tasks_in_project_s_data_manager",
+        "Shortcuts for navigating and managing tasks in Project's Data Manager"
+      ),
+    },
 
-  {
-    id: "regions",
-    title: "Region Management",
-    description:
-      "Shortcuts for creating, selecting and manipulating annotation regions",
-  },
+    {
+      id: "regions",
+      title: defaultT(
+        t,
+        "pages.account_settings.region_management",
+        "Region Management"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_creating_selecting_and_manipulating_annotation_regions",
+        "Shortcuts for creating, selecting and manipulating annotation regions"
+      ),
+    },
 
-  {
-    id: "tools",
-    title: "Tools",
-    description: "Shortcuts for controlling tools panel when labeling images",
-  },
+    {
+      id: "tools",
+      title: defaultT(t, "pages.account_settings.tools_title", "Tools"),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_controlling_tools_panel_when_labeling_images",
+        "Shortcuts for controlling tools panel when labeling images"
+      ),
+    },
 
-  {
-    id: "audio",
-    title: "Audio Controls",
-    description: "Shortcuts for controlling audio playback and navigation",
-  },
-  {
-    id: "video",
-    title: "Video Controls",
-    description: "Shortcuts for controlling video playback and navigation",
-  },
-  {
-    id: "timeseries",
-    title: "Time Series Controls",
-    description: "Shortcuts for manipulating time series data regions",
-  },
-  {
-    id: "image_gallery",
-    title: "Image Gallery Navigation",
-    description: "Shortcuts for navigating between images in multi-image tasks",
-  },
-  {
-    id: "paragraphs",
-    title: "Paragraph Navigation",
-    description:
-      "Shortcuts for navigating phrases and regions in paragraph/dialogue view",
-  },
-];
+    {
+      id: "audio",
+      title: defaultT(
+        t,
+        "pages.account_settings.audio_controls",
+        "Audio Controls"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_controlling_audio_playback_and_navigation",
+        "Shortcuts for controlling audio playback and navigation"
+      ),
+    },
+    {
+      id: "video",
+      title: defaultT(
+        t,
+        "pages.account_settings.video_controls",
+        "Video Controls"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_controlling_video_playback_and_navigation",
+        "Shortcuts for controlling video playback and navigation"
+      ),
+    },
+    {
+      id: "timeseries",
+      title: defaultT(
+        t,
+        "pages.account_settings.time_series_controls",
+        "Time Series Controls"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_manipulating_time_series_data_regions",
+        "Shortcuts for manipulating time series data regions"
+      ),
+    },
+    {
+      id: "image_gallery",
+      title: defaultT(
+        t,
+        "pages.account_settings.image_gallery_navigation",
+        "Image Gallery Navigation"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_navigating_between_images_in_multi_image_tasks",
+        "Shortcuts for navigating between images in multi-image tasks"
+      ),
+    },
+    {
+      id: "paragraphs",
+      title: defaultT(
+        t,
+        "pages.account_settings.paragraph_navigation",
+        "Paragraph Navigation"
+      ),
+      description: defaultT(
+        t,
+        "pages.account_settings.shortcuts_for_navigating_phrases_and_regions_in_paragraph_dialogue_view",
+        "Shortcuts for navigating phrases and regions in paragraph/dialogue view"
+      ),
+    },
+  ];
+}
+
 
 /**
  * URL patterns mapped to their corresponding hotkey sections
  * Used to automatically determine which shortcuts to display based on current page
  */
-export const URL_TO_SECTION_MAPPING = [
-  {
+export const URL_TO_SECTION_MAPPING = [{
     regex: /\/projects\/\d+\/data\/?\?.*task=\d+/i,
     section: ["annotation", "regions"],
   },

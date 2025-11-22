@@ -30,13 +30,14 @@ interface HotkeyHelpModalProps {
 }
 
 // Type the imported constants
-const sections = HOTKEY_SECTIONS as Section[];
+// const sections = HOTKEY_SECTIONS() as Section[];
 const urlMappings = URL_TO_SECTION_MAPPING as UrlMapping[];
 
 /**
  * Hook to get current hotkeys with customizations
  */
 const useCurrentHotkeys = (): Hotkey[] => {
+  // const sections = HOTKEY_SECTIONS() as Section[];
   return useMemo(() => {
     const defaultHotkeys = getTypedDefaultHotkeys();
     const customHotkeys = window.APP_SETTINGS?.user?.customHotkeys || {};
@@ -64,6 +65,7 @@ const useCurrentHotkeys = (): Hotkey[] => {
  * Renders shortcuts organized by sections and subgroups
  */
 const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
+  const sections = HOTKEY_SECTIONS() as Section[];
   const hotkeys = useCurrentHotkeys();
 
   /**
@@ -128,7 +130,7 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
                   key={subgroup}
                   className={clsx(
                     subgroup !== "default" &&
-                      "mt-4 pt-2 border rounded-md border-gray-200 dark:border-gray-700 p-3"
+                    "mt-4 pt-2 border rounded-md border-gray-200 dark:border-gray-700 p-3"
                   )}
                 >
                   {/* Subgroup Header */}
@@ -140,13 +142,13 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
                       </div>
                       {sections.find((s: Section) => s.id === subgroup)
                         ?.description && (
-                        <div className="text-xs text-neutral-content-subtler">
-                          {
-                            sections.find((s: Section) => s.id === subgroup)
-                              ?.description
-                          }
-                        </div>
-                      )}
+                          <div className="text-xs text-neutral-content-subtler">
+                            {
+                              sections.find((s: Section) => s.id === subgroup)
+                                ?.description
+                            }
+                          </div>
+                        )}
                     </div>
                   )}
 
@@ -228,6 +230,7 @@ const HotkeyHelpModal = ({ sectionsToShow }: HotkeyHelpModalProps) => {
 const determineSectionsToShow = (
   sectionOrUrl?: string | string[]
 ): string[] => {
+  const sections = HOTKEY_SECTIONS() as Section[];
   let sectionsToShow: string[] = [];
 
   if (sectionOrUrl) {
@@ -304,6 +307,7 @@ const determineSectionsToShow = (
 export const openHotkeyHelp = (
   sectionOrUrl?: string | string[]
 ): ModalReturn => {
+  // const sections = HOTKEY_SECTIONS() as Section[];
   const sectionsToShow = determineSectionsToShow(sectionOrUrl);
 
   const modalInstance = modal({
