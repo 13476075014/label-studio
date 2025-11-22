@@ -6,8 +6,13 @@ import "./WebhookPage.scss";
 import { format } from "date-fns";
 import { useAPI } from "../../providers/ApiProvider";
 import { WebhookDeleteModal } from "./WebhookDeleteModal";
+import { useTranslation } from "react-i18next";
+// import i18n from "i18next";
+import { defaultT } from "../../utils/scripts";
+// const t = i18n.t.bind(i18n)
 
 const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) => {
+  const { t } = useTranslation()
   const api = useAPI();
 
   if (webhooks === null) return <></>;
@@ -28,10 +33,10 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
 
   return (
     <Block name="webhook">
-      <h1>Webhooks</h1>
+      <h1>{defaultT(t, "pages.webhooks.title", "Webhooks")}</h1>
       <Elem name="controls">
         <Button onClick={onAddWebhook} aria-label="Add webhook">
-          Add Webhook
+          {defaultT(t, "pages.webhooks.Add_Webhook", "Add Webhook")}
         </Button>
       </Elem>
       <Elem>
@@ -57,7 +62,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
                     icon={<IconPencil />}
                     aria-label="Edit webhook"
                   >
-                    Edit
+                    {defaultT(t, "common.edit", "Edit")}
                   </Button>
                   <Button
                     onClick={() =>
@@ -72,7 +77,7 @@ const WebhookList = ({ onSelectActive, onAddWebhook, webhooks, fetchWebhooks }) 
                     look="outlined"
                     icon={<IconCross />}
                   >
-                    Delete
+                    {defaultT(t, "common.delete", "Delete")}
                   </Button>
                 </Elem>
               </Elem>

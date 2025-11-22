@@ -78,8 +78,8 @@ export const MachineLearningSettings = () => {
       const modalProps = {
         title: `${backend ? defaultT(t, "common.edit",
           "Edit") : defaultT(t, "common.connect",
-          "Connect")} ${defaultT(t, "common.model",
-          "Model")}`,
+            "Connect")} ${defaultT(t, "common.model",
+              "Model")}`,
         style: { width: 760 },
         closeOnClickOutside: false,
         body: (
@@ -111,30 +111,30 @@ export const MachineLearningSettings = () => {
       <div className="w-[40rem]">
         <Typography variant="headline" size="medium" className="mb-base">
           {defaultT(t, "pages.settings.menu.model",
-          "Model")}
+            "Model")}
         </Typography>
         {loading && <Spinner size={32} />}
         {loaded && backends.length === 0 && (
           <EmptyState
             icon={<IconModels />}
             title={defaultT(t, "pages.settings.menu.connectModel",
-          "Let’s connect your first model")}
+              "Let’s connect your first model")}
             description={defaultT(t, "pages.settings.menu.connectModel_description",
               "Connect a machine learning model to generate predictions. These predictions can be compared side by side, used for efficient pre‒labeling and, to aid in active learning, directing users to the most impactful labeling tasks.")}
             action={
               <Button primary onClick={() => showMLFormModal()} aria-label="Add machine learning model">
                 {defaultT(t, "pages.settings.menu.connectModel2",
-                "Connect Model")}
+                  "Connect Model")}
               </Button>
             }
             footer={
               <div>
                 {defaultT(t, "pages.settings.menu.needHelp",
-                "Need help?")}
+                  "Need help?")}
                 <br />
                 <a href="https://labelstud.io/guide/ml" target="_blank" rel="noreferrer">
                   {defaultT(t, "pages.settings.menu.learnMoreAboutConnectingModels",
-                "Learn more about connecting models in our docs")}
+                    "Learn more about connecting models in our docs")}
                 </a>
               </div>
             }
@@ -163,14 +163,16 @@ export const MachineLearningSettings = () => {
                 "Select the desired tasks.")}
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-tighter">
-              3. Click on <i>Batch predictions</i> from the <i>Actions</i> menu.
+              3. {defaultT(t, "pages.settings.menu.click_on_batch_pre",
+                "Click on Batch predictions from the Actions menu.")}
+              {/* 3. Click on <i>Batch predictions</i> from the <i>Actions</i> menu. */}
             </Typography>
             <Typography size="small" className="text-neutral-content-subtler mt-base">
               {defaultT(t, "pages.settings.menu.connectModel_description3",
                 "If you want to use the model predictions for prelabeling, please configure this in the")}{" "}
               <NavLink to="annotation" className="hover:underline">
                 {defaultT(t, "pages.settings.menu.annotationSettings",
-                "Annotation settings")}
+                  "Annotation settings")}
               </NavLink>
               .
             </Typography>

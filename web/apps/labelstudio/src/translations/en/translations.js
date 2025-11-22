@@ -1,3 +1,7 @@
+import {
+  title
+} from "process";
+
 export const TRANSLATIONS_EN = {
   common: {
     s: "s",
@@ -540,6 +544,7 @@ export const TRANSLATIONS_EN = {
         interactivePreannotationsDescription: "If enabled some labeling tools will send requests to the ML Backend interactively during the annotation process.",
         validateAndSave: "Validate and Save",
         navigateToDataManager: "Navigate to the Data Manager",
+        click_on_batch_pre: "Click on Batch predictions from the Actions menu."
       },
       general: {
         title: "General Settings",
@@ -766,6 +771,16 @@ export const TRANSLATIONS_EN = {
       adjust_filters: "Adjust or remove filters to view",
       labeled_regions_will_appear_here: "Labeled regions will appear here",
     },
+    webhooks: {
+      title: "Webhooks",
+      desc: "Webhooks allow external services to be notified when certain events happen. When the specified events occur, a POST request is sent to each of the URLs you provide.",
+      read_more_doc: "Read more in the documentation",
+      Add_Webhook: "Add Webhook",
+      Delete_Webhook: "Delete Webhook",
+      Edit_Webhook: "Edit Webhook",
+      Payload_URL: "Payload URL",
+      Is_Active: "Is Active"
+    }
   },
   libs: {
     datamanager: {

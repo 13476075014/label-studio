@@ -9,6 +9,9 @@ import { useProject } from "../../providers/ProjectProvider";
 import { Block, Elem } from "../../utils/bem";
 import { IconInfo } from "@humansignal/icons";
 import { useHistory } from "react-router";
+import i18n from "i18next";
+import { defaultT } from "../../utils/scripts";
+const t = i18n.t.bind(i18n)
 
 const Webhook = () => {
   const [activeWebhook, setActiveWebhook] = useState(null);
@@ -118,12 +121,12 @@ const Webhook = () => {
         </Elem>
         <Elem name="footer-text">
           <p>
-            Webhooks allow external services to be notified when certain events happen. When the specified events occur,
-            a POST request is sent to each of the URLs you provide.
+            {defaultT(t, "pages.webhooks.desc", "Webhooks allow external services to be notified when certain events happen. When the specified events occur, a POST request is sent to each of the URLs you provide.")}
           </p>
           <p>
             <a href="https://labelstud.io/guide/webhooks.html" target="_blank" rel="noreferrer">
-              Read more in the documentation
+              {defaultT(t, "pages.webhooks.read_more_doc", 
+                "Read more in the documentation")}
             </a>
             .
           </p>
@@ -134,7 +137,7 @@ const Webhook = () => {
 };
 
 export const WebhookPage = {
-  title: "Webhooks",
+  title: defaultT(t, "pages.webhooks.title", "Webhooks"),
   path: "/webhooks",
   component: Webhook,
 };

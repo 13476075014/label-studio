@@ -54,7 +54,7 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
         title: defaultT(t, "pages.setting.menu.deleteMLBackend",
           "Delete ML Backend"),
         body: defaultT(t, "pages.setting.menu.deleteMLBackendConfirmation",
-          "This action cannot be undone. Are you sure?") ,
+          "This action cannot be undone. Are you sure?"),
         buttonLook: "destructive",
         onOk() {
           onDelete?.(backend);
@@ -80,15 +80,15 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
             content={
               <Menu size="medium" contextual>
                 <Menu.Item onClick={() => onEdit(backend)}>{defaultT(t, "pages.setting.menu.edit",
-          "Edit")}</Menu.Item>
+                  "Edit")}</Menu.Item>
                 <Menu.Item onClick={() => onTestRequest(backend)}>{defaultT(t, "pages.setting.menu.testRequest",
-          "Send Test Request")}</Menu.Item>
+                  "Send Test Request")}</Menu.Item>
                 <Menu.Item onClick={() => onStartTrain(backend)}>{defaultT(t, "pages.setting.menu.startTraining",
-          "Start Training")}</Menu.Item>
+                  "Start Training")}</Menu.Item>
                 <Menu.Divider />
                 <Menu.Item onClick={() => confirmDelete(backend)} isDangerous>
                   {defaultT(t, "pages.setting.menu.delete",
-          "Delete")}
+                    "Delete")}
                 </Menu.Item>
               </Menu>
             }
@@ -105,7 +105,7 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
         <div className={rootClass.elem("group")}>
           <Tooltip title={format(parseISO(backend.created_at), "yyyy-MM-dd HH:mm:ss")}>
             <span>{defaultT(t, "pages.setting.menu.created",
-          "Created")}&nbsp;{formatDistanceToNow(parseISO(backend.created_at), { addSuffix: true })}</span>
+              "Created")}&nbsp;{formatDistanceToNow(parseISO(backend.created_at), { addSuffix: true })}</span>
           </Tooltip>
         </div>
       </div>

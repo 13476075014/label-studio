@@ -9,6 +9,9 @@ import "./WebhookPage.scss";
 import { Space } from "../../components/Space/Space";
 import { useProject } from "../../providers/ProjectProvider";
 import { WebhookDeleteModal } from "./WebhookDeleteModal";
+import i18n from "i18next";
+import { defaultT } from "../../utils/scripts";
+const t = i18n.t.bind(i18n)
 
 const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectActive }) => {
   // if webhook === null - create mod
@@ -19,10 +22,10 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
   const [headers, setHeaders] = useState(
     webhook?.headers
       ? Object.entries(webhook.headers).map(([key, value], index) => ({
-          id: `header-${Date.now()}-${index}`,
-          key,
-          value,
-        }))
+        id: `header-${Date.now()}-${index}`,
+        key,
+        value,
+      }))
       : [],
   );
   const [sendForAllActions, setSendForAllActions] = useState(webhook ? webhook.send_for_all_actions : true);
@@ -113,9 +116,9 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
               onSelectActive(null);
             }}
           >
-            Webhooks
+            {defaultT(t, "pages.webhooks.title", "Webhooks")}
           </Elem>{" "}
-          / {webhook === null ? "New Webhook" : "Edit Webhook"}
+          / {webhook === null ? "New Webhook" : defaultT(t, "pages.webhooks.Edit_Webhook", "Edit Webhook")}
         </>
       </Elem>
       <Elem name="content">
@@ -145,11 +148,12 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
             }}
           >
             <Form.Row columnCount={1}>
-              <Label text="Payload URL" large />
+              <Label text={defaultT(t, "pages.webhooks.Payload_URL", "Payload URL")} large />
               <Space className={rootClass.elem("url-space")}>
                 <Input name="url" className={rootClass.elem("url-input")} placeholder="URL" />
                 <Space align="end" className={rootClass.elem("activator")}>
-                  <span className={rootClass.elem("black-text")}>Is Active</span>
+                  <span className={rootClass.elem("black-text")}>
+                    {defaultT(t, "pages.webhooks.Is_Active", "Is Active")}</span>
                   <Toggle
                     skip
                     checked={isActive}
@@ -276,10 +280,10 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
                     onClick={onBack}
                     aria-label="Cancel webhook edit"
                   >
-                    Cancel
+                    {defaultT(t, "common.cancel", "Cancel")}
                   </Button>
                   <Button className={rootClass.elem("save-button")} aria-label="Add webhook">
-                    Add Webhook
+                    {defaultT(t, "pages.webhooks.Add_Webhook", "Add Webhook")}
                   </Button>
                 </Space>
               ) : (
@@ -301,7 +305,7 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
                       })
                     }
                   >
-                    Delete Webhook
+                    {defaultT(t, "pages.webhooks.Delete_Webhook", "Delete Webhook")}
                   </Button>
                   <Space>
                     <div className={rootClass.elem("status")}>
@@ -315,10 +319,10 @@ const WebhookDetail = ({ webhook, webhooksInfo, fetchWebhooks, onBack, onSelectA
                       onClick={onBack}
                       aria-label="Cancel webhook edit"
                     >
-                      Cancel
+                      {defaultT(t, "common.cancel", "Cancel")}
                     </Button>
                     <Button className={rootClass.elem("save-button")} aria-label="Save webhook">
-                      Save Changes
+                      {defaultT(t, "pages.organization.save_changes", "Save Changes")}
                     </Button>
                   </Space>
                 </Space>

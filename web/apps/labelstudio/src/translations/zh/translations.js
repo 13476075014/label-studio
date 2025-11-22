@@ -480,6 +480,7 @@ export const TRANSLATIONS_ZH = {
       forgot_password: "忘记密码？",
     },
     settings: {
+      title: "设置",
       labeling: {
         title: "标注界面",
         group_manually: "手动分组",
@@ -536,6 +537,7 @@ export const TRANSLATIONS_ZH = {
         interactivePreannotationsDescription: "若启用某些标注工具，将在标注过程中以交互方式向机器学习后端发送请求。",
         validateAndSave: "验证并保存",
         navigateToDataManager: "转到数据管理器",
+        click_on_batch_pre: '在“操作”菜单中点击“批量预测”。'
       },
       general: {
         title: "通用设置",
@@ -761,6 +763,16 @@ export const TRANSLATIONS_ZH = {
       adjust_filters: "调整或删除过滤器以查看",
       labeled_regions_will_appear_here: "已标注的区域将出现在此处",
     },
+    webhooks: {
+      title: "回调通知",
+      desc: "Webhooks允许在特定事件发生时向外部服务发送通知。当指定的事件发生时，会向您提供的每个URL发送一个POST请求。",
+      read_more_doc: "阅读文档中的更多内容",
+      Add_Webhook: "添加Webhook",
+      Delete_Webhook: "删除Webhook",
+      Edit_Webhook: "编辑Webhook",
+      Payload_URL: "载荷地址",
+      Is_Active: "开启"
+    }
   },
   libs: {
     datamanager: {
