@@ -25,6 +25,11 @@ import {
 } from "./buttons";
 
 import "./Controls.scss";
+import { defaultT } from "../../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next"
+
+const t = i18n.t.bind(i18n);
 
 // these buttons can be reused inside custom buttons or can be replaces with custom buttons
 type SupportedInternalButtons = "accept" | "reject";
@@ -181,7 +186,8 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
     } else if (annotation.skipped) {
       buttons.push(
         <Elem name="skipped-info" key="skipped">
-          <IconBan /> Was skipped
+          <IconBan /> {defaultT(t, "pages.labeling.Was_skipped",
+            "Was skipped")}
         </Elem>,
       );
       buttons.push(<UnskipButton key="unskip" disabled={disabled} store={store} />);
@@ -226,14 +232,21 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
                 onClickMethod();
               }}
             >
-              {`${isUpdate ? "Update" : "Submit"} and exit`}
+              {`${isUpdate ?
+                defaultT(t, "common.Update",
+                  "Update") :
+                defaultT(t, "common.Submit",
+                  "Submit")}
+              ${defaultT(t, "pages.labeling.Was_skipped",
+                    "and exit")}`}
             </Button>
           </div>
         );
       };
 
       if (userGenerate || (store.explore && !userGenerate && store.hasInterface("submit"))) {
-        const title = submitDisabled ? EMPTY_SUBMIT_TOOLTIP : "Save results: [ Ctrl+Enter ]";
+        const title = submitDisabled ? EMPTY_SUBMIT_TOOLTIP : defaultT(t, "pages.labeling.save_res_key",
+          "Save results: [ Ctrl+Enter ]");
 
         buttons.push(
           <ButtonTooltip key="submit" title={title}>
@@ -253,7 +266,8 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
                     store.submitAnnotation();
                   }}
                 >
-                  Submit
+                  {defaultT(t, "common.Submit",
+                    "Submit")}
                 </Button>
                 {useExitOption ? (
                   <Dropdown.Trigger
@@ -279,7 +293,10 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
         const noChanges = isFF(FF_REVIEWER_FLOW) && !history.canUndo && !annotation.draftId;
         const isUpdateDisabled = isDisabled || noChanges;
         const button = (
-          <ButtonTooltip key="update" title={noChanges ? "No changes were made" : "Update this task: [ Ctrl+Enter ]"}>
+          <ButtonTooltip key="update" title={noChanges ? defaultT(t, "pages.labeling.no_changes_were_made",
+            "No changes were made") : defaultT(t, "pages.labeling.update_this_task_key",
+              "Update this task: [ Ctrl+Enter ]")
+          }>
             <ButtonGroup>
               <Button
                 aria-label="submit"
@@ -295,7 +312,9 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
                   store.updateAnnotation();
                 }}
               >
-                {isUpdate ? "Update" : "Submit"}
+                {isUpdate ? defaultT(t, "common.Update",
+                  "Update") : defaultT(t, "common.Submit",
+                    "Submit")}
               </Button>
               {useExitOption ? (
                 <Dropdown.Trigger
@@ -308,7 +327,7 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
                 </Dropdown.Trigger>
               ) : null}
             </ButtonGroup>
-          </ButtonTooltip>
+          </ButtonTooltip >
         );
 
         buttons.push(button);

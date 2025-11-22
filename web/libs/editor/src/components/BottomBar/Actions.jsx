@@ -7,6 +7,11 @@ import { AutoAcceptToggle } from "../AnnotationTab/AutoAcceptToggle";
 import { DynamicPreannotationsToggle } from "../AnnotationTab/DynamicPreannotationsToggle";
 import { GroundTruth } from "../CurrentEntity/GroundTruth";
 import { EditingHistory } from "./HistoryActions";
+import { defaultT } from "../../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next"
+
+const t = i18n.t.bind(i18n);
 
 export const Actions = ({ store }) => {
   const annotationStore = store.annotationStore;
@@ -39,7 +44,7 @@ export const Actions = ({ store }) => {
         look="string"
         variant="neutral"
         onClick={() => store.toggleSettings()}
-        tooltip="Settings"
+        tooltip={defaultT(t, "pages.projects.settings", "Settings")}
         className="!p-0"
       >
         <IconSettings />

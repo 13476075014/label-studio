@@ -21,6 +21,11 @@ import { Block, cn, Elem } from "../../utils/bem";
 import { humanDateDiff, userDisplayName } from "../../utils/utilities";
 import { EmptyState } from "../SidePanels/Components/EmptyState";
 import "./AnnotationHistory.scss";
+import { defaultT } from "../../../../core/src/index";
+// import { useTranslation } from "react-i18next";
+import i18n from "i18next"
+
+const t = i18n.t.bind(i18n);
 
 type HistoryItemType =
   | "prediction"
@@ -133,8 +138,10 @@ const AnnotationHistoryComponent: FC<any> = ({
   const defaultEmptyState = (
     <EmptyState
       icon={<IconHistoryRewind width={24} height={24} />}
-      header="View annotation activity"
-      description={<>See a log of user actions for this annotation</>}
+      header={defaultT(t, "pages.labeling.View_annotation_activity",
+        "View annotation activity")}
+      description={<>{defaultT(t, "pages.labeling.See_a_this_annotation",
+        "See a log of user actions for this annotation")}</>}
     />
   );
 
@@ -223,87 +230,87 @@ const HistoryItemComponent: FC<{
   hideInfo: infoIsHidden,
   onClick,
 }) => {
-  const isPrediction = entity?.type === "prediction";
+    const isPrediction = entity?.type === "prediction";
 
-  const reason = useMemo(() => {
-    switch (acceptedState) {
-      case "accepted":
-        return "Accepted";
-      case "rejected":
-        return "Rejected";
-      case "fixed_and_accepted":
-        return "Fixed";
-      case "updated":
-        return "Updated";
-      case "submitted":
-        return "Submitted";
-      case "prediction":
-        return "From prediction";
-      case "imported":
-        return "Imported";
-      case "skipped":
-        return "Skipped";
-      case "draft_created":
-        return "Draft";
-      case "deleted_review":
-        return "Review deleted";
-      case "propagated_annotation":
-        return "Propagated";
-      default:
-        return null;
-    }
-  }, []);
+    const reason = useMemo(() => {
+      switch (acceptedState) {
+        case "accepted":
+          return "Accepted";
+        case "rejected":
+          return "Rejected";
+        case "fixed_and_accepted":
+          return "Fixed";
+        case "updated":
+          return "Updated";
+        case "submitted":
+          return "Submitted";
+        case "prediction":
+          return "From prediction";
+        case "imported":
+          return "Imported";
+        case "skipped":
+          return "Skipped";
+        case "draft_created":
+          return "Draft";
+        case "deleted_review":
+          return "Review deleted";
+        case "propagated_annotation":
+          return "Propagated";
+        default:
+          return null;
+      }
+    }, []);
 
-  const handleClick = useCallback(
-    (e) => {
-      if (disabled) return;
+    const handleClick = useCallback(
+      (e) => {
+        if (disabled) return;
 
-      onClick(e);
-    },
-    [onClick, disabled],
-  );
+        onClick(e);
+      },
+      [onClick, disabled],
+    );
 
-  return (
-    <Block name="history-item" mod={{ inline, selected, disabled }} onClick={handleClick}>
-      <Space spread size="medium" truncated>
-        <Space size="small" truncated>
-          <Elem
-            tag={Userpic}
-            user={user}
-            name="userpic"
-            showUsername
-            username={isPrediction ? entity.createdBy : null}
-            mod={{ prediction: isPrediction }}
-          >
-            {isPrediction && <IconSparks style={{ width: 16, height: 16 }} />}
-          </Elem>
-          <Elem name="name" tag="span">
-            {isPrediction ? entity.createdBy : userDisplayName(user)}
-          </Elem>
-        </Space>
-
-        {!infoIsHidden && (
-          <Space size="small">
-            {extra && <Elem name="date">{extra}</Elem>}
-            {date && (
-              <Elem name="date">
-                <Tooltip alignment="top-right" title={new Date(date).toLocaleString()}>
-                  <span>{humanDateDiff(date)}</span>
-                </Tooltip>
-              </Elem>
-            )}
+    return (
+      <Block name="history-item" mod={{ inline, selected, disabled }} onClick={handleClick}>
+        <Space spread size="medium" truncated>
+          <Space size="small" truncated>
+            <Elem
+              tag={Userpic}
+              user={user}
+              name="userpic"
+              showUsername
+              username={isPrediction ? entity.createdBy : null}
+              mod={{ prediction: isPrediction }}
+            >
+              {isPrediction && <IconSparks style={{ width: 16, height: 16 }} />}
+            </Elem>
+            <Elem name="name" tag="span">
+              {isPrediction ? entity.createdBy : userDisplayName(user)}
+            </Elem>
           </Space>
+
+          {!infoIsHidden && (
+            <Space size="small">
+              {extra && <Elem name="date">{extra}</Elem>}
+              {date && (
+                <Elem name="date">
+                  <Tooltip alignment="top-right" title={new Date(date).toLocaleString()}>
+                    <span>{humanDateDiff(date)}</span>
+                  </Tooltip>
+                </Elem>
+              )}
+            </Space>
+          )}
+        </Space>
+        {(reason || comment) && (
+          <Elem name="action" tag={Space} size="small">
+            {acceptedState && <HistoryIcon type={acceptedState} />}
+            <HistoryComment comment={comment} reason={reason} />
+          </Elem>
         )}
-      </Space>
-      {(reason || comment) && (
-        <Elem name="action" tag={Space} size="small">
-          {acceptedState && <HistoryIcon type={acceptedState} />}
-          <HistoryComment comment={comment} reason={reason} />
-        </Elem>
-      )}
-    </Block>
-  );
-};
+      </Block>
+    );
+  };
 
 const HistoryComment: FC<{
   reason: string | null;
@@ -339,7 +346,9 @@ const HistoryComment: FC<{
             setCollapsed((v) => !v);
           }}
         >
-          {collapsed ? "Show more" : "Show less"}
+          {collapsed ? defaultT(t, "pages.labeling.Show_more",
+            "Show more") : defaultT(t, "pages.labeling.Show_less",
+              "Show less")}
         </Elem>
       )}
     </Elem>

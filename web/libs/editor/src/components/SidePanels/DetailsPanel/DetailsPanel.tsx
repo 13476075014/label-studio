@@ -118,15 +118,18 @@ const RelationsTab: FC<any> = inject("store")(
             ) : (
               <EmptyState
                 icon={<IconRelationLink width={24} height={24} />}
-                header="Create relations between regions"
+                header={defaultT(t, "pages.labeling.Create_relations_between_regions",
+                  "Create relations between regions")}
                 description={
-                  <>Link regions to define relationships between them</>
+                  <>{defaultT(t, "pages.labeling.Link_regions_between",
+                    "Link regions to define relationships between them")}</>
                 }
                 learnMore={{
                   href: getDocsUrl(
                     "guide/labeling#Add-relations-between-annotations"
                   ),
-                  text: "Learn more",
+                  text:
+                    defaultT(t, "pages.settings.general.learn_more", "Learn more"),
                   testId: "relations-panel-learn-more",
                 }}
               />
@@ -151,7 +154,11 @@ const HistoryTab: FC<any> = inject("store")(
               enabled={showAnnotationHistory}
               sectionHeader={
                 <>
-                  Annotation History
+                  {defaultT(
+                    t,
+                    "libs.edit.annotation_history",
+                    "Annotation History"
+                  )}
                   <span>#{currentEntity.pk ?? currentEntity.id}</span>
                 </>
               }
