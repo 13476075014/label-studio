@@ -464,6 +464,16 @@ export const TRANSLATIONS_ZH = {
         saved: "已保存",
         saving: "正在保存...",
         save: "保存",
+
+        "Computer_Vision": "计算机视觉",
+        "Natural_Language_Processing": "自然语言处理",
+        "Audio/Speech_Processing": "音频/语音处理",
+        "Conversational_AI": "对话式AI",
+        "Ranking_&_Scoring": "排序与评分",
+        "Structured_Data_Parsing": "结构化数据解析",
+        "Time_Series_Analysis": "时间序列分析",
+        "Videos": "视频",
+        "Generative_AI": "生成式AI"
       },
       draft: {
         name: "新项目",

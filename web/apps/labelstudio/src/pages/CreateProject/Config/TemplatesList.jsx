@@ -5,6 +5,8 @@ import { cn } from "../../../utils/bem";
 import "./Config.scss";
 import { IconInfo } from "@humansignal/icons";
 import { Button } from "@humansignal/ui";
+import { defaultT } from "../../../utils/scripts";
+import { useTranslation } from "react-i18next";
 
 const listClass = cn("templates-list");
 
@@ -34,6 +36,7 @@ const TemplatesInGroup = ({ templates, group, onSelectRecipe }) => {
 };
 
 export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate, onSelectGroup, onSelectRecipe }) => {
+  const { t } = useTranslation();
   const [groups, setGroups] = React.useState([]);
   const [templates, setTemplates] = React.useState();
   const api = useAPI();
@@ -53,6 +56,18 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
 
   const selected = selectedGroup || groups[0];
 
+  const groupTransObj = {
+    ["Computer Vision"]: defaultT(t, "pages.create_project.config_label.Computer_Vision", "Computer Vision"),
+    ["Natural Language Processing"]: defaultT(t, "pages.create_project.config_label.Natural_Language_Processing", "Natural Language Processing"),
+    ["Audio/Speech Processing"]: defaultT(t, "pages.create_project.config_label.Audio/Speech_Processing", "Audio/Speech Processing"),
+    ["Conversational AI"]: defaultT(t, "pages.create_project.config_label.Conversational_AI", "Conversational AI"),
+    ["Ranking & Scoring"]: defaultT(t, "pages.create_project.config_label.Ranking_&_Scoring", "Ranking & Scoring"),
+    ["Structured Data Parsing"]: defaultT(t, "pages.create_project.config_label.Structured_Data_Parsing", "Structured Data Parsing"),
+    ["Time Series Analysis"]: defaultT(t, "pages.create_project.config_label.Time_Series_Analysis", "Time Series Analysis"),
+    ["Videos"]: defaultT(t, "pages.create_project.config_label.Videos", "Videos"),
+    ["Generative AI"]: defaultT(t, "pages.create_project.config_label.Generative_AI", "Generative AI")
+  }
+
   return (
     <div className={listClass}>
       <aside className={listClass.elem("sidebar")}>
@@ -66,7 +81,7 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
                 selected: selectedRecipe?.group === group,
               })}
             >
-              {group}
+              {groupTransObj[group] ?? group}
               <Arrow />
             </li>
           ))}
@@ -80,7 +95,7 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
           className="w-full"
           aria-label="Create custom template"
         >
-          Custom template
+          {defaultT(t, "pages.create_project.config_label.custom_template", "Custom template")}
         </Button>
       </aside>
       <main>
@@ -90,9 +105,9 @@ export const TemplatesList = ({ selectedGroup, selectedRecipe, onCustomTemplate,
       <footer className="flex items-center justify-center gap-1">
         <IconInfo className={listClass.elem("info-icon")} width="20" height="20" />
         <span>
-          See the documentation to{" "}
+          {defaultT(t, "pages.create_project.import_data.footer_msg_part1", "See the documentation to")}{" "}
           <a href="https://labelstud.io/guide" target="_blank" rel="noreferrer">
-            contribute a template
+            {defaultT(t, "pages.create_project.config_label.footer_mst_part2", "contribute a template")}
           </a>
           .
         </span>

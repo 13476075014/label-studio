@@ -471,6 +471,16 @@ export const TRANSLATIONS_EN = {
         saved: "Saved",
         saving: "Saving...",
         save: "Save",
+
+        "Computer_Vision": "Computer Vision",
+        "Natural_Language_Processing": "Natural Language Processing",
+        "Audio/Speech_Processing": "Audio/Speech Processing",
+        "Conversational_AI": "Conversational AI",
+        "Ranking_&_Scoring": "Ranking & Scoring",
+        "Structured_Data_Parsing": "Structured Data Parsing",
+        "Time_Series_Analysis": "Time Series Analysis",
+        "Videos": "Videos",
+        "Generative_AI": "Generative AI"
       },
       draft: {
         name: "New Project",
