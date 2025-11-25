@@ -4,6 +4,9 @@ import { Block, Elem } from "../../../utils/bem";
 import { Button } from "@humansignal/ui";
 import { Filters } from "../Filters";
 import "./FilterSidebar.scss";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 const sidebarInjector = inject(({ store }) => {
   const viewsStore = store.viewsStore;
@@ -28,7 +31,15 @@ export const FiltersSidebar = sidebarInjector(({ viewsStore, sidebarEnabled, sid
           >
             <IconChevronLeft width={24} height={24} />
           </Button>
-          <Elem name="title">Filters</Elem>
+          <Elem name="title">
+            {
+              defaultT(
+                            t,
+                            "libs.datamanager.emptyState.filters",
+                            "Filters"
+                          )
+            }
+          </Elem>
         </Elem>
       </Elem>
       <Filters sidebar={true} />

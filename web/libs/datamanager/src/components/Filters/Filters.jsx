@@ -53,6 +53,8 @@ export const Filters = injector(({ views, currentView, filters }) => {
     [currentView.availableFilters],
   );
 
+  
+
   return (
     <Block name="filters" mod={{ sidebar: sidebarEnabled }}>
       <Elem name="list" mod={{ withFilters: !!filters.length }}>
@@ -104,7 +106,11 @@ export const Filters = injector(({ views, currentView, filters }) => {
             look="string"
             type="link"
             size="small"
-            tooltip="Pin to sidebar"
+            tooltip={defaultT(
+            t,
+            "libs.datamanager.emptyState.pin_to_sidebar",
+            "Pin to sidebar"
+          )}
             onClick={() => views.expandFilters()}
             aria-label="Pin filters to sidebar"
           >
