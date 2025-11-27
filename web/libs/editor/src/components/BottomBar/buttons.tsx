@@ -9,13 +9,18 @@ import type React from "react";
 import { memo, type ReactElement } from "react";
 import { Tooltip, Button } from "@humansignal/ui";
 import type { MSTStore } from "../../stores/types";
+import { defaultT } from "../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 type MixedInParams = {
   store: MSTStore;
   history: any;
 };
 
-export function controlsInjector<T extends {}>(fn: (props: T & MixedInParams) => ReactElement) {
+export function controlsInjector<T extends {}>(
+  fn: (props: T & MixedInParams) => ReactElement
+) {
   const wrapped = inject(({ store }) => {
     return {
       store,
@@ -38,7 +43,7 @@ export const ButtonTooltip = controlsInjector<ButtonTooltipProps>(
         {children}
       </Tooltip>
     );
-  }),
+  })
 );
 
 type AcceptButtonProps = {
@@ -68,7 +73,7 @@ export const AcceptButton = memo(
         {hasChanges ? "Fix + Accept" : "Accept"}
       </Button>
     );
-  }),
+  })
 );
 
 export const RejectButtonDefinition = {
@@ -101,7 +106,8 @@ export const SkipButton = memo(
         aria-label="skip-task"
         disabled={disabled}
         look="outlined"
-        tooltip="Cancel (skip) task [ Ctrl+Space ]"
+        tooltip={defaultT(t, "common.cancel_skip_task", 
+          "Cancel (skip) task [ Ctrl+Space ]")}
         onClick={async (e) => {
           const action = () => store.skipTask({});
           const selected = store.annotationStore?.selected;
@@ -115,10 +121,12 @@ export const SkipButton = memo(
           }
         }}
       >
-        Skip
+        {
+          defaultT(t, "common.skip", "Skip")
+        }
       </Button>
     );
-  }),
+  })
 );
 
 export const UnskipButton = memo(
@@ -126,7 +134,8 @@ export const UnskipButton = memo(
     return (
       <Button
         key="cancel-skip"
-        tooltip="Cancel skip: []"
+        tooltip={defaultT(t, "common.cancel_skip_arr", 
+            "Cancel skip: []")}
         aria-label="cancel-skip"
         look="outlined"
         disabled={disabled}
@@ -138,8 +147,11 @@ export const UnskipButton = memo(
           store.unskipTask();
         }}
       >
-        Cancel skip
+         {
+          defaultT(t, "common.cancel_skip", 
+            "Cancel skip")
+        }
       </Button>
     );
-  }),
+  })
 );

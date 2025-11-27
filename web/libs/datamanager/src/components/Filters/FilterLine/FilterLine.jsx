@@ -89,7 +89,7 @@ export const FilterLine = observer(({ filter, availableFilters, index, view, sid
               const original = option?.original ?? option;
               const title = original?.field?.title ?? original?.title ?? "";
               const parentTitle = original?.field?.parent?.title ?? "";
-              return `${title} ${parentTitle}`.toLowerCase().includes(query.toLowerCase());
+              return `${objTrans[title] ?? title} ${objTrans[parentTitle] ?? parentTitle}`.toLowerCase().includes(query.toLowerCase());
             }}
             onChange={(value) => filter.setFilterDelayed(value)}
             optionRender={({ item: { original: filter } }) => (
@@ -105,7 +105,6 @@ export const FilterLine = observer(({ filter, availableFilters, index, view, sid
             disabled={filter.field.disabled}
           />
         </Elem>
-
         <FilterOperation
           filter={filter}
           value={filter.currentValue}
@@ -207,7 +206,9 @@ export const FilterLine = observer(({ filter, availableFilters, index, view, sid
             const original = option?.original ?? option;
             const title = original?.field?.title ?? original?.title ?? "";
             const parentTitle = original?.field?.parent?.title ?? "";
-            return `${title} ${parentTitle}`.toLowerCase().includes(query.toLowerCase());
+            // 翻译的过滤
+            return `${objTrans[title] ?? title} ${objTrans[parentTitle] ?? parentTitle}`.toLowerCase().includes(query.toLowerCase());
+            // return `${title} ${parentTitle}`.toLowerCase().includes(query.toLowerCase());
           }}
           onChange={(value) => filter.setFilterDelayed(value)}
           optionRender={({ item: { original: filter } }) => (
@@ -224,6 +225,7 @@ export const FilterLine = observer(({ filter, availableFilters, index, view, sid
         />
       </Elem>
 
+          {/* 运算符号 */}
       <FilterOperation
         filter={filter}
         value={filter.currentValue}

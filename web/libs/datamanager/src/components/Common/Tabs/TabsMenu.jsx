@@ -1,25 +1,28 @@
 import { useMemo } from "react";
 import { Menu } from "../Menu/Menu";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 export const TabsMenu = ({ onClick, editable = true, closable = true, clonable = true, virtual = false }) => {
   const items = useMemo(
     () => [
       {
         key: "edit",
-        title: "Rename",
+        title: defaultT(t, "common.rename", "Rename"),
         enabled: editable && !virtual,
         action: () => onClick("edit"),
       },
       {
         key: "duplicate",
-        title: "Duplicate",
+        title: defaultT(t, "common.duplicate", "Duplicate"),
         enabled: !virtual && clonable,
         action: () => onClick("duplicate"),
         willLeave: true,
       },
       {
         key: "save",
-        title: "Save",
+        title: defaultT(t, "common.save", "Save"),
         enabled: virtual,
         action: () => onClick("save"),
         willLeave: true,
@@ -44,7 +47,7 @@ export const TabsMenu = ({ onClick, editable = true, closable = true, clonable =
         <>
           {showDivider && <Menu.Divider />}
           <Menu.Item onClick={() => onClick("close")} data-leave>
-            Close
+            {defaultT(t, "common.close", "Close")}
           </Menu.Item>
         </>
       ) : null}

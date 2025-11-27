@@ -7,6 +7,9 @@ import { FilterDropdown } from "../FilterDropdown";
 import * as FilterInputs from "../types";
 import { allowedFilterOperations } from "../types/Utility";
 import { Common } from "../types/Common";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 /** @typedef {{
  * type: keyof typeof FilterInputs,
@@ -81,13 +84,18 @@ export const FilterOperation = observer(({ filter, field, operator, value, disab
     <>
       <Elem block="filter-line" name="column" mix="operation">
         <FilterDropdown
-          placeholder="Condition"
+          placeholder={defaultT(
+                              t,
+                              "common.condition",
+                              "Condition"
+                            )}
           value={filter.operator}
           disabled={types.length === 1 || disabled}
           items={availableOperators ? operators.filter((op) => availableOperators.includes(op.value)) : operators}
           onChange={onOperatorSelected}
         />
       </Elem>
+      {/* 条件后面的输入框 */}
       <Elem block="filter-line" name="column" mix="value">
         <Input
           {...field}

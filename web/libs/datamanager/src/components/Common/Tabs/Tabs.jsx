@@ -7,6 +7,9 @@ import { Dropdown } from "../Dropdown/DropdownComponent";
 import Input from "../Input/Input";
 import "./Tabs.scss";
 import { TabsMenu } from "./TabsMenu";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const TabsContext = createContext();
 export const tabsCN = cn("tabs-dm");
@@ -163,7 +166,13 @@ export const TabsItem = ({
               textOverflow: "ellipsis",
             }}
           >
-            {currentTitle}
+            { 
+            currentTitle === 'Default' ?
+            defaultT(t, "common.default", currentTitle) :
+            (currentTitle.includes('New Tab') ? 
+            defaultT(t, "common.New_Tab", currentTitle) + currentTitle.split("New Tab")[1]
+            : currentTitle)
+            }
           </span>
         )}
       </div>

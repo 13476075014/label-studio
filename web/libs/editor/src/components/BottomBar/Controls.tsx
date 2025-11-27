@@ -236,8 +236,7 @@ export const Controls = controlsInjector<{ annotation: MSTAnnotation }>(
                 defaultT(t, "common.Update",
                   "Update") :
                 defaultT(t, "common.Submit",
-                  "Submit")}
-              ${defaultT(t, "pages.labeling.Was_skipped",
+                  "Submit")}${defaultT(t, "pages.labeling.Was_skipped",
                     "and exit")}`}
             </Button>
           </div>

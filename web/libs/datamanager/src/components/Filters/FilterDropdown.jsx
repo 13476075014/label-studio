@@ -43,6 +43,28 @@ export const FilterDropdown = observer(
       ["Lead Time"]: defaultT(t, "pages.projects.columns.Lead_Time", "Lead Time"),
       ["Drafts"]: defaultT(t, "pages.projects.columns.Drafts", "Drafts"),
       ["data"]: defaultT(t, "pages.projects.columns.data", "data"),
+
+      // 下面是条件的
+      ["contains"]: defaultT(t, "pages.projects.columns.contains", "contains"),
+      ["not contains"]: defaultT(t, "pages.projects.columns.not_contains", 
+        "contains"),
+      ["regex"]: defaultT(t, "pages.projects.columns.regex",
+         "regex"),
+      ["equal"]: defaultT(t, "pages.projects.columns.equal", 
+        "equal"),
+      ["not equal"]: defaultT(t, "pages.projects.columns.not_equal", 
+        "not equal"),
+      ["is empty"]: defaultT(t, "pages.projects.columns.is_empty", 
+        "is empty"),
+
+      ["is before"]: defaultT(t, "pages.projects.columns.is_before", 
+        "is before"),
+      ["is after"]: defaultT(t, "pages.projects.columns.is_after", 
+        "is after"),
+      ["is between"]: defaultT(t, "pages.projects.columns.is_between", 
+        "is between"),
+      ["not between"]: defaultT(t, "pages.projects.columns.not_between", 
+        "not between"),
     }
 
     const parseItems = useCallback(
@@ -60,7 +82,7 @@ export const FilterDropdown = observer(
                 label: item?.original?.field?.parent ? (
                   <OptionVisuals item={item} />
                 ) : (
-                  (objTrans[item?.title] ?? item?.title ?? item?.label ?? item?.name)
+                  (objTrans[item?.title] ?? item?.title ?? objTrans[item?.label] ?? item?.label ?? item?.name)
                 ),
                 value: item?.value ?? item,
                 children: item?.options?.map(parseItems),
