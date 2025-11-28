@@ -267,7 +267,8 @@ export const Menubar = ({ enabled, defaultOpened, defaultPinned, children, onSid
                   onClick={sidebarPin}
                   active={sidebarPinned}
                 >
-                  {sidebarPinned ? "Unpin menu" : "Pin menu"}
+                  {sidebarPinned ? defaultT(t, "components.menubar.unpin_menu", "Unpin menu") : 
+                  defaultT(t, "components.menubar.pin_menu", "Pin menu")}
                 </Menu.Item>
               </Menu>
             </Dropdown>
