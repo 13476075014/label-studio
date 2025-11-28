@@ -1,25 +1,49 @@
+import { defaultT } from "../../../utils/scripts";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
+
 const OBJECTS = {
   Image: {
     type: "Image",
     settings: {
       strokeWidth: {
-        title: "Width of region borders",
+        title: defaultT(
+          t,
+          "common.tags.title.width_of_region_borders",
+          "Width of region borders"
+        ),
+        // title: "Width of region borders",
         type: Number,
-        param: ($obj, value) => $obj.$controls.forEach(($control) => $control.setAttribute("strokeWidth", value)),
+        param: ($obj, value) =>
+          $obj.$controls.forEach(($control) =>
+            $control.setAttribute("strokeWidth", value)
+          ),
         value: ($obj) => $obj.$controls[0]?.getAttribute("strokeWidth") ?? 1,
       },
       zoom: {
-        title: "Allow image zoom (ctrl+wheel)",
+        title: defaultT(
+          t,
+          "common.tags.title.allow_image_zoom",
+          "Allow image zoom (ctrl+wheel)"
+        ),
         type: Boolean,
         param: "zoom",
       },
       zoomControl: {
-        title: "Show controls to zoom in and out",
+        title: defaultT(
+          t,
+          "common.tags.title.show_controls_to_zoom_in_and_out",
+          "Show controls to zoom in and out"
+        ),
         type: Boolean,
         param: "zoomControl",
       },
       rotateControl: {
-        title: "Show controls to rotate image",
+        title: defaultT(
+          t,
+          "common.tags.title.show_controls_to_rotate_image",
+          "Show controls to rotate image"
+        ),
         type: Boolean,
         param: "rotateControl",
       },
@@ -29,12 +53,19 @@ const OBJECTS = {
     type: "Text",
     settings: {
       granularity: {
-        title: "Select text by words",
+        title: defaultT(
+          t,
+          "common.tags.title.slect_text_by_words",
+          "Select text by words"
+        ),
         type: Boolean,
         param: ($obj, value) =>
-          value ? $obj.setAttribute("granularity", "word") : $obj.removeAttribute("granularity"),
+          value
+            ? $obj.setAttribute("granularity", "word")
+            : $obj.removeAttribute("granularity"),
         value: ($obj) => $obj.getAttribute("granularity") === "word",
-        when: ($obj) => $obj.$controls.filter((c) => c.tagName.endsWith("Labels")).length > 0,
+        when: ($obj) =>
+          $obj.$controls.filter((c) => c.tagName.endsWith("Labels")).length > 0,
       },
     },
   },
@@ -83,8 +114,11 @@ const Labels = {
         const $obj = $control.$object;
         const inline = ["top", "bottom"].includes(value);
         const reversed = ["top", "left"].includes(value);
-        const direction = (inline ? "column" : "row") + (reversed ? "-reverse" : "");
-        const alreadyApplied = $container.getAttribute("style")?.includes("flex");
+        const direction =
+          (inline ? "column" : "row") + (reversed ? "-reverse" : "");
+        const alreadyApplied = $container
+          .getAttribute("style")
+          ?.includes("flex");
 
         if (!alreadyApplied) {
           $container = $obj.ownerDocument.createElement("View");
@@ -93,7 +127,10 @@ const Labels = {
           $container.appendChild($labels);
         }
         $control.setAttribute("showInline", JSON.stringify(inline));
-        $container.setAttribute("style", `display:flex;align-items:start;gap:8px;flex-direction:${direction}`);
+        $container.setAttribute(
+          "style",
+          `display:flex;align-items:start;gap:8px;flex-direction:${direction}`
+        );
       },
       value: ($control) => {
         let $container = $control.parentNode;
@@ -139,7 +176,8 @@ const Labels = {
           }
         }
       },
-      value: ($control) => $control.previousElementSibling?.tagName.toUpperCase() === "FILTER",
+      value: ($control) =>
+        $control.previousElementSibling?.tagName.toUpperCase() === "FILTER",
     },
   },
 };

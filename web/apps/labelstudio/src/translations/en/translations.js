@@ -74,11 +74,11 @@ export const TRANSLATIONS_EN = {
     },
     tags: {
       title: {
-        "Width of region borders": "Width of region borders",
-        "Allow image zoom (ctrl+wheel)": "Allow image zoom (ctrl+wheel)",
-        "Show controls to zoom in and out": "Show controls to zoom in and out",
-        "Show controls to rotate image": "Show controls to rotate image",
-        "Select text by words": "Select text by words",
+        width_of_region_borders: "Width of region borders",
+        allow_image_zoom: "Allow image zoom (ctrl+wheel)",
+        show_controls_to_zoom_in_and_out: "Show controls to zoom in and out",
+        show_controls_to_rotate_image: "Show controls to rotate image",
+        slect_text_by_words: "Select text by words",
         "Add filter for long list of labels":
           "Add filter for long list of labels",
         "Display labels": "Display labels",

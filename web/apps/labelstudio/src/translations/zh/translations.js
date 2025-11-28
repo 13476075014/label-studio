@@ -73,11 +73,11 @@ export const TRANSLATIONS_ZH = {
     },
     tags: {
       title: {
-        "Width of region borders": "矩形框边框的宽度",
-        "Allow image zoom (ctrl+wheel)": "允许图像缩放（Ctrl+滚轮）",
-        "Show controls to zoom in and out": "显示控件以放大和缩小",
-        "Show controls to rotate image": "显示控件以旋转图像",
-        "Select text by words": "按单词选择文本",
+        width_of_region_borders: "矩形框边框的宽度",
+        allow_image_zoom: "允许图像缩放（Ctrl+wheel）",
+        show_controls_to_zoom_in_and_out: "显示控件以放大和缩小",
+        show_controls_to_rotate_image: "显示控件以旋转图像",
+        slect_text_by_words: "按单词选择文本",
         "Add filter for long list of labels": "为长标签列表添加过滤器",
         "Display labels": "标签显示位置",
       },
