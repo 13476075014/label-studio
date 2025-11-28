@@ -179,7 +179,10 @@ const invokeAction = (action, destructive, store, formRef) => {
       };
 
       const objectType = objectMap[action.id] || action.title.toLowerCase().replace("delete ", "");
-      dialogTitle = `Delete selected ${objectType}?`;
+      dialogTitle = `${defaultT(t,
+        "common.delete_selected",
+        "Delete selected"
+      )} ${objectType}?`;
 
       // Convert to title case for button text
       const titleCaseObject = objectType
@@ -192,11 +195,23 @@ const invokeAction = (action, destructive, store, formRef) => {
     if (destructive && !form) {
       // Use standardized warning message for simple delete actions
       const objectType = dialogTitle ? dialogTitle.replace("Delete selected ", "").replace("?", "") : "items";
-      dialogText = `You are about to delete the selected ${objectType}.\n\nThis can't be undone.`;
+      dialogText = `${defaultT(t,
+        "libs.datamanager.emptyState.you_are_about_to_delete_the_selected_object_type",
+        {
+          objectType: objectType,
+        },
+        `You are about to delete the selected ${objectType}.\n\nThis can't be undone.`
+      )}`;
     }
 
     dialog({
-      title: dialogTitle ? dialogTitle : destructive ? "Destructive action" : "Confirm action",
+      title: dialogTitle ? dialogTitle : destructive ? defaultT(t,
+        "common.destructive_action",
+        "Destructive action"
+      ) : defaultT(t,
+        "common.confirm_action",
+        "Confirm action"
+      ),
       body: <DialogContent text={dialogText} form={form} formRef={formRef} store={store} action={action} />,
       buttonLook: destructive ? "negative" : "primary",
       okText: destructive ? okButtonText : undefined,

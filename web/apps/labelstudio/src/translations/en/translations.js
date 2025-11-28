@@ -1,5 +1,8 @@
 export const TRANSLATIONS_EN = {
   common: {
+    destructive_action: "Destructive action",
+    confirm_action: "Confirm action",
+    delete_selected: "Delete selected",
     select_option: "Select an option",
     cancel_skip_arr: "Cancel skip: []",
     cancel_skip_task: "Cancel (skip) task [ Ctrl+Space ]",
@@ -28,6 +31,8 @@ export const TRANSLATIONS_EN = {
     manually_grouped: "Manually Grouped",
     or: "or",
     cancel: "Cancel",
+    discard_and_leave: "Discard and leave",
+    save_and_leave: "Save and leave",
     ok: "OK",
     import: "Import",
     export: "Export",
@@ -654,6 +659,9 @@ export const TRANSLATIONS_EN = {
         by_score: "By Score",
         show_all_regions: "Show All Regions",
         hide_all_regions: "Hide All Regions",
+        unsaved_changes_title: "You have unsaved changes.",
+        would_you_like_to_save_them_before_leaving:
+          "Would you like to save them before leaving?",
       },
       menu: {
         startTraining: "Start Model Training",
@@ -1071,6 +1079,8 @@ export const TRANSLATIONS_EN = {
         anotherFilter: "Another Filter",
         filter: "Filter",
         pin_to_sidebar: "Pin to sidebar",
+        you_are_about_to_delete_the_selected_object_type:
+          "You are about to delete the selected {{objectType}} .\n\nThis can't be undone.",
       },
       labelingSettings: {
         labeling_hotkeys: "Labeling hotkeys",

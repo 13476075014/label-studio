@@ -1,5 +1,8 @@
 export const TRANSLATIONS_ZH = {
   common: {
+    destructive_action: "破坏操作",
+    confirm_action: "确认操作",
+    delete_selected: "删除所选",
     select_option: "选择一个选项",
     cancel_skip_arr: "取消跳过 [ ]",
     cancel_skip_task: "取消（跳过）任务 [ Ctrl+Space ]",
@@ -28,6 +31,8 @@ export const TRANSLATIONS_ZH = {
     manually_grouped: "手动分组",
     or: "或",
     cancel: "取消",
+    discard_and_leave: "取消并离开",
+    save_and_leave: "保存并离开",
     ok: "确定",
     import: "导入",
     export: "导出",
@@ -617,6 +622,8 @@ export const TRANSLATIONS_ZH = {
         by_score: "按分数",
         show_all_regions: "显示所有区域",
         hide_all_regions: "隐藏所有区域",
+        unsaved_changes_title: "您有未保存的更改。",
+        would_you_like_to_save_them_before_leaving: "是否保存它们？",
       },
       menu: {
         startTraining: "开始模型训练",
@@ -997,6 +1004,8 @@ export const TRANSLATIONS_ZH = {
         anotherFilter: "另一个过滤器",
         filter: "过滤器",
         pin_to_sidebar: "添加到侧边栏",
+        you_are_about_to_delete_the_selected_object_type:
+          "您将要删除所选的 {{objectType}} 。\n\n这是无法撤消的。",
       },
       labelingSettings: {
         labeling_hotkeys: "标注快捷键",

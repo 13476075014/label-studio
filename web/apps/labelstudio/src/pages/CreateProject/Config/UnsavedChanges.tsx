@@ -3,12 +3,17 @@ import { Button } from "@humansignal/ui";
 import { LeaveBlocker, type LeaveBlockerCallbacks } from "../../../components/LeaveBlocker/LeaveBlocker";
 import { modal } from "../../../components/Modal/Modal";
 import { Space } from "../../../components/Space/Space";
+import { defaultT } from "../../../utils/scripts";
+import i18n from "i18next";
+
+const t = i18n.t.bind(i18n);
 
 type SaveAndLeaveButtonProps = {
   onSave: () => Promise<void>;
   text?: string;
 };
-const SaveAndLeaveButton = ({ onSave, text = "Save and Leave" }: SaveAndLeaveButtonProps) => {
+const SaveAndLeaveButton = ({ onSave, text = defaultT(t, "common.save_and_leave", 
+  "Save and Leave") }: SaveAndLeaveButtonProps) => {
   const [saving, setSaving] = useState(false);
   const saveHandler = useCallback(async () => {
     setSaving(true);
@@ -40,8 +45,14 @@ export const unsavedChangesModal = ({
   cancelText,
   discardText,
   okText,
-  title = "You have unsaved changes.",
-  body = "Would you like to save them before leaving?",
+  title = defaultT(t,
+    "pages.settings.labeling.unsaved_changes_title",
+    "You have unsaved changes."
+  ),
+  body = defaultT(t,
+    "pages.settings.labeling.would_you_like_to_save_them_before_leaving",
+    "Would you like to save them before leaving?"
+  ),
   ...props
 }: UnsavedChangesModalProps) => {
   let modalInstance: any = undefined;
@@ -65,7 +76,7 @@ export const unsavedChangesModal = ({
           }}
           autoFocus
         >
-          {cancelText ?? "Cancel"}
+          {cancelText ?? defaultT(t, "common.cancel", "Cancel")}
         </Button>
 
         {onDiscard && (
@@ -78,7 +89,8 @@ export const unsavedChangesModal = ({
             }}
             size="small"
           >
-            {discardText ?? "Discard and leave"}
+            {discardText ?? defaultT(t, "common.discard_and_leave", 
+              "Discard and leave")}
           </Button>
         )}
 
