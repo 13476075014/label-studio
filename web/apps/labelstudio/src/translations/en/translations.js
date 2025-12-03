@@ -1018,6 +1018,8 @@ export const TRANSLATIONS_EN = {
       Loop_Regions: "Loop Regions",
       auto_play_new_regin: "Auto-play New Regions",
       Spectrogram_Settings: "Spectrogram Settings",
+      regions_link_copied_to_clipboard: "Region link copied to clipboard",
+      copy_region_link: "Copy Region Link",
     },
     webhooks: {
       title: "Webhooks",

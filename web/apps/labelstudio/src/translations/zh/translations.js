@@ -948,6 +948,8 @@ export const TRANSLATIONS_ZH = {
       Loop_Regions: "循环区域",
       auto_play_new_regin: "自动播放新区域",
       Spectrogram_Settings: "频谱图设置",
+      regions_link_copied_to_clipboard: "已复制区域链接到剪贴板",
+      copy_region_link: "复制区域链接",
     },
     webhooks: {
       title: "回调通知",

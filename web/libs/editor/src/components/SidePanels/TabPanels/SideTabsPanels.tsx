@@ -566,6 +566,7 @@ const SideTabsPanelsComponent: FC<SidePanelsProps> = ({
               </>
             ) : (
               <>
+              {/* 标注右侧的tab展示区域 */}
                 {Object.entries(panels).map(([panelType, panels], iterator) => {
                   const content = panels
                     .sort((a, b) => a.order - b.order)

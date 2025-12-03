@@ -7,6 +7,9 @@ import "./Tabs.scss";
 import { type BaseProps, Side, type TabProps } from "./types";
 import { determineDroppableArea, determineLeftOrRight } from "./utils";
 import { Button } from "../../../common/Button/Button";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 
 const classAddedTabs: (Element | undefined)[] = [];
 
@@ -203,6 +206,15 @@ export const Tabs = (
     ? props.panelViews[props.breakPointActiveTab].component
     : props.panelViews?.find((view) => view.active)?.component;
 
+
+    const transObj: any = {
+      Regions: defaultT(t, "common.regions", "Regions"),
+      History: defaultT(t, "common.history", "History"),
+      Relations: defaultT(t, "common.relations", "Relations"),
+      Info: defaultT(t, "common.info", "Info"),
+      Comments: defaultT(t, "common.comments", "Comments")
+    }
+
   return (
     <>
       <Block name="tabs">
@@ -219,7 +231,7 @@ export const Tabs = (
                   panelKey={props.name}
                   tabIndex={index}
                   active={view.active}
-                  tabTitle={view.title}
+                  tabTitle={transObj[view.title] ?? view.title}
                   panelWidth={props.width}
                   viewLength={props.panelViews.length}
                   locked={props.locked}

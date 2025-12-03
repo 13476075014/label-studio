@@ -146,8 +146,12 @@ export const defaultT = (
   tParams, // : { [key: string]: string | number } | string
   defaultMessage // ?: string
 ) => {
-  defaultMessage = typeof tParams === "string" ? tParams : defaultMessage;
-  tParams = typeof tParams === "string" ? {} : tParams;
-  const result = t(message, tParams);
-  return result && result !== message ? result : defaultMessage;
+  try {
+    defaultMessage = typeof tParams === "string" ? tParams : defaultMessage;
+    tParams = typeof tParams === "string" ? {} : tParams;
+    const result = t(message, tParams);
+    return result && result !== message ? result : defaultMessage;
+  } catch (e) {
+    return defaultMessage ? defaultMessage : tParams;
+  }
 };
