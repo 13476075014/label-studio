@@ -99,7 +99,8 @@ const Labels = {
   type: "Labels",
   settings: {
     placeLabelsLeft: {
-      title: "Display labels:",
+      title:
+        defaultT(t, "common.tags.title.Display_labels", "Display labels") + ":",
       type: ["bottom", "left", "right", "top"],
       control: true,
       when: ($tag) => $tag.$object.tagName !== "Video",
@@ -151,7 +152,11 @@ const Labels = {
       },
     },
     filter: {
-      title: "Add filter for long list of labels",
+      title: defaultT(
+        t,
+        "common.tags.title.Add_filter_for_long_list_of_labels",
+        "Add filter for long list of labels"
+      ),
       type: Boolean,
       control: true,
       param: ($obj, value) => {

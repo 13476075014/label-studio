@@ -78,8 +78,8 @@ export const TRANSLATIONS_ZH = {
         show_controls_to_zoom_in_and_out: "显示控件以放大和缩小",
         show_controls_to_rotate_image: "显示控件以旋转图像",
         slect_text_by_words: "按单词选择文本",
-        "Add filter for long list of labels": "为长标签列表添加过滤器",
-        "Display labels": "标签显示位置",
+        "Add_filter_for_long_list_of_labels": "为长标签列表添加过滤器",
+        "Display_labels": "标签显示位置",
       },
       "Display labels": {
         bottom: "底部",
@@ -590,6 +590,11 @@ export const TRANSLATIONS_ZH = {
         Video_Frame_Classification: "视频帧分类",
         Video_Object_Tracking: "视频目标跟踪",
         Video_Timeline_Segmentation: "视频时间线分割",
+        bottom: "底部",
+        top: "顶部",
+        left: "左侧",
+        right: "右侧",
+        center: "居中",
       },
       draft: {
         name: "新项目",

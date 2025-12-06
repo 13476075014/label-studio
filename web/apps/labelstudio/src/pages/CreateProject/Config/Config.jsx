@@ -153,6 +153,18 @@ const ConfigureControl = ({ control, template }) => {
 
 const ConfigureSettings = ({ template }) => {
   const { settings } = template;
+  // const { t } = useTranslation();
+  const transObj = {
+    bottom: defaultT(t, "pages.create_project.config_label.bottom",
+            "bottom"),
+    left: defaultT(t, "pages.create_project.config_label.left",
+            "left"),
+    right: defaultT(t, "pages.create_project.config_label.right",
+            "right"),
+    top: defaultT(t, "pages.create_project.config_label.top",
+            "top"),
+
+  }
 
   if (!settings) return null;
   const keys = Object.keys(settings);
@@ -186,11 +198,13 @@ const ConfigureSettings = ({ template }) => {
         };
         return (
           <li key={key}>
+          {/* 标签显示位置 */}
             <Select
               triggerClassName="border"
               value={value}
               onChange={onChange}
-              options={options.type}
+              options={key === 'placeLabelsLeft' ? 
+                options.type?.map(item=> ({ value: item, label: transObj[item] ?? item })) : options.type}
               label={options.title}
               isInline={true}
               dataTestid={`select-trigger-${options.title.replace(/\s+/g, "-").replace(":", "").toLowerCase()}-${value}`}

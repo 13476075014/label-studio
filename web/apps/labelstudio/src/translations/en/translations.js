@@ -79,9 +79,9 @@ export const TRANSLATIONS_EN = {
         show_controls_to_zoom_in_and_out: "Show controls to zoom in and out",
         show_controls_to_rotate_image: "Show controls to rotate image",
         slect_text_by_words: "Select text by words",
-        "Add filter for long list of labels":
+        "Add_filter_for_long_list_of_labels":
           "Add filter for long list of labels",
-        "Display labels": "Display labels",
+        "Display_labels": "Display labels",
       },
       "Display labels": {
         bottom: "bottom",
@@ -627,6 +627,10 @@ export const TRANSLATIONS_EN = {
         Video_Frame_Classification: "Video Frame Classification",
         Video_Object_Tracking: "Video Object Tracking",
         Video_Timeline_Segmentation: "Video Timeline Segmentation",
+        bottom: "bottom",
+        left: "left",
+        right: "right",
+        top: "top",
       },
       draft: {
         name: "New Project",
