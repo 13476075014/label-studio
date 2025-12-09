@@ -2,8 +2,11 @@ import { useCallback, useState } from "react";
 import { Button } from "@humansignal/ui";
 import { useAPI } from "../../../providers/ApiProvider";
 import { Typography } from "@humansignal/ui";
+import { useTranslation } from "react-i18next";
+import { defaultT } from "../../../utils/scripts";
 
 export const StartModelTraining = ({ backend }) => {
+  const { t } = useTranslation();
   const api = useAPI();
   const [response, setResponse] = useState(null);
 
@@ -23,12 +26,16 @@ export const StartModelTraining = ({ backend }) => {
   return (
     <div className="max-w-[680px]">
       <Typography size="small" className="text-neutral-content-subtler">
-        You're about to manually trigger your model's training process. This action will start the learning phase based
-        on how train method is implemented in the ML Backend. Proceed to begin this process.
+        {defaultT(t, 
+          "pages.settings.modal.start_training_description1", 
+          "You're about to manually trigger your model's training process. This action will start the learning phase based on how train method is implemented in the ML Backend. Proceed to begin this process.")}
+        
       </Typography>
       <Typography size="small" className="text-neutral-content-subtler mt-base mb-wide">
-        *Note: Currently, there is no built-in feedback loop within this interface for tracking the training progress.
-        You'll need to monitor the model's training steps directly through the model's own tools and environment.
+        {defaultT(t, 
+          "pages.settings.modal.start_training_description2", 
+          "*Note: Currently, there is no built-in feedback loop within this interface for tracking the training progress.  You'll need to monitor the model's training steps directly through the model's own tools and environment.")}
+        
       </Typography>
 
       {!response && (
@@ -37,14 +44,20 @@ export const StartModelTraining = ({ backend }) => {
             onStartTraining(backend);
           }}
         >
-          Start Training
+          {defaultT(t, 
+          "pages.settings.modal.start_training_button", 
+          "Start Training")}
         </Button>
       )}
 
       {!!response && (
         <>
-          <pre>Request Sent!</pre>
-          <pre>Response: {JSON.stringify(response, null, 2)}</pre>
+          <pre>{defaultT(t, 
+          "pages.settings.modal.start_training_request_sent", 
+          "Request Sent!")}</pre>
+          <pre>{defaultT(t, 
+          "pages.settings.modal.response", 
+          "Response")}: {JSON.stringify(response, null, 2)}</pre>
         </>
       )}
     </div>

@@ -78,8 +78,8 @@ export const TRANSLATIONS_ZH = {
         show_controls_to_zoom_in_and_out: "显示控件以放大和缩小",
         show_controls_to_rotate_image: "显示控件以旋转图像",
         slect_text_by_words: "按单词选择文本",
-        "Add_filter_for_long_list_of_labels": "为长标签列表添加过滤器",
-        "Display_labels": "标签显示位置",
+        Add_filter_for_long_list_of_labels: "为长标签列表添加过滤器",
+        Display_labels: "标签显示位置",
       },
       "Display labels": {
         bottom: "底部",
@@ -877,6 +877,18 @@ export const TRANSLATIONS_ZH = {
           "使用IAM角色访问配置AWS S3连接以增强安全性（仅限代理）",
         amazon_s3_with_iam_role_available_in_label_studio_enterprise:
           "具有IAM角色的Amazon S3可在Label Studio Enterprise中使用。",
+      },
+      modal: {
+        sendRequest: "发送请求",
+        thisRequestTip1:
+          "此操作会使用一个随机任务，向机器学习后端的预测端点发送一个测试请求。",
+        request: "请求",
+        response: "响应",
+        start_training_description1:
+          "您即将手动触发模型的训练过程。此操作将根据机器学习后端中 train 方法的具体实现来启动学习阶段。请继续以开始该过程。",
+        start_training_description2: "*请注意：目前，此界面中没有内置的反馈循环来跟踪训练进度。您需要通过模型自身的工具和环境来直接监控其训练步骤。",
+        start_training_button: "开始训练",
+        start_training_request_sent: "请求已发送",
       },
     },
     data_manager: {

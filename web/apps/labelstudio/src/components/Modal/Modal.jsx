@@ -11,6 +11,9 @@ import { Modal } from "./ModalPopup";
 import { ToastProvider, ToastViewport } from "@humansignal/ui";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../../utils/query-client";
+import { defaultT } from  "../../utils/scripts";
+import i18n from "i18next"
+const t = i18n.t.bind(i18n);
 
 const standaloneModal = (props) => {
   const modalRef = createRef();
@@ -85,7 +88,7 @@ export const confirm = ({ okText, onOk, cancelText, onCancel, buttonLook, ...pro
           autoFocus
           className="min-w-[120px]"
         >
-          {cancelText ?? "Cancel"}
+          {cancelText ?? defaultT(t, "common.cancel", "Cancel")}
         </Button>
 
         <Button
@@ -96,7 +99,7 @@ export const confirm = ({ okText, onOk, cancelText, onCancel, buttonLook, ...pro
           variant={buttonLook ?? "primary"}
           className="min-w-[120px]"
         >
-          {okText ?? "OK"}
+          {okText ?? defaultT(t, "common.ok", "OK")}
         </Button>
       </Space>
     ),
@@ -118,7 +121,7 @@ export const info = ({ okText, onOkPress, ...props }) => {
           size="small"
           className="min-w-[120px]"
         >
-          {okText ?? "OK"}
+          {okText ?? defaultT(t, "common.ok", "OK")}
         </Button>
       </Space>
     ),

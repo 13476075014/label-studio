@@ -79,9 +79,9 @@ export const TRANSLATIONS_EN = {
         show_controls_to_zoom_in_and_out: "Show controls to zoom in and out",
         show_controls_to_rotate_image: "Show controls to rotate image",
         slect_text_by_words: "Select text by words",
-        "Add_filter_for_long_list_of_labels":
+        Add_filter_for_long_list_of_labels:
           "Add filter for long list of labels",
-        "Display_labels": "Display labels",
+        Display_labels: "Display labels",
       },
       "Display labels": {
         bottom: "bottom",
@@ -941,6 +941,19 @@ export const TRANSLATIONS_EN = {
           "Configure your AWS S3 connection using IAM role access for enhanced security (proxy only)",
         amazon_s3_with_iam_role_available_in_label_studio_enterprise:
           "Amazon S3 with IAM Role is available in Label Studio Enterprise.",
+      },
+      modal: {
+        sendRequest: "Send Request",
+        thisRequestTip1:
+          "This sends a test request to the prediction endpoint of the ML Backend using a random task.",
+        request: "Request",
+        response: "Response",
+        start_training_description1:
+          "You're about to manually trigger your model's training process. This action will start the learning phase based on how train method is implemented in the ML Backend. Proceed to begin this process.",
+        start_training_description2:
+          "*Note: Currently, there is no built-in feedback loop within this interface for tracking the training progress.  You'll need to monitor the model's training steps directly through the model's own tools and environment.",
+        start_training_button: "Start Training",
+        start_training_request_sent: "Request sent",
       },
     },
     data_manager: {

@@ -51,9 +51,9 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
   const confirmDelete = useCallback(
     (backend) => {
       confirm({
-        title: defaultT(t, "pages.setting.menu.deleteMLBackend",
+        title: defaultT(t, "pages.settings.menu.deleteMLBackend",
           "Delete ML Backend"),
-        body: defaultT(t, "pages.setting.menu.deleteMLBackendConfirmation",
+        body: defaultT(t, "pages.settings.menu.deleteMLBackendConfirmation",
           "This action cannot be undone. Are you sure?"),
         buttonLook: "destructive",
         onOk() {
@@ -79,15 +79,15 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
             align="right"
             content={
               <Menu size="medium" contextual>
-                <Menu.Item onClick={() => onEdit(backend)}>{defaultT(t, "pages.setting.menu.edit",
+                <Menu.Item onClick={() => onEdit(backend)}>{defaultT(t, "pages.settings.menu.edit", 
                   "Edit")}</Menu.Item>
-                <Menu.Item onClick={() => onTestRequest(backend)}>{defaultT(t, "pages.setting.menu.testRequest",
+                <Menu.Item onClick={() => onTestRequest(backend)}>{defaultT(t, "pages.settings.menu.testRequest",
                   "Send Test Request")}</Menu.Item>
-                <Menu.Item onClick={() => onStartTrain(backend)}>{defaultT(t, "pages.setting.menu.startTraining",
+                <Menu.Item onClick={() => onStartTrain(backend)}>{defaultT(t, "pages.settings.menu.startTraining",
                   "Start Training")}</Menu.Item>
                 <Menu.Divider />
                 <Menu.Item onClick={() => confirmDelete(backend)} isDangerous>
-                  {defaultT(t, "pages.setting.menu.delete",
+                  {defaultT(t, "pages.settings.menu.delete",
                     "Delete")}
                 </Menu.Item>
               </Menu>
@@ -104,7 +104,7 @@ const BackendCard = ({ backend, onStartTrain, onEdit, onDelete, onTestRequest })
         <div className={rootClass.elem("group")}>{truncate(backend.url, 20, 10, "...")}</div>
         <div className={rootClass.elem("group")}>
           <Tooltip title={format(parseISO(backend.created_at), "yyyy-MM-dd HH:mm:ss")}>
-            <span>{defaultT(t, "pages.setting.menu.created",
+            <span>{defaultT(t, "pages.settings.menu.created",
               "Created")}&nbsp;{formatDistanceToNow(parseISO(backend.created_at), { addSuffix: true })}</span>
           </Tooltip>
         </div>
@@ -121,15 +121,15 @@ const BackendState = ({ backend }) => {
     <div className={cn("ml").elem("status")}>
       <span className={cn("ml").elem("indicator").mod({ state })} />
       <Oneof value={state} className={cn("ml").elem("status-label")}>
-        <span case="DI">{defaultT(t, "pages.setting.menu.disconnected",
+        <span case="DI">{defaultT(t, "pages.settings.menu.disconnected",
           "Disconnected")}</span>
-        <span case="CO">{defaultT(t, "pages.setting.menu.connected",
+        <span case="CO">{defaultT(t, "pages.settings.menu.connected",
           "Connected")}</span>
-        <span case="ER">{defaultT(t, "pages.setting.menu.error",
+        <span case="ER">{defaultT(t, "pages.settings.menu.error",
           "Error")}</span>
-        <span case="TR">{defaultT(t, "pages.setting.menu.training",
+        <span case="TR">{defaultT(t, "pages.settings.menu.training",
           "Training")}</span>
-        <span case="PR">{defaultT(t, "pages.setting.menu.predicting",
+        <span case="PR">{defaultT(t, "pages.settings.menu.predicting",
           "Predicting")}</span>
       </Oneof>
     </div>

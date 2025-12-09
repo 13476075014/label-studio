@@ -10,6 +10,7 @@ export const LanguagePicker = () => {
   const changeLanguage = (val) => {
     setLanguage(val);
     i18n.changeLanguage(val);
+    location.reload();
   };
 
   return (
