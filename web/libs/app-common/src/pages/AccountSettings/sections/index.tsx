@@ -26,15 +26,16 @@ export const accountSettingsSections = (
   settings: AuthTokenSettings
 ): SectionType[] => {
   return [
-    {
-      title: defaultT(
-        t,
-        "pages.account_settings.personal_info",
-        "Personal Info"
-      ),
-      id: "personal-info",
-      component: PersonalInfo,
-    },
+    // lcc-屏蔽除了热键外的个人账户设置
+    // {
+    //   title: defaultT(
+    //     t,
+    //     "pages.account_settings.personal_info",
+    //     "Personal Info"
+    //   ),
+    //   id: "personal-info",
+    //   component: PersonalInfo,
+    // },
     {
       title: (
         <div className="flex items-center gap-tight">
@@ -53,42 +54,42 @@ export const accountSettingsSections = (
           "Customize your keyboard shortcuts to speed up your workflow. Click on any hotkey below to assign a new key combination that works best for you."
         ),
     },
-    {
-      title: defaultT(
-        t,
-        "pages.account_settings.email_preferences",
-        "Email Preferences"
-      ),
-      id: "email-preferences",
-      component: EmailPreferences,
-    },
-    {
-      title: defaultT(
-        t,
-        "pages.account_settings.membership_info",
-        "Membership Info"
-      ),
-      id: "membership-info",
-      component: MembershipInfo,
-    },
-    settings.api_tokens_enabled &&
-      ff.isActive(ff.FF_AUTH_TOKENS) && {
-        title: defaultT(
-          t,
-          "pages.account_settings.personal_access_token",
-          "Personal Access Token"
-        ),
-        id: "personal-access-token",
-        component: PersonalJWTToken,
-        description: PersonalAccessTokenDescription,
-      },
-    settings.legacy_api_tokens_enabled && {
-      title: ff.isActive(ff.FF_AUTH_TOKENS)
-        ? defaultT(t, "pages.account_settings.legacy_token", "Legacy Token")
-        : defaultT(t, "pages.account_settings.access_token", "Access Token"),
-      id: "legacy-token",
-      component: PersonalAccessToken,
-      description: PersonalAccessTokenDescription,
-    },
+    // {
+    //   title: defaultT(
+    //     t,
+    //     "pages.account_settings.email_preferences",
+    //     "Email Preferences"
+    //   ),
+    //   id: "email-preferences",
+    //   component: EmailPreferences,
+    // },
+    // {
+    //   title: defaultT(
+    //     t,
+    //     "pages.account_settings.membership_info",
+    //     "Membership Info"
+    //   ),
+    //   id: "membership-info",
+    //   component: MembershipInfo,
+    // },
+    // settings.api_tokens_enabled &&
+    //   ff.isActive(ff.FF_AUTH_TOKENS) && {
+    //     title: defaultT(
+    //       t,
+    //       "pages.account_settings.personal_access_token",
+    //       "Personal Access Token"
+    //     ),
+    //     id: "personal-access-token",
+    //     component: PersonalJWTToken,
+    //     description: PersonalAccessTokenDescription,
+    //   },
+    // settings.legacy_api_tokens_enabled && {
+    //   title: ff.isActive(ff.FF_AUTH_TOKENS)
+    //     ? defaultT(t, "pages.account_settings.legacy_token", "Legacy Token")
+    //     : defaultT(t, "pages.account_settings.access_token", "Access Token"),
+    //   id: "legacy-token",
+    //   component: PersonalAccessToken,
+    //   description: PersonalAccessTokenDescription,
+    // },
   ].filter(Boolean) as SectionType[];
 };

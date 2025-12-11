@@ -88,6 +88,7 @@ export const TRANSLATIONS_ZH = {
         top: "顶部",
       },
     },
+    reset_to_defaults: "重置为默认",
   },
   components: {
     menubar: {

@@ -90,6 +90,7 @@ export const TRANSLATIONS_EN = {
         top: "top",
       },
     },
+    reset_to_defaults: "Reset to defaults",
   },
   components: {
     menubar: {

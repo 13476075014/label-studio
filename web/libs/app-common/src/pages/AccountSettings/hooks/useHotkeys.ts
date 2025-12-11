@@ -14,7 +14,11 @@ import {
 } from "../sections/Hotkeys/utils";
 
 // Type the imported defaults and convert numeric ids to strings
-const typedDefaultHotkeys: Hotkey[] = getTypedDefaultHotkeys();
+let typedDefaultHotkeys: Hotkey[] = getTypedDefaultHotkeys();
+
+setTimeout(() => {
+  typedDefaultHotkeys = getTypedDefaultHotkeys();
+})
 
 export const useHotkeys = () => {
   const toast = useToast();

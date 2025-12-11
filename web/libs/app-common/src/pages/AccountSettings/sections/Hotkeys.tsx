@@ -22,6 +22,9 @@ import type { Hotkey, Section, DirtyState, DuplicateConfirmDialog, ImportData } 
 import { HOTKEY_SECTIONS } from "./Hotkeys/defaults";
 import styles from "../AccountSettings.module.scss";
 import { useHotkeys } from "../hooks/useHotkeys";
+import { defaultT } from "../../../../../core/src/index";
+import i18n from "i18next";
+const t = i18n.t.bind(i18n);
 // Type the imported defaults
 
 // const typedHotkeySections = HOTKEY_SECTIONS as Section[];
@@ -37,13 +40,24 @@ export const HotkeysHeaderButtons = () => {
     <>
       <div className={`${styles.flexRow} justify-end gap-tight`}>
         <Button variant="neutral" look="outlined" onClick={() => setImportDialogOpen(true)}>
-          Import
+          {
+            defaultT(t, "common.import", 
+              "Import")
+          }
+          
         </Button>
         <Button variant="neutral" look="outlined" onClick={handleExportHotkeys}>
-          Export
+          {
+            defaultT(t, "common.export", 
+              "Export")
+          }
+          
         </Button>
         <Button variant="negative" look="outlined" onClick={handleResetToDefaults}>
-          Reset to Defaults
+          {
+            defaultT(t, "common.reset_to_defaults", 
+              "Reset to Defaults")
+          }
         </Button>
       </div>
 
